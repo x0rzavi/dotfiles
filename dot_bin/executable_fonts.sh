@@ -3,6 +3,7 @@
 # Exit mechanism
 trap "exit" INT
 
+# Author: https://github.com/x0rzavi
 # Description: Install my favourite fonts
 # Dependencies: fontforge, aria2
 

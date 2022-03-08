@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+# Author: https://github.com/x0rzavi
 # Description: Exit sway
 # Dependencies: sway
 # Theme: Catppuccin

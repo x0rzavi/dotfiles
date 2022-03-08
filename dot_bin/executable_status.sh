@@ -1,4 +1,5 @@
 #!/bin/bash
+# Author: https://github.com/x0rzavi
 
 # Volume
 volume () {

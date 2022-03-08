@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+# Author: https://github.com/x0rzavi
 # Description: Lock sway with swaylock-effects
 # Dependencies: sway
 # Theme: Catppuccin

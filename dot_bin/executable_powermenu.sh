@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+# Author: https://github.com/x0rzavi
 # Description: Powermenu implemented with bmenu
 # Dependencies: bemenu, libnotify, elogind
 # Theme: Catppuccin

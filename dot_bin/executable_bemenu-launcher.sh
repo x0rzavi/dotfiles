@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+# Author: https://github.com/x0rzavi
 # Description: Bemenu for .desktop files
 # Dependencies: bemenu
 # Theme: Catppuccin
