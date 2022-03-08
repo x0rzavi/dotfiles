@@ -26,7 +26,6 @@ swaylock \
 	--screenshots \
 	--image $(find $wallpapers_path -type f | shuf -n 1) \
 	--scaling fill \
-	--effect-blur 4x4 \
 	--effect-vignette 0.5:0.5 \
 	--font "JetBrainsMono Nerd Font" \
 	--font-size 30 \
