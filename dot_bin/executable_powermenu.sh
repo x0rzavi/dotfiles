@@ -14,7 +14,10 @@ green="#ABE9B3"
 options="ﰸ Cancel\n Suspend\n Lock\n Logout\n勒 Reboot\n襤 Shutdown"
 selected=$(echo -e $options \
 	| bemenu \
-	-p 'POWERMENU  ' -l 6 --fn 'JetBrainsMono Nerd Font Bold 11.5' \
+	--prefix '' \
+	--prompt 'POWERMENU  ' \
+	--list 6 \
+	--fn 'JetBrainsMono Nerd Font Bold 11.5' \
 	--tb $black \
 	--tf $sky \
 	--fb $black \
