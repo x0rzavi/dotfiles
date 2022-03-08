@@ -24,6 +24,19 @@ set $alt_browser firefox-bin
 set $file_manager pcmanfm
 set $wallpapers_path $HOME/Themes/Wallpapers
 
+# Theme: Catppuccin
+set $green #ABE9B3
+set $black #1E1E2E
+set $red #F28FAD
+set $peach #F8BD96
+
+# Colors
+# Class					border	background	text	indicator	child_border
+client.focused 			$green 	$green 		$black 	$red 		$green
+client.focused_inactive $green 	$black 		$green 	$red 		$green
+client.unfocused 		$peach 	$peach 		$black 	$red 		$peach
+client.urgent 			$red 	$red 		$black 	$red 		$red
+
 # Essential keybindings
 bindsym XF86AudioRaiseVolume exec volume.sh --inc
 bindsym XF86AudioLowerVolume exec volume.sh --dec
@@ -40,9 +53,9 @@ floating_modifier $mod normal
 floating_maximum_size 1366 x 768
 
 # Aesthetics
-default_border none
-default_floating_border none
-titlebar_border_thickness 0
+default_border pixel 2
+default_floating_border pixel 2
+titlebar_border_thickness 2
 title_align center
 gaps inner 15
 font pango:JetBrainsMono Nerd Font Bold 11.5
