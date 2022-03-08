@@ -16,7 +16,10 @@ ls /usr/share/applications/ \
 	| grep desktop \
 	| sed 's/.desktop//' \
 	| bemenu \
-	-p 'LAUNCH  ' -l 5 --fn 'JetBrainsMono Nerd Font Bold 11.5' \
+	--prefix '' \
+	--prompt 'LAUNCH  ' \
+	--list 5 \
+	--fn 'JetBrainsMono Nerd Font Bold 11.5' \
 	--tb $black \
 	--tf $sky \
 	--fb $black \
