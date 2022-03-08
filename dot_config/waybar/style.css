@@ -27,6 +27,9 @@ window > box {
 	margin-right: 15px;
 	margin-top: 15px;
 	background-color: rgb(30, 30, 46);
+	/* border-style: solid; */
+	/* border-width: 2px; */
+	/* border-color: rgb(171, 233, 179); */
 }
 
 #workspaces button {
