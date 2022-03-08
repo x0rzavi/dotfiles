@@ -1,0 +1,150 @@
+* {
+	font-family: JetBrainsMono Nerd Font;
+	font-size: 15px;
+	font-weight: bold;
+	border-radius: 0px;
+	transition-property: background-color;
+	transition-duration: 0.5s;
+}
+
+@keyframes blink_red {
+    to {
+        background-color: rgb(242, 143, 173);
+        color: rgb(26, 24, 38);
+    }
+}
+
+window#waybar {
+	background-color: transparent;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+window > box {
+	margin-left: 15px;
+	margin-right: 15px;
+	margin-top: 15px;
+	background-color: rgb(30, 30, 46);
+}
+
+#workspaces button {
+	padding-top: 6px;
+	padding-bottom: 6px;
+	padding-left: 2px;
+	padding-right: 2px;
+}
+
+#workspaces button.focused {
+	background-color: rgb(181, 232, 224);
+	color: rgb(26, 24, 38);
+}
+
+#workspaces button.urgent {
+    /* background-color: rgb(242, 143, 173); */
+   	color: rgb(26, 24, 38);
+	animation-name: blink_red;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#workspaces button:hover {
+    background-color: rgb(248, 189, 150);
+    color: rgb(26, 24, 38);
+}
+
+tooltip {
+  background: rgb(48, 45, 65);
+}
+
+tooltip label {
+  color: rgb(217, 224, 238);
+}
+
+#custom-launcher {
+    padding-left: 20px;
+    padding-right: 15px;
+    font-size: 18px;
+    color: rgb(201, 203, 255);
+}
+
+#mode, #clock, #memory, #cpu, #backlight, #pulseaudio, #network, #battery, #idle_inhibitor {
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+#mode {
+	margin-left: 10px;
+	background-color: rgb(248, 189, 150);
+    color: rgb(26, 24, 38);
+}
+
+#clock {
+	color: rgb(217, 224, 238);
+}
+
+#memory {
+	padding-left: 35px;
+	color: rgb(181, 232, 224);
+}
+
+#memory.warning {
+	animation-name: blink_red;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#cpu {
+	color: rgb(245, 194, 231);
+}
+
+#backlight {
+	color: rgb(248, 189, 150);
+}
+
+#pulseaudio {
+	color: rgb(245, 224, 220);
+}
+
+#pulseaudio.warning {
+	animation-name: blink_red;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#network {
+	color: rgb(181, 232, 224);
+}
+
+#battery.charging,
+#battery.full,
+#battery.discharging {
+	color: rgb(250, 227, 176);
+}
+
+#battery.critical:not(.charging) {
+	color: rgb(242, 143, 173);
+	animation-name: blink_red;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#idle_inhibitor {
+	color: rgb(221, 182, 242);
+}
+
+#custom-off {
+	color: rgb(242, 143, 173);
+	font-size: 18px;
+	padding-left: 10px;
+	padding-right: 20px;
+}

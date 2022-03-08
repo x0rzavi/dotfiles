@@ -1,0 +1,121 @@
+{
+	// "spacing": 0,
+    "modules-left": [
+    	"custom/launcher",
+    	"sway/workspaces",
+    	"sway/mode",
+    	"memory",
+    	"cpu",
+    	"cpu#2",
+    ],
+    "modules-center": [
+    	"clock"
+    ],
+    "modules-right": [
+    	"idle_inhibitor",
+        "backlight",
+        "pulseaudio",
+        "network",
+        "battery",
+        "custom/off"
+    ],
+    "custom/launcher": {
+            "format": " ",
+            "on-click": "bemenu-launcher.sh",
+            "tooltip": false
+    },
+    "sway/mode": {
+        "format": "蘒 {}",
+        "tooltip": false
+    },
+    "sway/workspaces": {
+        "disable-scroll": true,
+        //"format": "{icon}",
+        //"persistent_workspaces": {
+		//	"1": [],
+        //	"2": [],
+        //	"3": [],
+        //	"4": []
+		//},
+        //"format-icons": {
+        //   "urgent": " 𥉉"
+        //}
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": " ",
+            "deactivated": " "
+        },
+        "tooltip": false
+    },
+    "backlight": {
+            "format": " {percent}%",
+            "on-scroll-up": "brightness.sh --dec",
+            "on-scroll-down": "brightness.sh --inc",
+            "smooth-scrolling-threshold": 10,
+    },
+    "pulseaudio": {
+            "scroll-step": 1,
+            "format": "{icon} {volume}%", 
+            "format-muted": "婢 Muted",
+            "format-icons": {
+                "default": ["", "", ""]
+            },
+            "states": {
+            	"warning": 95,
+            },
+            "on-scroll-up": "volume.sh --dec",
+            "on-scroll-down": "volume.sh --inc",
+            "smooth-scrolling-threshold": 2.5,
+            "tooltip": false,
+            "on-click": "volume.sh --toggle"
+    },
+    "battery": {
+            "interval": 10,
+            "states": {
+                "warning": 20,
+                "critical": 10
+            },
+            "format": "{icon} {capacity}%",
+            "format-icons": ["", "", "", "", "", "", "", "", ""],
+            "format-full": "{icon} {capacity}%",
+            "format-charging": " {capacity}%",
+            "tooltip": false
+    },
+    "clock": {
+            "interval": 1,
+            "format": "{:%I:%M %p  %A %b %d}",
+            "tooltip": false
+    },
+    "memory": {
+        "interval": 1,
+        "format": "﬙ {percentage}%",
+        "states": {
+        	"warning": 85,
+        },
+    },
+    "cpu": {
+        "interval": 1,
+        "format": " {usage}%"
+    },
+    "cpu#2": {
+    	"interval": 1,
+    	"format": " {load}",
+    	"tooltip": false
+    },
+    "network": {
+    	"interval": 1,
+        "format-wifi": "說 {essid}",
+        "format-ethernet": "  {ifname}: {ipaddr}",
+        "format-linked": "說 {essid} (No IP)",
+        "format-disconnected": "說 Disconnected",
+        "format-alt": "說 {ifname} ({ipaddr})",
+        "tooltip": false
+    },
+    "custom/off": {
+        "format": "",
+        "on-click": "powermenu.sh",
+        "tooltip": false
+    }
+}
