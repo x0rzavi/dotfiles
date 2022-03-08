@@ -13,7 +13,10 @@ peach="#F8BD96"
 green="#ABE9B3"
 
 bemenu-run \
-	-p 'RUN  ' -l 5 --fn 'JetBrainsMono Nerd Font Bold 11.5' \
+	--prefix '' \
+	--prompt 'RUN  ' \
+	--list 5 \
+	--fn 'JetBrainsMono Nerd Font Bold 11.5' \
 	--tb $black \
 	--tf $sky \
 	--fb $black \
