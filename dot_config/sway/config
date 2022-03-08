@@ -7,7 +7,9 @@ exec swayidle -w \
          timeout 300 'swaylock.sh' \
          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
          timeout 900 'loginctl suspend' \
-         before-sleep 'playerctl pause && volume.sh --mute && swaylock.sh' 
+         before-sleep 'volume.sh --mute && \
+         playerctl pause || echo 0 && \
+         if ! [[ "pidof -x 'swaylock.sh'" > /dev/null ]]; then swaylock.sh ; fi' 
 exec wlsunset -l 22.6 -L 88.4 
 exec pcmanfm --daemon-mode
 exec xsettingsd
