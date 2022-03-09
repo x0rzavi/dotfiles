@@ -14,12 +14,24 @@
     }
 }
 
+.warning, .critical, .urgent {
+	animation-name: blink_red;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+.critical {
+    animation-duration: 0.5s;
+}
+
 window#waybar {
 	background-color: transparent;
 }
 
 window#waybar.hidden {
-    opacity: 0.2;
+    opacity: 0.5;
 }
 
 window > box {
@@ -47,11 +59,6 @@ window > box {
 #workspaces button.urgent {
     /* background-color: rgb(242, 143, 173); */
    	color: rgb(26, 24, 38);
-	animation-name: blink_red;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
 }
 
 #workspaces button:hover {
@@ -74,7 +81,7 @@ tooltip label {
     color: rgb(201, 203, 255);
 }
 
-#mode, #clock, #memory, #cpu, #backlight, #pulseaudio, #network, #battery, #idle_inhibitor {
+#mode, #clock, #memory, #cpu, #idle_inhibitor, #backlight, #pulseaudio, #network, #battery {
 	padding-left: 15px;
 	padding-right: 15px;
 }
@@ -85,25 +92,21 @@ tooltip label {
     color: rgb(26, 24, 38);
 }
 
-#clock {
-	color: rgb(217, 224, 238);
-}
-
 #memory {
 	padding-left: 35px;
 	color: rgb(181, 232, 224);
 }
 
-#memory.warning {
-	animation-name: blink_red;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}
-
 #cpu {
 	color: rgb(245, 194, 231);
+}
+
+#clock {
+	color: rgb(217, 224, 238);
+}
+
+#idle_inhibitor {
+	color: rgb(221, 182, 242);
 }
 
 #backlight {
@@ -114,35 +117,16 @@ tooltip label {
 	color: rgb(245, 224, 220);
 }
 
-#pulseaudio.warning {
-	animation-name: blink_red;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}
-
 #network {
 	color: rgb(181, 232, 224);
 }
 
-#battery.charging,
-#battery.full,
-#battery.discharging {
+#battery.charging, #battery.full, #battery.discharging {
 	color: rgb(250, 227, 176);
 }
 
 #battery.critical:not(.charging) {
 	color: rgb(242, 143, 173);
-	animation-name: blink_red;
-    animation-duration: 0.5s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}
-
-#idle_inhibitor {
-	color: rgb(221, 182, 242);
 }
 
 #custom-off {
