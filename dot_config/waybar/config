@@ -52,7 +52,7 @@
             "format": " {percent}%",
             "on-scroll-up": "brightness.sh --dec",
             "on-scroll-down": "brightness.sh --inc",
-            "smooth-scrolling-threshold": 10,
+            "smooth-scrolling-threshold": 5,
     },
     "pulseaudio": {
             "scroll-step": 1,
@@ -66,7 +66,7 @@
             },
             "on-scroll-up": "volume.sh --dec",
             "on-scroll-down": "volume.sh --inc",
-            "smooth-scrolling-threshold": 2.5,
+            "smooth-scrolling-threshold": 5,
             "tooltip": false,
             "on-click": "volume.sh --toggle"
     },
