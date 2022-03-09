@@ -17,7 +17,6 @@ clipman pick \
 	-T "
 	--prefix '' \
 	--prompt 'COPY  ' \
-	--wrap \
 	--list 5 \
 	--fn 'JetBrainsMono Nerd Font Bold 11.5' \
 	--tb $black \
