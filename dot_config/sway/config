@@ -13,8 +13,11 @@ exec_always swayidle -w \
 exec wlsunset -l 22.6 -L 88.4 
 exec pcmanfm --daemon-mode
 exec xsettingsd
+exec wl-paste -t text --watch clipman store --max-items=20
+exec clipman restore
 
 # Variables
+set $alt Mod1
 set $mod Mod4
 set $term footclient
 set $menu bemenu.sh | xargs swaymsg exec --
@@ -98,6 +101,7 @@ bindsym $mod+Shift+d exec $menu
 bindsym $mod+Escape reload
 bindsym $mod+Shift+q exec powermenu.sh
 bindsym $mod+Shift+l exec swaylock.sh
+bindsym $alt+v exec clipboard.sh
 
 bindsym Print exec grimshot --notify copy output
 bindsym $mod+Print exec grimshot --notify save output
@@ -136,6 +140,7 @@ bindsym $mod+Shift+s layout toggle split
 
 bindsym $mod+f fullscreen
 bindsym $mod+space floating toggle
+bindsym $mod+Tab focus mode_toggle
 bindsym $mod+p focus parent
 
 bindsym $mod+Shift+o move scratchpad
@@ -155,6 +160,7 @@ bindsym $mod+r mode "resize"
 # Window rules
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
+for_window [class="2qemu-system-x86_64"] floating enable
 
 bar {
     swaybar_command waybar
