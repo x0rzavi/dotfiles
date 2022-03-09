@@ -19,7 +19,7 @@ set $mod Mod4
 set $term footclient
 set $menu bemenu.sh | xargs swaymsg exec --
 set $launcher bemenu-launcher.sh | xargs swaymsg exec --
-set $browser "google-chrome-stable --ozone-platform-hint=auto"
+set $browser google-chrome-stable
 set $alt_browser firefox-bin
 set $file_manager pcmanfm
 set $wallpapers_path $HOME/Themes/Wallpapers
