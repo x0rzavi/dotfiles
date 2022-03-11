@@ -20,7 +20,7 @@
     ],
     "custom/launcher": {
             "format": " ",
-            "on-click": "bemenu-launcher.sh",
+            "on-click": "bemenu_launcher.sh",
             "tooltip": false
     },
     "sway/mode": {
