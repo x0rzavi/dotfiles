@@ -1,2 +1,5 @@
-# Ignore LICENSE file for repository
+# Ignore files exclusively made for repository
 LICENSE
+assets
+README.md
+
