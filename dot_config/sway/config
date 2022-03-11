@@ -2,7 +2,7 @@
 exec --no-startup-id dbus-update-activation-environment --all
 exec /usr/libexec/polkit-gnome-authentication-agent-1
 exec gentoo-pipewire-launcher
-exec foot -s
+exec foot --server
 exec_always swayidle -w \
          timeout 300 'swaylock.sh' \
          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
@@ -13,7 +13,7 @@ exec_always swayidle -w \
 exec wlsunset -l 22.6 -L 88.4 
 exec pcmanfm --daemon-mode
 exec xsettingsd
-exec wl-paste -t text --watch clipman store --max-items=20
+exec wl-paste --type text --watch clipman store --max-items=20
 exec clipman restore
 
 # Variables
@@ -41,15 +41,17 @@ client.focused_inactive $green 	$black 		$green 	$red 		$green
 client.unfocused 		$peach 	$peach 		$black 	$red 		$peach
 client.urgent 			$red 	$red 		$black 	$red 		$red
 
-# Essential keybindings
-bindsym XF86AudioRaiseVolume exec volume.sh --inc
-bindsym XF86AudioLowerVolume exec volume.sh --dec
-bindsym XF86AudioMute exec volume.sh --toggle
-bindsym XF86AudioPlay exec playerctl play-pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
-bindsym XF86MonBrightnessUp exec brightness.sh --inc
-bindsym XF86MonBrightnessDown exec brightness.sh --dec
+# Theming
+seat seat0 xcursor_theme Fluent-dark-cursors
+set $gnome-schema org.gnome.desktop.interface
+exec_always {
+    gsettings set $gnome-schema gtk-theme 'Catppuccin-dark'
+    gsettings set $gnome-schema icon-theme 'Fluent-dark'
+    gsettings set $gnome-schema cursor-theme 'Fluent-dark-cursors'
+    gsettings set $gnome-schema font-name 'SF Pro Text 11.5'
+    gsettings set $gnome-schema document-font-name 'SF Pro Text 11.5'
+    gsettings set $gnome-schema monospace-font-name 'SF Mono 11.5'
+}
 
 # Misc optioms
 focus_follows_mouse yes
@@ -63,18 +65,6 @@ titlebar_border_thickness 2
 title_align center
 gaps inner 15
 font pango:JetBrainsMono Nerd Font Bold 11.5
-
-# Theming
-seat seat0 xcursor_theme Fluent-dark-cursors
-set $gnome-schema org.gnome.desktop.interface
-exec_always {
-    gsettings set $gnome-schema gtk-theme 'Catppuccin-dark'
-    gsettings set $gnome-schema icon-theme 'Fluent-dark'
-    gsettings set $gnome-schema cursor-theme 'Fluent-dark-cursors'
-    gsettings set $gnome-schema font-name 'SF Pro Text 11.5'
-    gsettings set $gnome-schema document-font-name 'SF Pro Text 11.5'
-    gsettings set $gnome-schema monospace-font-name 'SF Mono 11.5'
-}
 
 # Output
 output eDP-1 {
@@ -91,6 +81,16 @@ input type:touchpad {
 	natural_scroll enabled
 	middle_emulation enabled
 }
+
+# Essential keybindings
+bindsym XF86AudioRaiseVolume exec volume.sh --inc
+bindsym XF86AudioLowerVolume exec volume.sh --dec
+bindsym XF86AudioMute exec volume.sh --toggle
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86MonBrightnessUp exec brightness.sh --inc
+bindsym XF86MonBrightnessDown exec brightness.sh --dec
 
 # Keybindings
 bindsym $mod+b exec $browser
@@ -163,7 +163,7 @@ bindsym $mod+r mode "resize"
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
 for_window [class="qemu-system-x86_64"] floating enable
-for_window [app_id="qemu|zenmonitor"] floating enable
+for_window [app_id="qemu|zenmonitor|mpv|imv"] floating enable
 
 bar {
     swaybar_command waybar
