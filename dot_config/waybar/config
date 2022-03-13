@@ -1,11 +1,11 @@
 {
     "modules-left": [
-    	"custom/launcher",
-    	"sway/workspaces",
-    	"sway/mode",
-    	"memory",
-    	"cpu",
-    	"cpu#2",
+		"custom/launcher",
+		"sway/workspaces",
+		"sway/mode",
+		"memory",
+		"cpu",
+		"cpu#2",
     ],
     "modules-center": [
     	"clock"
@@ -19,9 +19,9 @@
         "custom/off"
     ],
     "custom/launcher": {
-            "format": " ",
-            "on-click": "bemenu_launcher.sh",
-            "tooltip": false
+		"format": " ",
+		"on-click": "bemenu_launcher.sh",
+		"tooltip": false
     },
     "sway/mode": {
         "format": "蘒 {}",
@@ -73,19 +73,19 @@
     "battery": {
             "interval": 10,
             "states": {
-                "warning": 20,
-                "critical": 10
-            },
-            "format": "{icon} {capacity}%",
-            "format-icons": ["", "", "", "", "", "", "", "", ""],
-            "format-full": "{icon} {capacity}%",
-            "format-charging": " {capacity}%",
+                	"warning": 20,
+                	"critical": 10
+	            },
+	            "format": "{icon} {capacity}%",
+	            "format-icons": ["", "", "", "", "", "", "", "", ""],
+	            "format-full": "{icon} {capacity}%",
+	            "format-charging": " {capacity}%",
             "tooltip": false
     },
     "clock": {
-            "interval": 1,
-            "format": "{:%I:%M %p  %A %b %d}",
-            "tooltip": false
+		"interval": 1,
+		"format": "{:%I:%M %p  %A %b %d}",
+		"tooltip": false
     },
     "memory": {
         "interval": 1,
