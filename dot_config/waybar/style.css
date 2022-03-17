@@ -22,10 +22,6 @@
     animation-direction: alternate;
 }
 
-.critical {
-    animation-duration: 0.5s;
-}
-
 window#waybar {
 	background-color: transparent;
 }
@@ -81,7 +77,7 @@ tooltip label {
     color: rgb(201, 203, 255);
 }
 
-#mode, #clock, #memory, #cpu, #idle_inhibitor, #backlight, #pulseaudio, #network, #battery {
+#mode, #clock, #memory, #cpu, #idle_inhibitor, #temperature, #backlight, #pulseaudio, #network, #battery {
 	padding-left: 15px;
 	padding-right: 15px;
 }
@@ -107,6 +103,10 @@ tooltip label {
 
 #idle_inhibitor {
 	color: rgb(221, 182, 242);
+}
+
+#temperature {
+	color: rgb(150, 205, 251);
 }
 
 #backlight {

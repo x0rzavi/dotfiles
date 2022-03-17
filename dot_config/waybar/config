@@ -12,6 +12,7 @@
     ],
     "modules-right": [
     	"idle_inhibitor",
+    	"temperature",
         "backlight",
         "pulseaudio",
         "network",
@@ -48,6 +49,13 @@
         },
         "tooltip": false
     },
+     "temperature": {
+		"hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
+		"critical-threshold": 80,
+		"interval": 1,
+		"format": " {temperatureC}°C",
+		"tooltip": false,
+	},
     "backlight": {
             "format": " {percent}%",
             "on-scroll-up": "brightness.sh --dec",
