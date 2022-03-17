@@ -1,21 +1,3 @@
-# Autostart
-exec --no-startup-id dbus-update-activation-environment --all
-exec /usr/libexec/polkit-gnome-authentication-agent-1
-exec gentoo-pipewire-launcher
-exec foot --server
-exec_always swayidle -w \
-         timeout 300 'swaylock.sh' \
-         timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-         timeout 900 'loginctl suspend' \
-         before-sleep 'volume.sh --mute && \
-         playerctl pause || echo 0 && \
-         if [[ "pidof -x 'swaylock.sh'" > /dev/null ]]; then swaylock.sh ; fi' 
-exec wlsunset -l 22.6 -L 88.4 
-exec pcmanfm --daemon-mode
-exec xsettingsd
-exec wl-paste --type text --watch clipman store --max-items=100
-exec clipman restore
-
 # Variables
 set $alt Mod1
 set $mod Mod4
@@ -170,3 +152,21 @@ bar {
 }
 
 include /etc/sway/config.d/*
+
+# Autostart
+exec --no-startup-id dbus-update-activation-environment --all
+exec /usr/libexec/polkit-gnome-authentication-agent-1
+exec gentoo-pipewire-launcher
+exec foot --server
+exec_always swayidle -w \
+         timeout 300 'swaylock.sh' \
+         timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+         timeout 900 'loginctl suspend' \
+         before-sleep 'volume.sh --mute && \
+         playerctl pause || echo 0 && \
+         if [[ "pidof -x 'swaylock.sh'" > /dev/null ]]; then swaylock.sh ; fi' 
+exec wlsunset -l 22.6 -L 88.4 
+exec pcmanfm --daemon-mode
+exec xsettingsd
+exec wl-paste --type text --watch clipman store --max-items=100
+exec clipman restore
