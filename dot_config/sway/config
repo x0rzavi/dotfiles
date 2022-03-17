@@ -116,6 +116,11 @@ bindsym $mod+Shift+4 move container to workspace number 4
 bindsym $mod+Shift+5 move container to workspace number 5
 bindsym $mod+Shift+6 move container to workspace number 6
 
+bindsym $mod+Ctrl+Left workspace prev
+bindsym $mod+Ctrl+Right workspace next
+bindsym $mod+$alt+Left workspace prev
+bindsym $mod+$alt+Right workspace next
+
 bindsym $mod+h splith
 bindsym $mod+v splitv
 
