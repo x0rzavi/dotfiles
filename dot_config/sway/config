@@ -120,6 +120,8 @@ bindsym $mod+Ctrl+Left workspace prev
 bindsym $mod+Ctrl+Right workspace next
 bindsym $mod+$alt+Left workspace prev
 bindsym $mod+$alt+Right workspace next
+bindsym Ctrl+$alt+Left workspace prev
+bindsym Ctrl+$alt+Right workspace next
 
 bindsym $mod+h splith
 bindsym $mod+v splitv
