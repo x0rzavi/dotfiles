@@ -2,10 +2,11 @@
 
 # Exit mechanism
 trap "exit" INT
+set -e
 
 # Author: https://github.com/x0rzavi
 # Description: Install my favourite fonts
-# Dependencies: fontforge, aria2
+# Dependencies: aria2
 
 # Variables
 directory=$(pwd)
