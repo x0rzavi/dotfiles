@@ -11,19 +11,20 @@ set -e
 # Variables
 directory=$(pwd)
 
-rm -fr $directory/tmpdir
+rm -rf $directory/tmpdir
 mkdir -p $directory/tmpdir
 cd $directory/tmpdir
 
 kernel_package () {
-	download_link=$(curl -s https://api.github.com/repos/x0rzavi/gentoo-kernel/releases \
-	| grep "browser_download_url.*linux.7z" | head -n 1 | cut -d : -f 2,3)
-	release_tag=$(echo $download_link | cut -d / -f 8)
-
-	echo $download_link | xargs	aria2c -x16
-	7z x "linux.7z" -o$directory/tmpdir/
-	mv linux-* $release_tag
-	rm -rf linux.7z
+	download_link_file=$(curl -s https://api.github.com/repos/x0rzavi/gentoo-kernel/releases/latest \
+	| grep "browser_download_url.*download_link.txt" | cut -d : -f 2,3)
+	echo $download_link_file | xargs aria2c -x16
+	download_link=$(cat $directory/tmpdir/download_link.txt)
+	echo $download_link | xargs aria2c -x16
+	7z x $directory/tmpdir/linux*.7z -o$directory/tmpdir/
+	rm -rf $directory/tmpdir/linux*.7z
+	release_tag=$(echo $download_link_file | cut -d / -f 8)
+	mv $directory/tmpdir/linux-* $directory/tmpdir/$release_tag
 }
 
 kernel_install () {
