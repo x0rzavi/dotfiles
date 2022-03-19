@@ -175,5 +175,5 @@ exec_always swayidle -w \
 exec wlsunset -l 22.6 -L 88.4 
 exec pcmanfm --daemon-mode
 exec xsettingsd
-exec wl-paste --type text --watch clipman store --max-items=100
+exec wl-paste --type text --watch clipman store --max-items=20
 exec clipman restore
