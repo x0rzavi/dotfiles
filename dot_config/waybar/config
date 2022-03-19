@@ -117,7 +117,7 @@
         "format-ethernet": "  {ifname} ({ipaddr})",
         "format-linked": "說 {essid} (No IP)",
         "format-disconnected": "說 Disconnected",
-        "format-alt": "說 {ifname} ({ipaddr})",
+        // "format-alt": "說 {ifname} ({ipaddr})",
         "tooltip": false
     },
     "custom/off": {

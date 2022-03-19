@@ -35,7 +35,7 @@ jetbrainsmono () {
 install_fonts () {
 	apple_fonts
 	#jetbrainsmono
-	echo -e "\n\n\nPlease input your root password to proceed for copying:\n"
+	echo -e "\n\n\nPlease input your root password to proceed for moving files:\n"
 	sudo mv $directory/tmpdir/* /usr/share/fonts/
 	fc-cache --really-force --verbose
 	rm -rf $directory/tmpdir
