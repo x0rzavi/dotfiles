@@ -20,9 +20,9 @@ kernel_package () {
 	| grep "browser_download_url.*linux.7z" | head -n 1 | cut -d : -f 2,3)
 	release_tag=$(echo $download_link | cut -d / -f 8)
 
-	mkdir -p $directory/tmpdir/$release_tag
 	echo $download_link | xargs	aria2c -x16
-	7z x "linux.7z" -o$directory/tmpdir/$release_tag
+	7z x "linux.7z" -o$directory/tmpdir/
+	mv linux-* $release_tag
 	rm -rf linux.7z
 }
 
