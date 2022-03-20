@@ -16,19 +16,16 @@ mkdir -p $directory/tmpdir
 cd $directory/tmpdir
 
 kernel_package () {
-	download_link_file=$(curl -s https://api.github.com/repos/x0rzavi/gentoo-kernel/releases/latest \
-	| grep "browser_download_url.*download_link.txt" | cut -d : -f 2,3)
-	echo $download_link_file | xargs aria2c -x16
-	download_link=$(cat $directory/tmpdir/download_link.txt)
+	download_link=$(curl -s https://api.github.com/repos/r3tr0w0lf/gentoo-kernel/releases/latest \
+					| grep "browser_download_url.*linux.7z" | cut -d : -f 2,3)
 	echo $download_link | xargs aria2c -x16
 	7z x $directory/tmpdir/linux*.7z -o$directory/tmpdir/
 	rm -rf $directory/tmpdir/linux*.7z
-	release_tag=$(echo $download_link_file | cut -d / -f 8)
+	release_tag=$(echo $download_link | cut -d / -f 8)
 	mv $directory/tmpdir/linux-* $directory/tmpdir/$release_tag
 }
 
 kernel_install () {
-	kernel_package
 	echo -e "\n\n\nPlease input your root password to proceed for moving folder:\n"
 	sudo mv $directory/tmpdir/$release_tag /usr/src/
 	echo -e "\nLinux Kernel Source Installation Was Successful !!"
@@ -42,4 +39,5 @@ kernel_install () {
 	rm -rf $directory/tmpdir
 }
 
+kernel_package
 kernel_install
