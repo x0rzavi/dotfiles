@@ -34,7 +34,7 @@ kernel_install () {
 	echo -e "# make install"
 	echo -e "# make modules_install"
 	echo -e "# emerge @module-rebuild"
-	echo -e "# dracut --regenerate-all --force"
+	echo -e "# dracut --regenerate-all --force --quiet"
 	echo -e "# grub-mkconfig -o /boot/grub/grub.cfg"
 	rm -rf $directory/tmpdir
 }
