@@ -9,3 +9,4 @@ image/png=imv.desktop
 image/jpeg=imv.desktop
 image/gif=imv.desktop
 application/pdf=google-chrome.desktop
+x-scheme-handler/mailto=google-chrome.desktop
