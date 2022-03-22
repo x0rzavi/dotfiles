@@ -28,7 +28,7 @@ kernel_package () {
 kernel_install () {
 	echo -e "\n\n\nPlease input your root password to proceed for moving folder:\n"
 	sudo mv $directory/tmpdir/$release_tag /usr/src/
-	echo -e "\nLinux Kernel Source Installation Was Successful !!"
+	echo -e "\nLinux Kernel Source ($release_tag) Installation Was Successful !!"
 	echo -e "\nNow Proceed With The Usual Kernel Installation Procedure:"
 	echo -e "# eselect kernel list"
 	echo -e "# make install"
