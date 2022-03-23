@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Exit mechanism
+# Exit verbose mechanism
 trap "exit" INT
 set -e
 
@@ -34,7 +34,7 @@ kernel_install () {
 	echo -e "# make install"
 	echo -e "# make modules_install"
 	echo -e "# emerge @module-rebuild"
-	echo -e "# dracut --regenerate-all --force --quiet"
+	echo -e "# dracut --kver x.xx.xx-xanmod1-x0rzavi --force --quiet"
 	echo -e "# grub-mkconfig -o /boot/grub/grub.cfg"
 	rm -rf $directory/tmpdir
 }
