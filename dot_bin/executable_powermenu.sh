@@ -34,9 +34,9 @@ elif [[ "$selected" == *"Suspend"* ]]; then
 	sleep 5
 	loginctl suspend
 elif [[ "$selected" == *"Lock"* ]]; then
-	swaylock.sh
+	sway_lock.sh
 elif [[ "$selected" == *"Logout"* ]]; then
-	exit_sway.sh
+	sway_exit.sh
 elif [[ "$selected" == *"Shutdown"* ]]; then
 	notify-send "  襤   Shutting down in 5 seconds"
 	sleep 5
