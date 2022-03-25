@@ -19,6 +19,17 @@ dec_brightness () {
 	get_brightness
 }
 
+show_help () {
+	cat <<EOF
+Usage: brightness.sh [options]
+
+AVAILABLE OPTIONS:
+  --get         get current brightness
+  --inc         increase current brightness by +4
+  --dec         decrease current brightness by -4
+EOF
+}
+
 if [[ "$1" == "--get" ]]; then
 	get_brightness
 elif [[ "$1" == "--inc" ]]; then
@@ -26,5 +37,5 @@ elif [[ "$1" == "--inc" ]]; then
 elif [[ "$1" == "--dec" ]]; then
 	dec_brightness
 else
-	get_brightness
+	show_help
 fi
