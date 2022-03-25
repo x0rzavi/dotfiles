@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-# Exit mechanism
+# Safer script
 trap "exit" INT
-set -e
+set -euo pipefail
 
 # Author: https://github.com/x0rzavi
 # Description: Install my favourite fonts

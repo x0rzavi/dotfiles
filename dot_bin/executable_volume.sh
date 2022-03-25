@@ -52,6 +52,19 @@ mute_volume () {
 	echo "婢Muted"
 }
 
+show_help () {
+    cat <<EOF
+Usage: volume.sh [options]
+
+AVAILABLE OPTIONS:
+  --get         get current volume
+  --inc         increase current volume by +2
+  --dec         decrease current volume by -2
+  --toggle      toggle speaker state
+  --mute        mute speaker
+EOF
+}
+
 if [[ "$1" == "--get" ]]; then
 	get_volume
 elif [[ "$1" == "--inc" ]]; then
@@ -63,5 +76,5 @@ elif [[ "$1" == "--toggle" ]]; then
 elif [[ "$1" == "--mute" ]]; then
 	mute_volume
 else
-	get_volume
+	show_help
 fi

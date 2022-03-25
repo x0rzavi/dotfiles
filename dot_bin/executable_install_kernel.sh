@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-# Exit verbose mechanism
+# Safer script
 trap "exit" INT
-set -e
+set -euo pipefail
 
 # Author: https://github.com/x0rzavi
 # Description: Download my custom xanmod build from github and populate necessary directories
@@ -26,6 +26,7 @@ kernel_package () {
 }
 
 kernel_install () {
+	kernel_package
 	echo -e "\n\n\nPlease input your root password to proceed for moving folder:\n"
 	sudo mv $directory/tmpdir/$release_tag /usr/src/
 	echo -e "\nLinux Kernel Source ($release_tag) Installation Was Successful !!"
@@ -39,5 +40,4 @@ kernel_install () {
 	rm -rf $directory/tmpdir
 }
 
-kernel_package
 kernel_install
