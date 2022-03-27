@@ -7,7 +7,7 @@ set $launcher bemenu_launcher.sh | xargs swaymsg exec --
 set $browser google-chrome-stable --ozone-platform-hint=auto
 set $alt_browser firefox-bin
 set $file_manager pcmanfm
-set $wallpapers_path $HOME/Themes/Wallpapers
+set $wallpapers_path $HOME/Pictures/unsplash
 
 # Theme: Catppuccin
 set $green #ABE9B3
@@ -86,6 +86,7 @@ bindsym $mod+Escape reload
 bindsym $mod+Shift+q exec powermenu.sh
 bindsym $mod+Shift+l exec sway_lock.sh
 bindsym $alt+v exec clipboard.sh
+bindsym $mod+Shift+w exec sway_wallpaper.sh
 
 bindsym Print exec grimshot --notify copy output
 bindsym $mod+Print exec grimshot --notify save output
