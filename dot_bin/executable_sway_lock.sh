@@ -13,7 +13,7 @@ peach=F8BD96
 yellow=FAE3B0
 green=ABE9B3
 red=F28FAD
-wallpapers_path=$HOME/Themes/Wallpapers
+wallpapers_path=$HOME/Pictures/unsplash
 
 swaylock \
 	--ignore-empty-password \
@@ -29,7 +29,7 @@ swaylock \
 	--screenshots \
 	--image $(find $wallpapers_path -type f | shuf -n 1) \
 	--scaling fill \
-	--effect-vignette 0.5:0.5 \
+	--effect-vignette 0.1:0.8 \
 	--font "JetBrainsMono Nerd Font" \
 	--font-size 30 \
 	--indicator-radius 150 \
