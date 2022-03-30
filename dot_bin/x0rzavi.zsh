@@ -5,6 +5,7 @@
 # sys-apps/exa
 # app-text/tldr
 # sys-apps/dust
+# duf
 # sys-apps/ripgrep
 # dev-util/git-delta
 # sys-apps/sd
