@@ -6,7 +6,7 @@ set -euo pipefail
 
 # Author: https://github.com/x0rzavi
 # Description: Install my favourite fonts
-# Dependencies: aria2
+# Dependencies: aria2, 7z
 
 # Variables
 directory=$(pwd)
