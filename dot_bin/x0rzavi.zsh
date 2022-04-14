@@ -7,6 +7,7 @@
 # sys-apps/dust
 # duf
 # gdu
+# dog
 # sys-apps/ripgrep
 # dev-util/git-delta
 # sys-apps/sd
@@ -45,6 +46,7 @@ alias find='fd --hidden'
 alias grep='rg --pretty --hidden'
 alias ps='procs'
 alias ncdu='gdu'
+alias dig='dog'
 
 # Zoxide
 eval "$(zoxide init --cmd cd zsh)"
