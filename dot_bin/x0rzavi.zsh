@@ -26,14 +26,14 @@ path=(~/.local/bin ~/.bin $path)
 export MICRO_TRUECOLOR=1
 export EDITOR=micro
 export GOBIN=$HOME/.bin
-export QT_QPA_PLATFORM=wayland
+#export QT_QPA_PLATFORM=wayland
 export MOZ_ENABLE_WAYLAND=1
 export MOZ_WEBRENDER=1
 #export XDG_CURRENT_DESKTOP=sway
-export GTK_USE_PORTAL=0
+#export GTK_USE_PORTAL=0
 
 # Source additional local files if they exist.
-z4h source ~/bin/gh.zsh
+z4h source ~/.bin/gh.zsh
 
 # Define aliases.
 alias ls='exa --icons'
