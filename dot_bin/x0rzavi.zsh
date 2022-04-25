@@ -18,6 +18,7 @@
 
 # Export environment variables.
 export MANPAGER="sh -c 'col -bx | bat -l man -p --theme Dracula'"
+export FZF_DEFAULT_OPTS='--color=bg+:#302D41,bg:#1E1E2E,spinner:#F8BD96,hl:#F28FAD --color=fg:#D9E0EE,header:#F28FAD,info:#DDB6F2,pointer:#F8BD96 --color=marker:#F8BD96,fg+:#F2CDCD,prompt:#DDB6F2,hl+:#F28FAD'
 
 # Extend PATH.
 path=(~/.local/bin ~/.bin $path)
@@ -40,19 +41,19 @@ alias ls='exa --icons'
 alias ll='exa --icons --long --all --group --git'
 alias cat='bat --theme Dracula'
 alias diff='delta'
-alias du='dust --reverse'
+#alias du='dust --reverse'
 alias df='duf'
-alias find='fd --hidden'
+#alias find='fd --hidden'
 alias grep='rg --pretty --hidden'
 alias ps='procs'
-alias ncdu='gdu'
+#alias ncdu='gdu'
 alias dig='dog'
 
 # Zoxide
 eval "$(zoxide init --cmd cd zsh)"
 
 # Rootless Docker
-export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
+#export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
 
 # Set shell options: http://zsh.sourceforge.net/Doc/Release/Options.html.
 setopt hist_ignore_all_dups	# prevent history from recording duplicated entries
