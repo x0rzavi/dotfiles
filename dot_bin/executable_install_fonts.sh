@@ -32,9 +32,21 @@ jetbrainsmono () {
 	
 }
 
+iosevka () {
+	mkdir -p $directory/tmpdir/Iosevka
+	
+	curl -s https://api.github.com/repos/ryanoasis/nerd-fonts/releases/latest \
+	| grep "browser_download_url.*Iosevka.zip" | cut -d : -f 2,3 \
+	| xargs aria2c -x16
+	7z x "Iosevka.zip" -o$directory/tmpdir/Iosevka
+	rm -rf Iosevka.zip
+	
+}
+
 install_fonts () {
 	apple_fonts
 	jetbrainsmono
+	iosevka
 	echo -e "\n\n\nPlease input your root password to proceed for moving files:\n"
 	sudo mv $directory/tmpdir/* /usr/local/share/fonts/
 	fc-cache --really-force --verbose
