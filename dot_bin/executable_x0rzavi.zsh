@@ -33,6 +33,7 @@ export GOBIN=$HOME/.bin
 
 # Source additional local files if they exist.
 #z4h source ~/.bin/gh.zsh
+source $HOME/.bin/chezmoi.zsh
 
 # Define aliases.
 alias ls='exa --icons'
