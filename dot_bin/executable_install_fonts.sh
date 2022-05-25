@@ -48,6 +48,7 @@ install_fonts () {
 	jetbrainsmono
 	iosevka
 	echo -e "\n\n\nPlease input your root password to proceed for moving files:\n"
+	sudo mkdir -p /usr/local/share/fonts/
 	sudo mv $directory/tmpdir/* /usr/local/share/fonts/
 	fc-cache --really-force --verbose
 	rm -rf $directory/tmpdir
