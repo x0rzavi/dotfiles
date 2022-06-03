@@ -23,7 +23,7 @@ path=(~/.local/bin ~/.bin $path)
 
 # Export environment variables.
 export MICRO_TRUECOLOR=1
-export EDITOR=micro
+export EDITOR="code --wait"
 export GOBIN=$HOME/.bin
 #export QT_QPA_PLATFORM=wayland
 #export MOZ_ENABLE_WAYLAND=1
@@ -32,7 +32,6 @@ export GOBIN=$HOME/.bin
 #export GTK_USE_PORTAL=0
 
 # Source additional local files if they exist.
-#z4h source ~/.bin/gh.zsh
 source $HOME/.bin/chezmoi.zsh
 
 # Define aliases.
