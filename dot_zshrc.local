@@ -1,3 +1,7 @@
+## grml customization
+## zsh additions
+## sourcing my stuffs
+
 ## git styling
 autoload -U colors && colors
 zstyle ':vcs_info:*' enable git
