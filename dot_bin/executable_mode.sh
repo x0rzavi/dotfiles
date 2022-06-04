@@ -6,11 +6,15 @@
 
 performance () {
     ryzenadj --stapm-limit=25000 --fast-limit=25000 --slow-limit=25000 --tctl-temp=90
-    amdctl -p0 -v80
+    amdctl -p0 -v88
+    amdctl -p1 -v96 -f102   #Default
+    amdctl -p2 -v102 -f98   #Default
 }
 
 battery () {
     ryzenadj --stapm-limit=15000 --fast-limit=15000 --slow-limit=15000 --tctl-temp=65
+    amdctl -p1 -v104 -f86
+    amdctl -p2 -v120 -f60
 }
 
 info () {
