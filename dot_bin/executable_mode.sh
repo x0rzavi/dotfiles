@@ -5,8 +5,8 @@
 # Dependencies: amdctl, ryzenadj
 
 performance () {
-    ryzenadj --stapm-limit=25000 --fast-limit=25000 --slow-limit=25000 --tctl-temp=90
-    amdctl -p0 -v88
+    ryzenadj --stapm-limit=25000 --fast-limit=25000 --slow-limit=25000 --tctl-temp=95 --max-performance
+    amdctl -p0 -v100
     amdctl -p1 -v96 -f102   #Default
     amdctl -p2 -v102 -f98   #Default
 }
@@ -24,6 +24,10 @@ default () {
     amdctl -p2 -v102 -f98
 }
 
+undervolt () {
+    amdctl -p0 -v100
+}
+
 info () {
     echo -e "################### INFO FROM RYZENADJ ###################\n"
     ryzenadj -i
@@ -38,6 +42,7 @@ Usage: mode.sh [options]
 AVAILABLE OPTIONS:
   --batt        optimizations for battery saving
   --perf        optimizations for performance
+  --uv		only undervolt p0 state
   --def         reset configurations to default
   --info        report info
 EOF
@@ -48,6 +53,8 @@ if [ "$UID" -eq "0" ]; then
     	battery
     elif [[ "$1" == "--perf" ]]; then
     	performance
+    elif [[ "$1" == "--uv" ]]; then
+        undervolt
     elif [[ "$1" == "--def" ]]; then
     	default
     elif [[ "$1" == "--info" ]]; then
