@@ -1,3 +1,5 @@
+## Conveniences for zsh
+
 # Modern UNIX
 #
 # bat
@@ -17,21 +19,14 @@
 # Export environment variables.
 export MANPAGER="sh -c 'col -bx | bat -l man -p --theme Dracula'"
 export FZF_DEFAULT_OPTS='--color=bg+:#302D41,bg:#1E1E2E,spinner:#F8BD96,hl:#F28FAD --color=fg:#D9E0EE,header:#F28FAD,info:#DDB6F2,pointer:#F8BD96 --color=marker:#F8BD96,fg+:#F2CDCD,prompt:#DDB6F2,hl+:#F28FAD'
+export MICRO_TRUECOLOR=1
+export EDITOR="code --wait"
+export GOBIN=$HOME/.bin
 
 # Extend PATH.
 path=(~/.local/bin ~/.bin $path)
 
-# Export environment variables.
-export MICRO_TRUECOLOR=1
-export EDITOR="code --wait"
-export GOBIN=$HOME/.bin
-#export QT_QPA_PLATFORM=wayland
-#export MOZ_ENABLE_WAYLAND=1
-#export MOZ_WEBRENDER=1
-#export XDG_CURRENT_DESKTOP=sway
-#export GTK_USE_PORTAL=0
-
-# Source additional local files if they exist.
+# Source additional local files
 source $HOME/.bin/chezmoi.zsh
 
 # Define aliases.
@@ -44,7 +39,7 @@ alias df='duf'
 alias find='fd --hidden'
 alias grep='rg --pretty --hidden'
 alias ps='procs'
-alias ncdu='gdu'
+alias ncdu='gdu -a -B'
 alias dig='dog'
 
 # Zoxide
