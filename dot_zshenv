@@ -1,6 +1,0 @@
-## https://fedoraproject.org/wiki/Firefox_Hardware_acceleration
-#export MOZ_LOG="PlatformDecoderModule:5"
-export MOZ_DISABLE_RDD_SANDBOX=1 
-
-## https://wiki.archlinux.org/title/firefox#Wayland
-export MOZ_ENABLE_WAYLAND=1
