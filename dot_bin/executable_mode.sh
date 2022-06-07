@@ -9,7 +9,7 @@
 
 performance () {
     ryzenadj --stapm-limit=25000 --fast-limit=30000 --slow-limit=25000 --tctl-temp=77 --max-performance --slow-time=75 --stapm-time=10
-    amdctl -p0 -v100
+    amdctl -p0 -v124
     amdctl -p1 -v96 -f102   #Default
     amdctl -p2 -v102 -f98   #Default
 }
