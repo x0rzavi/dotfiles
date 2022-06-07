@@ -4,21 +4,24 @@
 # Description: Optimize for performance
 # Dependencies: amdctl, ryzenadj
 
+# MODEL: hp 15s-gr0009au
+# PROCHOT: 80C
+
 performance () {
-    ryzenadj --stapm-limit=25000 --fast-limit=25000 --slow-limit=25000 --tctl-temp=95 --max-performance
+    ryzenadj --stapm-limit=22000 --fast-limit=22000 --slow-limit=22000 --tctl-temp=77 --max-performance
     amdctl -p0 -v100
     amdctl -p1 -v96 -f102   #Default
     amdctl -p2 -v102 -f98   #Default
 }
 
 battery () {
-    ryzenadj --stapm-limit=15000 --fast-limit=15000 --slow-limit=15000 --tctl-temp=65
+    ryzenadj --stapm-limit=15000 --fast-limit=15000 --slow-limit=15000 --tctl-temp=60
     amdctl -p1 -v104 -f86
     amdctl -p2 -v120 -f60
 }
 
 default () {
-    ryzenadj --stapm-limit=15000 --fast-limit=25000 --slow-limit=20000 --tctl-temp=89
+    ryzenadj --stapm-limit=15000 --fast-limit=25000 --slow-limit=20000 --tctl-temp=77
     amdctl -p0 -v53
     amdctl -p1 -v96 -f102
     amdctl -p2 -v102 -f98
