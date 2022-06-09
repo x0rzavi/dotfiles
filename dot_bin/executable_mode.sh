@@ -28,7 +28,7 @@ default () {
 }
 
 undervolt () {
-    amdctl -p0 -v100
+    amdctl -p0 -v124
 }
 
 info () {
