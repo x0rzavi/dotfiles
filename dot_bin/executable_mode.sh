@@ -8,7 +8,9 @@
 # PROCHOT: 80C
 
 performance () {
-    ryzenadj --stapm-limit=25000 --fast-limit=30000 --slow-limit=25000 --tctl-temp=77 --max-performance --slow-time=75 --stapm-time=10
+    ryzenadj --stapm-limit=25000 --fast-limit=30000 --slow-limit=25000 --tctl-temp=77 \
+    		--vrm-current=45000 --vrmmax-current=55000 --max-performance --slow-time=75 \
+    		--stapm-time=10
     amdctl -p0 -v124
     amdctl -p1 -v96 -f102   #Default
     amdctl -p2 -v102 -f98   #Default
@@ -21,7 +23,8 @@ battery () {
 }
 
 default () {
-    ryzenadj --stapm-limit=15000 --fast-limit=25000 --slow-limit=20000 --tctl-temp=89 --slow-time=5 --stapm-time=200
+    ryzenadj --stapm-limit=15000 --fast-limit=25000 --slow-limit=20000 --tctl-temp=89 \
+    		--vrm-current=35000 --vrmmax-current=45000 --slow-time=5 --stapm-time=200
     amdctl -p0 -v53
     amdctl -p1 -v96 -f102
     amdctl -p2 -v102 -f98
