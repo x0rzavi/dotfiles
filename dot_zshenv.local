@@ -4,3 +4,9 @@ export MOZ_DISABLE_RDD_SANDBOX=1
 
 ## https://wiki.archlinux.org/title/firefox#Wayland
 export MOZ_ENABLE_WAYLAND=1
+
+## https://wiki.archlinux.org/title/wayland#Qt
+QT_QPA_PLATFORM=wayland
+
+## https://wiki.archlinux.org/title/wayland#SDL2
+SDL_VIDEODRIVER=wayland
