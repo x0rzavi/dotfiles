@@ -27,8 +27,7 @@ export GOBIN=$HOME/.bin
 path=(~/.local/bin ~/.bin $path)
 
 # Source additional local files
-source $HOME/.bin/chezmoi.zsh
-source $HOME/Themes/zsh-syntax-highlighting/catppuccin-zsh-syntax-highlighting.zsh
+#source $HOME/Themes/zsh-syntax-highlighting/catppuccin-zsh-syntax-highlighting.zsh
 
 # Define aliases.
 alias ls='exa --icons'
