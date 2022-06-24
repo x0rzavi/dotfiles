@@ -12,6 +12,3 @@ QT_QPA_PLATFORM=wayland
 
 ## https://wiki.archlinux.org/title/wayland#SDL2
 SDL_VIDEODRIVER=wayland
-
-## https://www.reddit.com/r/gnome/comments/v1aw6k/themeing_libadwaita_a_tldr/?utm_source=share&utm_medium=web2x&context=3
-GTK_THEME=Colloid-Dark
