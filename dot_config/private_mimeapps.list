@@ -117,3 +117,4 @@ image/vnd.wap.wbmp=org.gnome.eog.desktop;
 image/x-icns=org.gnome.eog.desktop;
 text/x-scss=visual-studio-code.desktop;
 text/css=visual-studio-code.desktop;
+application/pdf=org.gnome.Evince.desktop;
