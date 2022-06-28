@@ -118,3 +118,6 @@ image/x-icns=org.gnome.eog.desktop;
 text/x-scss=visual-studio-code.desktop;
 text/css=visual-studio-code.desktop;
 application/pdf=org.gnome.Evince.desktop;
+text/plain=visual-studio-code.desktop;
+text/x-python=visual-studio-code.desktop;
+application/x-shellscript=visual-studio-code.desktop;
