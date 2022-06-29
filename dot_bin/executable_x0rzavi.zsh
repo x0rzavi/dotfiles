@@ -1,12 +1,16 @@
 ## Conveniences for zsh
 
-# Modern UNIX
+# Modern UNIX tools
 #
-# bat
-# exa
-# dust
-# duf
-# gdu
+# bat (https://github.com/sharkdp/bat) [cat]
+# bat-extras (https://github.com/eth-p/bat-extras) [grep/man/less/watch/diff]
+# entr
+# exa (https://github.com/ogham/exa) [ls]
+# dust (https://github.com/bootandy/dust) [du]
+# duf (https://github.com/muesli/duf) [df]
+# bottom (https://github.com/ClementTsang/bottom) [top]
+# btop (https://github.com/aristocratos/btop) [top]
+# gdu (https://github.com/dundee/gdu) [ncdu]
 # dog
 # ripgrep
 # git-delta
@@ -17,8 +21,6 @@
 # fzf
 
 # Export environment variables.
-export MANPAGER="sh -c 'col -bx | bat -l man -p --theme Dracula'"
-#export FZF_DEFAULT_OPTS='--color=bg+:#302D41,bg:#1E1E2E,spinner:#F8BD96,hl:#F28FAD --color=fg:#D9E0EE,header:#F28FAD,info:#DDB6F2,pointer:#F8BD96 --color=marker:#F8BD96,fg+:#F2CDCD,prompt:#DDB6F2,hl+:#F28FAD'
 export MICRO_TRUECOLOR=1
 export EDITOR="code --wait"
 export GOBIN=$HOME/.bin
@@ -27,19 +29,21 @@ export GOBIN=$HOME/.bin
 path=(~/.local/bin ~/.bin $path)
 
 # Source additional local files
-#source $HOME/Themes/zsh-syntax-highlighting/catppuccin-zsh-syntax-highlighting.zsh
 
 # Define aliases.
+alias cat='bat'
+alias grep='batgrep --hidden'
+alias man='batman'
+alias watch='batwatch --command'
+alias diff='batdiff'
 alias ls='exa --icons'
-alias ll='exa --icons --long --all --group --git'
-alias cat='bat --theme Dracula'
-alias diff='delta'
-alias du='dust --reverse'
+alias ll='exa --icons --long --all --group --git --group-directories-first'
+alias du='dust --apparent-size'
 alias df='duf'
+alias ncdu='gdu --show-apparent-size --show-relative-size'
+
 alias find='fd --hidden'
-alias grep='rg --pretty --hidden'
 alias ps='procs'
-alias ncdu='gdu -a -B'
 alias dig='dog'
 
 # Zoxide
