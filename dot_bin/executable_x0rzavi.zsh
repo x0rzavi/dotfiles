@@ -19,9 +19,12 @@
 # zoxide (https://github.com/ajeetdsouza/zoxide) [cd]
 # plocate (https://plocate.sesse.net) [locate]
 # procs (https://github.com/dalance/procs) [ps]
+# gping (https://github.com/orf/gping) [ping]
 # fzf (https://github.com/junegunn/fzf)
 # entr (https://github.com/eradman/entr)
 # moreutils (https://joeyh.name/code/moreutils)
+# cheat (https://github.com/cheat/cheat)
+# tldr (https://github.com/tldr-pages/tldr)
 
 # Export environment variables.
 export MICRO_TRUECOLOR=1
@@ -48,16 +51,17 @@ alias find='fd --hidden --no-ignore --follow'
 alias sed='sd'
 alias ps='procs'
 alias dig='doggo'
+alias ping='gping'
 
 # Zoxide
 eval "$(zoxide init --cmd cd zsh)"
 
-# Rootless Docker
-#export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
-
 # Set shell options: http://zsh.sourceforge.net/Doc/Release/Options.html.
 setopt hist_ignore_all_dups	# prevent history from recording duplicated entries
 setopt hist_ignore_space	# prevent particular entries from being recorded into a history by preceding them with at least one space
+
+# Rootless Docker
+#export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
 
 # heroku autocomplete setup
 HEROKU_AC_ZSH_SETUP_PATH=/home/x0rzavi/.cache/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
