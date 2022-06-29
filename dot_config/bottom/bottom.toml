@@ -1,0 +1,9 @@
+[flags]
+# The update rate of the application.
+rate = 700
+# Whether to put the CPU legend to the left.
+left_legend = true
+# Show the battery widgets
+battery = true
+# Show memory values in the processes widget as values by default
+mem_as_value = true
