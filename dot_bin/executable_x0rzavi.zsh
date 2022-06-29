@@ -4,21 +4,24 @@
 #
 # bat (https://github.com/sharkdp/bat) [cat]
 # bat-extras (https://github.com/eth-p/bat-extras) [grep/man/less/watch/diff]
-# entr
 # exa (https://github.com/ogham/exa) [ls]
 # dust (https://github.com/bootandy/dust) [du]
 # duf (https://github.com/muesli/duf) [df]
 # bottom (https://github.com/ClementTsang/bottom) [top]
 # btop (https://github.com/aristocratos/btop) [top]
 # gdu (https://github.com/dundee/gdu) [ncdu]
-# dog
-# ripgrep
-# git-delta
-# sd
-# fd
-# zoxide
-# procs
-# fzf
+# doggo (https://github.com/mr-karan/doggo) [dig]
+# ripgrep (https://github.com/BurntSushi/ripgrep) [grep]
+# ripgrep-all (https://github.com/phiresky/ripgrep-all) [grep]
+# delta (https://github.com/dandavison/delta) [diff]
+# sd (https://github.com/chmln/sd) [sed]
+# fd (https://github.com/sharkdp/fd) [find]
+# zoxide (https://github.com/ajeetdsouza/zoxide) [cd]
+# plocate (https://plocate.sesse.net) [locate]
+# procs (https://github.com/dalance/procs) [ps]
+# fzf (https://github.com/junegunn/fzf)
+# entr (https://github.com/eradman/entr)
+# moreutils (https://joeyh.name/code/moreutils)
 
 # Export environment variables.
 export MICRO_TRUECOLOR=1
@@ -41,10 +44,10 @@ alias ll='exa --icons --long --all --group --git --group-directories-first'
 alias du='dust --apparent-size'
 alias df='duf'
 alias ncdu='gdu --show-apparent-size --show-relative-size'
-
-alias find='fd --hidden'
+alias find='fd --hidden --no-ignore --follow'
+alias sed='sd'
 alias ps='procs'
-alias dig='dog'
+alias dig='doggo'
 
 # Zoxide
 eval "$(zoxide init --cmd cd zsh)"
