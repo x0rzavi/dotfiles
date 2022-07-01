@@ -2,6 +2,10 @@ window:
   dimensions:
     columns: 90
     lines: 30
+  padding:
+    x: 10
+    y: 10
+  decorations: none
 
 scrolling:
   history: 20000
