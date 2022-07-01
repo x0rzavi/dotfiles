@@ -1,0 +1,12 @@
+window:
+  dimensions:
+    columns: 90
+    lines: 30
+
+scrolling:
+  history: 20000
+
+cursor:
+  style:
+    shape: Beam
+  thickness: 0.25
