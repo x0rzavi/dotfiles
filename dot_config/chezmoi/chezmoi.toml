@@ -5,3 +5,7 @@
 [edit]
     command = "code"
     args = ["--wait"]
+
+encryption = "gpg"
+[gpg]
+    recipient = "x0rzavi@gmail.com"
