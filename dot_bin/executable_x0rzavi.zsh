@@ -28,7 +28,7 @@
 
 # Export environment variables.
 export MICRO_TRUECOLOR=1
-export EDITOR="code --wait"
+export EDITOR="code-insiders --wait"
 export GOBIN=$HOME/.bin
 
 # Extend PATH.
