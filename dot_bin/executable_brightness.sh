@@ -10,12 +10,12 @@ get_brightness () {
 }
 
 inc_brightness () {
-	xbacklight +4
+	xbacklight +3
 	get_brightness
 }
 
 dec_brightness () {
-	xbacklight -4
+	xbacklight -3
 	get_brightness
 }
 
@@ -25,8 +25,8 @@ Usage: brightness.sh [options]
 
 AVAILABLE OPTIONS:
   --get         get current brightness
-  --inc         increase current brightness by +4
-  --dec         decrease current brightness by -4
+  --inc         increase current brightness by +3
+  --dec         decrease current brightness by -3
 EOF
 }
 
