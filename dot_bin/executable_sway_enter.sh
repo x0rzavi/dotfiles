@@ -6,8 +6,11 @@
 # Derived: https://blog.realogs.in/getting-secrets-to-work-with-sway/
 # Derived: https://github.com/uditkarode/dots/blob/master/scripts/swaylaunch
 
-# Keyring daemon for secrets
-eval $(gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh | sed 's/^\(.*\)/export \1/g')
+# xdg-desktop-portal-wlr quirks
+export XDG_CURRENT_DESKTOP=sway
 
-# Launch sway
+# Keyring daemon for secrets
+eval $(gnome-keyring-daemon --start | sed 's/^\(.*\)/export \1/g')
+
+# Launch sway 
 sway

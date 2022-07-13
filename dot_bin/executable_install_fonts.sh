@@ -16,7 +16,9 @@ mkdir -p $directory/tmpdir
 cd $directory/tmpdir
 
 apple_fonts () {
-	aria2c -x16 "https://github.com/x0rzavi/apple-fonts-nerd-patched/releases/download/v1/AppleFontsNerdPatched.7z"
+	curl -s https://api.github.com/repos/x0rzavi/apple-fonts-nerd-patched/releases/latest \
+	| grep "browser_download_url.*.7z" | cut -d : -f 2,3 \
+	| xargs aria2c -x16
 	7z x "AppleFontsNerdPatched.7z" -o$directory/tmpdir
 	rm -rf AppleFontsNerdPatched.7z
 }
