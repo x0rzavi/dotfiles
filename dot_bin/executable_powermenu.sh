@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Author: https://github.com/x0rzavi
-# Description: Powermenu implemented with bmenu
+# Description: Powermenu implemented with bemenu
 # Dependencies: bemenu, libnotify, elogind
 # Theme: Catppuccin
 
@@ -17,7 +17,7 @@ selected=$(echo -e $options \
 	--prefix '' \
 	--prompt 'POWERMENU  ' \
 	--list 6 \
-	--fn 'JetBrainsMono Nerd Font Bold 11.5' \
+	--fn 'Iosevka Nerd Font Bold 12' \
 	--tb $black \
 	--tf $sky \
 	--fb $black \

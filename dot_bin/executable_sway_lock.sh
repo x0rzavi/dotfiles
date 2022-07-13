@@ -30,7 +30,7 @@ swaylock \
 	--image $(find $wallpapers_path -type f | shuf -n 1) \
 	--scaling fill \
 	--effect-vignette 0.1:0.8 \
-	--font "JetBrainsMono Nerd Font" \
+	--font "Iosevka Nerd Font" \
 	--font-size 30 \
 	--indicator-radius 150 \
 	--indicator-thickness 15 \

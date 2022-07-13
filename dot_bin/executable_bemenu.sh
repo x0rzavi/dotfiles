@@ -16,7 +16,7 @@ bemenu-run \
 	--prefix '' \
 	--prompt 'RUN  ' \
 	--list 5 \
-	--fn 'JetBrainsMono Nerd Font Bold 11.5' \
+	--fn 'Iosevka Nerd Font Bold 12' \
 	--tb $black \
 	--tf $sky \
 	--fb $black \

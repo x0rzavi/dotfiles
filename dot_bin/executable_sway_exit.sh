@@ -21,5 +21,5 @@ swaynag \
 	--button-border-size 0 \
 	--button-padding 6 \
 	-t warning \
-	-f 'JetBrainsMono Nerd Font Bold 11.5' \
+	-f 'Iosevka Nerd Font Bold 12' \
 	-m 'Do you really want to EXIT sway?' -B 'YES' 'swaymsg exit' -s 'NO'
