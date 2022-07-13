@@ -1,6 +1,6 @@
 * {
-	font-family: JetBrainsMono Nerd Font;
-	font-size: 15px;
+	font-family: Iosevka Nerd Font;
+	font-size: 17px;
 	font-weight: bold;
 	border-radius: 0px;
 	transition-property: background-color;
@@ -43,8 +43,8 @@ window > box {
 #workspaces button {
 	padding-top: 6px;
 	padding-bottom: 6px;
-	padding-left: 2px;
-	padding-right: 2px;
+	padding-left: 6px;
+	padding-right: 6px;
 }
 
 #workspaces button.focused {
