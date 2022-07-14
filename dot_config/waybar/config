@@ -58,8 +58,8 @@
 	},
     "backlight": {
             "format": " {percent}%",
-            "on-scroll-up": "brightness.sh --dec",
-            "on-scroll-down": "brightness.sh --inc",
+            "on-scroll-up": "brightness.sh --inc",
+            "on-scroll-down": "brightness.sh --dec",
             "smooth-scrolling-threshold": 5,
     },
     "pulseaudio": {
@@ -72,8 +72,8 @@
             "states": {
             	"warning": 85,
             },
-            "on-scroll-up": "volume.sh --dec",
-            "on-scroll-down": "volume.sh --inc",
+            "on-scroll-up": "volume.sh --inc",
+            "on-scroll-down": "volume.sh --dec",
             "smooth-scrolling-threshold": 5,
             "tooltip": false,
             "on-click": "volume.sh --toggle"
