@@ -13,7 +13,7 @@ peach=F8BD96
 yellow=FAE3B0
 green=ABE9B3
 red=F28FAD
-wallpapers_path=$HOME/Pictures/unsplash
+wallpapers_path=$HOME/Pictures/Wallpapers
 
 swaylock \
 	--ignore-empty-password \

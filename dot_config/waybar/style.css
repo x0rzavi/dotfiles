@@ -43,8 +43,8 @@ window > box {
 #workspaces button {
 	padding-top: 6px;
 	padding-bottom: 6px;
-	padding-left: 8px;
-	padding-right: 8px;
+	padding-left: 6px;
+	padding-right: 6px;
 }
 
 #workspaces button.focused {

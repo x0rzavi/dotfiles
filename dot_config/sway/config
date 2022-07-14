@@ -5,6 +5,7 @@ set $term footclient
 set $menu bemenu.sh | xargs swaymsg exec --
 set $launcher bemenu_launcher.sh | xargs swaymsg exec --
 set $browser firefox-bin
+set $alt_browser google-chrome-unstable --enable-features=WebUIDarkMode --force-dark-mode
 #set $file_manager pcmanfm
 set $wallpapers_path $HOME/Pictures/Wallpapers
 
@@ -27,12 +28,13 @@ seat seat0 xcursor_theme Fluent-dark-cursors
 seat seat0 hide_cursor when-typing enable
 set $gnome-schema org.gnome.desktop.interface
 exec_always {
-#    gsettings set $gnome-schema gtk-theme 'Catppuccin-dark'
-#    gsettings set $gnome-schema icon-theme 'Fluent-dark'
-    gsettings set $gnome-schema cursor-theme 'Fluent-dark-cursors'
-    gsettings set $gnome-schema font-name 'SF Pro Text 11.5'
-    gsettings set $gnome-schema document-font-name 'SF Pro Text 11.5'
-    gsettings set $gnome-schema monospace-font-name 'SF Mono 11.5'
+    gsettings set $gnome-schema gtk-theme Colloid
+    gsettings set $gnome-schema color-scheme prefer-dark
+#    gsettings set $gnome-schema icon-theme Fluent-dark
+    gsettings set $gnome-schema cursor-theme Fluent-dark-cursors
+    gsettings set $gnome-schema font-name SF Pro Text 11.5
+    gsettings set $gnome-schema document-font-name SF Pro Text 11.5
+    gsettings set $gnome-schema monospace-font-name SF Mono 11.5
 }
 
 # Misc optioms
@@ -64,6 +66,7 @@ input type:touchpad {
 	tap enabled
 	natural_scroll enabled
 	middle_emulation enabled
+	pointer_accel 0.3
 }
 
 # Essential keybindings
@@ -78,6 +81,7 @@ bindsym XF86MonBrightnessDown exec brightness.sh --dec
 
 # Keybindings
 bindsym $mod+b exec $browser
+bindsym $mod+Shift+b exec $alt_browser
 bindsym $mod+Shift+f exec $file_manager
 bindsym $mod+Return exec $term
 bindsym $mod+c kill
