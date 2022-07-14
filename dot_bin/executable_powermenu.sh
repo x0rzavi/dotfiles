@@ -11,7 +11,7 @@ sky="#89DCEB"
 mauve="#DDB6F2" 
 peach="#F8BD96"
 green="#ABE9B3"
-options="ﰸ Cancel\n Suspend\n Lock\n Logout\n勒 Reboot\n襤 Shutdown"
+options=" Cancel\n Suspend\n Lock\n Logout\n勒 Reboot\n襤 Shutdown"
 selected=$(echo -e $options \
 	| bemenu \
 	--prefix '' \
