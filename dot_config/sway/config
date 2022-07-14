@@ -10,16 +10,16 @@ set $alt_browser google-chrome-unstable --enable-features=WebUIDarkMode --force-
 set $wallpapers_path $HOME/Pictures/Wallpapers
 
 # Theme: Catppuccin
-set $green #ABE9B3
-set $black #1E1E2E
+set $teal #94E2D5
+set $black #11111B
 set $red #F28FAD
 set $peach #F8BD96
 set $transparent #00000000
 
 # Colors
 # Class					border	background	text	indicator	child_border
-client.focused 			$green 	$green 		$black 	$red 		$green
-client.focused_inactive $green 	$black 		$green 	$red 		$green
+client.focused 			$teal 	$teal 		$black 	$red 		$teal
+client.focused_inactive $peach 	$teal 		$black 	$red 		$teal
 client.unfocused 		$peach 	$peach 		$black 	$red 		$peach
 client.urgent 			$red 	$red 		$black 	$red 		$red
 
