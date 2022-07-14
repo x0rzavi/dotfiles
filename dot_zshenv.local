@@ -8,7 +8,11 @@
 #export MOZ_ENABLE_WAYLAND=1
 
 ## https://wiki.archlinux.org/title/wayland#Qt
-QT_QPA_PLATFORM=wayland
+export QT_QPA_PLATFORM=wayland
 
 ## https://wiki.archlinux.org/title/wayland#SDL2
-SDL_VIDEODRIVER=wayland
+export SDL_VIDEODRIVER=wayland
+
+## https://reddit.x0rzavi.cf/tnj493
+## Hack to set GTK4 theme
+export GTK_THEME=Colloid:dark
