@@ -19,7 +19,7 @@ set $transparent #00000000
 # Colors
 # Class					border	background	text	indicator	child_border
 client.focused 			$teal 	$teal 		$black 	$red 		$teal
-client.focused_inactive $peach 	$teal 		$black 	$red 		$teal
+client.focused_inactive $peach 	$peach 		$black 	$red 		$teal
 client.unfocused 		$peach 	$peach 		$black 	$red 		$peach
 client.urgent 			$red 	$red 		$black 	$red 		$red
 
