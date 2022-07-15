@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 # Author: https://github.com/x0rzavi
-# Description: Clipmenu invoker with bemenu
-# Dependencies: bemenu, clipmenu
+# Description: Cliphist invoker with bemenu
+# Dependencies: bemenu, cliphist
 # Theme: Catppuccin
 
 # Variables
@@ -12,13 +12,12 @@ mauve="#CBA6F7"
 peach="#FAB387"
 green="#A6E3A1"
 
-clipman pick \
-	--tool bemenu \
-	-T "
+cliphist list | \
+	bemenu \
 	--prefix '' \
 	--prompt 'COPY  ' \
 	--list 5 \
-	--fn 'JetBrainsMono Nerd Font Bold 11.5' \
+	--fn 'Iosevka Nerd Font Bold 12' \
 	--tb $black \
 	--tf $sky \
 	--fb $black \
@@ -26,4 +25,6 @@ clipman pick \
 	--nb $black \
 	--nf $peach \
 	--hb $black \
-	--hf $green"
+	--hf $green | \
+	cliphist decode | \
+	wl-copy

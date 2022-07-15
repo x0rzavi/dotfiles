@@ -10,7 +10,7 @@
 export XDG_CURRENT_DESKTOP=sway
 
 # Complete gnome-keyring-daemon initialization for secrets
-eval $(gnome-keyring-daemon --start | sed 's/^\(.*\)/export \1/g')
+#eval $(gnome-keyring-daemon --start | /bin/sed 's/^\(.*\)/export \1/g')
 
 # Launch sway
-sway
+dbus-run-session -- sway
