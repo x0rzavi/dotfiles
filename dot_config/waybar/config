@@ -112,8 +112,8 @@
     },
     "network": {
     	"interval": 1,
-        "format-wifi": "說 {essid}  {bandwidthUpBytes}  {bandwidthDownBytes}",
-        "format-ethernet": "  {ifname}  {bandwidthUpBytes}  {bandwidthDownBytes}",
+        "format-wifi": "說 {essid}",
+        "format-ethernet": "  {ifname}",
         "format-linked": "說 {essid} (No IP)",
         "format-disconnected": "ﲁ Disconnected",
         //"format-alt": "說 {ifname} ({ipaddr})",
