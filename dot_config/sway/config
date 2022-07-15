@@ -48,7 +48,7 @@ default_border pixel 2
 default_floating_border pixel 2
 titlebar_border_thickness 2
 title_align center
-gaps inner 15
+gaps inner 10
 font pango:Iosevka Nerd Font Medium 12
 
 # Output
