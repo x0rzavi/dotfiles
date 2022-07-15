@@ -67,7 +67,7 @@
             "format": "{icon} {volume}%", 
             "format-muted": "婢 Muted",
             "format-icons": {
-                "default": ["奄", "", "墳"]
+                "default": ["奄", "", ""]
             },
             "states": {
             	"warning": 80,

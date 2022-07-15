@@ -8,7 +8,7 @@ get_icon () {
 	if [[ "$volume" -eq "0" ]]; then
 		icon='婢'
 	elif [[ ("$volume" -ge "0") && ("$volume" -le "30") ]]; then
-		icon=''
+		icon='奄'
 	elif [[ ("$volume" -ge "30") && ("$volume" -le "60") ]]; then
 		icon=''
 	elif [[ ("$volume" -ge "60") && ("$volume" -le "100") ]]; then
@@ -28,13 +28,13 @@ get_volume () {
 		get_icon
 		echo "$icon" "$volume%"
 	else
-		echo "婢Muted"
+		echo "婢 Muted"
 	fi
 }
 
 inc_volume () {
 	pactl set-sink-mute @DEFAULT_SINK@ 0 && pactl set-sink-volume @DEFAULT_SINK@ +2%
-	get_volume
+	notify-send $(get_volume)
 }
 
 dec_volume () {
@@ -49,7 +49,7 @@ toggle_volume () {
 
 mute_volume () {
 	pactl set-sink-mute @DEFAULT_SINK@ 1
-	echo "婢Muted"
+	echo "婢 Muted"
 }
 
 show_help () {
