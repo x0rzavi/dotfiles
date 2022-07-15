@@ -13,9 +13,9 @@
     ],
     "modules-right": [
     	"idle_inhibitor",
+        "network",
         "backlight",
         "pulseaudio",
-        "network",
         "battery",
         "custom/off"
     ],
