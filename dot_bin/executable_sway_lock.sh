@@ -7,12 +7,12 @@
 
 # Variables
 transparent=00000000
-lavender=C9CBFF
-black=161320
-peach=F8BD96
-yellow=FAE3B0
-green=ABE9B3
-red=F28FAD
+lavender=B4BEFE
+black=1E1E2E
+peach=FAB387
+yellow=F9E2AF
+green=A6E3A1
+red=F38BA8
 wallpapers_path=$HOME/Pictures/Wallpapers
 
 swaylock \
@@ -20,19 +20,19 @@ swaylock \
 	--show-failed-attempts \
 	--fade-in 0.25 \
 	--daemonize \
-	--grace 15 \
-	--grace-no-mouse \
-	--grace-no-touch \
+	--indicator \
 	--clock \
 	--timestr "%I:%M %p" \
 	--datestr "%b %d, %G" \
 	--screenshots \
+	--indicator-caps-lock \
 	--image $(find $wallpapers_path -type f | shuf -n 1) \
 	--scaling fill \
+	--effect-blur 2x2 \
 	--effect-vignette 0.1:0.8 \
 	--font "Iosevka Nerd Font" \
-	--font-size 30 \
-	--indicator-radius 150 \
+	--font-size 45 \
+	--indicator-radius 170 \
 	--indicator-thickness 15 \
 	--bs-hl-color $lavender \
 	--key-hl-color $lavender \

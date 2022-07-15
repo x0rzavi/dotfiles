@@ -8,9 +8,9 @@
 # Variables
 black="#1E1E2E" 
 sky="#89DCEB"
-mauve="#DDB6F2" 
-peach="#F8BD96"
-green="#ABE9B3"
+mauve="#CBA6F7" 
+peach="#FAB387"
+green="#A6E3A1"
 
 clipman pick \
 	--tool bemenu \
