@@ -28,7 +28,7 @@ get_volume () {
 		get_icon
 		echo "$icon" "$volume%"
 	else
-		echo "婢 Muted"
+		echo "婢Muted"
 	fi
 }
 
@@ -49,7 +49,7 @@ toggle_volume () {
 
 mute_volume () {
 	pactl set-sink-mute @DEFAULT_SINK@ 1
-	echo "婢 Muted"
+	echo "婢Muted"
 }
 
 show_help () {
