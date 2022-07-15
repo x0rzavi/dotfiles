@@ -6,13 +6,13 @@
 		"memory",
 		"cpu",
 		"cpu#2",
+        "temperature",
     ],
     "modules-center": [
         "clock",
     ],
     "modules-right": [
     	"idle_inhibitor",
-    	"temperature",
         "backlight",
         "pulseaudio",
         "network",

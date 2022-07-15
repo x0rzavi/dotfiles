@@ -40,7 +40,7 @@ window > box {
 	background-color: rgb(17, 17, 27); */
 }
 
-#custom-launcher, #mode, #clock, #memory, #cpu, #idle_inhibitor, #temperature, #backlight, #pulseaudio, #network, #battery, #custom-off {
+#custom-launcher, #mode, #clock, #memory, #cpu, #temperature, #idle_inhibitor, #backlight, #pulseaudio, #network, #battery, #custom-off {
 	padding-left: 13px;
 	padding-right: 13px;
 	margin-left: 3px;
@@ -109,18 +109,23 @@ tooltip label {
 
 #memory {
 	margin-left: 8px;
+	margin-right: 2px;
 	background-color: rgb(180, 190, 254); /* Lavender Mocha */
 }
 
 #cpu {
-	margin-right: 0px;
 	background-color: rgb(249, 226, 175); /* Yellow Mocha */
 }
 
 #cpu.2 {
+	margin-left: 2px;
+	margin-right: 3px;
 	background-color: rgb(242, 205, 205); /* Flamingo Mocha */
-	margin-left: 6px;
+}
+
+#temperature {
 	margin-right: 5px;
+	background-color: rgb(137, 180, 250); /* Blue Mocha */
 }
 
 #clock {
@@ -135,10 +140,6 @@ tooltip label {
 	padding-left: 2px;
 	padding-right: 15px;
 	background-color: rgb(245, 194, 231); /* Pink Mocha */
-}
-
-#temperature {
-	background-color: rgb(137, 180, 250); /* Blue Mocha */
 }
 
 #backlight {

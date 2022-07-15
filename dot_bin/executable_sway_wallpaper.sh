@@ -2,10 +2,10 @@
 
 # Author: https://github.com/x0rzavi
 # Description: Set random wallpaper from unsplash.com fetched through unsplash.it
-# Dependencies: sway, aria2c
+# Dependencies: sway
 
 # Variables
-wallpapers_path=$HOME/Pictures/unsplash
+wallpapers_path=$HOME/Pictures/Wallpapers
 
 wallpaper_set () {
 	cd $wallpapers_path

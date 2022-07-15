@@ -19,7 +19,13 @@ swaynag \
 	--border-bottom $transparent \
 	--border-bottom-size 0 \
 	--button-border-size 0 \
-	--button-padding 6 \
-	-t warning \
-	-f 'Iosevka Nerd Font Bold 12' \
-	-m 'Do you really want to EXIT sway?' -B 'YES' 'swaymsg exit' -s 'NO'
+	--button-padding 8 \
+	--message-padding 8 \
+	--button-gap 10 \
+	--button-margin-right 10 \
+	--layer top \
+	--type warning \
+	--font 'Iosevka Nerd Font Bold 12' \
+	--message 'Do you really want to EXIT sway?' \
+	--button-no-terminal 'YES' 'swaymsg exit' \
+	--dismiss 'NO'
