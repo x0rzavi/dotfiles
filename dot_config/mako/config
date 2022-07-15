@@ -1,15 +1,19 @@
-max-history=7
+max-history=10
+max-visible=5
 on-button-left=dismiss
 on-button-right=invoke-default-action
 
-font=JetBrainsMono Nerd Font 11.5
-background-color=#B5E8E0
-text-color=#161320
-width=450
-height=300
-margin=15
-padding=15
-border-size=0
+font=Iosevka Nerd Font Medium 11.5
+background-color=#1E1D2F
+text-color=#D9E0EE
+border-color=#96CDFB
+progress-color=over #302D41
+
+width=300
+height=150
+margin=10
+padding=10
+border-radius=5
 default-timeout=10000
 
 [urgency=low]
@@ -20,3 +24,4 @@ default-timeout=10000
 
 [urgency=high]
 default-timeout=0
+border-color=#F8BD96

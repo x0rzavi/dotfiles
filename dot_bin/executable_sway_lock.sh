@@ -20,6 +20,9 @@ swaylock \
 	--show-failed-attempts \
 	--fade-in 0.25 \
 	--daemonize \
+	--grace 15 \
+	--grace-no-mouse \
+	--grace-no-touch \
 	--indicator \
 	--clock \
 	--timestr "%I:%M %p" \
@@ -28,7 +31,6 @@ swaylock \
 	--indicator-caps-lock \
 	--image $(find $wallpapers_path -type f | shuf -n 1) \
 	--scaling fill \
-	--effect-blur 2x2 \
 	--effect-vignette 0.1:0.8 \
 	--font "Iosevka Nerd Font" \
 	--font-size 45 \

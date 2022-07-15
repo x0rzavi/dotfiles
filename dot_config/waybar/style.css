@@ -162,9 +162,10 @@ tooltip label {
 }
 
 #custom-off {
+	margin-left: 10px;
 	margin-right: 5px;
 	background-color: rgb(243, 139, 168); /* Red Mocha */
-	font-size: 18px;
-	padding-left: 10px;
-	padding-right: 17px;
+	font-size: 16px;
+	padding-left: 15px;
+	padding-right: 21px;
 }
