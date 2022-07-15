@@ -7,7 +7,7 @@
 
 # Variables
 transparent=00000000
-lavender=B4BEFE
+teal=94E2D5
 black=1E1E2E
 peach=FAB387
 yellow=F9E2AF
@@ -36,10 +36,10 @@ swaylock \
 	--font-size 45 \
 	--indicator-radius 170 \
 	--indicator-thickness 15 \
-	--bs-hl-color $lavender \
-	--key-hl-color $lavender \
-	--caps-lock-bs-hl-color $lavender \
-	--caps-lock-key-hl-color $lavender \
+	--bs-hl-color $teal \
+	--key-hl-color $teal \
+	--caps-lock-bs-hl-color $teal \
+	--caps-lock-key-hl-color $teal \
 	--inside-color $black \
 	--inside-clear-color $black \
 	--inside-caps-lock-color $black \
@@ -56,8 +56,8 @@ swaylock \
 	--ring-ver-color $green \
 	--ring-wrong-color $red \
 	--separator-color $transparent \
-	--text-color $lavender \
-	--text-clear-color $lavender \
-	--text-ver-color $lavender \
-	--text-wrong-color $lavender \
-	--text-caps-lock-color $lavender 
+	--text-color $teal \
+	--text-clear-color $teal \
+	--text-ver-color $teal \
+	--text-wrong-color $teal \
+	--text-caps-lock-color $teal 

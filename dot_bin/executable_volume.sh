@@ -34,7 +34,7 @@ get_volume () {
 
 inc_volume () {
 	pactl set-sink-mute @DEFAULT_SINK@ 0 && pactl set-sink-volume @DEFAULT_SINK@ +2%
-	notify-send $(get_volume)
+	get_volume
 }
 
 dec_volume () {

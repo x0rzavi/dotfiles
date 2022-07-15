@@ -111,9 +111,9 @@ bindsym $alt+v exec clipboard.sh
 bindsym $mod+Shift+w exec sway_wallpaper.sh
 
 bindsym Print exec grimshot --notify copy output
-bindsym $mod+Print exec grimshot --notify save output
+bindsym $mod+Print exec grimshot --notify save output ~/Pictures/Screenshots/$(date +%F+%H:%M:%S).png
 bindsym Shift+Print exec grimshot --notify copy area
-bindsym $mod+Shift+Print exec grimshot --notify save area
+bindsym $mod+Shift+Print exec grimshot --notify save area ~/Pictures/Screenshots/$(date +%F+%H:%M:%S).png
 
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down

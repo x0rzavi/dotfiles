@@ -34,10 +34,10 @@ window > box {
 	margin-left: 10px;
 	margin-right: 10px;
 	margin-top: 10px;
-	margin-bottom: 5px;
-	/* padding: 5px;
-	border-radius: 15px;
-	background-color: rgb(17, 17, 27); */
+	/* margin-bottom: 5px; */
+	/* padding: 5px; 
+	border-radius: 15px; 
+	background-color: rgb(17, 17, 27); */ 
 }
 
 #custom-launcher, #mode, #clock, #memory, #cpu, #temperature, #idle_inhibitor, #backlight, #pulseaudio, #network, #battery, #custom-off {
