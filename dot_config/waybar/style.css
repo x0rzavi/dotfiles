@@ -1,16 +1,16 @@
 * {
 	font-family: Iosevka Nerd Font;
-	font-size: 17px;
-	font-weight: bold;
-	border-radius: 0px;
+	font-size: 15px;
+	font-weight: bold; 
+	border-radius: 20px;
 	transition-property: background-color;
-	transition-duration: 0.5s;
+	transition-duration: 1s;
 }
 
 @keyframes blink_red {
     to {
-        background-color: rgb(242, 143, 173);
-        color: rgb(26, 24, 38);
+        background-color: rgb(243, 139, 168); /* Red Mocha */
+        color: rgb(30, 30, 46); /* Base Mocha */
     }
 }
 
@@ -31,107 +31,140 @@ window#waybar.hidden {
 }
 
 window > box {
-	margin-left: 15px;
-	margin-right: 15px;
-	margin-top: 15px;
-	background-color: rgb(30, 30, 46);
-	/* border-style: solid; */
-	/* border-width: 2px; */
-	/* border-color: rgb(171, 233, 179); */
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-top: 10px;
+	margin-bottom: 5px;
+	/* padding: 5px;
+	border-radius: 15px;
+	background-color: rgb(17, 17, 27); */
 }
 
-#workspaces button {
-	padding-top: 6px;
-	padding-bottom: 6px;
-	padding-left: 6px;
-	padding-right: 6px;
+#custom-launcher, #mode, #clock, #memory, #cpu, #idle_inhibitor, #temperature, #backlight, #pulseaudio, #network, #battery, #custom-off {
+	padding-left: 13px;
+	padding-right: 13px;
+	margin-left: 3px;
+	margin-right: 3px;
+	color: rgb(39, 30, 46); /* Base Mocha */
 }
 
-#workspaces button.focused {
-	background-color: rgb(181, 232, 224);
-	color: rgb(26, 24, 38);
-}
-
-#workspaces button.urgent {
-    /* background-color: rgb(242, 143, 173); */
-   	color: rgb(26, 24, 38);
-}
-
-#workspaces button:hover {
-    background-color: rgb(248, 189, 150);
-    color: rgb(26, 24, 38);
-}
-
-tooltip {
-  background: rgb(48, 45, 65);
-}
-
-tooltip label {
-  color: rgb(217, 224, 238);
+.modules-left, .modules-center, .modules-right {
+	background-color: rgb(30, 30, 46); /* Base Mocha */
+	border-radius: 8px;
+	padding: 6px;
+	border: 2px;
+	border-style: solid;
+	border-color: rgb(180, 190, 254); /* Lavender Mocha */
+	/* box-shadow: 3px 3px 3px 0 rgb(49, 50, 68); */ /* Surface0 Mocha */
 }
 
 #custom-launcher {
-    padding-left: 20px;
-    padding-right: 15px;
-    font-size: 18px;
-    color: rgb(201, 203, 255);
+    padding-left: 14px;
+    padding-right: 12px;
+	margin-left: 5px;
+	margin-right: 12px;
+    font-size: 16px;
+	font-weight: lighter;
+	border-radius: 20px;
+    background-color: rgb(203, 166, 247); /* Mauve Mocha */
 }
 
-#mode, #clock, #memory, #cpu, #idle_inhibitor, #temperature, #backlight, #pulseaudio, #network, #battery {
-	padding-left: 15px;
-	padding-right: 15px;
+#workspaces button {
+	padding-left: 2px;
+	padding-right: 2px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	/* margin-left: 5px; */
+	margin-right: 4px;
+	color: rgb(39, 30, 46); /* Base Mocha */
+	background-color: rgb(205, 214, 244); /* Text Mocha */
+}
+
+#workspaces button.focused {
+	background-color: rgb(137, 220, 235); /* Sky Mocha */
+}
+
+#workspaces button.urgent {
+    /* background-color: rgb(243, 139, 168); */ /* Red Mocha */
+}
+
+#workspaces button:hover {
+    background-color: rgb(137, 220, 235); /* Blue Mocha */
+}
+
+tooltip {
+  background: rgb(49, 50, 68); /* Surface0 Mocha */
+  border-radius: 10px;
+}
+
+tooltip label {
+  color: rgb(205, 214, 244); /* Text Mocha */
 }
 
 #mode {
 	margin-left: 10px;
-	background-color: rgb(248, 189, 150);
-    color: rgb(26, 24, 38);
+	margin-right: 6px;
+	background-color: rgb(250, 179, 135); /* Peach Mocha */
 }
 
 #memory {
-	padding-left: 25px;
-	color: rgb(181, 232, 224);
+	margin-left: 8px;
+	background-color: rgb(180, 190, 254); /* Lavender Mocha */
 }
 
 #cpu {
-	color: rgb(245, 194, 231);
+	margin-right: 0px;
+	background-color: rgb(249, 226, 175); /* Yellow Mocha */
+}
+
+#cpu.2 {
+	background-color: rgb(242, 205, 205); /* Flamingo Mocha */
+	margin-left: 6px;
+	margin-right: 5px;
 }
 
 #clock {
-	color: rgb(217, 224, 238);
+	font-size: 16px;
+	margin-left: 0px;
+	margin-right: 0px;
+	color: rgb(245, 224, 220); /* Rosewater Mocha */
 }
 
 #idle_inhibitor {
-	color: rgb(221, 182, 242);
+	margin-left: 5px;
+	padding-left: 2px;
+	padding-right: 15px;
+	background-color: rgb(245, 194, 231); /* Pink Mocha */
 }
 
 #temperature {
-	color: rgb(150, 205, 251);
+	background-color: rgb(137, 180, 250); /* Blue Mocha */
 }
 
 #backlight {
-	color: rgb(248, 189, 150);
+	background-color: rgb(250, 179, 135); /* Peach Mocha */
 }
 
 #pulseaudio {
-	color: rgb(245, 224, 220);
+	background-color: rgb(242, 205, 205); /* Flamingo Mocha */
 }
 
 #network {
-	color: rgb(181, 232, 224);
+	background-color: rgb(203, 166, 247); /* Mauve Mocha */
 }
 
 #battery.charging, #battery.full, #battery.discharging {
-	color: rgb(250, 227, 176);
+	background-color: rgb(249, 226, 175); /* Yellow Mocha */
 }
 
 #battery.critical:not(.charging) {
-	color: rgb(242, 143, 173);
+	background-color: rgb(243, 139, 168); /* Red Mocha */
 }
 
 #custom-off {
-	color: rgb(242, 143, 173);
+	margin-right: 5px;
+	background-color: rgb(243, 139, 168); /* Red Mocha */
 	font-size: 18px;
 	padding-left: 10px;
-	padding-right: 20px;
+	padding-right: 17px;
 }

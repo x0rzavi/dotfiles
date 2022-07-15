@@ -8,7 +8,7 @@
 		"cpu#2",
     ],
     "modules-center": [
-    	"clock"
+        "clock",
     ],
     "modules-right": [
     	"idle_inhibitor",
@@ -44,42 +44,42 @@
     "idle_inhibitor": {
         "format": "{icon}",
         "format-icons": {
-            "activated": " ",
-            "deactivated": " "
+            "activated": "﯎ ",
+            "deactivated": "﯏ "
         },
         "tooltip": false
     },
      "temperature": {
 		"hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
-		"critical-threshold": 85,
+		"critical-threshold": 79,
 		"interval": 1,
-		"format": " {temperatureC}°C",
+		"format": " {temperatureC}°C",
 		"tooltip": false,
 	},
     "backlight": {
-            "format": " {percent}%",
+            "format": "  {percent}%",
             "on-scroll-up": "brightness.sh --inc",
             "on-scroll-down": "brightness.sh --dec",
-            "smooth-scrolling-threshold": 5,
+            "smooth-scrolling-threshold": 5
     },
     "pulseaudio": {
-            "scroll-step": 1,
+            "scroll-step": 5,
             "format": "{icon} {volume}%", 
             "format-muted": "婢 Muted",
             "format-icons": {
-                "default": ["", "", ""]
+                "default": ["奄", "", "墳"]
             },
             "states": {
-            	"warning": 85,
+            	"warning": 80,
             },
-            "on-scroll-up": "volume.sh --inc",
-            "on-scroll-down": "volume.sh --dec",
+            //"on-scroll-up": "volume.sh --inc",
+            //"on-scroll-down": "volume.sh --dec",
             "smooth-scrolling-threshold": 5,
             "tooltip": false,
             "on-click": "volume.sh --toggle"
     },
     "battery": {
-            "interval": 10,
+            //"interval": 10,
             "states": {
                 	"warning": 20,
                 	"critical": 10
@@ -91,7 +91,6 @@
             "tooltip": false
     },
     "clock": {
-		"interval": 1,
 		"format": "{:%I:%M %p  %A %b %d}",
 		"tooltip": false
     },
@@ -113,15 +112,16 @@
     },
     "network": {
     	"interval": 1,
-        "format-wifi": "說 {essid}",
-        "format-ethernet": "  {ifname} ({ipaddr})",
+        "format-wifi": "說 {essid}  {bandwidthUpBytes}  {bandwidthDownBytes}",
+        "format-ethernet": "  {ifname}  {bandwidthUpBytes}  {bandwidthDownBytes}",
         "format-linked": "說 {essid} (No IP)",
-        "format-disconnected": "說 Disconnected",
-        // "format-alt": "說 {ifname} ({ipaddr})",
-        "tooltip": false
+        "format-disconnected": "ﲁ Disconnected",
+        //"format-alt": "說 {ifname} ({ipaddr})",
+        "tooltip": true,
+        "tooltip-format": "{ipaddr}/{cidr}"
     },
     "custom/off": {
-        "format": "",
+        "format": "⏻",
         "on-click": "powermenu.sh",
         "tooltip": false
     }
