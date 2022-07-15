@@ -9,6 +9,9 @@
 # xdg-desktop-portal-wlr quirks
 export XDG_CURRENT_DESKTOP=sway
 
+# dbus starts gnome-keyring service, so apply necessary envs
+export SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
+
 # Complete gnome-keyring-daemon initialization for secrets
 #eval $(gnome-keyring-daemon --start | /bin/sed 's/^\(.*\)/export \1/g')
 
