@@ -4,9 +4,9 @@ exec /usr/libexec/polkit-gnome-authentication-agent-1
 exec foot --server
 exec gentoo-pipewire-launcher
 exec swayidle -w \
-         timeout 300 'sway_lock.sh' \
-         timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-         timeout 900 'loginctl suspend' \
+         timeout 180 'sway_lock.sh' \
+         timeout 300 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+         timeout 600 'loginctl suspend' \
          before-sleep 'volume.sh --mute && \
          playerctl pause || echo 0 && \
          if ! [[ "pidof -x 'sway_lock.sh'" > /dev/null ]]; then sway_lock.sh ; fi' 

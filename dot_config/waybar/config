@@ -115,7 +115,7 @@
         "format-wifi": "說 {essid}",
         "format-ethernet": "  {ifname}",
         "format-linked": "說 {essid} (No IP)",
-        "format-disconnected": "ﲁ Disconnected",
+        "format-disconnected": "說 Disconnected",
         //"format-alt": "說 {ifname} ({ipaddr})",
         "tooltip": true,
         "tooltip-format": "{ipaddr}/{cidr}"
