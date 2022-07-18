@@ -8,7 +8,7 @@
 # PROCHOT: 80C
 
 performance () {
-    ryzenadj --stapm-limit=25000 --fast-limit=30000 --slow-limit=25000 --tctl-temp=77 \
+    ryzenadj --stapm-limit=25000 --fast-limit=30000 --slow-limit=25000 --tctl-temp=76 \
     		--vrm-current=45000 --vrmmax-current=55000 --max-performance --slow-time=75 \
     		--stapm-time=10
     #amdctl -p0 -v124
