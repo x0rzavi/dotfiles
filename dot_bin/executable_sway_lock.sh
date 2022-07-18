@@ -20,9 +20,6 @@ swaylock \
 	--show-failed-attempts \
 	--fade-in 0.25 \
 	--daemonize \
-	--grace 15 \
-	--grace-no-mouse \
-	--grace-no-touch \
 	--indicator \
 	--clock \
 	--timestr "%I:%M %p" \
