@@ -10,12 +10,12 @@ get_brightness () {
 }
 
 inc_brightness () {
-	xbacklight +3
+	xbacklight -fps 500 +5
 	get_brightness
 }
 
 dec_brightness () {
-	xbacklight -3
+	xbacklight -fps 500 -5
 	get_brightness
 }
 
@@ -38,7 +38,7 @@ elif [[ "$1" == "--inc" ]]; then
 elif [[ "$1" == "--dec" ]]; then
 	dec_brightness
 elif [[ "$1" == "--set" ]]; then
-	xbacklight "$2"
+	xbacklight -fps 500 -time 350 "$2"
 else
 	show_help
 fi
