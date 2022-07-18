@@ -28,4 +28,4 @@ ls /usr/share/applications/ \
 	--nf $peach \
 	--hb $black \
 	--hf $green \
-	| xargs gtk-launch
+	| xargs gtk4-launch
