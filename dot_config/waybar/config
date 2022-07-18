@@ -60,6 +60,8 @@
             "format": "  {percent}%",
             "on-scroll-up": "brightness.sh --inc",
             "on-scroll-down": "brightness.sh --dec",
+            "on-click": "brightness.sh --set 0",
+            "on-click-right": "brightness.sh --set 50",
             "smooth-scrolling-threshold": 5
     },
     "pulseaudio": {
@@ -72,8 +74,6 @@
             "states": {
             	"warning": 80,
             },
-            //"on-scroll-up": "volume.sh --inc",
-            //"on-scroll-down": "volume.sh --dec",
             "smooth-scrolling-threshold": 5,
             "tooltip": false,
             "on-click": "volume.sh --toggle"

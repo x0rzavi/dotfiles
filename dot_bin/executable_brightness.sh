@@ -25,6 +25,7 @@ Usage: brightness.sh [options]
 
 AVAILABLE OPTIONS:
   --get         get current brightness
+  --set 	set brightness to ?
   --inc         increase current brightness by +3
   --dec         decrease current brightness by -3
 EOF
@@ -36,6 +37,8 @@ elif [[ "$1" == "--inc" ]]; then
 	inc_brightness
 elif [[ "$1" == "--dec" ]]; then
 	dec_brightness
+elif [[ "$1" == "--set" ]]; then
+	xbacklight "$2"
 else
 	show_help
 fi
