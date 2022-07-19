@@ -10,8 +10,7 @@ exec swayidle -w \
          before-sleep 'volume.sh --mute && \
          playerctl pause || echo 0 && \
          if ! [[ "pidof -x 'sway_lock.sh'" > /dev/null ]]; then sway_lock.sh ; fi' 
-exec wlsunset -l 22.6 -L 88.4 
-#exec pcmanfm --daemon-mode
+exec wlsunset -l 22.6 -L 88.4 -t 4800
 exec xsettingsd
 exec wl-paste --watch cliphist store
 
@@ -23,7 +22,7 @@ set $menu bemenu.sh | xargs swaymsg exec --
 set $launcher bemenu_launcher.sh | xargs swaymsg exec --
 set $browser firefox-bin
 set $alt_browser google-chrome-unstable --enable-features=WebUIDarkMode --force-dark-mode
-#set $file_manager pcmanfm
+set $file_manager footclient nnn
 set $wallpapers_path $HOME/Pictures/Wallpapers
 
 # Theme: Catppuccin
@@ -175,6 +174,7 @@ bindsym $mod+r mode "resize"
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
 for_window [title="Firefox — Sharing Indicator"] floating enable
+for_window [title="Picture-in-Picture"] floating enable
 for_window [class="qemu-system-x86_64"] floating enable, inhibit-idle focus
 for_window [app_id="qemu|zenmonitor|mpv|imv|timeshift-gtk"] floating enable, inhibit-idle focus
 for_window [app_id="telegram-desktop"] floating enable
