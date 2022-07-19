@@ -1,0 +1,7 @@
+[Default Applications]
+image/png=imv.desktop;
+image/jpeg=imv.desktop;
+x-scheme-handler/tg=userapp-Telegram Desktop-NO2FP1.desktop
+
+[Added Associations]
+x-scheme-handler/tg=userapp-Telegram Desktop-NO2FP1.desktop;

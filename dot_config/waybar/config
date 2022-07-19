@@ -60,7 +60,7 @@
             "format": "  {percent}%",
             "on-scroll-up": "brightness.sh --inc",
             "on-scroll-down": "brightness.sh --dec",
-            "on-click": "brightness.sh --set 0",
+            "on-click": "brightness.sh --set 3",
             "on-click-right": "brightness.sh --set 50",
             "smooth-scrolling-threshold": 5
     },
