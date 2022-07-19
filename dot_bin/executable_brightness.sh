@@ -10,12 +10,12 @@ get_brightness () {
 }
 
 inc_brightness () {
-	xbacklight -fps 500 +5
+	xbacklight -fps 500 +3
 	get_brightness
 }
 
 dec_brightness () {
-	xbacklight -fps 500 -5
+	xbacklight -fps 500 -3
 	get_brightness
 }
 
