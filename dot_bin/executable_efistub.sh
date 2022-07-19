@@ -50,6 +50,8 @@ force_generate () {
 
 # Function to delele invalid EFI boot entries if kernel doesn't exist
 delete_invalid () {
+	# Delele *old* files too
+	rm -fr /boot/*old*
     # Get all gentoo boot entries into array
     boot_entry=($(efibootmgr | env grep "gentoo" | sed 's|* |*|'))
     for i in ${boot_entry[@]}; do
