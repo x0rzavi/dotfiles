@@ -177,6 +177,7 @@ for_window [window_role="task_dialog"] floating enable
 for_window [title="Firefox — Sharing Indicator"] floating enable
 for_window [class="qemu-system-x86_64"] floating enable, inhibit-idle focus
 for_window [app_id="qemu|zenmonitor|mpv|imv|timeshift-gtk"] floating enable, inhibit-idle focus
+for_window [app_id="telegram-desktop"] floating enable
 
 bar {
     swaybar_command waybar

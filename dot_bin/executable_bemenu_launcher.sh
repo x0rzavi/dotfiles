@@ -14,7 +14,7 @@ green="#A6E3A1"
 
 ls /usr/share/applications/ \
 	| grep desktop \
-	| sed 's/.desktop//' \
+	| sed 's/\.desktop//' \
 	| bemenu \
 	--prefix '' \
 	--prompt 'LAUNCH  ' \

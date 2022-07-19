@@ -11,7 +11,7 @@
 # bottom (https://github.com/ClementTsang/bottom) 				[top] [sys-process/bottom]
 # btop (https://github.com/aristocratos/btop) 					[top] [sys-process/btop]
 # gdu (https://github.com/dundee/gdu) 							[ncdu] [sys-fs/gdu]
-# doggo (https://github.com/mr-karan/doggo) 					[dig]
+# doggo (https://github.com/mr-karan/doggo) 					[dig] [net-dns/doggo]
 # ripgrep (https://github.com/BurntSushi/ripgrep) 				[grep] [sys-apps/ripgrep]
 # ripgrep-all (https://github.com/phiresky/ripgrep-all) 		[grep] [sys-apps/ripgrep-all]
 # git-delta (https://github.com/dandavison/delta) 				[diff] [dev-util/git-delta]
