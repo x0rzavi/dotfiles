@@ -8,24 +8,24 @@
 # Variables
 transparent=00000000
 black=1E1E2E
-flamingo=F2CDCD
+lavender=B4BEFE
 
 swaynag \
-	--text $flamingo \
+	--text $lavender \
 	--background $black \
 	--button-text $black \
-	--button-background $flamingo \
+	--button-background $lavender \
 	--border $transparent \
 	--border-bottom $transparent \
 	--border-bottom-size 0 \
 	--button-border-size 0 \
-	--button-padding 8 \
-	--message-padding 8 \
-	--button-gap 10 \
-	--button-margin-right 10 \
+	--button-padding 6 \
+	--message-padding 6 \
+	--button-gap 30 \
+	--button-margin-right 15 \
 	--layer top \
 	--type warning \
 	--font 'Iosevka Nerd Font Bold 12' \
-	--message 'Do you really want to EXIT sway?' \
-	--button-no-terminal 'YES' 'swaymsg exit' \
-	--dismiss 'NO'
+	--message ' Do you really want to exit sway?' \
+	--button-no-terminal ' Yes ' 'swaymsg exit' \
+	--dismiss ' No '
