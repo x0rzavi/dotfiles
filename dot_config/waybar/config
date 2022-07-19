@@ -112,13 +112,14 @@
     },
     "network": {
     	"interval": 1,
-        "format-wifi": "說 {essid}",
-        "format-ethernet": "  {ifname}",
+        "format-wifi": " {bandwidthUpBytes}  {bandwidthDownBytes}  說 {essid}",
+        "format-ethernet": " {bandwidthUpBytes}  {bandwidthDownBytes}    {ifname}",
         "format-linked": "說 {essid} (No IP)",
         "format-disconnected": "說 Disconnected",
         //"format-alt": "說 {ifname} ({ipaddr})",
         "tooltip": true,
-        "tooltip-format": "{ipaddr}/{cidr}"
+        "tooltip-format": "{ipaddr}/{cidr}",
+        "max-length": 28,
     },
     "custom/off": {
         "format": "⏻",
