@@ -1,3 +1,6 @@
+import:
+  - ~/Themes/alacritty/catppuccin.yml
+  
 window:
   dimensions:
     columns: 90

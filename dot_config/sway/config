@@ -25,6 +25,7 @@ set {
     $alt Mod1
     $mod Mod4
     $term footclient
+    $alt_term alacritty
     $menu bemenu.sh | xargs swaymsg exec --
     $launcher bemenu_launcher.sh | xargs swaymsg exec --
     $browser firefox-bin
@@ -124,6 +125,7 @@ bindsym {
     $mod+Shift+b exec $alt_browser
     $mod+Shift+f exec $file_manager
     $mod+Return exec $term
+    $mod+Shift+Return exec $alt_term
     $mod+c kill
     $mod+d exec $launcher
     $mod+Shift+d exec $menu
