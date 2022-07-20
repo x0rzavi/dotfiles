@@ -183,7 +183,7 @@ bindsym {
 }
 
 # Modes
-mode "resize" {
+mode "Resize" {
     bindsym {
         Left resize shrink width 20px
         Down resize grow height 20px
@@ -195,7 +195,7 @@ mode "resize" {
     }
 }
 
-mode "layout" {
+mode "Layout" {
     bindsym --to-code {
         d layout stacking     ; mode "default"
         t layout tabbed       ; mode "default"
@@ -209,8 +209,8 @@ mode "layout" {
 }
 
 bindsym {
-    $mod+r mode "resize"
-    $mod+l mode "layout"
+    $mod+r mode "Resize"
+    $mod+l mode "Layout"
 }
 
 # Window rules
