@@ -1,36 +1,46 @@
+# References:
+# https://github.com/Crandel/home/blob/master/.config/sway/config
+# https://www.reddit.com/r/swaywm/comments/q90v6l/sharing_some_for_window_rules/
+
 # Autostart
-exec dbus-update-activation-environment --all
-exec /usr/libexec/polkit-gnome-authentication-agent-1
-exec foot --server
-exec gentoo-pipewire-launcher
-exec swayidle -w \
-         timeout 180 'sway_lock.sh' \
-         timeout 300 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-         timeout 600 'loginctl suspend' \
-         before-sleep 'volume.sh --mute && \
-         playerctl pause || echo 0 && \
-         if ! [[ "pidof -x 'sway_lock.sh'" > /dev/null ]]; then sway_lock.sh ; fi' 
-exec wlsunset -l 22.6 -L 88.4 -t 4800
-exec xsettingsd
-exec wl-paste --watch cliphist store
+exec {
+    dbus-update-activation-environment --all
+    /usr/libexec/polkit-gnome-authentication-agent-1
+    foot --server
+    gentoo-pipewire-launcher
+    swayidle -w \
+        timeout 180 'sway_lock.sh' \
+        timeout 300 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+        timeout 600 'loginctl suspend' \
+        before-sleep 'volume.sh --mute && \
+        playerctl pause || echo 0 && \
+        if ! [[ "pidof -x 'sway_lock.sh'" > /dev/null ]]; then sway_lock.sh ; fi' 
+    wlsunset -l 22.6 -L 88.4 -t 4800
+    xsettingsd
+    wl-paste --watch cliphist store    
+}
 
 # Variables
-set $alt Mod1
-set $mod Mod4
-set $term footclient
-set $menu bemenu.sh | xargs swaymsg exec --
-set $launcher bemenu_launcher.sh | xargs swaymsg exec --
-set $browser firefox-bin
-set $alt_browser google-chrome-unstable --enable-features=WebUIDarkMode --force-dark-mode
-set $file_manager footclient nnn
-set $wallpapers_path $HOME/Pictures/Wallpapers
+set {
+    $alt Mod1
+    $mod Mod4
+    $term footclient
+    $menu bemenu.sh | xargs swaymsg exec --
+    $launcher bemenu_launcher.sh | xargs swaymsg exec --
+    $browser firefox-bin
+    $alt_browser google-chrome-unstable --enable-features=WebUIDarkMode --force-dark-mode
+    $file_manager footclient nnn
+    $wallpapers_path $HOME/Pictures/Wallpapers
+}
 
 # Theme: Catppuccin
-set $teal #94E2D5
-set $black #11111B
-set $red #F28FAD
-set $peach #F8BD96
-set $transparent #00000000
+set {
+    $teal #94E2D5
+    $black #11111B
+    $red #F28FAD
+    $peach #F8BD96
+    $transparent #00000000
+}
 
 # Colors
 # Class					border	background	text	indicator	child_border
@@ -40,17 +50,22 @@ client.unfocused 		$peach 	$peach 		$black 	$red 		$peach
 client.urgent 			$red 	$red 		$black 	$red 		$red
 
 # Theming
-seat seat0 xcursor_theme Fluent-dark-cursors
-seat seat0 hide_cursor when-typing enable
+seat seat0 {
+    xcursor_theme Fluent-dark-cursors
+    hide_cursor when-typing enable
+}
+
 set $gnome-schema org.gnome.desktop.interface
-exec_always {
-    gsettings set $gnome-schema gtk-theme 'Colloid'
-    gsettings set $gnome-schema color-scheme 'prefer-dark'
-#    gsettings set $gnome-schema icon-theme 'Fluent-dark'
-    gsettings set $gnome-schema cursor-theme 'Fluent-dark-cursors'
-    gsettings set $gnome-schema font-name 'SF Pro Text 11'
-    gsettings set $gnome-schema document-font-name 'New York Small 11'
-    gsettings set $gnome-schema monospace-font-name 'SF Mono 11'
+exec_always $gnome-schema {
+    gsettings set {
+        gtk-theme 'Colloid'
+        color-scheme 'prefer-dark'
+        #icon-theme 'Fluent-dark'
+        cursor-theme 'Fluent-dark-cursors'
+        font-name 'SF Pro Text 11'
+        document-font-name 'New York Small 11'
+        monospace-font-name 'SF Mono 11'
+    }
 }
 
 # Misc optioms
@@ -71,113 +86,153 @@ font pango:Iosevka Nerd Font Medium 12
 output eDP-1 {
 	subpixel rgb
 	adaptive_sync on
+    max_render_time 6
 	bg $(find $wallpapers_path -type f | shuf -n 1) fill
 }
 
 # Input
-input type:keyboard xkb_numlock enable
-input type:touchpad {
-	drag enabled
-	dwt enabled
-	tap enabled
-	natural_scroll enabled
-	middle_emulation enabled
-	pointer_accel 0.3
+input {
+    type:keyboard {
+        xkb_numlock enable
+    }
+    type:touchpad {
+	    drag enabled
+	    dwt enabled
+	    tap enabled
+	    natural_scroll enabled
+	    middle_emulation enabled
+	    pointer_accel 0.3
+    }
 }
 
 # Essential keybindings
-bindsym XF86AudioRaiseVolume exec volume.sh --inc
-bindsym XF86AudioLowerVolume exec volume.sh --dec
-bindsym XF86AudioMute exec volume.sh --toggle
-bindsym XF86AudioPlay exec playerctl play-pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
-bindsym XF86MonBrightnessUp exec brightness.sh --inc
-bindsym XF86MonBrightnessDown exec brightness.sh --dec
+bindsym {
+    XF86AudioRaiseVolume exec volume.sh --inc
+    XF86AudioLowerVolume exec volume.sh --dec
+    XF86AudioMute exec volume.sh --toggle
+    XF86AudioPlay exec playerctl play-pause
+    XF86AudioNext exec playerctl next
+    XF86AudioPrev exec playerctl previous
+    XF86MonBrightnessUp exec brightness.sh --inc
+    XF86MonBrightnessDown exec brightness.sh --dec
+}
 
 # Keybindings
-bindsym $mod+b exec $browser
-bindsym $mod+Shift+b exec $alt_browser
-bindsym $mod+Shift+f exec $file_manager
-bindsym $mod+Return exec $term
-bindsym $mod+c kill
-bindsym $mod+d exec $launcher
-bindsym $mod+Shift+d exec $menu
-bindsym $mod+Escape reload
-bindsym $mod+Shift+q exec powermenu.sh
-bindsym $mod+Shift+l exec sway_lock.sh
-bindsym $alt+v exec clipboard.sh
-bindsym $mod+Shift+w exec sway_wallpaper.sh
+bindsym {
+    # Applications
+    $mod+b exec $browser
+    $mod+Shift+b exec $alt_browser
+    $mod+Shift+f exec $file_manager
+    $mod+Return exec $term
+    $mod+c kill
+    $mod+d exec $launcher
+    $mod+Shift+d exec $menu
+    $mod+Escape reload
+    $mod+Shift+q exec powermenu.sh
+    $mod+Shift+l exec sway_lock.sh
+    $alt+v exec clipboard.sh
+    $mod+Shift+w exec sway_wallpaper.sh
 
-bindsym Print exec grimshot --notify copy output
-bindsym $mod+Print exec grimshot --notify save output ~/Pictures/Screenshots/$(date +%F+%H:%M:%S).png
-bindsym Shift+Print exec grimshot --notify copy area
-bindsym $mod+Shift+Print exec grimshot --notify save area ~/Pictures/Screenshots/$(date +%F+%H:%M:%S).png
+    # Screenshot
+    Print exec grimshot --notify copy output
+    $mod+Print exec grimshot --notify save output ~/Pictures/Screenshots/$(date +%F+%H:%M:%S).png
+    Shift+Print exec grimshot --notify copy area
+    $mod+Shift+Print exec grimshot --notify save area ~/Pictures/Screenshots/$(date +%F+%H:%M:%S).png
 
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right 
+    $mod+Left focus left
+    $mod+Down focus down
+    $mod+Up focus up
+    $mod+Right focus right 
 
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+    $mod+Shift+Left move left
+    $mod+Shift+Down move down
+    $mod+Shift+Up move up
+    $mod+Shift+Right move right
 
-bindsym $mod+1 workspace number 1
-bindsym $mod+2 workspace number 2
-bindsym $mod+3 workspace number 3
-bindsym $mod+4 workspace number 4
-bindsym $mod+5 workspace number 5
-bindsym $mod+6 workspace number 6
+    $mod+1 workspace number 1
+    $mod+2 workspace number 2
+    $mod+3 workspace number 3
+    $mod+4 workspace number 4
+    $mod+5 workspace number 5
+    $mod+6 workspace number 6
 
-bindsym $mod+Shift+1 move container to workspace number 1
-bindsym $mod+Shift+2 move container to workspace number 2
-bindsym $mod+Shift+3 move container to workspace number 3
-bindsym $mod+Shift+4 move container to workspace number 4
-bindsym $mod+Shift+5 move container to workspace number 5
-bindsym $mod+Shift+6 move container to workspace number 6
+    $mod+Shift+1 move container to workspace number 1
+    $mod+Shift+2 move container to workspace number 2
+    $mod+Shift+3 move container to workspace number 3
+    $mod+Shift+4 move container to workspace number 4
+    $mod+Shift+5 move container to workspace number 5
+    $mod+Shift+6 move container to workspace number 6
 
-bindsym $mod+Ctrl+Left workspace prev
-bindsym $mod+Ctrl+Right workspace next
-bindsym $mod+$alt+Left workspace prev
-bindsym $mod+$alt+Right workspace next
-bindsym Ctrl+$alt+Left workspace prev
-bindsym Ctrl+$alt+Right workspace next
+    $mod+Ctrl+Left workspace prev
+    $mod+Ctrl+Right workspace next
+    $mod+$alt+Left workspace prev
+    $mod+$alt+Right workspace next
+    Ctrl+$alt+Left workspace prev
+    Ctrl+$alt+Right workspace next
 
-bindsym $mod+h splith
-bindsym $mod+v splitv
+    $mod+h splith
+    $mod+v splitv
 
-bindsym $mod+Shift+t layout tabbed
-bindsym $mod+Shift+s layout toggle split
+    $mod+f fullscreen
+    $mod+space floating toggle
+    $mod+Tab focus mode_toggle
+    $mod+p focus parent
 
-bindsym $mod+f fullscreen
-bindsym $mod+space floating toggle
-bindsym $mod+Tab focus mode_toggle
-bindsym $mod+p focus parent
-
-bindsym $mod+Shift+o move scratchpad
-bindsym $mod+Shift+p scratchpad show
-
-mode "resize" {
-bindsym Left resize shrink width 20px
-bindsym Down resize grow height 20px
-bindsym Up resize shrink height 20px
-bindsym Right resize grow width 20px
-
-bindsym Return mode "default"
-bindsym Escape mode "default"
+    $mod+Shift+o move scratchpad
+    $mod+Shift+p scratchpad show
 }
-bindsym $mod+r mode "resize"
+
+# Modes
+mode "resize" {
+    bindsym {
+        Left resize shrink width 20px
+        Down resize grow height 20px
+        Up resize shrink height 20px
+        Right resize grow width 20px
+
+        Return mode "default"
+        Escape mode "default"
+    }
+}
+
+mode "layout" {
+    bindsym --to-code {
+        d layout stacking     ; mode "default"
+        t layout tabbed       ; mode "default"
+        s layout toggle split ; mode "default"
+        v layout splitv       ; mode "default"
+        h layout splith       ; mode "default"
+
+        Return mode "default"
+        Escape mode "default"
+    }
+}
+
+bindsym {
+    $mod+r mode "resize"
+    $mod+l mode "layout"
+}
 
 # Window rules
-for_window [window_role="pop-up"] floating enable
-for_window [window_role="task_dialog"] floating enable
-for_window [title="Firefox — Sharing Indicator"] floating enable
-for_window [title="Picture-in-Picture"] floating enable
-for_window [class="qemu-system-x86_64"] floating enable, inhibit-idle focus
-for_window [app_id="qemu|zenmonitor|mpv|imv|timeshift-gtk"] floating enable, inhibit-idle focus
-for_window [app_id="telegram-desktop"] floating enable
+for_window {
+    [window_role="pop-up"] floating enable
+    [window_role="bubble"] floating enable
+    [window_role="dialog"] floating enable
+    [window_type="dialog"] floating enable
+    [window_role="task_dialog"] floating enable
+
+    [title="(?:Open|Save) (?:File|Folder|As)"] floating enable, sticky enable
+    [title="Firefox — Sharing Indicator"] floating enable
+    [title="^Picture-in-Picture"] floating enable, sticky enable
+
+    [class="qemu-system-x86_64"] floating enable, inhibit_idle focus
+
+    [shell="xwayland"] title_format "%title [XWayland]"
+
+    [app_id="firefox"] inhibit_idle fullscreen, max_render_time off
+    [app_id="qemu|zenmonitor|mpv|imv|timeshift-gtk"] floating enable, inhibit_idle visible, max_render_time off
+    [app_id="telegram-desktop"] floating enable
+}
 
 bar {
     swaybar_command waybar
