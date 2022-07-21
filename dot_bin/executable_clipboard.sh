@@ -14,17 +14,27 @@ green="#A6E3A1"
 
 cliphist list | \
 	bemenu \
-	--prefix '' \
-	--prompt 'COPY  ' \
+	--ignorecase \
 	--list 5 \
+	--prefix '' \
+	--prompt 'COPY   ' \
+	--ifne \
+	--fork \
+	--line-height 25 \
+	--cw 5 \
 	--fn 'Iosevka Nerd Font Bold 12' \
 	--tb $black \
-	--tf $sky \
+	--tf $peach \
 	--fb $black \
 	--ff $mauve \
 	--nb $black \
 	--nf $peach \
 	--hb $black \
-	--hf $green | \
+	--hf $green \
+	--ab $black \
+	--af $sky \
+	--bdr $mauve \
+	--cb $black \
+	--cf $mauve | \
 	cliphist decode | \
 	wl-copy

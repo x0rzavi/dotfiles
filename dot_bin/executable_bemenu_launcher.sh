@@ -16,16 +16,25 @@ ls /usr/share/applications/ \
 	| grep desktop \
 	| sed 's/\.desktop//' \
 	| bemenu \
-	--prefix '' \
-	--prompt 'LAUNCH  ' \
+	--ignorecase \
 	--list 5 \
+	--prefix '' \
+	--prompt 'LAUNCH   ' \
+	--fork \
+	--line-height 25 \
+	--cw 5 \
 	--fn 'Iosevka Nerd Font Bold 12' \
 	--tb $black \
-	--tf $sky \
+	--tf $peach \
 	--fb $black \
 	--ff $mauve \
 	--nb $black \
 	--nf $peach \
 	--hb $black \
 	--hf $green \
+	--ab $black \
+	--af $sky \
+	--bdr $mauve \
+	--cb $black \
+	--cf $mauve \
 	| xargs gtk4-launch

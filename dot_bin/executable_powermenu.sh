@@ -15,18 +15,27 @@ options=" Cancel\n Suspend\n Lock\n Logout\n勒 Reboot\n襤 Shutdown
 
 selected=$(echo -e $options \
 	| bemenu \
+	--ignorecase \
+	--list 6 \
 	--prefix '' \
 	--prompt 'POWERMENU  ' \
-	--list 6 \
+	--fork \
+	--line-height 25 \
+	--cw 5 \
 	--fn 'Iosevka Nerd Font Bold 12' \
 	--tb $black \
-	--tf $sky \
+	--tf $peach \
 	--fb $black \
 	--ff $mauve \
 	--nb $black \
 	--nf $peach \
 	--hb $black \
-	--hf $green)
+	--hf $green \
+	--ab $black \
+	--af $sky \
+	--bdr $mauve \
+	--cb $black \
+	--cf $mauve)
 
 if [[ "$selected" == *"Cancel"* ]]; then
 	:

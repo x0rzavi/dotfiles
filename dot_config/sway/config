@@ -215,6 +215,11 @@ bindsym {
     $mod+l mode "Layout"
 }
 
+# Automove rules
+assign {
+	[app_id="firefox"] 2
+}
+
 # Window rules
 for_window {
     [window_role="pop-up"] floating enable
