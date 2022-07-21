@@ -53,7 +53,7 @@ alias ncdu='gdu --show-apparent-size --show-relative-size'
 alias find='fd --hidden --no-ignore --follow'
 alias sed='sd'
 alias ps='procs'
-#alias dig='doggo'
+alias dig='doggo'
 alias ping='gping'
 
 # Zoxide
