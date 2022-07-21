@@ -6,7 +6,7 @@
 
 get_brightness () {
 	brightness="$(xbacklight -get)"
-	echo " $brightness%"
+	echo "  $brightness%"
 }
 
 inc_brightness () {
@@ -25,7 +25,7 @@ Usage: brightness.sh [options]
 
 AVAILABLE OPTIONS:
   --get         get current brightness
-  --set 	set brightness to ?
+  --set         set brightness to ?
   --inc         increase current brightness by +3
   --dec         decrease current brightness by -3
 EOF

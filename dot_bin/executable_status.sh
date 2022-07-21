@@ -6,7 +6,7 @@ volume () {
 	state=$(pactl get-sink-mute @DEFAULT_SINK@ | sed -e 's/Mute: //g')
 	if [[ $state = "no" ]]
 	then
-		printf "墳 "
+		printf " "
 		printf "$(pactl get-sink-volume @DEFAULT_SINK@ | sed -e 's/[^%0-9 ]*//g;s/  */\n/g' | sed -n '/%/p' | sed -e 's/%//' | head -n 1)"
 		printf "%%"
 	else
@@ -17,7 +17,7 @@ volume () {
 
 # Brightness
 brightness () {
-	printf " "
+	printf " "
 	printf "$(xbacklight -get)"
 	printf "%%"
 }
