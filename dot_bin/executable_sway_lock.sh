@@ -7,7 +7,7 @@
 
 # Variables
 transparent=00000000
-teal=94E2D5
+sky=89DCEB
 black=1E1E2E
 peach=FAB387
 yellow=F9E2AF
@@ -33,10 +33,10 @@ swaylock \
 	--font-size 45 \
 	--indicator-radius 170 \
 	--indicator-thickness 15 \
-	--bs-hl-color $teal \
-	--key-hl-color $teal \
-	--caps-lock-bs-hl-color $teal \
-	--caps-lock-key-hl-color $teal \
+	--bs-hl-color $sky \
+	--key-hl-color $sky \
+	--caps-lock-bs-hl-color $sky \
+	--caps-lock-key-hl-color $sky \
 	--inside-color $black \
 	--inside-clear-color $black \
 	--inside-caps-lock-color $black \
@@ -53,8 +53,8 @@ swaylock \
 	--ring-ver-color $green \
 	--ring-wrong-color $red \
 	--separator-color $transparent \
-	--text-color $teal \
-	--text-clear-color $teal \
-	--text-ver-color $teal \
-	--text-wrong-color $teal \
-	--text-caps-lock-color $teal 
+	--text-color $sky \
+	--text-clear-color $sky \
+	--text-ver-color $sky \
+	--text-wrong-color $sky \
+	--text-caps-lock-color $sky 
