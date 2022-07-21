@@ -40,19 +40,21 @@ selected=$(echo -e $options \
 if [[ "$selected" == *"Cancel"* ]]; then
 	:
 elif [[ "$selected" == *"Suspend"* ]]; then
-	notify-send --expire-time=3000 "     Suspending in 5 seconds"
-	sleep 5
+	notify-send --expire-time=3000 "        Suspending in 5 seconds" && \
+	sleep 5 && \
+	sway_lock.sh && \
+	sleep 1 && \
 	loginctl suspend
 elif [[ "$selected" == *"Lock"* ]]; then
 	sway_lock.sh
 elif [[ "$selected" == *"Logout"* ]]; then
 	sway_exit.sh
 elif [[ "$selected" == *"Shutdown"* ]]; then
-	notify-send --expire-time=3000 "  襤   Shutting down in 5 seconds"
-	sleep 5
+	notify-send --expire-time=3000 "     襤   Shutting down in 5 seconds" && \
+	sleep 5 && \
 	loginctl poweroff
 elif [[ "$selected" == *"Reboot"* ]]; then
-	notify-send --expire-time=3000 "  勒   Rebooting in 5 seconds"
-	sleep 5	
+	notify-send --expire-time=3000 "     勒   Rebooting in 5 seconds" && \
+	sleep 5	&& \
 	loginctl reboot
 fi
