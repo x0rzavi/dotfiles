@@ -218,6 +218,7 @@ bindsym {
 # Automove rules
 assign {
 	[app_id="firefox"] 2
+    [class="Code"] 3
 }
 
 # Window rules
