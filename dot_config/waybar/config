@@ -31,12 +31,12 @@
     "sway/workspaces": {
         "disable-scroll": true,
         //"format": "{icon}",
-        "persistent_workspaces": {
-			"1": [],
-        	"2": [],
-        	"3": [],
+        //"persistent_workspaces": {
+		//	"1": [],
+        //	"2": [],
+        //	"3": [],
         //	"4": []
-		},
+		//},
         //"format-icons": {
         //   "urgent": " 𥉉"
         //}
