@@ -38,7 +38,7 @@ elif [[ "$1" == "--inc" ]]; then
 elif [[ "$1" == "--dec" ]]; then
 	dec_brightness
 elif [[ "$1" == "--set" ]]; then
-	xbacklight -fps 500 -time 350 "$2"
+	xbacklight -fps 200 "$2"
 else
 	show_help
 fi
