@@ -2,25 +2,6 @@
 # https://github.com/Crandel/home/blob/master/.config/sway/config
 # https://www.reddit.com/r/swaywm/comments/q90v6l/sharing_some_for_window_rules/
 
-# Autostart
-exec {
-    dbus-update-activation-environment --all
-    /usr/libexec/polkit-gnome-authentication-agent-1
-    foot --server
-    gentoo-pipewire-launcher
-    swayidle -w \
-        timeout 300 'sway_lock.sh' \
-        timeout 420 'swaymsg "output * dpms off"' \
-                resume 'swaymsg "output * dpms on"' \
-        timeout 600 'loginctl suspend' \
-        before-sleep 'volume.sh --mute && \
-                playerctl pause || echo 0 && \
-                if ! [[ "pidof -x 'sway_lock.sh'" > /dev/null ]]; then sway_lock.sh ; fi' 
-    wlsunset -l 22.6 -L 88.4 -t 4800
-    xsettingsd
-    wl-paste --watch cliphist store    
-}
-
 # Variables
 set {
     $alt Mod1
@@ -248,3 +229,23 @@ bar {
 }
 
 include /etc/sway/config.d/*
+
+# Autostart
+exec {
+    dbus-update-activation-environment --all
+    /usr/libexec/polkit-gnome-authentication-agent-1
+    foot --server
+    mpd
+    gentoo-pipewire-launcher
+    swayidle -w \
+        timeout 300 'sway_lock.sh' \
+        timeout 420 'swaymsg "output * dpms off"' \
+                resume 'swaymsg "output * dpms on"' \
+        timeout 600 'loginctl suspend' \
+        before-sleep 'volume.sh --mute && \
+                playerctl pause || echo 0 && \
+                if ! [[ "pidof -x 'sway_lock.sh'" > /dev/null ]]; then sway_lock.sh ; fi' 
+    wlsunset -l 22.6 -L 88.4 -t 4800
+    xsettingsd
+    wl-paste --watch cliphist store    
+}
