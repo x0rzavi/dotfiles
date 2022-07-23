@@ -11,7 +11,7 @@ get_icon () {
 		icon='奄'
 	elif [[ ("$volume" -ge "30") && ("$volume" -le "60") ]]; then
 		icon=''
-	elif [[ ("$volume" -ge "60") && ("$volume" -le "100") ]]; then
+	elif [[ ("$volume" -ge "60") ]]; then
 		icon=''
 	fi
 }
