@@ -28,9 +28,15 @@
 # tldr (https://github.com/tldr-pages/tldr) 					[misc] [app-text/tldr]
 
 # Export environment variables.
+export NNN_OPTS="de"
+export NNN_COLORS="2136"
 export MICRO_TRUECOLOR=1
 export EDITOR="code --wait"
 export GOBIN=$HOME/.bin
+export FZF_DEFAULT_OPTS=" \
+--color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
+--color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
+--color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
 
 # Extend PATH.
 path=(~/.local/bin ~/.bin $path)
@@ -49,7 +55,7 @@ alias ls='exa --icons'
 alias ll='exa --icons --long --all --group --git --group-directories-first'
 alias du='dust --apparent-size'
 alias df='duf'
-alias ncdu='gdu --show-apparent-size --show-relative-size'
+alias ncdu='gdu --show-apparent-size --show-relative-size --max-cores 2'
 alias find='fd --hidden --no-ignore --follow'
 alias sed='sd'
 alias ps='procs'
