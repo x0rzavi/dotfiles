@@ -84,7 +84,7 @@ window > box {
     font-size: 16px;
 	font-weight: lighter;
 	border-radius: 20px;
-    background-color: @mauve-mocha;
+    background-color: @teal-mocha;
 }
 
 #workspaces button {
@@ -137,7 +137,7 @@ tooltip label {
 
 #cpu.2 {
 	margin-right: 3px;
-	background-color: @teal-mocha;
+	background-color: @mauve-mocha;
 }
 
 #temperature {
@@ -156,7 +156,7 @@ tooltip label {
 	margin-left: 5px;
 	padding-left: 2px;
 	padding-right: 16px;
-	background-color: @pink-mocha;
+	background-color: @green-mocha;
 }
 
 #backlight {
@@ -164,11 +164,11 @@ tooltip label {
 }
 
 #pulseaudio {
-	background-color: @green-mocha;
+	background-color: @mauve-mocha;
 }
 
 #network {
-	background-color: @mauve-mocha;
+	background-color: @teal-mocha;
 }
 
 #battery.charging, #battery.full, #battery.discharging {
