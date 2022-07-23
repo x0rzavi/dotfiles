@@ -157,8 +157,8 @@ tooltip label {
 	background-color: rgb(249, 226, 175); /* Yellow Mocha */
 }
 
-#battery.critical:not(.charging) {
-	background-color: rgb(243, 139, 168); /* Red Mocha */
+#battery.critical {
+	background-color: rgb(250, 179, 135); /* Peach Mocha */
 }
 
 #custom-off {
