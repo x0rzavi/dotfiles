@@ -236,6 +236,7 @@ exec {
     /usr/libexec/polkit-gnome-authentication-agent-1
     foot --server
     mpd
+    mpd-mpris
     gentoo-pipewire-launcher
     swayidle -w \
         timeout 300 'sway_lock.sh' \
