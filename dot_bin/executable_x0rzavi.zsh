@@ -27,7 +27,7 @@
 # cheat (https://github.com/cheat/cheat) 						[misc] [app-misc/cheat]
 # tldr (https://github.com/tldr-pages/tldr) 					[misc] [app-text/tldr]
 
-#### EXPORT ENVIRONMENT VARIABLES
+#### EXPORT ENVIRONMENT VARIABLES (-> .zshenv)
 export NNN_OPTS="de"
 export NNN_COLORS="2136"
 export MICRO_TRUECOLOR=1
@@ -38,7 +38,7 @@ export FZF_DEFAULT_OPTS=" \
 --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
 --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
 
-#### EXTEND PATH
+#### EXTEND PATH (-> .zshenv)
 path=(~/.bin $path)
 
 #### DEFINE ALIASES
