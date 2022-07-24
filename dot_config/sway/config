@@ -56,6 +56,7 @@ focus_follows_mouse yes
 floating_modifier $mod normal
 floating_maximum_size 1366 x 768
 default_orientation auto
+bindswitch lid:on exec sway_lock.sh
 
 # Aesthetics
 default_border pixel 2
@@ -245,7 +246,7 @@ exec {
         timeout 600 'loginctl suspend' \
         before-sleep 'volume.sh --mute && \
                 playerctl pause || echo 0 && \
-                if ! pgrep -x 'swaylock' > /dev/null; then sway_lock.sh ; fi' 
+                sway_lock.sh' 
     wlsunset -l 22.6 -L 88.4 -t 4800
     xsettingsd
     wl-paste --watch cliphist store    
