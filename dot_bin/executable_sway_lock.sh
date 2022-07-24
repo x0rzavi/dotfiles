@@ -28,7 +28,8 @@ swaylock \
 	--indicator-caps-lock \
 	--image $(find $wallpapers_path -type f | shuf -n 1) \
 	--scaling fill \
-	--effect-vignette 0.1:0.8 \
+	--effect-blur 5x1 \
+	--effect-vignette 0.2:0.5 \
 	--font "Iosevka Nerd Font" \
 	--font-size 45 \
 	--indicator-radius 170 \
