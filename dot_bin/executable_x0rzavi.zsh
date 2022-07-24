@@ -67,11 +67,24 @@ setopt hist_ignore_space	# prevent particular entries from being recorded into a
 #### HEROKU AUTOCOMPLETE SETUP
 #HEROKU_AC_ZSH_SETUP_PATH=/home/x0rzavi/.cache/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
 
+#### HISTORY
+HISTFILE="$HOME/.zsh_history"
+HISTSIZE=1000
+SAVEHIST=5000
+
+#### HISTORY BASED AUTOCOMPLETIOn
+autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey "^[[A" up-line-or-beginning-search
+bindkey "^[[B" down-line-or-beginning-search
+
 #### AUTOCOMPLETION
 autoload -Uz compinit
 compinit
 zstyle ':completion::complete:*' use-cache 1
 zstyle ':completion:*' menu select
+zstyle ':completion:*' rehash true
 
 #### ZOXIDE
 eval "$(zoxide init --cmd cd zsh)"
