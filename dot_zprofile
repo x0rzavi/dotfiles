@@ -1,0 +1,11 @@
+#### EXTEND PATH
+#### Not in ".zshenv" / using .zprofile instead of .zlogin due to Gentoo bug
+#### https://forums.gentoo.org/viewtopic-p-8638954.html?sid=001104a87051a4f078c01d384cec5062
+typeset -U path PATH
+path=(~/.bin $path)
+export PATH
+
+#### AUTOSTART SWAY ON LOGIN
+if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
+	exec $HOME/.bin/sway_enter.sh
+fi
