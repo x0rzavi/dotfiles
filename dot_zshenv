@@ -1,3 +1,18 @@
+## Extend PATH
+typeset -U path
+path=(~/.bin $path)
+
+## Non-trivial environment variables
+export NNN_OPTS="de"
+export NNN_COLORS="2136"
+export MICRO_TRUECOLOR=1
+export EDITOR="code --wait"
+export GOBIN=$HOME/.bin
+export FZF_DEFAULT_OPTS=" \
+--color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
+--color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
+--color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
+
 ## https://fedoraproject.org/wiki/Firefox_Hardware_acceleration
 ## not needed as of version > 103
 #export MOZ_LOG="PlatformDecoderModule:5"
