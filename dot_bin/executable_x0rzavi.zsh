@@ -1,6 +1,6 @@
-## Conveniences for zsh
+#### CONVENIENCES FOR ZSH
 
-# Modern UNIX tools
+#### MODERN UNIX TOOLS
 # <tool name> <link> 											<replaces> <gentoo ebuild>
 #
 # bat (https://github.com/sharkdp/bat) 							[cat] [sys-apps/bat]
@@ -27,7 +27,7 @@
 # cheat (https://github.com/cheat/cheat) 						[misc] [app-misc/cheat]
 # tldr (https://github.com/tldr-pages/tldr) 					[misc] [app-text/tldr]
 
-# Export environment variables.
+#### EXPORT ENVIRONMENT VARIABLES
 export NNN_OPTS="de"
 export NNN_COLORS="2136"
 export MICRO_TRUECOLOR=1
@@ -38,12 +38,9 @@ export FZF_DEFAULT_OPTS=" \
 --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
 --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
 
-# Extend PATH.
-path=(~/.local/bin ~/.bin $path)
+#### SOURCE ADDITIONAL FILES
 
-# Source additional local files
-
-# Define aliases.
+#### DEFINE ALIASES
 alias cat='bat'
 #alias grep='batgrep --hidden'
 alias grep='rg --pretty --hidden'
@@ -62,15 +59,15 @@ alias ps='procs'
 alias dig='doggo'
 alias ping='gping'
 
-# Zoxide
+#### ZOXIDE
 eval "$(zoxide init --cmd cd zsh)"
 
-# Set shell options: http://zsh.sourceforge.net/Doc/Release/Options.html.
+#### SET SHELL OPTIONS: http://zsh.sourceforge.net/Doc/Release/Options.html.
 setopt hist_ignore_all_dups	# prevent history from recording duplicated entries
 setopt hist_ignore_space	# prevent particular entries from being recorded into a history by preceding them with at least one space
 
-# Rootless Docker
+#### ROOTLESS DOCKER
 #export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
 
-# heroku autocomplete setup
+#### HEROKU AUTOCOMPLETE SETUP
 #HEROKU_AC_ZSH_SETUP_PATH=/home/x0rzavi/.cache/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
