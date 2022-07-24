@@ -38,8 +38,6 @@ export FZF_DEFAULT_OPTS=" \
 --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
 --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
 
-#### SOURCE ADDITIONAL FILES
-
 #### DEFINE ALIASES
 alias cat='bat'
 #alias grep='batgrep --hidden'
@@ -59,9 +57,6 @@ alias ps='procs'
 alias dig='doggo'
 alias ping='gping'
 
-#### ZOXIDE
-eval "$(zoxide init --cmd cd zsh)"
-
 #### SET SHELL OPTIONS: http://zsh.sourceforge.net/Doc/Release/Options.html.
 setopt hist_ignore_all_dups	# prevent history from recording duplicated entries
 setopt hist_ignore_space	# prevent particular entries from being recorded into a history by preceding them with at least one space
@@ -71,3 +66,19 @@ setopt hist_ignore_space	# prevent particular entries from being recorded into a
 
 #### HEROKU AUTOCOMPLETE SETUP
 #HEROKU_AC_ZSH_SETUP_PATH=/home/x0rzavi/.cache/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
+
+#### AUTOCOMPLETION
+autoload -Uz compinit
+compinit
+zstyle ':completion::complete:*' use-cache 1
+zstyle ':completion:*' menu select
+
+#### ZOXIDE
+eval "$(zoxide init --cmd cd zsh)"
+
+#### STARSHIP
+eval "$(starship init zsh)"
+
+#### SOURCE ADDITIONAL FILES
+source /usr/share/zsh/site-functions/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/site-functions/zsh-autosuggestions.zsh
