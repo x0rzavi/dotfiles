@@ -1,4 +1,0 @@
-#### AUTOSTART SWAY ON LOGIN
-if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
-	exec $HOME/.bin/sway_enter.sh
-fi
