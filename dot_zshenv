@@ -1,7 +1,3 @@
-## Extend PATH
-typeset -U path
-path=(~/.bin $path)
-
 ## Non-trivial environment variables
 export NNN_OPTS="de"
 export NNN_COLORS="2136"
