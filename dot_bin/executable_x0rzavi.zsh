@@ -27,20 +27,6 @@
 # cheat (https://github.com/cheat/cheat) 						[misc] [app-misc/cheat]
 # tldr (https://github.com/tldr-pages/tldr) 					[misc] [app-text/tldr]
 
-#### EXPORT ENVIRONMENT VARIABLES (-> .zshenv)
-export NNN_OPTS="de"
-export NNN_COLORS="2136"
-export MICRO_TRUECOLOR=1
-export EDITOR="code --wait"
-export GOBIN=$HOME/.bin
-export FZF_DEFAULT_OPTS=" \
---color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
---color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
---color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
-
-#### EXTEND PATH (-> .zshenv)
-path=(~/.bin $path)
-
 #### DEFINE ALIASES
 alias cat='bat'
 #alias grep='batgrep --hidden'
@@ -61,8 +47,14 @@ alias dig='doggo'
 alias ping='gping'
 
 #### SET SHELL OPTIONS: http://zsh.sourceforge.net/Doc/Release/Options.html.
-setopt hist_ignore_all_dups	# prevent history from recording duplicated entries
-setopt hist_ignore_space	# prevent particular entries from being recorded into a history by preceding them with at least one space
+setopt HIST_IGNORE_ALL_DUPS	# prevent history from recording duplicated entries even if they are not adjacent
+setopt HIST_IGNORE_SPACE	# prevent particular entries from being recorded into a history by preceding them with at least one space
+setopt HIST_ALLOW_CLOBBER	# save clobber overrides as is
+setopt HIST_REDUCE_BLANKS	# tidy up the line when it is entered into the history by removing any excess blanks
+setopt HIST_NO_STORE		# don't store history or fc commands
+setopt NO_CLOBBER			# don't allow overwriting files generally ( use >| to override )
+setopt AUTO_CD				# check to see if it's actually a directory. If it is, change to that directory
+#setopt CORRECT				# enable autocorrection
 
 #### ROOTLESS DOCKER
 #export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
@@ -72,8 +64,8 @@ setopt hist_ignore_space	# prevent particular entries from being recorded into a
 
 #### HISTORY
 HISTFILE="$HOME/.zsh_history"
-HISTSIZE=1000
-SAVEHIST=5000
+HISTSIZE=10000
+SAVEHIST=10000
 
 #### HISTORY BASED AUTOCOMPLETIOn
 autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
