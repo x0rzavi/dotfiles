@@ -46,6 +46,10 @@ alias ps='procs'
 alias dig='doggo'
 alias ping='gping'
 
+alias update='sudo emaint -A sync'
+alias upgrade='sudo emerge --update --newuse --deep --with-bdeps=y @world'
+alias perf='sudo ~/.bin/mode.sh --perf'
+
 #### SET SHELL OPTIONS: http://zsh.sourceforge.net/Doc/Release/Options.html.
 setopt HIST_IGNORE_ALL_DUPS	# prevent history from recording duplicated entries even if they are not adjacent
 setopt HIST_IGNORE_SPACE	# prevent particular entries from being recorded into a history by preceding them with at least one space
