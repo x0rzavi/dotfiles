@@ -213,6 +213,7 @@ for_window {
     [window_role="task_dialog"] floating enable
 
     [title="(?:Open|Save) (?:File|Folder|As)"] floating enable, sticky enable
+    [title="File Upload"] floating enable, sticky enable
     [title="Firefox — Sharing Indicator"] floating enable
     [title="^Picture-in-Picture"] floating enable, sticky enable
 
