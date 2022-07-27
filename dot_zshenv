@@ -14,16 +14,43 @@ export FZF_DEFAULT_OPTS=" \
 #export MOZ_LOG="PlatformDecoderModule:5"
 #export MOZ_DISABLE_RDD_SANDBOX=1 
 
+## Hack to set GTK4 theme
+## https://reddit.x0rzavi.cf/tnj493
+export GTK_THEME=Colloid:dark
+
+## Wayland
+## https://github.com/jbuchermn/newm/blob/master/doc/env_wayland.md
+## https://wiki.archlinux.org/title/wayland#SDL2
+## https://wiki.archlinux.org/title/wayland#Qt
 ## https://wiki.archlinux.org/title/firefox#Wayland
+## GTK
+export GDK_BACKEND=wayland
+export TDESKTOP_DISABLE_GTK_INTEGRATION=1
+export CLUTTER_BACKEND=wayland
+export BEMENU_BACKEND=wayland
+
+## Qt
+export QT_QPA_PLATFORM=wayland-egl
+export QT_WAYLAND_FORCE_DPI=physical
+export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+
+## Elementary
+export ELM_DISPLAY=wl
+export ECORE_EVAS_ENGINE=wayland_egl
+export ELM_ENGINE=wayland_egl
+export ELM_ACCEL=opengl
+export ELM_SCALE=1
+
+## SDL
+export SDL_VIDEODRIVER=wayland
+
+## Firefox
 ## not needed as of version > 102
 #export MOZ_ENABLE_WAYLAND=1
 
-## https://wiki.archlinux.org/title/wayland#Qt
-export QT_QPA_PLATFORM=wayland
+## Java
+export _JAVA_AWT_WM_NONREPARENTING=1
 
-## https://wiki.archlinux.org/title/wayland#SDL2
-export SDL_VIDEODRIVER=wayland
-
-## https://reddit.x0rzavi.cf/tnj493
-## Hack to set GTK4 theme
-export GTK_THEME=Colloid:dark
+## Misc
+export NO_AT_BRIDGE=1
+export WINIT_UNIX_BACKEND=wayland

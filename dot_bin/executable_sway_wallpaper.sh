@@ -10,10 +10,10 @@ wallpapers_path=$HOME/Pictures/Wallpapers
 wallpaper_set () {
 	cd $wallpapers_path
 	tag=$(date +%s)
-	wget "https://picsum.photos/seed/$RANDOM/1920/1080" --quiet -O $tag.jpg
+	wget "https://picsum.photos/seed/$RANDOM/3840/2160" --quiet -O $tag.jpg
 	if [[ -s $tag.jpg ]]; then
 		cp $tag.jpg wallpaper.jpg
-		swaymsg output "eDP-1" bg $wallpapers_path/wallpaper.jpg fill
+		#swaymsg output "eDP-1" bg $wallpapers_path/wallpaper.jpg fill
 	else
 		rm -f $tag.jpg
 	fi

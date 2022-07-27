@@ -1,8 +1,9 @@
 {
+	//"layer": "top",
     "modules-left": [
 		"custom/launcher",
-		"sway/workspaces",
-		"sway/mode",
+		//"sway/workspaces",
+		//"sway/mode",
 		"memory",
 		"cpu",
 		"cpu#2",

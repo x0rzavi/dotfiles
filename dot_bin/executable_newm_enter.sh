@@ -18,4 +18,4 @@ export SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
 #eval $(gnome-keyring-daemon --start | /bin/sed 's/^\(.*\)/export \1/g')
 
 # Launch sway within a dbus user session
-dbus-run-session -- start-newm
+dbus-run-session -- start-newm -d

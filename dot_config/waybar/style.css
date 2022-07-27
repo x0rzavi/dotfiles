@@ -19,7 +19,7 @@
 * {
 	font-family: Iosevka Nerd Font;
 	font-size: 15px;
-	font-weight: bold; 
+	font-weight: bold;
 	border-radius: 20px;
 	transition-property: background-color;
 	transition-duration: 1s;
@@ -61,6 +61,8 @@ window > box {
 #custom-launcher, #mode, #clock, #memory, #cpu, #temperature, #idle_inhibitor, #backlight, #pulseaudio, #network, #battery, #custom-off {
 	padding-left: 13px;
 	padding-right: 13px;
+	padding-top: 6px;
+	padding-bottom: 5px;
 	margin-left: 3px;
 	margin-right: 3px;
 	color: @base-mocha;
