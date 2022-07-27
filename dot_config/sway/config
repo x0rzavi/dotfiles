@@ -250,5 +250,5 @@ exec {
                 sway_lock.sh' 
     wlsunset -l 22.6 -L 88.4 -t 4800
     xsettingsd
-    wl-paste --watch cliphist store    
+    wl-paste --watch cliphist store
 }
