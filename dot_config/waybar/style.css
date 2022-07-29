@@ -26,189 +26,70 @@
 @define-color	mantle		rgb(24, 24, 37);
 @define-color	crust		rgb(17, 17, 27);
 
-/*	                    +---> (window#waybar)
-	                    |
-+------------------------------------------------------------------------------+
-|  +------------------------------------------------------------------------+  |
-|  |                          |                                             |  |
-|  |                          +----> (window > box)                         |  |
-|  |  +-----------------+    +-------------------+    +------------------+  |  |
-|  |  | (.modules-left) |    | (.modules-center) |    | (.modules-right) |  |  |
-|  |  +-----------------+    +-------------------+    +------------------+  |  |
-|  +------------------------------------------------------------------------+  |
-+------------------------------------------------------------------------------+		
+@keyframes blink_red {
+	to {
+		color: @red;
+		background-color: @crust;
+	}
+}
 
-    +-----> (Margin)                                            (Margin) <----+ 
-    |                                +------> (Border)                        |
-    |                                |                                        |
-<-->+=========================================================================+<-->
-    ||                                                                       ||
-    ||--------------------------------->TEXT<--------------------------------||
-    ||           (Padding)                             (Padding)             ||
-<-->+=========================================================================+<-->
+.warning, .critical {
+	animation-name: blink_red;
+	animation-duration: 1s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
 
-*/
+.critical {
+	animation-duration: 0.6s;
+}
 
 * {
-	font-family: Iosevka Nerd Font, lucide;
+	font-family: Iosevka Nerd Font;
 	/* font-size: 15px; */
-	/* font-weight: bold; */
-	transition-property: background-color;
-	transition-duration: 1s;
+	font-weight: bold;
 }
 
 window#waybar {
-	background-color: transparent;  /* Keep transparent to blur */
+	background-color: transparent;	/* Keep transparent to blur */
 }
 
 window#waybar.hidden {
-    opacity: 0.5;
+	opacity: 0.5;
 }
 
 window > box {
-	/* margin: 5px 10px; */
-	/* padding: 5px; */
-	/* border-radius: 10px; */
-	background-color: @base; /* Keep transparent to blur */
+	/* border-bottom-width: 2px; */
+	/* border-color: @crust; */
+	/* border-style: solid; */
+	background-color: @base;	/* Keep transparent to blur */
 }
 
-@keyframes blink_red {
-    to {
-        background-color: @red-mocha;
-        color: @base-mocha;
-    }
-}
-
-.warning, .critical, .urgent {
-	animation-name: blink_red;
-    animation-duration: 1s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}
-
-#custom-launcher, #mode, #clock, #memory, #cpu, #temperature, #idle_inhibitor, #backlight, #pulseaudio, #network, #battery, #custom-off {
-	/* margin: 10px 10px; */
-	/* color: @base; */
+#memory, #cpu, #cpu.load, #temperature, #clock, #idle_inhibitor,#network , #pulseaudio, #backlight, #battery {
+	padding: 5px 9px;
+	margin: 0 3px;
+	color: @text;
+	border-radius: 25px;
+	border-width: 0 3px 3px 0;
+	border-style: solid;
+	border-color: @crust;
+	background-color: @surface0;
 }
 
 .modules-left, .modules-center, .modules-right {
-	background-color: @black;
-	border-radius: 20px;
-	padding: 6px;
-	/* box-shadow: 3px 3px 3px 0 @surface0-mocha; */
-}
-
-#custom-launcher {
-    padding-left: 14px;
-    padding-right: 12px;
-	margin-left: 5px;
-	margin-right: 12px;
-    font-size: 16px;
-	font-weight: lighter;
-	border-radius: 20px;
-    background-color: @teal;
-}
-
-#workspaces button {
-	padding-left: 2px;
-	padding-right: 2px;
-	padding-top: 5px;
-	padding-bottom: 5px;
-	border-radius: 20px;
-	/* margin-left: 5px; */
-	margin-right: 4px;
-	color: @base-mocha;
-	background-color: @text-mocha;
-}
-
-#workspaces button.focused {
-	background-color: @sky-mocha;
-}
-
-#workspaces button.urgent {
-    /* background-color: @red-mocha; */
-}
-
-#workspaces button:hover {
-    background-color: @blue-mocha;
+	/* padding: 5px 0 3px; */
+	padding: 5px 0;
+	margin: 0 10px;
 }
 
 tooltip {
-  background: @surface0-mocha;
-  border-radius: 10px;
+	background: @surface0;
+	padding: 15px;
+	border-radius: 10px;
 }
 
 tooltip label {
-  color: @text-mocha;
-}
-
-#mode {
-	margin-left: 10px;
-	margin-right: 6px;
-	background-color: @peach-mocha;
-}
-
-#memory {
-	padding: 5px 12px;
-	border-radius: 20px;
-	background-color: @surface0;
 	color: @text;
-}
-
-#cpu {
-	color: @yellow-mocha;
-}
-
-#cpu.2 {
-	margin-right: 3px;
-	color: @mauve-mocha;
-}
-
-#temperature {
-	margin-right: 5px;
-	color: @blue-mocha;
-}
-
-#clock {
-	font-size: 16px;
-	margin-left: 0px;
-	margin-right: 0px;
-	color: @rosewater-mocha;
-}
-
-#idle_inhibitor {
-	margin-left: 5px;
-	padding-left: 2px;
-	padding-right: 16px;
-	background-color: @green-mocha;
-}
-
-#backlight {
-	background-color: @peach-mocha;
-}
-
-#pulseaudio {
-	background-color: @mauve-mocha;
-}
-
-#network {
-	background-color: @teal-mocha;
-}
-
-#battery.charging, #battery.full, #battery.discharging {
-	background-color: @yellow-mocha;
-}
-
-#battery.critical {
-	background-color: @peach-mocha;
-}
-
-#custom-off {
-	margin-left: 10px;
-	margin-right: 5px;
-	background-color: @red-mocha;
-	font-size: 16px;
-	padding-left: 15px;
-	padding-right: 21px;
+	font-size: small;
 }

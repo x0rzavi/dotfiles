@@ -19,7 +19,7 @@
 	// "margin": 15,
 	"memory": {
 		"interval": 1,
-		"format": "<span foreground='#f38ba8'></span> {percentage}%",
+		"format": "<span foreground='#94e2d5' font_weight='normal'></span> {percentage}%",
 		"states": {
 			"warning": 80,
 			"critical": 90
@@ -27,47 +27,47 @@
 	},
 	"cpu": {
 		"interval": 1,
-		"format": "<span foreground='#f38ba8'></span> {usage}%"
+		"format": "<span foreground='#cba6f7' font_weight='normal'></span> {usage}%"
 	},
 	"cpu#load": {
 		"interval": 1,
-		"format": "<span foreground='#f38ba8'></span> {load}",
+		"format": "<span foreground='#89dceb' font_weight='normal'></span> {load}",
 		"tooltip": false
 	},
 	"temperature": {
 		"hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
 		"critical-threshold": 78,
 		"interval": 1,
-		"format": "<span foreground='#f38ba8'></span> {temperatureC}°C",
+		"format": "<span foreground='#fab387' font_weight='normal'></span> {temperatureC}°C",
 		"tooltip": false
 	},
 	"clock": {
-		"format": "<span foreground='#f38ba8'></span> {:%I:%M %p %A %d %b}",
+		"format": "<span foreground='#74c7ec' font_weight='normal'></span> {:%I:%M %p %A %d %b}",
 		"tooltip": false
 	},
 	"idle_inhibitor": {
 		"format": "{icon}",
 		"format-icons": {
-			"activated": "<span foreground='#f38ba8'></span>",
-			"deactivated": "<span foreground='#f38ba8'></span>"
+			"activated": "<span foreground='#a6e3a1' font_weight='normal'></span>",
+			"deactivated": "<span foreground='#a6e3a1' font_weight='normal'></span>"
 		},
 		"tooltip": false
 	},
 	"network": {
 		"interval": 1,
-		"format-ethernet": "<span foreground='#f38ba8'></span> {bandwidthUpBytes} <span foreground='#f38ba8'></span> {bandwidthDownBytes}  <span foreground='#f38ba8'></span> {ifname}",
-		"format-wifi": "<span foreground='#f38ba8'></span> {bandwidthUpBytes} <span foreground='#f38ba8'></span> {bandwidthDownBytes}  <span foreground='#f38ba8'></span> {essid}",
-		"format-linked": "<span foreground='#f38ba8'></span> {essid} (No IP)",
-		"format-disconnected": "<span foreground='#f38ba8'></span> Disconnected",
+		"format-ethernet": "<span foreground='#b4befe' font_weight='normal'></span> {ifname}",
+		"format-wifi": "<span foreground='#b4befe' font_weight='normal'></span> {essid}",
+		"format-linked": "<span foreground='#b4befe' font_weight='normal'></span> {essid} (No IP)",
+		"format-disconnected": "<span foreground='#b4befe' font_weight='normal'></span> Disconnected",
 		"max-length": 28,
 		"tooltip": true,
 		"tooltip-format": "{ipaddr}/{cidr}"
 	},
 	"pulseaudio": {
-		"format": "<span foreground='#f38ba8'>{icon}</span> {volume}%",
-		"format-muted": "<span foreground='#f38ba8'></span> Muted",
+		"format": "<span foreground='#fab387' font_weight='normal'>{icon}</span> {volume}%",
+		"format-muted": "<span foreground='#fab387' font_weight='normal'></span> Muted",
 		"format-icons": {
-			"default": ["", "", ""]
+			"default": ["", ""]
 		},
 		"states": {
 			"warning": 80,
@@ -79,7 +79,7 @@
 		"tooltip": false
 	},
 	"backlight": {
-		"format": "<span foreground='#f38ba8'>{icon}</span> {percent}%",
+		"format": "<span foreground='#94e2d5' font='lucide 13' rise='-1pt'>{icon}</span> {percent}%",
 		"format-icons": ["", "", ""],
 		"on-click": "brightness.sh --set 3 &",
 		"on-click-right": "brightness.sh --set 50 &",
@@ -92,9 +92,9 @@
 			"warning": 20,
 			"critical": 10
 		},
-		"format": "<span foreground='#f38ba8'>{icon}</span> {capacity}%",
+		"format": "<span foreground='#cba6f7' font='lucide 13' rise='-1pt'>{icon}</span> {capacity}%",
 		"format-icons": ["", "", "", ""],
-		"format-charging": "<span foreground='#f38ba8'></span> {capacity}%",
+		"format-charging": "<span foreground='#cba6f7'></span> {capacity}%",
 		"tooltip": false
 	}
 }
