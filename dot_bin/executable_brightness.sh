@@ -42,3 +42,5 @@ elif [[ "$1" == "--set" ]]; then
 else
 	show_help
 fi
+
+while getopts
