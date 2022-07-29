@@ -95,7 +95,7 @@
 		},
 		"format": "<span foreground='#cba6f7' font='lucide 14' rise='-1pt'>{icon}</span> {capacity}%",
 		"format-icons": ["", "", "", ""],
-		"format-charging": "<span foreground='#cba6f7'></span> {capacity}%",
+		"format-charging": "<span foreground='#cba6f7' font='lucide 14' rise='-1pt'></span> {capacity}%",
 		"tooltip": false
 	}
 }

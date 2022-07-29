@@ -93,3 +93,7 @@ tooltip label {
 	color: @text;
 	font-size: small;
 }
+
+#battery.charging {
+	animation-name: none;
+}
