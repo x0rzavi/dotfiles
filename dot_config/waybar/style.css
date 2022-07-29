@@ -67,7 +67,7 @@ window > box {
 }
 
 #memory, #cpu, #cpu.load, #temperature, #clock, #idle_inhibitor,#network , #pulseaudio, #backlight, #battery {
-	padding: 5px 9px;
+	padding: 6px 10px;
 	margin: 0 3px;
 	color: @text;
 	border-radius: 25px;

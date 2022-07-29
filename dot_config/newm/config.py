@@ -45,12 +45,13 @@ def rules(view):
     return app_rule
     
 view = {
+	'corner_radius': 0,
     'padding': 10,
     'rules': rules,
 }
 
 focus = {
-    'color': '#F8BD96',
+    'color': '#7f849c',
     'distance': 2,
 }
 
@@ -63,7 +64,7 @@ def key_bindings(layout: Layout) -> list[tuple[str, Callable[[], Any]]]:
     terminal = 'footclient &'
     terminal_alt = 'alacritty &'
     browser = 'firefox-bin &'
-    browser_alt = 'with-wl.sh google-chrome-unstable &'
+    browser_alt = 'google-chrome-unstable &'
 
     return [
         (mod + "Left", lambda: layout.move(-1, 0)),
@@ -173,8 +174,8 @@ panels = {
     'launcher': {
         'cmd': 'foot -e newm-panel-basic launcher'
     },
-    # 'bar': {
-    #     'cmd': 'waybar',
-    #     'visible_fullscreen': False
-    # }
+    'bar': {
+        'cmd': 'waybar',
+        'visible_fullscreen': False
+    }
 }

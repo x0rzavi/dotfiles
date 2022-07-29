@@ -1,5 +1,5 @@
 {
-	// "layer": "top",
+	"layer": "top",
 	"modules-left": [
 		"memory",
 		"cpu",
@@ -27,7 +27,8 @@
 	},
 	"cpu": {
 		"interval": 1,
-		"format": "<span foreground='#cba6f7' font_weight='normal'></span> {usage}%"
+		"format": "<span foreground='#cba6f7' font_weight='normal'></span> {usage}%",
+		"tooltip": false
 	},
 	"cpu#load": {
 		"interval": 1,
@@ -79,7 +80,7 @@
 		"tooltip": false
 	},
 	"backlight": {
-		"format": "<span foreground='#94e2d5' font='lucide 13' rise='-1pt'>{icon}</span> {percent}%",
+		"format": "<span foreground='#94e2d5' font='lucide 14' rise='-1pt'>{icon}</span> {percent}%",
 		"format-icons": ["", "", ""],
 		"on-click": "brightness.sh --set 3 &",
 		"on-click-right": "brightness.sh --set 50 &",
@@ -92,7 +93,7 @@
 			"warning": 20,
 			"critical": 10
 		},
-		"format": "<span foreground='#cba6f7' font='lucide 13' rise='-1pt'>{icon}</span> {capacity}%",
+		"format": "<span foreground='#cba6f7' font='lucide 14' rise='-1pt'>{icon}</span> {capacity}%",
 		"format-icons": ["", "", "", ""],
 		"format-charging": "<span foreground='#cba6f7'></span> {capacity}%",
 		"tooltip": false
