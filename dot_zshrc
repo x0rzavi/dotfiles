@@ -1,1 +1,7 @@
-source ~/.bin/x0rzavi.zsh
+#### USER AGNOSTIC
+
+#### VARIABLES
+x0rzavi_home='/home/x0rzavi'
+
+#### SOURCE MAIN FILE
+source ${x0rzavi_home}/.bin/x0rzavi.zsh

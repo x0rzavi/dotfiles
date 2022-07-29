@@ -1,14 +1,15 @@
-#### EXTEND PATH
 #### Not in ".zshenv" / using ".zprofile" instead of ".zlogin" due to Gentoo bug
 #### https://forums.gentoo.org/viewtopic-p-8638954.html
+#### EXTEND PATH
 typeset -U path PATH
-path=(~/.bin $path)
+path=(~/.bin ${path})
 export PATH
 
 #### AUTOSTART SWAY ON LOGIN IF TTY1
-if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
-	exec $HOME/.bin/sway_enter.sh
+if [[ -z ${DISPLAY} ]] && [[ $(tty) = '/dev/tty1' ]]; then
+	exec ${HOME}/.bin/sway_enter.sh
+
 #### AUTOSTART NEWM ON LOGIN IF TTY2
-elif [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty2" ]; then
-	exec $HOME/.bin/newm_enter.sh
+elif [[ -z ${DISPLAY} ]] && [[ $(tty) = '/dev/tty2' ]]; then
+	exec ${HOME}/.bin/newm_enter.sh
 fi

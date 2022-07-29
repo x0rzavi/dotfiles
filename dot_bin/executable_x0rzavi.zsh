@@ -1,31 +1,33 @@
 #### CONVENIENCES FOR ZSH
+#### USER AGNOSTIC
 
 #### MODERN UNIX TOOLS
-# <tool name> <link> 											<replaces> <gentoo ebuild>
-#
-# bat (https://github.com/sharkdp/bat) 							[cat] [sys-apps/bat]
-# bat-extras (https://github.com/eth-p/bat-extras) 				[grep/man/less/watch/diff]
-# exa (https://github.com/ogham/exa) 							[ls] [sys-apps/exa]
-# dust (https://github.com/bootandy/dust) 						[du] [sys-apps/dust]
-# duf (https://github.com/muesli/duf) 							[df] [sys-fs/duf]
-# bottom (https://github.com/ClementTsang/bottom) 				[top] [sys-process/bottom]
-# btop (https://github.com/aristocratos/btop) 					[top] [sys-process/btop]
-# gdu (https://github.com/dundee/gdu) 							[ncdu] [sys-fs/gdu]
-# doggo (https://github.com/mr-karan/doggo) 					[dig] [net-dns/doggo]
-# ripgrep (https://github.com/BurntSushi/ripgrep) 				[grep] [sys-apps/ripgrep]
-# ripgrep-all (https://github.com/phiresky/ripgrep-all) 		[grep] [sys-apps/ripgrep-all]
-# git-delta (https://github.com/dandavison/delta) 				[diff] [dev-util/git-delta]
-# sd (https://github.com/chmln/sd) 								[sed] [sys-apps/sd]
-# fd (https://github.com/sharkdp/fd) 							[find] [sys-apps/fd]
-# zoxide (https://github.com/ajeetdsouza/zoxide) 				[cd] [app-shells/zoxide]
-# plocate (https://plocate.sesse.net) 							[locate] [sys-apps/plocate]
-# procs (https://github.com/dalance/procs) 						[ps] [sys-apps/procs]
-# gping (https://github.com/orf/gping) 							[ping] [net-misc/gping]
-# fzf (https://github.com/junegunn/fzf) 						[misc] [app-shells/fzf]
-# entr (https://github.com/eradman/entr) 						[misc] [app-admin/entr]
-# moreutils (https://joeyh.name/code/moreutils) 				[misc] [sys-apps/moreutils]
-# cheat (https://github.com/cheat/cheat) 						[misc] [app-misc/cheat]
-# tldr (https://github.com/tldr-pages/tldr) 					[misc] [app-text/tldr]
+# bat (https://github.com/sharkdp/bat)							[cat] [sys-apps/bat]
+# bat-extras (https://github.com/eth-p/bat-extras)				[grep/man/less/watch/diff]
+# exa (https://github.com/ogham/exa)							[ls] [sys-apps/exa]
+# dust (https://github.com/bootandy/dust)						[du] [sys-apps/dust]
+# duf (https://github.com/muesli/duf)							[df] [sys-fs/duf]
+# bottom (https://github.com/ClementTsang/bottom)				[top] [sys-process/bottom]
+# btop (https://github.com/aristocratos/btop)					[top] [sys-process/btop]
+# gdu (https://github.com/dundee/gdu)							[ncdu] [sys-fs/gdu]
+# doggo (https://github.com/mr-karan/doggo)						[dig] [net-dns/doggo]
+# ripgrep (https://github.com/BurntSushi/ripgrep)				[grep] [sys-apps/ripgrep]
+# ripgrep-all (https://github.com/phiresky/ripgrep-all)			[grep] [sys-apps/ripgrep-all]
+# git-delta (https://github.com/dandavison/delta)				[diff] [dev-util/git-delta]
+# sd (https://github.com/chmln/sd)								[sed] [sys-apps/sd]
+# fd (https://github.com/sharkdp/fd)							[find] [sys-apps/fd]
+# zoxide (https://github.com/ajeetdsouza/zoxide)				[cd] [app-shells/zoxide]
+# plocate (https://plocate.sesse.net)							[locate] [sys-apps/plocate]
+# procs (https://github.com/dalance/procs)						[ps] [sys-apps/procs]
+# gping (https://github.com/orf/gping)							[ping] [net-misc/gping]
+# fzf (https://github.com/junegunn/fzf)							[misc] [app-shells/fzf]
+# entr (https://github.com/eradman/entr)						[misc] [app-admin/entr]
+# moreutils (https://joeyh.name/code/moreutils)					[misc] [sys-apps/moreutils]
+# cheat (https://github.com/cheat/cheat)						[misc] [app-misc/cheat]
+# tldr (https://github.com/tldr-pages/tldr)						[misc] [app-text/tldr]
+
+#### VARIABLES
+x0rzavi_home='/home/x0rzavi'
 
 #### DEFINE ALIASES
 alias cat='bat'
@@ -48,7 +50,7 @@ alias ping='gping'
 
 alias update='sudo emaint -A sync'
 alias upgrade='sudo emerge --update --newuse --deep --with-bdeps=y @world'
-alias perf='sudo ~/.bin/mode.sh --perf'
+alias perf='sudo ${x0rzavi_home}/.bin/mode.sh --perf'
 
 #### SET SHELL OPTIONS: http://zsh.sourceforge.net/Doc/Release/Options.html.
 setopt HIST_IGNORE_ALL_DUPS	# prevent history from recording duplicated entries even if they are not adjacent
@@ -56,6 +58,7 @@ setopt HIST_IGNORE_SPACE	# prevent particular entries from being recorded into a
 setopt HIST_ALLOW_CLOBBER	# save clobber overrides as is
 setopt HIST_REDUCE_BLANKS	# tidy up the line when it is entered into the history by removing any excess blanks
 setopt HIST_NO_STORE		# don't store history or fc commands
+setopt HIST_EXPIRE_DUPS_FIRST	# remove duplicates before unique entries when trimmed
 setopt NO_CLOBBER			# don't allow overwriting files generally ( use >| to override )
 setopt AUTO_CD				# check to see if it's actually a directory. If it is, change to that directory
 setopt MENU_COMPLETE		# one completion is always inserted completely, then when you hit TAB it changes to the next,
@@ -69,8 +72,8 @@ setopt MENU_COMPLETE		# one completion is always inserted completely, then when 
 
 #### HISTORY
 HISTFILE="$HOME/.zsh_history"
-HISTSIZE=10000
-SAVEHIST=10000
+HISTSIZE=2000
+SAVEHIST=1000
 
 #### HISTORY BASED AUTOCOMPLETION
 autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
@@ -78,7 +81,7 @@ zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 
 #### KEYBINDINGS
-source ~/.zkbd/keymaps
+source ${x0rzavi_home}/.zkbd/keymaps
 [[ -n ${key[Home]} ]] && bindkey "${key[Home]}" beginning-of-line
 [[ -n ${key[End]} ]] && bindkey "${key[End]}" end-of-line
 [[ -n ${key[Insert]} ]] && bindkey "${key[Insert]}" overwrite-mode
