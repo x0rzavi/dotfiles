@@ -1,116 +1,100 @@
 {
 	// "layer": "top",
-    "modules-left": [
-        "custom/memory-logo",
+	"modules-left": [
 		"memory",
-        "custom/cpu-logo",
 		"cpu",
-		"cpu#2",
-        "temperature"
-    ],
-    "modules-center": [
-        "clock"
-    ],
-    "modules-right": [
-    	"idle_inhibitor",
-        "network",
-        "backlight",
-        "pulseaudio",
-        "battery"
-    ],
-    // "margin": 15,
-    "custom/memory-logo": {
-        "format": " ",
-        "tooltip": false
-    },
-    "memory": {
-        "interval": 1,
-        "format": "{percentage}%",
-        "states": {
-        	"warning": 80,
-            "critical": 90
-        }
-    },
-    "custom/cpu-logo": {
-        "format": "\uf1e7 ",
-        "tooltip": false
-    },
-    "cpu": {
-        "interval": 1,
-        "format": "{usage}%"
-    },
-    "cpu#load": {
-    	"interval": 1,
-    	"format": " {load}",
-    	"tooltip": false
-    },
-    "idle_inhibitor": {
-        "format": "{icon}",
-        "format-icons": {
-            "activated": "﯎ ",
-            "deactivated": "﯏ "
-        },
-        "tooltip": false
-    },
-     "temperature": {
+		"cpu#load",
+		"temperature"
+	],
+	"modules-center": [
+		"clock"
+	],
+	"modules-right": [
+		"idle_inhibitor",
+		"network",
+		"pulseaudio",
+		"backlight",
+		"battery"
+	],
+	// "margin": 15,
+	"memory": {
+		"interval": 1,
+		"format": "<span foreground='#f38ba8'></span> {percentage}%",
+		"states": {
+			"warning": 80,
+			"critical": 90
+		}
+	},
+	"cpu": {
+		"interval": 1,
+		"format": "<span foreground='#f38ba8'></span> {usage}%"
+	},
+	"cpu#load": {
+		"interval": 1,
+		"format": "<span foreground='#f38ba8'></span> {load}",
+		"tooltip": false
+	},
+	"temperature": {
 		"hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
 		"critical-threshold": 78,
 		"interval": 1,
-		"format": " {temperatureC}°C",
-		"tooltip": false,
-	},
-    "backlight": {
-            "format": "  {percent}%",
-            "on-scroll-up": "brightness.sh --inc",
-            "on-scroll-down": "brightness.sh --dec",
-            "on-click": "brightness.sh --set 3",
-            "on-click-right": "brightness.sh --set 50",
-            "smooth-scrolling-threshold": 5
-    },
-    "pulseaudio": {
-            "scroll-step": 5,
-            "format": "{icon} {volume}%", 
-            "format-muted": "婢 Muted",
-            "format-icons": {
-                "default": ["奄", "", ""]
-            },
-            "states": {
-            	"warning": 80,
-            },
-            "smooth-scrolling-threshold": 5,
-            "tooltip": false,
-            "on-click": "volume.sh --toggle"
-    },
-    "battery": {
-            //"interval": 10,
-            "states": {
-                	"warning": 20,
-                	"critical": 10
-	            },
-	            "format": "{icon} {capacity}%",
-	            "format-icons": ["", "", "", "", "", "", "", "", ""],
-	            "format-full": "{icon} {capacity}%",
-	            "format-charging": " {capacity}%",
-            "tooltip": false
-    },
-    "clock": {
-		"format": "{:%I:%M %p  %A %b %d}",
+		"format": "<span foreground='#f38ba8'></span> {temperatureC}°C",
 		"tooltip": false
-    },
-    "network": {
-    	"interval": 1,
-        "format-wifi": " {bandwidthUpBytes}  {bandwidthDownBytes}  說 {essid}",
-        "format-ethernet": " {bandwidthUpBytes}  {bandwidthDownBytes}    {ifname}",
-        "format-linked": "說 {essid} (No IP)",
-        "format-disconnected": "說 Disconnected",
-        //"format-alt": "說 {ifname} ({ipaddr})",
-        "tooltip": true,
-        "tooltip-format": "{ipaddr}/{cidr}",
-        "max-length": 28,
-    },
-    "custom/off": {
-        "format": "⏻",
-        "on-click": "powermenu.sh",
-        "tooltip": false
-    }
+	},
+	"clock": {
+		"format": "<span foreground='#f38ba8'></span> {:%I:%M %p %A %d %b}",
+		"tooltip": false
+	},
+	"idle_inhibitor": {
+		"format": "{icon}",
+		"format-icons": {
+			"activated": "<span foreground='#f38ba8'></span>",
+			"deactivated": "<span foreground='#f38ba8'></span>"
+		},
+		"tooltip": false
+	},
+	"network": {
+		"interval": 1,
+		"format-ethernet": "<span foreground='#f38ba8'></span> {bandwidthUpBytes} <span foreground='#f38ba8'></span> {bandwidthDownBytes}  <span foreground='#f38ba8'></span> {ifname}",
+		"format-wifi": "<span foreground='#f38ba8'></span> {bandwidthUpBytes} <span foreground='#f38ba8'></span> {bandwidthDownBytes}  <span foreground='#f38ba8'></span> {essid}",
+		"format-linked": "<span foreground='#f38ba8'></span> {essid} (No IP)",
+		"format-disconnected": "<span foreground='#f38ba8'></span> Disconnected",
+		"max-length": 28,
+		"tooltip": true,
+		"tooltip-format": "{ipaddr}/{cidr}"
+	},
+	"pulseaudio": {
+		"format": "<span foreground='#f38ba8'>{icon}</span> {volume}%",
+		"format-muted": "<span foreground='#f38ba8'></span> Muted",
+		"format-icons": {
+			"default": ["", "", ""]
+		},
+		"states": {
+			"warning": 80,
+			"critical": 90
+		},
+		"scroll-step": 3,
+		"on-click": "volume.sh --toggle &",
+		"smooth-scrolling-threshold": 5,
+		"tooltip": false
+	},
+	"backlight": {
+		"format": "<span foreground='#f38ba8'>{icon}</span> {percent}%",
+		"format-icons": ["", "", ""],
+		"on-click": "brightness.sh --set 3 &",
+		"on-click-right": "brightness.sh --set 50 &",
+		"on-scroll-up": "brightness.sh --inc &",
+		"on-scroll-down": "brightness.sh --dec &",
+		"smooth-scrolling-threshold": 5
+	},
+	"battery": {
+		"states": {
+			"warning": 20,
+			"critical": 10
+		},
+		"format": "<span foreground='#f38ba8'>{icon}</span> {capacity}%",
+		"format-icons": ["", "", "", ""],
+		"format-charging": "<span foreground='#f38ba8'></span> {capacity}%",
+		"tooltip": false
+	}
 }

@@ -89,7 +89,7 @@ window > box {
 
 #custom-launcher, #mode, #clock, #memory, #cpu, #temperature, #idle_inhibitor, #backlight, #pulseaudio, #network, #battery, #custom-off {
 	/* margin: 10px 10px; */
-	color: @base;
+	/* color: @base; */
 }
 
 .modules-left, .modules-center, .modules-right {
@@ -149,18 +149,9 @@ tooltip label {
 	background-color: @peach-mocha;
 }
 
-#custom-memory-logo {
-	padding: 5px 1px 5px 12px;
-	border-radius: 20px 0 0 20px;
-	/* font-size: 15px; */
-	font-weight: bold;
-	color: @red;
-	background-color: @surface0;
-}
-
 #memory {
-	padding: 5px 12px 5px 1px;
-	border-radius: 0 20px 20px 0;
+	padding: 5px 12px;
+	border-radius: 20px;
 	background-color: @surface0;
 	color: @text;
 }
