@@ -43,7 +43,7 @@
 		"tooltip": false
 	},
 	"clock": {
-		"format": "<span foreground='#74c7ec' font_weight='normal'></span> {:%I:%M %p %A %d %b}",
+		"format": "<span foreground='#74c7ec' font_weight='normal'></span> {:%I:%M %p  %A %d %b}",
 		"tooltip": false
 	},
 	"idle_inhibitor": {

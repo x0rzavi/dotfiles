@@ -25,7 +25,7 @@ outputs = [
 
 pywm = {
     'enable_xwayland': True,
-    'xkb_options': 'numpad:mac',
+    #'xkb_options': 'numpad:mac',
     'xcursor_theme': 'Fluent-dark-cursors',
 }
 
