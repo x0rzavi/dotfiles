@@ -24,7 +24,7 @@ outputs = [
 ]
 
 pywm = {
-    # 'enable_xwayland': True,
+    'enable_xwayland': True,
     'xkb_options': 'numpad:mac',
     'xcursor_theme': 'Fluent-dark-cursors',
 }
@@ -38,7 +38,7 @@ background = {
 corner_radius = 0
 
 def rules(view):
-    blur_apps = ("foot", "Alacritty")
+    blur_apps = ("foot", "Alacritty", "waybar")
     app_rule = None
     if view.app_id in blur_apps:
         app_rule = {"blur": {"radius": 3, "passes": 4}}
@@ -99,14 +99,14 @@ def key_bindings(layout: Layout) -> list[tuple[str, Callable[[], Any]]]:
 
         (mod, lambda: layout.toggle_overview()),
 
-        ("XF86MonBrightnessUp", lambda: os.system("brightness.sh --inc")),
-        ("XF86MonBrightnessDown", lambda: os.system("brightness.sh --dec")),
-        ("XF86AudioPlay", lambda: os.system("playerctl play-pause")),
-        ("XF86AudioNext", lambda: os.system("playerctl next")),
-        ("XF86AudioPrev", lambda: os.system("playerctl previous")),
-        ("XF86AudioRaiseVolume", lambda: os.system("volume.sh --inc")),
-        ("XF86AudioLowerVolume", lambda: os.system("volume.sh --dec")),
-        ("XF86AudioMute", lambda: os.system("volume.sh --toggle")),
+        ("XF86MonBrightnessUp", lambda: os.system("brightness.sh --inc &")),
+        ("XF86MonBrightnessDown", lambda: os.system("brightness.sh --dec &")),
+        ("XF86AudioPlay", lambda: os.system("playerctl play-pause &")),
+        ("XF86AudioNext", lambda: os.system("playerctl next &")),
+        ("XF86AudioPrev", lambda: os.system("playerctl previous &")),
+        ("XF86AudioRaiseVolume", lambda: os.system("volume.sh --inc &")),
+        ("XF86AudioLowerVolume", lambda: os.system("volume.sh --dec &")),
+        ("XF86AudioMute", lambda: os.system("volume.sh --toggle &")),
     ]
 
 def on_startup():
@@ -149,12 +149,12 @@ def on_reconfigure():
         config = f"{config} &"
         os.system(config)
 
-def energy_callback(code: str):
-    print('hi')
+def idle_callback(code: str) -> None:
+    if code in ["lock", "idle-lock"]:
+        os.system('volume.sh --mute &')
 
 energy = {
-    'idle_callback': energy_callback,
-    'idle_times': [5, 15, 200],
+    #'idle_times': [5, 5, 600],
     'suspend_command': 'loginctl suspend'
 }
 
@@ -173,8 +173,8 @@ panels = {
     'launcher': {
         'cmd': 'foot -e newm-panel-basic launcher'
     },
-    'bar': {
-        'cmd': 'waybar',
-        'visible_fullscreen': False
-    }
+    # 'bar': {
+    #     'cmd': 'waybar',
+    #     'visible_fullscreen': False
+    # }
 }

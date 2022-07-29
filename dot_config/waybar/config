@@ -1,46 +1,48 @@
 {
-	//"layer": "top",
+	// "layer": "top",
     "modules-left": [
-		"custom/launcher",
-		//"sway/workspaces",
-		//"sway/mode",
+        "custom/memory-logo",
 		"memory",
+        "custom/cpu-logo",
 		"cpu",
 		"cpu#2",
-        "temperature",
+        "temperature"
     ],
     "modules-center": [
-        "clock",
+        "clock"
     ],
     "modules-right": [
     	"idle_inhibitor",
         "network",
         "backlight",
         "pulseaudio",
-        "battery",
-        "custom/off"
+        "battery"
     ],
-    "custom/launcher": {
-		"format": " ",
-		"on-click": "bemenu_launcher.sh",
-		"tooltip": false
-    },
-    "sway/mode": {
-        "format": "蘒 {}",
+    // "margin": 15,
+    "custom/memory-logo": {
+        "format": " ",
         "tooltip": false
     },
-    "sway/workspaces": {
-        "disable-scroll": true,
-        //"format": "{icon}",
-        //"persistent_workspaces": {
-		//	"1": [],
-        //	"2": [],
-        //	"3": [],
-        //	"4": []
-		//},
-        //"format-icons": {
-        //   "urgent": " 𥉉"
-        //}
+    "memory": {
+        "interval": 1,
+        "format": "{percentage}%",
+        "states": {
+        	"warning": 80,
+            "critical": 90
+        }
+    },
+    "custom/cpu-logo": {
+        "format": "\uf1e7 ",
+        "tooltip": false
+    },
+    "cpu": {
+        "interval": 1,
+        "format": "{usage}%"
+    },
+    "cpu#load": {
+    	"interval": 1,
+    	"format": " {load}",
+    	"tooltip": false
     },
     "idle_inhibitor": {
         "format": "{icon}",
@@ -94,22 +96,6 @@
     "clock": {
 		"format": "{:%I:%M %p  %A %b %d}",
 		"tooltip": false
-    },
-    "memory": {
-        "interval": 1,
-        "format": "﬙ {percentage}%",
-        "states": {
-        	"warning": 85,
-        },
-    },
-    "cpu": {
-        "interval": 1,
-        "format": " {usage}%"
-    },
-    "cpu#2": {
-    	"interval": 1,
-    	"format": " {load}",
-    	"tooltip": false
     },
     "network": {
     	"interval": 1,

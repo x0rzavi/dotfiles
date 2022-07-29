@@ -1,28 +1,75 @@
-@define-color crust-mocha rgb(17, 17, 27);
-@define-color base-mocha rgb(30, 30, 46);
-@define-color surface0-mocha rgb(49, 50, 68);
-@define-color text-mocha rgb(205, 214, 244);
-@define-color lavender-mocha rgb(180, 190, 254);
-@define-color blue-mocha rgb(137, 180, 250);
-@define-color sapphire-mocha rgb(116, 199, 236);
-@define-color sky-mocha rgb(137, 220, 235);
-@define-color green-mocha rgb(166, 227, 161);
-@define-color teal-mocha rgb(148, 226, 213);
-@define-color yellow-mocha rgb(249, 226, 175);
-@define-color peach-mocha rgb(250, 179, 135);
-@define-color red-mocha rgb(243, 139, 168);
-@define-color mauve-mocha rgb(203, 166, 247);
-@define-color pink-mocha rgb(245, 194, 231);
-@define-color flamingo-mocha rgb(242, 205, 205);
-@define-color rosewater-mocha rgb(245, 224, 220);
+/* Catppuccin Mocha */
+@define-color	rosewater	rgb(245, 224, 220);
+@define-color	flamingo	rgb(242, 205, 205);
+@define-color	pink		rgb(245, 194, 231);
+@define-color	mauve		rgb(203, 166, 247);
+@define-color	red			rgb(243, 139, 168);
+@define-color	maroon		rgb(235, 160, 172);
+@define-color	peach		rgb(250, 179, 135);
+@define-color	yellow		rgb(249, 226, 175);
+@define-color	green		rgb(166, 227, 161);
+@define-color	teal		rgb(148, 226, 213);
+@define-color	sky			rgb(137, 220, 235);
+@define-color	sapphire	rgb(116, 199, 236);
+@define-color	blue		rgb(137, 180, 250);
+@define-color	lavender	rgb(180, 190, 254);
+@define-color	text		rgb(205, 214, 244);
+@define-color	subtext1	rgb(186, 194, 222);
+@define-color	subtext0	rgb(166, 173, 200);
+@define-color	overlay2	rgb(147, 153, 178);
+@define-color	overlay1	rgb(127, 132, 156);
+@define-color	overlay0	rgb(108, 112, 134);
+@define-color	surface2	rgb(88, 91, 112);
+@define-color	surface1	rgb(69, 71, 90);
+@define-color	surface0	rgb(49, 50, 68);
+@define-color	base		rgb(30, 30, 46);
+@define-color	mantle		rgb(24, 24, 37);
+@define-color	crust		rgb(17, 17, 27);
+
+/*	                    +---> (window#waybar)
+	                    |
++------------------------------------------------------------------------------+
+|  +------------------------------------------------------------------------+  |
+|  |                          |                                             |  |
+|  |                          +----> (window > box)                         |  |
+|  |  +-----------------+    +-------------------+    +------------------+  |  |
+|  |  | (.modules-left) |    | (.modules-center) |    | (.modules-right) |  |  |
+|  |  +-----------------+    +-------------------+    +------------------+  |  |
+|  +------------------------------------------------------------------------+  |
++------------------------------------------------------------------------------+		
+
+    +-----> (Margin)                                            (Margin) <----+ 
+    |                                +------> (Border)                        |
+    |                                |                                        |
+<-->+=========================================================================+<-->
+    ||                                                                       ||
+    ||--------------------------------->TEXT<--------------------------------||
+    ||           (Padding)                             (Padding)             ||
+<-->+=========================================================================+<-->
+
+*/
 
 * {
-	font-family: Iosevka Nerd Font;
-	font-size: 15px;
-	font-weight: bold;
-	border-radius: 20px;
+	font-family: Iosevka Nerd Font, lucide;
+	/* font-size: 15px; */
+	/* font-weight: bold; */
 	transition-property: background-color;
 	transition-duration: 1s;
+}
+
+window#waybar {
+	background-color: transparent;  /* Keep transparent to blur */
+}
+
+window#waybar.hidden {
+    opacity: 0.5;
+}
+
+window > box {
+	/* margin: 5px 10px; */
+	/* padding: 5px; */
+	/* border-radius: 10px; */
+	background-color: @base; /* Keep transparent to blur */
 }
 
 @keyframes blink_red {
@@ -40,41 +87,15 @@
     animation-direction: alternate;
 }
 
-window#waybar {
-	background-color: transparent;
-}
-
-window#waybar.hidden {
-    opacity: 0.5;
-}
-
-window > box {
-	margin-left: 10px;
-	margin-right: 10px;
-	margin-top: 10px;
-	/* margin-bottom: 5px; */
-	/* padding: 5px; 
-	border-radius: 15px; 
-	background-color: @crust-mocha; */ 
-}
-
 #custom-launcher, #mode, #clock, #memory, #cpu, #temperature, #idle_inhibitor, #backlight, #pulseaudio, #network, #battery, #custom-off {
-	padding-left: 13px;
-	padding-right: 13px;
-	padding-top: 6px;
-	padding-bottom: 5px;
-	margin-left: 3px;
-	margin-right: 3px;
-	color: @base-mocha;
+	/* margin: 10px 10px; */
+	color: @base;
 }
 
 .modules-left, .modules-center, .modules-right {
-	background-color: @base-mocha;
-	border-radius: 12px;
+	background-color: @black;
+	border-radius: 20px;
 	padding: 6px;
-	border: 2px;
-	border-style: solid;
-	border-color: @sapphire-mocha;
 	/* box-shadow: 3px 3px 3px 0 @surface0-mocha; */
 }
 
@@ -86,7 +107,7 @@ window > box {
     font-size: 16px;
 	font-weight: lighter;
 	border-radius: 20px;
-    background-color: @teal-mocha;
+    background-color: @teal;
 }
 
 #workspaces button {
@@ -128,24 +149,34 @@ tooltip label {
 	background-color: @peach-mocha;
 }
 
+#custom-memory-logo {
+	padding: 5px 1px 5px 12px;
+	border-radius: 20px 0 0 20px;
+	/* font-size: 15px; */
+	font-weight: bold;
+	color: @red;
+	background-color: @surface0;
+}
+
 #memory {
-	margin-left: 8px;
-	margin-right: 2px;
-	background-color: @lavender-mocha;
+	padding: 5px 12px 5px 1px;
+	border-radius: 0 20px 20px 0;
+	background-color: @surface0;
+	color: @text;
 }
 
 #cpu {
-	background-color: @yellow-mocha;
+	color: @yellow-mocha;
 }
 
 #cpu.2 {
 	margin-right: 3px;
-	background-color: @mauve-mocha;
+	color: @mauve-mocha;
 }
 
 #temperature {
 	margin-right: 5px;
-	background-color: @blue-mocha;
+	color: @blue-mocha;
 }
 
 #clock {
