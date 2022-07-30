@@ -6,7 +6,7 @@ set -o pipefail
 trap "exit" INT
 
 # Author: https://github.com/x0rzavi
-# Description: Install my favourite fonts
+# Description: Install my necessary fonts
 # Dependencies: aria2, 7z
 
 # Temp directory to unpack into

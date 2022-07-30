@@ -1,7 +1,6 @@
-#### CONVENIENCES FOR ZSH
-#### USER AGNOSTIC
+# Description: User agnostic conveniences for ZSH
 
-#### MODERN UNIX TOOLS
+# List of modern UNIX tool replacements
 # bat (https://github.com/sharkdp/bat)							[cat] [sys-apps/bat]
 # bat-extras (https://github.com/eth-p/bat-extras)				[grep/man/less/watch/diff]
 # exa (https://github.com/ogham/exa)							[ls] [sys-apps/exa]
@@ -26,10 +25,10 @@
 # cheat (https://github.com/cheat/cheat)						[misc] [app-misc/cheat]
 # tldr (https://github.com/tldr-pages/tldr)						[misc] [app-text/tldr]
 
-#### VARIABLES
+# Variables
 x0rzavi_home='/home/x0rzavi'
 
-#### DEFINE ALIASES
+# Define command aliases
 alias cat='bat'
 #alias grep='batgrep --hidden'
 alias grep='rg --pretty --hidden'
@@ -48,11 +47,13 @@ alias ps='procs'
 alias dig='doggo'
 alias ping='gping'
 
+# Define general task aliases
 alias update='sudo emaint -A sync'
-alias upgrade='sudo emerge --update --newuse --deep --with-bdeps=y @world'
+alias upgrade='sudo emerge --update --changed-use --deep --with-bdeps=y @world'
+alias clean='sudo emerge --depclean ; sudo eclean-dist --deep'
 alias perf='sudo ${x0rzavi_home}/.bin/mode.zsh --perf'
 
-#### SET SHELL OPTIONS: http://zsh.sourceforge.net/Doc/Release/Options.html.
+# Set ZSH options: http://zsh.sourceforge.net/Doc/Release/Options.html.
 setopt HIST_IGNORE_ALL_DUPS	# prevent history from recording duplicated entries even if they are not adjacent
 setopt HIST_IGNORE_SPACE	# prevent particular entries from being recorded into a history by preceding them with at least one space
 setopt HIST_ALLOW_CLOBBER	# save clobber overrides as is
@@ -64,49 +65,43 @@ setopt AUTO_CD				# check to see if it's actually a directory. If it is, change 
 #setopt MENU_COMPLETE		# one completion is always inserted completely, then when you hit TAB it changes to the next,
 #setopt CORRECT				# enable autocorrection
 
-#### ROOTLESS DOCKER
-#export DOCKER_HOST=unix://$XDG_RUNTIME_DIR/docker.sock
-
-#### HEROKU AUTOCOMPLETE SETUP
-#HEROKU_AC_ZSH_SETUP_PATH=/home/x0rzavi/.cache/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
-
-#### HISTORY
+# ZSH history options
 HISTFILE="${HOME}/.zsh_history"
 HISTSIZE=2000
 SAVEHIST=1000
 
-#### HISTORY BASED AUTOCOMPLETION
+# History based autocompletion
 autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 
-#### KEYBINDINGS
+# Keybindings
 source ${x0rzavi_home}/.zkbd/keymaps
 [[ -n ${key[Home]} ]] && bindkey "${key[Home]}" beginning-of-line
 [[ -n ${key[End]} ]] && bindkey "${key[End]}" end-of-line
 [[ -n ${key[Insert]} ]] && bindkey "${key[Insert]}" overwrite-mode
 [[ -n ${key[Backspace]} ]] && bindkey "${key[Backspace]}" backward-delete-char
 [[ -n ${key[Delete]} ]] && bindkey "${key[Delete]}" delete-char
+[[ -n ${key[PageUp]} ]] && bindkey "${key[PageUp]}" beginning-of-buffer-or-history
+[[ -n ${key[PageDown]} ]] && bindkey "${key[PageDown]}" end-of-buffer-or-history
 [[ -n ${key[Left]} ]] && bindkey "${key[Left]}" backward-char
 [[ -n ${key[Right]} ]] && bindkey "${key[Right]}" forward-char
 [[ -n ${key[Up]} ]] && bindkey "${key[Up]}" up-line-or-beginning-search
 [[ -n ${key[Down]} ]] && bindkey "${key[Down]}" down-line-or-beginning-search
-[[ -n ${key[PageUp]} ]] && bindkey "${key[PageUp]}" beginning-of-buffer-or-history
-[[ -n ${key[PageDown]} ]] && bindkey "${key[PageDown]}" end-of-buffer-or-history
 
-#### AUTOCOMPLETION
+# Autocompletion options
 autoload -Uz compinit
 compinit
 zstyle ':completion::complete:*' use-cache on
 zstyle ':completion:*' menu select=3
 zstyle ':completion:*' rehash true
 
-#### ZOXIDE
+# Initialize zoxide
 eval "$(zoxide init --cmd cd zsh)"
 
-#### STARSHIP
+# Initialize starship
 eval "$(starship init zsh)"
 
-#### SOURCE ADDITIONAL FILES
+# Source additional files
 source /usr/share/zsh/site-functions/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/site-functions/zsh-autosuggestions.zsh

@@ -7,10 +7,12 @@ trap "exit" INT
 
 # Author: https://github.com/x0rzavi
 # Description: Maintenance procedure for btrfs
-# Dependencies: btrfs-progs
+# Dependencies: btrfs-progs, timeshift (optional)
 
 maintenance () {
-    timeshift --delete-all
+    if [[ $(timeshift --version) ]]; then
+        timeshift --delete-all
+    fi
     btrfs filesystem defragment -r /
     btrfs filesystem defragment -r /home
     btrfs balance start /

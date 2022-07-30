@@ -1,7 +1,7 @@
-#### USER AGNOSTIC
+# Description: Uer agnostic
 
-#### VARIABLES
+# Variables
 x0rzavi_home='/home/x0rzavi'
 
-#### SOURCE MAIN FILE
+# Source main file
 source ${x0rzavi_home}/.bin/x0rzavi.zsh

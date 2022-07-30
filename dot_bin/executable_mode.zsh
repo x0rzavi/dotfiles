@@ -55,7 +55,7 @@ Available options:
 EOF
 }
 
-if [[ (( $UID -eq '0' )) ]]; then
+if [[ (( ${UID} -eq '0' )) ]]; then
     TEMP=$(getopt --options 'bpudi' --longoptions 'batt,perf,uv,def,info' --name 'mode.zsh' -- "$@" )
     if [[ $? -ne 0 ]]; then
     	show_help

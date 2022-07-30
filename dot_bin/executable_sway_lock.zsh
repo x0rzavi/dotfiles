@@ -2,7 +2,7 @@
 
 # Author: https://github.com/x0rzavi
 # Description: Lock sway with swaylock-effects
-# Dependencies: swaylock-effects
+# Dependencies: swaylock-effects, sway
 # Theme: Catppuccin
 
 # Variables

@@ -2,7 +2,7 @@
 
 # Author: https://github.com/x0rzavi
 # Description: Cliphist invoker with bemenu
-# Dependencies: bemenu, cliphist, Lucide font
+# Dependencies: bemenu, cliphist, Lucide icons
 # Theme: Catppuccin
 
 # Variables
@@ -22,7 +22,7 @@ cliphist list | \
 	--fork \
 	--line-height 25 \
 	--cw 5 \
-	--fn 'Iosevka Nerd Font' \
+	--fn 'Iosevka Nerd Font Bold' \
 	--tb ${black} \
 	--tf ${peach} \
 	--fb ${black} \

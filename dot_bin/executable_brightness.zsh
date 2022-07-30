@@ -2,11 +2,11 @@
 
 # Author: https://github.com/x0rzavi
 # Description: Brightness manipulation
-# Dependencies: acpilight, getopt (enhanced), Lucide fonts
+# Dependencies: acpilight, getopt (enhanced), Lucide icons
 
 # Variables
 step=3
-fps=150
+fps=100
 
 show_help () {
 	cat <<EOF
@@ -21,11 +21,11 @@ EOF
 }
 
 get_icon () {
-	if [[ (( $brightness -ge '0' )) && (( $brightness -lt '30' )) ]]; then
+	if [[ (( ${brightness} -ge '0' )) && (( ${brightness} -lt '30' )) ]]; then
 		icon=''
-	elif [[ (( $brightness -ge '30' )) && (( $brightness -lt '60' )) ]]; then
+	elif [[ (( ${brightness} -ge '30' )) && (( ${brightness} -lt '60' )) ]]; then
 		icon=''
-	elif [[ (( $brightness -ge '60' )) ]]; then
+	elif [[ (( ${brightness} -ge '60' )) ]]; then
 		icon=''
 	fi
 }

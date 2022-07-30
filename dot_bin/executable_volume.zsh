@@ -2,17 +2,17 @@
 
 # Author: https://github.com/x0rzavi
 # Description: Volume manipulation
-# Dependencies: pulseaudio, getopt (enhanced), Lucide fonts
+# Dependencies: pulseaudio, getopt (enhanced), Lucide icons
 
 # Variables
 step=2
 
 get_icon () {
-	if [[ (( $volume -eq '0' )) || (( $state = 'yes' )) ]]; then
+	if [[ (( ${volume} -eq '0' )) || (( ${state} = 'yes' )) ]]; then
 		icon=''
-	elif [[ (( $volume -ge '0' )) && (( $volume -lt '55' )) ]]; then
+	elif [[ (( ${volume} -ge '0' )) && (( ${volume} -lt '55' )) ]]; then
 		icon=''
-	elif [[ (( $volume -ge '55' )) ]]; then
+	elif [[ (( ${volume} -ge '55' )) ]]; then
 		icon=''
 	fi
 }

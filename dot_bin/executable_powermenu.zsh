@@ -2,7 +2,7 @@
 
 # Author: https://github.com/x0rzavi
 # Description: Powermenu implemented with bemenu
-# Dependencies: bemenu, libnotify, elogind, getopt (enhanced), Lucide font
+# Dependencies: sway, bemenu, libnotify, elogind, getopt (enhanced), Lucide icons
 # Theme: Catppuccin
 
 # Variables
@@ -22,7 +22,7 @@ selected=$(echo -e ${option} \
 	--fork \
 	--line-height 25 \
 	--cw 5 \
-	--fn 'Iosevka Nerd Font' \
+	--fn 'Iosevka Nerd Font Bold' \
 	--tb ${black} \
 	--tf ${peach} \
 	--fb ${black} \

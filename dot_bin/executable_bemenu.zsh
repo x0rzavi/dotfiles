@@ -2,7 +2,7 @@
 
 # Author: https://github.com/x0rzavi
 # Description: Bemenu-run
-# Dependencies: bemenu, Lucide font
+# Dependencies: bemenu, Lucide icons
 # Theme: Catppuccin
 
 # Variables
@@ -20,7 +20,7 @@ bemenu-run \
 	--fork \
 	--line-height 25 \
 	--cw 5 \
-	--fn 'Iosevka Nerd Font' \
+	--fn 'Iosevka Nerd Font Bold' \
 	--tb ${black} \
 	--tf ${peach} \
 	--fb ${black} \
