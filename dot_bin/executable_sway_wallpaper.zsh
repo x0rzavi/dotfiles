@@ -1,21 +1,21 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 # Author: https://github.com/x0rzavi
 # Description: Set random wallpaper from unsplash.com fetched through unsplash.it
-# Dependencies: sway
+# Dependencies: sway, wget
 
 # Variables
-wallpapers_path=$HOME/Pictures/Wallpapers
+wallpapers_path="${HOME}/Pictures/Wallpapers"
 
 wallpaper_set () {
-	cd $wallpapers_path
+	cd ${wallpapers_path}
 	tag=$(date +%s)
-	wget "https://picsum.photos/seed/$RANDOM/3840/2160" --quiet -O $tag.jpg
+	wget "https://picsum.photos/seed/${RANDOM}/3840/2160" --quiet -O ${tag}.jpg
 	if [[ -s $tag.jpg ]]; then
-		cp $tag.jpg wallpaper.jpg
+		cp ${tag}.jpg wallpaper.jpg
 		#swaymsg output "eDP-1" bg $wallpapers_path/wallpaper.jpg fill
 	else
-		rm -f $tag.jpg
+		rm -f ${tag}.jpg
 	fi
 }
 

@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 # Author: https://github.com/x0rzavi
 # Description: Launch sway

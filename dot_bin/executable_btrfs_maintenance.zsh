@@ -1,8 +1,9 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 # Safer script
+set -eux
+set -o pipefail
 trap "exit" INT
-set -euox pipefail
 
 # Author: https://github.com/x0rzavi
 # Description: Maintenance procedure for btrfs
@@ -16,7 +17,7 @@ maintenance () {
     btrfs scrub start /
 }
 
-if [ "$UID" -eq "0" ]; then
+if [[ (( $UID -eq '0' )) ]]; then
     maintenance
 else
     echo "Root privileges are required!"

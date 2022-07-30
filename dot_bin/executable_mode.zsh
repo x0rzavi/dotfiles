@@ -1,8 +1,8 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 # Author: https://github.com/x0rzavi
 # Description: Optimize for performance
-# Dependencies: amdctl, ryzenadj
+# Dependencies: amdctl, ryzenadj, getopt (enhanced)
 
 # MODEL: hp 15s-gr0009au
 # PROCHOT: 80C
@@ -38,37 +38,52 @@ undervolt () {
 info () {
     echo -e "################### INFO FROM RYZENADJ ###################\n"
     ryzenadj -i
-    echo -e "\n################## INFO FROM AMDCTL ###################\n"
+    #echo -e "\n################## INFO FROM AMDCTL ###################\n"
     #amdctl -g
 }
 
 show_help () {
 	cat <<EOF
+Usage: mode.sh [option]
 
-Usage: mode.sh [options]
-AVAILABLE OPTIONS:
-  --batt        optimizations for battery saving
-  --perf        optimizations for performance
-  --uv		only undervolt p0 state
-  --def         reset configurations to default
-  --info        report info
+Available options:
+    -b | --batt         optimizations for battery saving
+    -p | --perf         optimizations for performance
+    -u | --uv           undervolt p0 state only
+    -d | --def          reset configurations to default
+    -i | --info         report info
 EOF
 }
 
-if [ "$UID" -eq "0" ]; then
-    if [[ "$1" == "--batt" ]]; then
-    	battery
-    elif [[ "$1" == "--perf" ]]; then
-    	performance
-    elif [[ "$1" == "--uv" ]]; then
-        undervolt
-    elif [[ "$1" == "--def" ]]; then
-    	default
-    elif [[ "$1" == "--info" ]]; then
-    	info
-    else
+if [[ (( $UID -eq '0' )) ]]; then
+    TEMP=$(getopt --options 'bpudi' --longoptions 'batt,perf,uv,def,info' --name 'mode.zsh' -- "$@" )
+    if [[ $? -ne 0 ]]; then
     	show_help
+    	exit 1
     fi
+    eval set -- "${TEMP}"
+    unset TEMP
+
+    case "$1" in
+    	('-b'|'--batt')
+    		battery
+    		;;
+    	('-p'|'--perf')
+    		performance
+    		;;
+    	('-u'|'--uv')
+    		undervolt
+    		;;
+    	('-d'|'--def')
+    		default
+    		;;
+        ('-i'|'--info')
+    		info
+    		;;
+    	(*)
+    		show_help
+    		;;
+    esac
 else
     echo "Root privileges are required!"
 fi

@@ -20,9 +20,20 @@ Available options:
 EOF
 }
 
+get_icon () {
+	if [[ (( $brightness -ge '0' )) && (( $brightness -lt '30' )) ]]; then
+		icon=''
+	elif [[ (( $brightness -ge '30' )) && (( $brightness -lt '60' )) ]]; then
+		icon=''
+	elif [[ (( $brightness -ge '60' )) ]]; then
+		icon=''
+	fi
+}
+
 get_brightness () {
 	brightness=$(xbacklight -get)
-	echo " ${brightness}%"
+	get_icon
+	echo "${icon}  ${brightness}%"
 }
 
 inc_brightness () {

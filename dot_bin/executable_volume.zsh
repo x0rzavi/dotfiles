@@ -10,7 +10,7 @@ step=2
 get_icon () {
 	if [[ (( $volume -eq '0' )) || (( $state = 'yes' )) ]]; then
 		icon=''
-	elif [[ (( $volume -ge '0' )) && (( $volume -le '55' )) ]]; then
+	elif [[ (( $volume -ge '0' )) && (( $volume -lt '55' )) ]]; then
 		icon=''
 	elif [[ (( $volume -ge '55' )) ]]; then
 		icon=''

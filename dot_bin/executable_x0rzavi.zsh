@@ -50,7 +50,7 @@ alias ping='gping'
 
 alias update='sudo emaint -A sync'
 alias upgrade='sudo emerge --update --newuse --deep --with-bdeps=y @world'
-alias perf='sudo ${x0rzavi_home}/.bin/mode.sh --perf'
+alias perf='sudo ${x0rzavi_home}/.bin/mode.zsh --perf'
 
 #### SET SHELL OPTIONS: http://zsh.sourceforge.net/Doc/Release/Options.html.
 setopt HIST_IGNORE_ALL_DUPS	# prevent history from recording duplicated entries even if they are not adjacent
@@ -71,7 +71,7 @@ setopt AUTO_CD				# check to see if it's actually a directory. If it is, change 
 #HEROKU_AC_ZSH_SETUP_PATH=/home/x0rzavi/.cache/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
 
 #### HISTORY
-HISTFILE="$HOME/.zsh_history"
+HISTFILE="${HOME}/.zsh_history"
 HISTSIZE=2000
 SAVEHIST=1000
 
