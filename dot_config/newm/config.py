@@ -25,7 +25,7 @@ outputs = [
 
 pywm = {
     'enable_xwayland': True,
-    #'xkb_options': 'numpad:mac',
+    'xkb_options': 'numpad:mac',
     'xcursor_theme': 'Fluent-dark-cursors',
 }
 
@@ -92,7 +92,7 @@ def key_bindings(layout: Layout) -> list[tuple[str, Callable[[], Any]]]:
         
         (mod + "c", lambda: layout.close_focused_view()),
 
-        #(mod + shift + "l", lambda: layout.ensure_locked(dim=True)),
+        (mod + shift + "l", lambda: layout.ensure_locked(dim=True)),
         (mod + shift + "q", lambda: layout.terminate()),
         (mod + "Escape", lambda: layout.update_config()),
 
@@ -171,9 +171,9 @@ panels = {
     'lock': {
         'cmd': 'foot -e newm-panel-basic lock',
     },
-    #'launcher': {
-    #    'cmd': 'foot -e newm-panel-basic launcher'
-    #},
+    'launcher': {
+        'cmd': 'foot -e newm-panel-basic launcher'
+    },
     'bar': {
         'cmd': 'waybar',
         'visible_fullscreen': False
