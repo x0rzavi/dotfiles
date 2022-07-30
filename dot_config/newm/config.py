@@ -92,7 +92,7 @@ def key_bindings(layout: Layout) -> list[tuple[str, Callable[[], Any]]]:
         
         (mod + "c", lambda: layout.close_focused_view()),
 
-        (mod + shift + "l", lambda: layout.ensure_locked(dim=True)),
+        #(mod + shift + "l", lambda: layout.ensure_locked(dim=True)),
         (mod + shift + "q", lambda: layout.terminate()),
         (mod + "Escape", lambda: layout.update_config()),
 
@@ -100,8 +100,8 @@ def key_bindings(layout: Layout) -> list[tuple[str, Callable[[], Any]]]:
 
         (mod, lambda: layout.toggle_overview()),
 
-        ("XF86MonBrightnessUp", lambda: os.system("brightness.sh --inc &")),
-        ("XF86MonBrightnessDown", lambda: os.system("brightness.sh --dec &")),
+        ("XF86MonBrightnessUp", lambda: os.system("brightness.zsh -i &")),
+        ("XF86MonBrightnessDown", lambda: os.system("brightness.zsh -d &")),
         ("XF86AudioPlay", lambda: os.system("playerctl play-pause &")),
         ("XF86AudioNext", lambda: os.system("playerctl next &")),
         ("XF86AudioPrev", lambda: os.system("playerctl previous &")),
@@ -168,12 +168,12 @@ gestures = {
 # }
 
 panels = {
-    'lock': {
-        'cmd': 'foot -e newm-panel-basic lock',
-    },
-    'launcher': {
-        'cmd': 'foot -e newm-panel-basic launcher'
-    },
+    # 'lock': {
+        # 'cmd': 'foot -e newm-panel-basic lock',
+    # },
+    #'launcher': {
+    #    'cmd': 'foot -e newm-panel-basic launcher'
+    #},
     'bar': {
         'cmd': 'waybar',
         'visible_fullscreen': False

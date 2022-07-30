@@ -82,10 +82,10 @@
 	"backlight": {
 		"format": "<span foreground='#94e2d5' font='lucide 14' rise='-1pt'>{icon}</span> {percent}%",
 		"format-icons": ["", "", ""],
-		"on-click": "brightness.sh --set 3 &",
-		"on-click-right": "brightness.sh --set 50 &",
-		"on-scroll-up": "brightness.sh --inc &",
-		"on-scroll-down": "brightness.sh --dec &",
+		"on-click": "brightness.zsh -s 3 &",
+		"on-click-right": "brightness.zsh -s 50 &",
+		"on-scroll-up": "brightness.zsh -i &",
+		"on-scroll-down": "brightness.zsh -d &",
 		"smooth-scrolling-threshold": 5
 	},
 	"battery": {

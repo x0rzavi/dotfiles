@@ -22,7 +22,7 @@ EOF
 
 get_brightness () {
 	brightness=$(xbacklight -get)
-	echo "${brightness}%"
+	echo " ${brightness}%"
 }
 
 inc_brightness () {

@@ -61,7 +61,7 @@ setopt HIST_NO_STORE		# don't store history or fc commands
 setopt HIST_EXPIRE_DUPS_FIRST	# remove duplicates before unique entries when trimmed
 setopt NO_CLOBBER			# don't allow overwriting files generally ( use >| to override )
 setopt AUTO_CD				# check to see if it's actually a directory. If it is, change to that directory
-setopt MENU_COMPLETE		# one completion is always inserted completely, then when you hit TAB it changes to the next,
+#setopt MENU_COMPLETE		# one completion is always inserted completely, then when you hit TAB it changes to the next,
 #setopt CORRECT				# enable autocorrection
 
 #### ROOTLESS DOCKER
