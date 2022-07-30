@@ -8,7 +8,7 @@
 if [[ $# != 1 ]]; then
 	echo "Illegal number of parameters."
 	echo
-	echo "Usage: wsudo [command]"
+	echo "Usage: with-sudo.zsh [command]"
 	exit 1
 fi
 

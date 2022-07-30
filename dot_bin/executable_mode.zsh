@@ -44,7 +44,7 @@ info () {
 
 show_help () {
 	cat <<EOF
-Usage: mode.sh [option]
+Usage: mode.zsh [option]
 
 Available options:
     -b | --batt         optimizations for battery saving
