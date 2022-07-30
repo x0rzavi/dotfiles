@@ -75,7 +75,7 @@
 			"critical": 90
 		},
 		"scroll-step": 3,
-		"on-click": "volume.sh --toggle &",
+		"on-click": "volume.zsh -t &",
 		"smooth-scrolling-threshold": 5,
 		"tooltip": false
 	},

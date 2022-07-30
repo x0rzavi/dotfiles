@@ -105,9 +105,9 @@ def key_bindings(layout: Layout) -> list[tuple[str, Callable[[], Any]]]:
         ("XF86AudioPlay", lambda: os.system("playerctl play-pause &")),
         ("XF86AudioNext", lambda: os.system("playerctl next &")),
         ("XF86AudioPrev", lambda: os.system("playerctl previous &")),
-        ("XF86AudioRaiseVolume", lambda: os.system("volume.sh --inc &")),
-        ("XF86AudioLowerVolume", lambda: os.system("volume.sh --dec &")),
-        ("XF86AudioMute", lambda: os.system("volume.sh --toggle &")),
+        ("XF86AudioRaiseVolume", lambda: os.system("volume.zsh -i &")),
+        ("XF86AudioLowerVolume", lambda: os.system("volume.zsh -d &")),
+        ("XF86AudioMute", lambda: os.system("volume.zsh -t &")),
     ]
 
 def on_startup():
@@ -168,9 +168,9 @@ gestures = {
 # }
 
 panels = {
-    # 'lock': {
-        # 'cmd': 'foot -e newm-panel-basic lock',
-    # },
+    'lock': {
+        'cmd': 'foot -e newm-panel-basic lock',
+    },
     #'launcher': {
     #    'cmd': 'foot -e newm-panel-basic launcher'
     #},
