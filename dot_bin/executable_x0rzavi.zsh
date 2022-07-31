@@ -51,7 +51,7 @@ alias ping='gping'
 alias update='sudo emaint -A sync'
 alias upgrade='sudo emerge --update --changed-use --deep --with-bdeps=y @world'
 alias clean='sudo emerge --depclean ; sudo eclean-dist --deep'
-alias perf='sudo ${x0rzavi_home}/.bin/mode.zsh --perf'
+alias perf='sudo ${x0rzavi_home}/.bin/mode.sh -p'
 
 # Set ZSH options: http://zsh.sourceforge.net/Doc/Release/Options.html.
 setopt HIST_IGNORE_ALL_DUPS	# prevent history from recording duplicated entries even if they are not adjacent
