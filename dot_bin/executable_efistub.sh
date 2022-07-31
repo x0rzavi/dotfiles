@@ -48,8 +48,10 @@ delete_entry () {
 }
 
 # Function to delete all invalid entries
-# assuming 'Gentoo'
+# and files with '.old' suffix assuming 'Gentoo'
 delete_invalid () {
+	set +o errexit && rm -f /boot/*old* && set -o errexit
+
 	IFS="$(printf '\n')"
 	efibootmgr --unicode | grep 'gentoo' | cut -f1 | sed 's|* | |;s|Boot||' | \
 	while read -r boot_entry
