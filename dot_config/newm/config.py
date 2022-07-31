@@ -26,7 +26,7 @@ outputs = [
 pywm = {
     'enable_xwayland': True,
     'xkb_options': 'numpad:mac',
-    #'xcursor_theme': 'Fluent-dark-cursors',
+    'xcursor_theme': 'Fluent-dark-cursors',
 }
 
 wallpaper_path = os.environ['HOME'] + '/Pictures/Wallpapers/'
@@ -38,7 +38,7 @@ background = {
 corner_radius = 0
 
 def rules(view):
-    blur_apps = ("foot", "Alacritty", "waybar")
+    blur_apps = ("Alacritty", "waybar")
     app_rule = None
     if view.app_id in blur_apps:
         app_rule = {"blur": {"radius": 3, "passes": 3}}
@@ -175,7 +175,7 @@ panels = {
         'cmd': 'foot -e newm-panel-basic launcher'
     },
     'bar': {
-        'cmd': 'waybar &',
+        'cmd': 'waybar',
         'visible_fullscreen': False
     }
 }
