@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/bin/env dash
 
 # Author: https://github.com/x0rzavi
 # Description: Exit sway
@@ -11,12 +11,12 @@ black='1E1E2E'
 lavender='B4BEFE'
 
 swaynag \
-	--text ${lavender} \
-	--background ${black} \
-	--button-text ${black} \
-	--button-background ${lavender} \
-	--border ${transparent} \
-	--border-bottom ${transparent} \
+	--text "${lavender}" \
+	--background "${black}" \
+	--button-text "${black}" \
+	--button-background "${lavender}" \
+	--border "${transparent}" \
+	--border-bottom "${transparent}" \
 	--border-bottom-size 0 \
 	--button-border-size 0 \
 	--button-padding 6 \
@@ -25,7 +25,7 @@ swaynag \
 	--button-margin-right 15 \
 	--layer top \
 	--type warning \
-	--font 'Iosevka Nerd Font' \
+	--font 'Iosevka Nerd Font Bold' \
 	--message ' Do you really want to exit sway?' \
 	--button-no-terminal ' Yes ' 'swaymsg exit' \
 	--dismiss ' No '

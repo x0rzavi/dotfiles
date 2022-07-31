@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/bin/env dash
 
 # Author: https://github.com/x0rzavi
 # Description: Launch newm

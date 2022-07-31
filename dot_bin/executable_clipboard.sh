@@ -1,7 +1,7 @@
-#!/usr/bin/env zsh
+#!/bin/env dash
 
 # Author: https://github.com/x0rzavi
-# Description: Cliphist invoker with bemenu
+# Description: Clipboard manager with bemenu
 # Dependencies: bemenu, cliphist, Lucide icons
 # Theme: Catppuccin
 
@@ -21,20 +21,20 @@ cliphist list | \
 	--ifne \
 	--fork \
 	--line-height 25 \
-	--cw 5 \
+	--cw 3 \
 	--fn 'Iosevka Nerd Font Bold' \
-	--tb ${black} \
-	--tf ${peach} \
-	--fb ${black} \
-	--ff ${mauve} \
-	--nb ${black} \
-	--nf ${peach} \
-	--hb ${black} \
-	--hf ${green} \
-	--ab ${black} \
-	--af ${sky} \
-	--bdr ${mauve} \
-	--cb ${black} \
-	--cf ${mauve} | \
+	--tb "${black}" \
+	--tf "${peach}" \
+	--fb "${black}" \
+	--ff "${mauve}" \
+	--nb "${black}" \
+	--nf "${peach}" \
+	--hb "${black}" \
+	--hf "${green}" \
+	--ab "${black}" \
+	--af "${sky}" \
+	--bdr "${mauve}" \
+	--cb "${black}" \
+	--cf "${mauve}" | \
 	cliphist decode | \
 	wl-copy

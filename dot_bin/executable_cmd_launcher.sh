@@ -1,7 +1,7 @@
-#!/usr/bin/env zsh
+#!/bin/env dash
 
 # Author: https://github.com/x0rzavi
-# Description: Bemenu-run
+# Description: Command launcher with bemenu-run
 # Dependencies: bemenu, Lucide icons
 # Theme: Catppuccin
 
@@ -19,18 +19,18 @@ bemenu-run \
 	--prompt 'RUN ' \
 	--fork \
 	--line-height 25 \
-	--cw 5 \
+	--cw 3 \
 	--fn 'Iosevka Nerd Font Bold' \
-	--tb ${black} \
-	--tf ${peach} \
-	--fb ${black} \
-	--ff ${mauve} \
-	--nb ${black} \
-	--nf ${peach} \
-	--hb ${black} \
-	--hf ${green} \
-	--ab ${black} \
-	--af ${sky} \
-	--bdr ${mauve} \
-	--cb ${black} \
-	--cf ${mauve}
+	--tb "${black}" \
+	--tf "${peach}" \
+	--fb "${black}" \
+	--ff "${mauve}" \
+	--nb "${black}" \
+	--nf "${peach}" \
+	--hb "${black}" \
+	--hf "${green}" \
+	--ab "${black}" \
+	--af "${sky}" \
+	--bdr "${mauve}" \
+	--cb "${black}" \
+	--cf "${mauve}"
