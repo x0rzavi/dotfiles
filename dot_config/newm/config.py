@@ -20,13 +20,13 @@ logger = logging.getLogger(__name__)
 
 outputs = [
     { 'name': 'eDP-1' },
-    { 'name': 'virt-1', 'pos_x': -1280, 'pos_y': 0, 'width': 1280, 'height': 720 }
+    # { 'name': 'virt-1', 'pos_x': -1280, 'pos_y': 0, 'width': 1280, 'height': 720 }
 ]
 
 pywm = {
     'enable_xwayland': True,
     'xkb_options': 'numpad:mac',
-    'xcursor_theme': 'Fluent-dark-cursors',
+    #'xcursor_theme': 'Fluent-dark-cursors',
 }
 
 wallpaper_path = os.environ['HOME'] + '/Pictures/Wallpapers/'
@@ -41,7 +41,7 @@ def rules(view):
     blur_apps = ("foot", "Alacritty", "waybar")
     app_rule = None
     if view.app_id in blur_apps:
-        app_rule = {"blur": {"radius": 3, "passes": 4}}
+        app_rule = {"blur": {"radius": 3, "passes": 3}}
     return app_rule
     
 view = {
@@ -100,14 +100,14 @@ def key_bindings(layout: Layout) -> list[tuple[str, Callable[[], Any]]]:
 
         (mod, lambda: layout.toggle_overview()),
 
-        ("XF86MonBrightnessUp", lambda: os.system("brightness.zsh -i &")),
-        ("XF86MonBrightnessDown", lambda: os.system("brightness.zsh -d &")),
+        ("XF86MonBrightnessUp", lambda: os.system("brightness.sh -i &")),
+        ("XF86MonBrightnessDown", lambda: os.system("brightness.sh -d &")),
         ("XF86AudioPlay", lambda: os.system("playerctl play-pause &")),
         ("XF86AudioNext", lambda: os.system("playerctl next &")),
         ("XF86AudioPrev", lambda: os.system("playerctl previous &")),
-        ("XF86AudioRaiseVolume", lambda: os.system("volume.zsh -i &")),
-        ("XF86AudioLowerVolume", lambda: os.system("volume.zsh -d &")),
-        ("XF86AudioMute", lambda: os.system("volume.zsh -t &")),
+        ("XF86AudioRaiseVolume", lambda: os.system("volume.sh -i &")),
+        ("XF86AudioLowerVolume", lambda: os.system("volume.sh -d &")),
+        ("XF86AudioMute", lambda: os.system("volume.sh -t &")),
     ]
 
 def on_startup():
@@ -134,14 +134,14 @@ def on_reconfigure():
         f"gsettings set {gnome_schema} gtk-theme 'Colloid'",
         f"gsettings set {gnome_schema} color-scheme 'prefer-dark'",
         f"gsettings set {gnome_schema} cursor-theme 'Fluent-dark-cursors'",
-        f"gsettings set {gnome_schema} font-name 'SF Pro Text 11'",
-        f"gsettings set {gnome_schema} document-font-name 'New York Small 11'",
-        f"gsettings set {gnome_schema} monospace-font-name 'SF Mono 11'",
-        f"gsettings set {gnome_peripheral}.keyboard repeat-interval 30",
-        f"gsettings set {gnome_peripheral}.keyboard delay 500",
-        f"gsettings set {gnome_peripheral}.mouse natural-scroll false",
-        f"gsettings set {gnome_peripheral}.mouse speed 0.0",
-        f"gsettings set {gnome_peripheral}.mouse accel-profile 'default'",
+        f"gsettings set {gnome_schema} font-name 'SF Pro Text'",
+        f"gsettings set {gnome_schema} document-font-name 'New York Small'",
+        f"gsettings set {gnome_schema} monospace-font-name 'Iosevka Nerd Font'",
+        # f"gsettings set {gnome_peripheral}.keyboard repeat-interval 30",
+        # f"gsettings set {gnome_peripheral}.keyboard delay 500",
+        # f"gsettings set {gnome_peripheral}.mouse natural-scroll true",
+        # f"gsettings set {gnome_peripheral}.mouse speed 0.0",
+        # f"gsettings set {gnome_peripheral}.mouse accel-profile 'default'",
         f"gsettings set {gnome_wm} button-layout :",
         f"gsettings set {gnome_wm} theme 'Colloid-Dark'",
     )
@@ -150,12 +150,12 @@ def on_reconfigure():
         config = f"{config} &"
         os.system(config)
 
-def idle_callback(code: str) -> None:
-    if code in ["lock", "idle-lock"]:
-        os.system('volume.sh --mute &')
+# def idle_callback(code: str) -> None:
+#     if code in ["lock", "idle-lock"]:
+#         os.system('volume.sh --mute &')
 
 energy = {
-    #'idle_times': [5, 5, 600],
+    # 'idle_times': [5, 5, 600],
     'suspend_command': 'loginctl suspend'
 }
 
@@ -164,7 +164,7 @@ gestures = {
 }
 
 # swipe = {
-    # 'gesture_factor': 3,
+#     'gesture_factor': 3,
 # }
 
 panels = {
@@ -175,7 +175,7 @@ panels = {
         'cmd': 'foot -e newm-panel-basic launcher'
     },
     'bar': {
-        'cmd': 'waybar',
+        'cmd': 'waybar &',
         'visible_fullscreen': False
     }
 }

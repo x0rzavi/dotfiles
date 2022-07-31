@@ -11,7 +11,7 @@ progress-color=over #302D41
 
 width=350
 height=200
-margin=7
+margin=55,7
 padding=10
 border-radius=5
 default-timeout=10000

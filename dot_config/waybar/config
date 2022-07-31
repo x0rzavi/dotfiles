@@ -75,17 +75,17 @@
 			"critical": 90
 		},
 		"scroll-step": 3,
-		"on-click": "volume.zsh -t &",
+		"on-click": "volume.sh -t &",
 		"smooth-scrolling-threshold": 5,
 		"tooltip": false
 	},
 	"backlight": {
 		"format": "<span foreground='#94e2d5' font='lucide 14' rise='-1pt'>{icon}</span> {percent}%",
 		"format-icons": ["", "", ""],
-		"on-click": "brightness.zsh -s 3 &",
-		"on-click-right": "brightness.zsh -s 50 &",
-		"on-scroll-up": "brightness.zsh -i &",
-		"on-scroll-down": "brightness.zsh -d &",
+		"on-click": "brightness.sh -s 3 &",
+		"on-click-right": "brightness.sh -s 50 &",
+		"on-scroll-up": "brightness.sh -i &",
+		"on-scroll-down": "brightness.sh -d &",
 		"smooth-scrolling-threshold": 5
 	},
 	"battery": {

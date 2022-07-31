@@ -9,8 +9,11 @@ window:
     x: 10
     y: 10
   decorations: none
-  opacity: 0.5
+  opacity: 0.8
   
+font:
+  size: 12
+
 scrolling:
   history: 20000
 
