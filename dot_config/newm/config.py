@@ -38,12 +38,13 @@ background = {
 corner_radius = 0
 
 def rules(view):
-    blur_apps = ("Alacritty", "waybar")
+    print(view)
+    blur_apps = ("foot", "Alacritty", "waybar")
     app_rule = None
     if view.app_id in blur_apps:
-        app_rule = {"blur": {"radius": 3, "passes": 3}}
+        app_rule = {'blur': {'radius': 4, 'passes': 4}, 'opacity': 0.75}
     return app_rule
-    
+
 view = {
 	'corner_radius': 0,
     'padding': 10,
@@ -51,7 +52,7 @@ view = {
 }
 
 focus = {
-    'color': '#7f849c',
+    'color': '#b4befe',
     'distance': 2,
 }
 
@@ -89,7 +90,7 @@ def key_bindings(layout: Layout) -> list[tuple[str, Callable[[], Any]]]:
         (mod + shift + "Return", lambda: os.system(terminal_alt)),
         (mod + "b", lambda: os.system(browser)),
         (mod + shift + "b", lambda: os.system(browser_alt)),
-        
+
         (mod + "c", lambda: layout.close_focused_view()),
 
         (mod + shift + "l", lambda: layout.ensure_locked(dim=True)),
@@ -134,14 +135,14 @@ def on_reconfigure():
         f"gsettings set {gnome_schema} gtk-theme 'Colloid'",
         f"gsettings set {gnome_schema} color-scheme 'prefer-dark'",
         f"gsettings set {gnome_schema} cursor-theme 'Fluent-dark-cursors'",
-        f"gsettings set {gnome_schema} font-name 'SF Pro Text'",
-        f"gsettings set {gnome_schema} document-font-name 'New York Small'",
-        f"gsettings set {gnome_schema} monospace-font-name 'Iosevka Nerd Font'",
-        # f"gsettings set {gnome_peripheral}.keyboard repeat-interval 30",
-        # f"gsettings set {gnome_peripheral}.keyboard delay 500",
-        # f"gsettings set {gnome_peripheral}.mouse natural-scroll true",
-        # f"gsettings set {gnome_peripheral}.mouse speed 0.0",
-        # f"gsettings set {gnome_peripheral}.mouse accel-profile 'default'",
+        f"gsettings set {gnome_schema} font-name 'SF Pro Text 11'",
+        f"gsettings set {gnome_schema} document-font-name 'New York Small 11'",
+        f"gsettings set {gnome_schema} monospace-font-name 'Iosevka Term 13'",
+        f"gsettings set {gnome_peripheral}.keyboard repeat-interval 30",
+        f"gsettings set {gnome_peripheral}.keyboard delay 500",
+        f"gsettings set {gnome_peripheral}.mouse natural-scroll true",
+        f"gsettings set {gnome_peripheral}.mouse speed 0.0",
+        f"gsettings set {gnome_peripheral}.mouse accel-profile 'default'",
         f"gsettings set {gnome_wm} button-layout :",
         f"gsettings set {gnome_wm} theme 'Colloid-Dark'",
     )
@@ -154,10 +155,10 @@ def on_reconfigure():
 #     if code in ["lock", "idle-lock"]:
 #         os.system('volume.sh --mute &')
 
-energy = {
-    # 'idle_times': [5, 5, 600],
-    'suspend_command': 'loginctl suspend'
-}
+#energy = {
+#    # 'idle_times': [5, 5, 600],
+#    'suspend_command': 'sleep 1 && loginctl suspend'
+#}
 
 gestures = {
     'pyevdev': { 'enabled': True },

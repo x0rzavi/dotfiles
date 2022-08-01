@@ -23,7 +23,8 @@
 		"states": {
 			"warning": 80,
 			"critical": 90
-		}
+		},
+		"tooltip": false
 	},
 	"cpu": {
 		"interval": 1,

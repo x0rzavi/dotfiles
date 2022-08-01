@@ -9,7 +9,6 @@ window:
     x: 10
     y: 10
   decorations: none
-  opacity: 0.8
   
 font:
   size: 12

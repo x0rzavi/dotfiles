@@ -6,14 +6,8 @@ export FZF_DEFAULT_OPTS=" \
 --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
 --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
 --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
-
-# Set options only if user x0rzavi or otherwise
-if [[ $(whoami) = 'x0rzavi' ]]; then
-	export EDITOR='code --wait'
-	export GOBIN="${HOME}/.bin"
-else
-	export EDITOR='micro'
-fi
+export GOBIN="${HOME}/.bin"
+export EDITOR='/usr/bin/nvim'
 
 # Set options only if user x0rzavi or otherwise
 if [[ $(whoami) = 'x0rzavi' ]]; then

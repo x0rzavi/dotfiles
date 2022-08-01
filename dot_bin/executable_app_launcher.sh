@@ -39,4 +39,4 @@ printf '%b' "${files}" \
 	--bdr "${mauve}" \
 	--cb "${black}" \
 	--cf "${mauve}" \
-	| xargs gtk4-launch
+	| xargs gtk4-launch || exit 0
