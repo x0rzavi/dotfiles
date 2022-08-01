@@ -15,7 +15,8 @@ generate_entry () {
 	# Parameters $1:Kernel version / $2:Kernel filename / $3:Initramfs filename
 
 	# Important variables
-	disk='/dev/sda1'
+	# Don't mess with quoting!
+	disk='/dev/sda'
 	part='1'
 	efs_folder="\\EFI\\Gentoo\\"
 	root='ZFS=zroot/root/gentoo'
@@ -24,13 +25,13 @@ generate_entry () {
 	initrd="${efs_folder}$3"
 	condensed="root=${root} ${kernel_flags} initrd=${initrd}"
 
-	set -o xtrace && efibootmgr \
+	efibootmgr \
 		--create \
 		--disk "${disk}" \
 		--part "${part}" \
 		--label "$1" \
 		--loader "${loader}" \
-		--unicode "'${condensed}'" && set +o xtrace && \
+		--unicode "${condensed}" && \
 	printf '%s\n\n' ">>>>> Generated boot entry for \"$1\""
 }
 
@@ -38,12 +39,12 @@ generate_entry () {
 delete_entry () {
 	# Parameters $1:Kernel version / $2:Kernel filename
 
-	boot_entry=$(efibootmgr -u | grep "$2")
+	boot_entry=$(efibootmgr --unicode | grep "$2)")
 	boot_num=$(printf '%s' "${boot_entry}" | cut -d' ' -f1 | sed 's|Boot||;s|*||')
-	set -o xtrace && efibootmgr \
+	efibootmgr \
 		--bootnum "${boot_num}" \
 		--delete-bootnum \
-		--unicode && set +o xtrace && \
+		--unicode && \
 	printf '%s\n\n' ">>>>> Forcefully deleted boot entry for \"$1\""
 }
 
@@ -52,19 +53,18 @@ delete_entry () {
 delete_invalid () {
 	set +o errexit && rm -f /boot/*old* && set -o errexit
 
-	IFS="$(printf '\n')"
 	efibootmgr --unicode | grep 'gentoo' | cut -f1 | sed 's|* | |;s|Boot||' | \
 	while read -r boot_entry
 	do
 		boot_num=$(printf '%s' "${boot_entry}" | cut -d' ' -f1)
 		kernel_ver=$(printf '%s' "${boot_entry}" | cut -d' ' -f2)
-
+				
 		if ! [ -f "/boot/vmlinuz-${kernel_ver}" ]
 		then
-			set -o xtrace && efibootmgr \
+			efibootmgr \
 				--bootnum "${boot_num}" \
 				--delete-bootnum \
-				--unicode && set +o xtrace && \
+				--unicode && \
 			printf '%s\n\n' ">>>>> Deleted invalid boot entry for \"${kernel_ver}\""
 		fi
 
@@ -85,14 +85,13 @@ main () {
 			if [ -f "/boot/${initramfs_file}" ]
 			then
 
-				# Test if EFI entry doesn't exist?
 				if [ "$1" = '-g' ] && ! efibootmgr | grep -q "${kernel_file})" || [ "$1" = '-f' ] && ! efibootmgr | grep -q "${kernel_file})"
 				then
 					generate_entry "${kernel_ver}" "${kernel_file}" "${initramfs_file}"
 				# Test if EFI entry exists? and needs to be forcefully regenerated
 				elif [ "$1" = '-f' ] && efibootmgr | grep -q "${kernel_file})"
 				then
-					delete_entry "${kernel_ver}" "${kernel_file}"
+					delete_entry "${kernel_ver}" "${kernel_file}" && \
 					generate_entry "${kernel_ver}" "${kernel_file}" "${initramfs_file}"
 				# Test if EFI entry exists?
 				elif [ "$1" = '-g' ] && efibootmgr | grep -q "${kernel_file})"
