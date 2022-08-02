@@ -2,7 +2,7 @@
 #### https://forums.gentoo.org/viewtopic-p-8638954.html
 #### EXTEND PATH
 typeset -U path PATH
-path=(~/.bin ${path})
+path=(~/.bin ~/.cargo/bin ~/.local/bin ${path})
 export PATH
 
 #### AUTOSTART SWAY ON LOGIN IF TTY1

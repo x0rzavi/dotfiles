@@ -5,7 +5,8 @@
 # Derived: https://github.com/jbuchermn/newm/blob/master/doc/tips_and_tricks.md
 
 flags='--ozone-platform=wayland \
-	--enable-features=WebRTCPipeWireCapturer \
+	--enable-features=WebRTCPipeWireCapturer,WebUIDarkMode \
+	--force-dark-mode \
 	--enable-gpu \
 	--ignore-gpu-blocklist \
 	--enable-gpu-rasterization \

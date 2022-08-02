@@ -24,7 +24,7 @@ outputs = [
 ]
 
 pywm = {
-    'enable_xwayland': True,
+    #'enable_xwayland': True,
     'xkb_options': 'numpad:mac',
     'xcursor_theme': 'Fluent-dark-cursors',
 }
@@ -135,8 +135,8 @@ def on_reconfigure():
         f"gsettings set {gnome_schema} gtk-theme 'Colloid'",
         f"gsettings set {gnome_schema} color-scheme 'prefer-dark'",
         f"gsettings set {gnome_schema} cursor-theme 'Fluent-dark-cursors'",
-        f"gsettings set {gnome_schema} font-name 'SF Pro Text 11'",
-        f"gsettings set {gnome_schema} document-font-name 'New York Small 11'",
+        f"gsettings set {gnome_schema} font-name 'SF Pro Text 10.5'",
+        f"gsettings set {gnome_schema} document-font-name 'New York Small 10.5'",
         f"gsettings set {gnome_schema} monospace-font-name 'Iosevka Term 13'",
         f"gsettings set {gnome_peripheral}.keyboard repeat-interval 30",
         f"gsettings set {gnome_peripheral}.keyboard delay 500",
@@ -155,10 +155,10 @@ def on_reconfigure():
 #     if code in ["lock", "idle-lock"]:
 #         os.system('volume.sh --mute &')
 
-#energy = {
-#    # 'idle_times': [5, 5, 600],
-#    'suspend_command': 'sleep 1 && loginctl suspend'
-#}
+energy = {
+    # 'idle_times': [5, 5, 600],
+    'suspend_command': 'sleep 1 && loginctl suspend'
+}
 
 gestures = {
     'pyevdev': { 'enabled': True },
@@ -175,8 +175,8 @@ panels = {
     'launcher': {
         'cmd': 'foot -e newm-panel-basic launcher'
     },
-    'bar': {
-        'cmd': 'waybar',
-        'visible_fullscreen': False
-    }
+    #'bar': {
+    #    'cmd': 'waybar',
+    #    'visible_fullscreen': False
+    #}
 }

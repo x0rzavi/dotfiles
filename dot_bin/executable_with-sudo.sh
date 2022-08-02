@@ -1,7 +1,7 @@
 #!/bin/env dash
 
 # Author: https://github.com/x0rzavi
-# Description: Script to enable root access to x-windows system 
+# Description: Enable root access to x-windows system 
 # Dependencies: xhost, sudo
 # Derived: https://gist.github.com/wachambo/bd22e12db2d5a46dc109bd0d553733be
 
