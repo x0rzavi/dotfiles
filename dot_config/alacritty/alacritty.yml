@@ -11,6 +11,18 @@ window:
   decorations: none
   
 font:
+  normal:
+    family: Iosevka Nerd Font
+
+  bold:
+    family: Iosevka Nerd Font
+
+  italic:
+    family: Iosevka Nerd Font
+
+  bold_italic:
+    family: Iosevka Nerd Font
+
   size: 12
 
 scrolling:
