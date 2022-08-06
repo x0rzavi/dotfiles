@@ -13,6 +13,7 @@ export EDITOR='/usr/bin/nvim'
 if [[ $(whoami) = 'x0rzavi' ]]; then
 	# Description: Hack to set gtk4 theme
 	# Reference: https://reddit.com/tnj493
+	# Reference: https://wiki.archlinux.org/title/GTK#Themes
 	export GTK_THEME=Colloid:dark
 
 	# Description: Wayland quirks
@@ -28,7 +29,8 @@ if [[ $(whoami) = 'x0rzavi' ]]; then
 
 	# Qt
 	export QT_QPA_PLATFORM=wayland-egl
-	export QT_WAYLAND_FORCE_DPI=physical
+	export QT_STYLE_OVERRIDE=kvantum
+	# export QT_WAYLAND_FORCE_DPI=physical
 	export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
 
 	# Elementary
@@ -53,6 +55,7 @@ if [[ $(whoami) = 'x0rzavi' ]]; then
 	export _JAVA_AWT_WM_NONREPARENTING=1
 
 	# Misc
+	# Reference: https://wiki.archlinux.org/title/GTK#Suppress_warning_about_accessibility_bus
 	export NO_AT_BRIDGE=1
 	export WINIT_UNIX_BACKEND=wayland
 fi

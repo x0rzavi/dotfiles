@@ -46,7 +46,7 @@ def rules(view):
     float_apps_id = ('mpv', 'imv')
     app_rule = None
     if view.app_id in blur_apps_id:
-        app_rule = {'blur': {'radius': 4, 'passes': 4}, 'opacity': 0.7}
+        app_rule = {'blur': {'radius': 4, 'passes': 4}, 'opacity': 0.8}
     if view.title in float_apps_fix:
         app_rule = { 'float': True, 'float_size': (30, 30)}
     if view.app_id in float_apps_id:
@@ -151,19 +151,19 @@ def on_reconfigure():
     gnome_wm = 'org.gnome.desktop.wm.preferences'
     aesthetics = (
         f"gsettings set {gnome_schema} gtk-theme 'Colloid'",
-        f"gsettings set {gnome_schema} icon-theme 'Fluent-dark'",
         f"gsettings set {gnome_schema} color-scheme 'prefer-dark'",
         f"gsettings set {gnome_schema} cursor-theme 'Colloid-dark-cursors'",
+        f"gsettings set {gnome_schema} icon-theme 'Fluent-dark'",
         f"gsettings set {gnome_schema} font-name 'SF Pro Text 10.5'",
         f"gsettings set {gnome_schema} document-font-name 'New York Small 10.5'",
         f"gsettings set {gnome_schema} monospace-font-name 'SFMono Nerd Font 10.5'",
+        f"gsettings set {gnome_wm} button-layout :",
+        f"gsettings set {gnome_wm} theme 'Colloid-Dark'",
         f"gsettings set {gnome_peripheral}.keyboard repeat-interval 30",
         f"gsettings set {gnome_peripheral}.keyboard delay 500",
         f"gsettings set {gnome_peripheral}.mouse natural-scroll true",
         f"gsettings set {gnome_peripheral}.mouse speed 0.0",
         f"gsettings set {gnome_peripheral}.mouse accel-profile 'default'",
-        f"gsettings set {gnome_wm} button-layout :",
-        f"gsettings set {gnome_wm} theme 'Colloid-Dark'",
     )
 
     for config in aesthetics:
