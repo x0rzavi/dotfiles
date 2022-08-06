@@ -112,16 +112,16 @@ notolingual () {
 
 notomisc () {
 	cat <<- EOF > notomisc.txt
-	# https://fonts.google.com/download?family=Noto%20Emoji
+	https://fonts.google.com/download?family=Noto%20Emoji
 	https://fonts.google.com/download?family=Noto%20Sans%20Math
 	https://fonts.google.com/download?family=Noto%20Music
 	https://fonts.google.com/download?family=Noto%20Sans%20Symbols
 	https://fonts.google.com/download?family=Noto%20Sans%20Symbols%202
 	EOF
-	# cat <<- EOF > notoemoji.txt
-	# static/NotoEmoji-Regular.ttf
-	# # static/NotoEmoji-Medium.ttf
-	# EOF
+	cat <<- EOF > notoemoji.txt
+	static/NotoEmoji-Regular.ttf
+	# static/NotoEmoji-Medium.ttf
+	EOF
 	cat <<- EOF > notosansmath.txt
 	NotoSansMath-Regular.ttf
 	EOF
@@ -138,8 +138,7 @@ notomisc () {
 
 	mkdir -p "${unpackdir}"/notomisc
 	aria2c -c -x16 -j16 --console-log-level=warn --dir="${unpackdir}" --input-file="${unpackdir}"/notomisc.txt && echo ''
-	aria2c -c -x16 -j16 --console-log-level=warn --dir="${unpackdir}"/notomisc 'https://github.com/googlefonts/noto-emoji/raw/main/fonts/NotoColorEmoji.ttf' && echo ''
-	# 7z e -bso0 -y 'Noto_Emoji.zip' -i'@notoemoji.txt' -o"${unpackdir}"/notomisc
+	7z e -bso0 -y 'Noto_Emoji.zip' -i'@notoemoji.txt' -o"${unpackdir}"/notomisc
 	7z e -bso0 -y 'Noto_Sans_Math.zip' -i'@notosansmath.txt' -o"${unpackdir}"/notomisc
 	7z e -bso0 -y 'Noto_Music.zip' -i'@notomusic.txt' -o"${unpackdir}"/notomisc
 	7z e -bso0 -y 'Noto_Sans_Symbols.zip' -i'@notosanssymbols.txt' -o"${unpackdir}"/notomisc

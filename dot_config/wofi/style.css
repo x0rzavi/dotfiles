@@ -76,7 +76,16 @@
 }
 
 arrow {
-	color: @text;
+	color: @lavender;
+}
+
+list {
+	background-color: transparent;
+}
+	
+row {
+	margin: 4px 4px 0;
+	padding: 5px 20px;
 }
 
 box > .drun-generic-name {

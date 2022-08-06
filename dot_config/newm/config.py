@@ -66,6 +66,7 @@ def key_bindings(layout: Layout) -> list[tuple[str, Callable[[], Any]]]:
     terminal_alt = 'alacritty &'
     browser = 'firefox-bin &'
     # browser_alt = 'google-chrome-unstable &'
+    launcher = 'wofi &'
 
     return [
         (mod + "Left", lambda: layout.move(-1, 0)),
@@ -86,6 +87,7 @@ def key_bindings(layout: Layout) -> list[tuple[str, Callable[[], Any]]]:
         (mod + ctrl + "Up", lambda: layout.resize_focused_view(0, -1)),
         (mod + ctrl + "Right", lambda: layout.resize_focused_view(1, 0)),
 
+        (mod + "d", lambda: os.system(launcher)),
         (mod + "Return", lambda: os.system(terminal)),
         (mod + shift + "Return", lambda: os.system(terminal_alt)),
         (mod + "b", lambda: os.system(browser)),
@@ -133,6 +135,7 @@ def on_reconfigure():
     gnome_wm = 'org.gnome.desktop.wm.preferences'
     aesthetics = (
         f"gsettings set {gnome_schema} gtk-theme 'Colloid'",
+        f"gsettings set {gnome_schema} icon-theme 'Fluent-dark'",
         f"gsettings set {gnome_schema} color-scheme 'prefer-dark'",
         f"gsettings set {gnome_schema} cursor-theme 'Colloid-dark-cursors'",
         f"gsettings set {gnome_schema} font-name 'SF Pro Text 10.5'",
