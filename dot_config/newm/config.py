@@ -39,7 +39,7 @@ corner_radius = 0
 
 def rules(view):
     print(view)
-    blur_apps = ("foot", "Alacritty")
+    blur_apps = ('foot', 'Alacritty', 'wofi', 'waybar')
     app_rule = None
     if view.app_id in blur_apps:
         app_rule = {'blur': {'radius': 4, 'passes': 4}, 'opacity': 0.75}
