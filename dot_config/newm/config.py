@@ -33,16 +33,24 @@ wallpaper_path = os.environ['HOME'] + '/Pictures/Wallpapers/'
 background = {
     'path': wallpaper_path + random.choice(os.listdir(wallpaper_path)),
     'anim': True,
+    'time_scale': 0.2
 }
 
 corner_radius = 0
+# anim_time = 0.2
 
 def rules(view):
     print(view)
-    blur_apps = ('foot', 'Alacritty', 'wofi', 'waybar')
+    blur_apps_id = ('foot', 'Alacritty', 'wofi', 'waybar')
+    float_apps_fix = ('Firefox — Sharing Indicator')
+    float_apps_id = ('mpv', 'imv')
     app_rule = None
-    if view.app_id in blur_apps:
-        app_rule = {'blur': {'radius': 4, 'passes': 4}, 'opacity': 0.75}
+    if view.app_id in blur_apps_id:
+        app_rule = {'blur': {'radius': 4, 'passes': 4}, 'opacity': 0.7}
+    if view.title in float_apps_fix:
+        app_rule = { 'float': True, 'float_size': (30, 30)}
+    if view.app_id in float_apps_id:
+        app_rule = { 'float': True, 'float_size': (1366, 768), 'float_pos': (0.5, 0.5)}
     return app_rule
 
 view = {
@@ -65,52 +73,59 @@ def key_bindings(layout: Layout) -> list[tuple[str, Callable[[], Any]]]:
     terminal = 'footclient &'
     terminal_alt = 'alacritty &'
     browser = 'firefox-bin &'
+    file_manager = 'footclient nnn &'
     # browser_alt = 'google-chrome-unstable &'
     launcher = 'wofi &'
 
     return [
-        (mod + "Left", lambda: layout.move(-1, 0)),
-        (mod + "Down", lambda: layout.move(0, 1)),
-        (mod + "Up", lambda: layout.move(0, -1)),
-        (mod + "Right", lambda: layout.move(1, 0)),
-        (mod + "u", lambda: layout.basic_scale(1)),
-        (mod + "n", lambda: layout.basic_scale(-1)),
-        (mod + "t", lambda: layout.move_in_stack(1)),
+        (mod + 'Left', lambda: layout.move(-1, 0)),
+        (mod + 'Down', lambda: layout.move(0, 1)),
+        (mod + 'Up', lambda: layout.move(0, -1)),
+        (mod + 'Right', lambda: layout.move(1, 0)),
+        (mod + 'u', lambda: layout.basic_scale(1)),
+        (mod + 'n', lambda: layout.basic_scale(-1)),
+        (mod + 'Tab', lambda: layout.move_in_stack(1)),
 
-        (mod + shift + "Left", lambda: layout.move_focused_view(-1, 0)),
-        (mod + shift + "Down", lambda: layout.move_focused_view(0, 1)),
-        (mod + shift + "Up", lambda: layout.move_focused_view(0, -1)),
-        (mod + shift + "Right", lambda: layout.move_focused_view(1, 0)),
+        (mod + shift + 'Left', lambda: layout.move_focused_view(-1, 0)),
+        (mod + shift + 'Down', lambda: layout.move_focused_view(0, 1)),
+        (mod + shift + 'Up', lambda: layout.move_focused_view(0, -1)),
+        (mod + shift + 'Right', lambda: layout.move_focused_view(1, 0)),
 
-        (mod + ctrl + "Left", lambda: layout.resize_focused_view(-1, 0)),
-        (mod + ctrl + "Down", lambda: layout.resize_focused_view(0, 1)),
-        (mod + ctrl + "Up", lambda: layout.resize_focused_view(0, -1)),
-        (mod + ctrl + "Right", lambda: layout.resize_focused_view(1, 0)),
+        (mod + ctrl + 'Left', lambda: layout.resize_focused_view(-1, 0)),
+        (mod + ctrl + 'Down', lambda: layout.resize_focused_view(0, 1)),
+        (mod + ctrl + 'Up', lambda: layout.resize_focused_view(0, -1)),
+        (mod + ctrl + 'Right', lambda: layout.resize_focused_view(1, 0)),
 
-        (mod + "d", lambda: os.system(launcher)),
-        (mod + "Return", lambda: os.system(terminal)),
-        (mod + shift + "Return", lambda: os.system(terminal_alt)),
-        (mod + "b", lambda: os.system(browser)),
-        # (mod + shift + "b", lambda: os.system(browser_alt)),
+        (mod + 'd', lambda: os.system(launcher)),
+        (mod + 'Return', lambda: os.system(terminal)),
+        (mod + shift + 'Return', lambda: os.system(terminal_alt)),
+        (mod + 'b', lambda: os.system(browser)),
+        (mod + shift + 'f', lambda: os.system(file_manager)),
+        # (mod + shift + 'b', lambda: os.system(browser_alt)),
 
-        (mod + "c", lambda: layout.close_focused_view()),
+        ('Print', lambda: os.system('grim -l 0 - | wl-copy &')),
+        (mod + 'Print', lambda: os.system('GRIM_DEFAULT_DIR=~/Pictures/Screenshots/ grim -l 0 &')),
+        (shift + 'Print', lambda: os.system('grim -l 0 -g "$(slurp)" - | wl-copy &')),
+        (mod + shift + 'Print', lambda: os.system('GRIM_DEFAULT_DIR=~/Pictures/Screenshots/ grim -l 0 -g "$(slurp)" &')),
 
-        (mod + shift + "l", lambda: layout.ensure_locked(dim=True)),
-        (mod + shift + "q", lambda: layout.terminate()),
-        (mod + "Escape", lambda: layout.update_config()),
+        (mod + shift + 'l', lambda: layout.ensure_locked(dim=True)),
+        (mod + shift + 'q', lambda: layout.terminate()),
+        (mod + 'c', lambda: layout.close_focused_view()),
+        (mod + 'Escape', lambda: layout.update_config()),
 
-        (mod + "f", lambda: layout.toggle_fullscreen()),
+        (mod + 'f', lambda: layout.toggle_fullscreen()),
+        (mod + 'SPC', lambda:  layout.toggle_focused_view_floating()),
 
         (mod, lambda: layout.toggle_overview()),
 
-        ("XF86MonBrightnessUp", lambda: os.system("brightness.sh -i &")),
-        ("XF86MonBrightnessDown", lambda: os.system("brightness.sh -d &")),
-        ("XF86AudioPlay", lambda: os.system("playerctl play-pause &")),
-        ("XF86AudioNext", lambda: os.system("playerctl next &")),
-        ("XF86AudioPrev", lambda: os.system("playerctl previous &")),
-        ("XF86AudioRaiseVolume", lambda: os.system("volume.sh -i &")),
-        ("XF86AudioLowerVolume", lambda: os.system("volume.sh -d &")),
-        ("XF86AudioMute", lambda: os.system("volume.sh -t &")),
+        ('XF86MonBrightnessUp', lambda: os.system("brightness.sh -i &")),
+        ('XF86MonBrightnessDown', lambda: os.system("brightness.sh -d &")),
+        ('XF86AudioPlay', lambda: os.system("playerctl play-pause &")),
+        ('XF86AudioNext', lambda: os.system("playerctl next &")),
+        ('XF86AudioPrev', lambda: os.system("playerctl previous &")),
+        ('XF86AudioRaiseVolume', lambda: os.system("volume.sh -i &")),
+        ('XF86AudioLowerVolume', lambda: os.system("volume.sh -d &")),
+        ('XF86AudioMute', lambda: os.system("volume.sh -t &")),
     ]
 
 def on_startup():

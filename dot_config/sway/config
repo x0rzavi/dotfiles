@@ -43,7 +43,7 @@ exec_always $gnome-schema {
     gsettings set {
         gtk-theme 'Colloid'
         color-scheme 'prefer-dark'
-        #icon-theme 'Fluent-dark'
+        icon-theme 'Fluent-dark'
         cursor-theme 'Fluent-dark-cursors'
         font-name 'SF Pro Text 11'
         document-font-name 'New York Small 11'
