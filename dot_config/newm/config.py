@@ -24,9 +24,9 @@ outputs = [
 ]
 
 pywm = {
-    #'enable_xwayland': True,
+    'enable_xwayland': True,
     'xkb_options': 'numpad:mac',
-    'xcursor_theme': 'Fluent-dark-cursors',
+    'xcursor_theme': 'Colloid-dark-cursors',
 }
 
 wallpaper_path = os.environ['HOME'] + '/Pictures/Wallpapers/'
@@ -65,7 +65,7 @@ def key_bindings(layout: Layout) -> list[tuple[str, Callable[[], Any]]]:
     terminal = 'footclient &'
     terminal_alt = 'alacritty &'
     browser = 'firefox-bin &'
-    browser_alt = 'google-chrome-unstable &'
+    # browser_alt = 'google-chrome-unstable &'
 
     return [
         (mod + "Left", lambda: layout.move(-1, 0)),
@@ -89,7 +89,7 @@ def key_bindings(layout: Layout) -> list[tuple[str, Callable[[], Any]]]:
         (mod + "Return", lambda: os.system(terminal)),
         (mod + shift + "Return", lambda: os.system(terminal_alt)),
         (mod + "b", lambda: os.system(browser)),
-        (mod + shift + "b", lambda: os.system(browser_alt)),
+        # (mod + shift + "b", lambda: os.system(browser_alt)),
 
         (mod + "c", lambda: layout.close_focused_view()),
 
@@ -114,14 +114,14 @@ def key_bindings(layout: Layout) -> list[tuple[str, Callable[[], Any]]]:
 def on_startup():
     startup = (
         "dbus-update-activation-environment --all",
-        "/usr/libexec/polkit-gnome-authentication-agent-1",
         "foot --server",
-        "mpd",
-        "mpd-mpris",
+        "/usr/libexec/polkit-gnome-authentication-agent-1",
         "gentoo-pipewire-launcher",
         "wlsunset -l 22.6 -L 88.4 -t 4800",
+        "wl-paste --watch cliphist store",
+        "mpd",
         "xsettingsd",
-        "wl-paste --watch cliphist store"
+        "xsetroot -cursor_name left_ptr"
     )
     for command in startup:
         command = f"{command} &"
@@ -134,10 +134,10 @@ def on_reconfigure():
     aesthetics = (
         f"gsettings set {gnome_schema} gtk-theme 'Colloid'",
         f"gsettings set {gnome_schema} color-scheme 'prefer-dark'",
-        f"gsettings set {gnome_schema} cursor-theme 'Fluent-dark-cursors'",
+        f"gsettings set {gnome_schema} cursor-theme 'Colloid-dark-cursors'",
         f"gsettings set {gnome_schema} font-name 'SF Pro Text 10.5'",
         f"gsettings set {gnome_schema} document-font-name 'New York Small 10.5'",
-        f"gsettings set {gnome_schema} monospace-font-name 'Iosevka Term 13'",
+        f"gsettings set {gnome_schema} monospace-font-name 'SFMono Nerd Font 10.5'",
         f"gsettings set {gnome_peripheral}.keyboard repeat-interval 30",
         f"gsettings set {gnome_peripheral}.keyboard delay 500",
         f"gsettings set {gnome_peripheral}.mouse natural-scroll true",
@@ -175,8 +175,8 @@ panels = {
     'launcher': {
         'cmd': 'foot -e newm-panel-basic launcher'
     },
-    #'bar': {
-    #    'cmd': 'waybar',
-    #    'visible_fullscreen': False
-    #}
+    'bar': {
+        'cmd': 'waybar',
+        'visible_fullscreen': False
+    }
 }

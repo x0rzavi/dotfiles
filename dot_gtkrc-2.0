@@ -1,6 +1,6 @@
 gtk-theme-name="Colloid-Dark"
-gtk-font-name="SF Pro Text 11"
-gtk-cursor-theme-name="Fluent-dark-cursors"
+gtk-font-name="SF Pro Text 10.5"
+gtk-cursor-theme-name="Colloid-dark-cursors"
 gtk-cursor-theme-size=0
 gtk-enable-event-sounds=0
 gtk-enable-input-feedback-sounds=0
