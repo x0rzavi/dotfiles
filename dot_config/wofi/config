@@ -1,0 +1,13 @@
+show=drun
+prompt=Start typing...
+hide_scroll=true
+allow_images=true
+term=foot
+insensitive=true
+normal_window=true
+height=30%
+width=22%
+image_size=28
+filter_rate=50
+dynamic_lines=true
+drun-display_generic=true

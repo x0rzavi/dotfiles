@@ -1,0 +1,84 @@
+/* Catppuccin Mocha */
+@define-color	rosewater	rgb(245, 224, 220);
+@define-color	flamingo	rgb(242, 205, 205);
+@define-color	pink		rgb(245, 194, 231);
+@define-color	mauve		rgb(203, 166, 247);
+@define-color	red			rgb(243, 139, 168);
+@define-color	maroon		rgb(235, 160, 172);
+@define-color	peach		rgb(250, 179, 135);
+@define-color	yellow		rgb(249, 226, 175);
+@define-color	green		rgb(166, 227, 161);
+@define-color	teal		rgb(148, 226, 213);
+@define-color	sky			rgb(137, 220, 235);
+@define-color	sapphire	rgb(116, 199, 236);
+@define-color	blue		rgb(137, 180, 250);
+@define-color	lavender	rgb(180, 190, 254);
+@define-color	text		rgb(205, 214, 244);
+@define-color	subtext1	rgb(186, 194, 222);
+@define-color	subtext0	rgb(166, 173, 200);
+@define-color	overlay2	rgb(147, 153, 178);
+@define-color	overlay1	rgb(127, 132, 156);
+@define-color	overlay0	rgb(108, 112, 134);
+@define-color	surface2	rgb(88, 91, 112);
+@define-color	surface1	rgb(69, 71, 90);
+@define-color	surface0	rgb(49, 50, 68);
+@define-color	base		rgb(30, 30, 46);
+@define-color	mantle		rgb(24, 24, 37);
+@define-color	crust		rgb(17, 17, 27);
+
+#window {
+	border-radius: 0;
+}
+
+#outer-box {
+	background-color: @base;
+}
+
+#input {
+	margin: 10px 8px 4px;
+	font-weight: bold;
+	background-color: @surface0;
+	border-radius: 25px;
+	border-color: @mantle;
+	border-style: solid;
+	border-width: 0 2px 2px 0;
+}
+
+#inner-box {
+	margin: 6px;
+}
+
+#img {
+	padding: 0 10px 0 5px;
+}
+
+* {
+	font-family: Iosevka Nerd Font;
+	color: @text;
+	/* font-size: 16px; */
+}
+
+#entry {
+	border-radius: 0;
+}
+
+* {
+	outline-width: 0;
+}
+
+#entry:selected {
+	background-color: transparent;
+}
+
+#text:selected {
+	font-weight: bold;
+	color: @lavender;
+}
+
+arrow {
+	color: @text;
+}
+
+box > .drun-generic-name {
+	font-style: italic;
+}
