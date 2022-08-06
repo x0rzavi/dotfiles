@@ -74,8 +74,11 @@ def key_bindings(layout: Layout) -> list[tuple[str, Callable[[], Any]]]:
     terminal_alt = 'alacritty &'
     browser = 'firefox-bin &'
     file_manager = 'footclient nnn &'
-    # browser_alt = 'google-chrome-unstable &'
     launcher = 'wofi &'
+    ss_copy = 'grim -l 0 - | wl-copy &'
+    ss_save = 'GRIM_DEFAULT_DIR=~/Pictures/Screenshots/ grim -l 0 &'
+    ss_area_copy = 'grim -l 0 -g "$(slurp)" - | wl-copy &'
+    ss_area_save = 'GRIM_DEFAULT_DIR=~/Pictures/Screenshots/ grim -l 0 -g "$(slurp)" &'
 
     return [
         (mod + 'Left', lambda: layout.move(-1, 0)),
@@ -96,27 +99,25 @@ def key_bindings(layout: Layout) -> list[tuple[str, Callable[[], Any]]]:
         (mod + ctrl + 'Up', lambda: layout.resize_focused_view(0, -1)),
         (mod + ctrl + 'Right', lambda: layout.resize_focused_view(1, 0)),
 
+        ('Print', lambda: os.system(ss_copy)),
+        (mod + 'Print', lambda: os.system(ss_save)),
+        (shift + 'Print', lambda: os.system(ss_area_copy)),
+        (mod + shift + 'Print', lambda: os.system(ss_area_save)),
+
+        (mod + shift + 'l', lambda: layout.ensure_locked(dim=True)),
+        (mod + shift + 'q', lambda: layout.terminate()),
+        (mod + 'Escape', lambda: layout.update_config()),
+        
+        (mod, lambda: layout.toggle_overview()),
+        (mod + 'c', lambda: layout.close_focused_view()),
+        (mod + 'f', lambda: layout.toggle_fullscreen()),
+        (mod + 'SPC', lambda:  layout.toggle_focused_view_floating()),
+
         (mod + 'd', lambda: os.system(launcher)),
         (mod + 'Return', lambda: os.system(terminal)),
         (mod + shift + 'Return', lambda: os.system(terminal_alt)),
         (mod + 'b', lambda: os.system(browser)),
         (mod + shift + 'f', lambda: os.system(file_manager)),
-        # (mod + shift + 'b', lambda: os.system(browser_alt)),
-
-        ('Print', lambda: os.system('grim -l 0 - | wl-copy &')),
-        (mod + 'Print', lambda: os.system('GRIM_DEFAULT_DIR=~/Pictures/Screenshots/ grim -l 0 &')),
-        (shift + 'Print', lambda: os.system('grim -l 0 -g "$(slurp)" - | wl-copy &')),
-        (mod + shift + 'Print', lambda: os.system('GRIM_DEFAULT_DIR=~/Pictures/Screenshots/ grim -l 0 -g "$(slurp)" &')),
-
-        (mod + shift + 'l', lambda: layout.ensure_locked(dim=True)),
-        (mod + shift + 'q', lambda: layout.terminate()),
-        (mod + 'c', lambda: layout.close_focused_view()),
-        (mod + 'Escape', lambda: layout.update_config()),
-
-        (mod + 'f', lambda: layout.toggle_fullscreen()),
-        (mod + 'SPC', lambda:  layout.toggle_focused_view_floating()),
-
-        (mod, lambda: layout.toggle_overview()),
 
         ('XF86MonBrightnessUp', lambda: os.system("brightness.sh -i &")),
         ('XF86MonBrightnessDown', lambda: os.system("brightness.sh -d &")),
