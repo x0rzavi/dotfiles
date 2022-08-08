@@ -43,12 +43,12 @@ def rules(view):
     print(view)
     blur_apps_id = ('foot', 'Alacritty', 'wofi', 'waybar')
     float_apps_fix = ('Firefox — Sharing Indicator')
-    float_apps_title = ('Choose Files')
+    float_apps_title = ('Choose Files', 'Stats')
     float_apps_id = ('mpv', 'imv')
     window_roles = ('pop-up', 'bubble', 'dialog', 'task_dialog')
     app_rule = None
     if view.app_id in blur_apps_id:
-        app_rule = {'blur': {'radius': 3, 'passes': 4}, 'opacity': 0.8}
+        app_rule = {'blur': {'radius': 4, 'passes': 4}, 'opacity': 0.8}
     if view.title in float_apps_fix:
         app_rule = { 'float': True, 'float_size': (30, 30)}
     if view.app_id in float_apps_id:
