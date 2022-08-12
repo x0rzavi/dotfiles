@@ -10,5 +10,5 @@ height=24%
 width=26%
 image_size=28
 filter_rate=50
-# dynamic_lines=true
+dynamic_lines=true
 drun-display_generic=true

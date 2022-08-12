@@ -8,8 +8,9 @@ set {
     $mod Mod4
     $term footclient
     $alt_term alacritty
-    $menu bemenu.sh | xargs swaymsg exec --
-    $launcher bemenu_launcher.sh | xargs swaymsg exec --
+    # $menu bemenu.sh | xargs swaymsg exec --
+    # $launcher bemenu_launcher.sh | xargs swaymsg exec --
+    $launcher wofi &
     $browser firefox-bin
     $alt_browser google-chrome-unstable --enable-features=WebUIDarkMode --force-dark-mode
     $file_manager footclient nnn
@@ -26,15 +27,15 @@ set {
 }
 
 # Colors
-# Class					border	background	text	indicator	child_border
-client.focused 			$teal 	$teal 		$black 	$red 		$teal
+# Class			border	background	text	indicator	child_border
+client.focused		$teal 	$teal 		$black 	$red 		$teal
 client.focused_inactive $peach 	$peach 		$black 	$red 		$teal
-client.unfocused 		$peach 	$peach 		$black 	$red 		$peach
-client.urgent 			$red 	$red 		$black 	$red 		$red
+client.unfocused	$peach 	$peach 		$black 	$red 		$peach
+client.urgent 		$red 	$red 		$black 	$red 		$red
 
 # Theming
 seat seat0 {
-    xcursor_theme Fluent-dark-cursors
+    xcursor_theme Colloid-dark-cursors
     hide_cursor when-typing enable
 }
 
@@ -44,10 +45,10 @@ exec_always $gnome-schema {
         gtk-theme 'Colloid'
         color-scheme 'prefer-dark'
         icon-theme 'Fluent-dark'
-        cursor-theme 'Fluent-dark-cursors'
-        font-name 'SF Pro Text 11'
-        document-font-name 'New York Small 11'
-        monospace-font-name 'SF Mono 11'
+        cursor-theme 'Colloid-dark-cursors'
+        font-name 'SF Pro Text 10.5'
+        document-font-name 'New York Small 10.5'
+        monospace-font-name 'SF Mono 10.5'
     }
 }
 
@@ -70,7 +71,7 @@ font pango:Iosevka Nerd Font Medium 12
 output eDP-1 {
 	subpixel rgb
 	adaptive_sync on
-    max_render_time 6
+	max_render_time 6
 	bg $(find $wallpapers_path -type f | shuf -n 1) fill
 }
 
@@ -80,25 +81,25 @@ input {
         xkb_numlock enable
     }
     type:touchpad {
-	    drag enabled
-	    dwt enabled
-	    tap enabled
-	    natural_scroll enabled
-	    middle_emulation enabled
-	    pointer_accel 0.3
+	drag enabled
+	dwt enabled
+	tap enabled
+	natural_scroll enabled
+	middle_emulation enabled
+	# pointer_accel 0.3
     }
 }
 
 # Essential keybindings
 bindsym {
-    XF86AudioRaiseVolume exec volume.sh --inc
-    XF86AudioLowerVolume exec volume.sh --dec
-    XF86AudioMute exec volume.sh --toggle
+    XF86AudioRaiseVolume exec volume.sh -i &
+    XF86AudioLowerVolume exec volume.sh -d &
+    XF86AudioMute exec volume.sh -t &
     XF86AudioPlay exec playerctl play-pause
     XF86AudioNext exec playerctl next
     XF86AudioPrev exec playerctl previous
-    XF86MonBrightnessUp exec brightness.sh --inc
-    XF86MonBrightnessDown exec brightness.sh --dec
+    XF86MonBrightnessUp exec brightness.sh -i &
+    XF86MonBrightnessDown exec brightness.sh -d &
 }
 
 # Keybindings

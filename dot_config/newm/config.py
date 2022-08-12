@@ -161,7 +161,7 @@ def on_reconfigure():
         f"gsettings set {gnome_schema} icon-theme 'Fluent-dark'",
         f"gsettings set {gnome_schema} font-name 'SF Pro Text 10.5'",
         f"gsettings set {gnome_schema} document-font-name 'New York Small 10.5'",
-        f"gsettings set {gnome_schema} monospace-font-name 'SFMono Nerd Font 10.5'",
+        f"gsettings set {gnome_schema} monospace-font-name 'SFMono 10.5'",
         f"gsettings set {gnome_wm} button-layout :",
         f"gsettings set {gnome_wm} theme 'Colloid-Dark'",
         f"gsettings set {gnome_peripheral}.keyboard repeat-interval 30",
