@@ -2,7 +2,7 @@
 
 # List of modern UNIX tool replacements
 # bat (https://github.com/sharkdp/bat)							[cat] [sys-apps/bat]
-# bat-extras (https://github.com/eth-p/bat-extras)				[grep/man/less/watch/diff]
+# bat-extras (https://github.com/eth-p/bat-extras)				[grep/man/less/watch/diff] [sys-apps/bat-extras]
 # exa (https://github.com/ogham/exa)							[ls] [sys-apps/exa]
 # dust (https://github.com/bootandy/dust)						[du] [sys-apps/dust]
 # duf (https://github.com/muesli/duf)							[df] [sys-fs/duf]
