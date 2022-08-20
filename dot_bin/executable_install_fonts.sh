@@ -206,19 +206,19 @@ lucide () {
 }
 
 install_fonts () {
-	#noto
-	#notocjk
-	#notolingual
+	noto
+	notocjk
+	notolingual
 	notomisc
-	#applefonts
-	#jetbrainsmono
-	#iosevka
-	#lucide
+	applefonts
+	jetbrainsmono
+	iosevka
+	lucide
 	set +e && rm "${unpackdir}"/*.txt && set -e
-	# printf "Please input your root password to proceed for moving files: "
-	# sudo mkdir -p /usr/local/share/fonts/ && set +e && sudo mv "${unpackdir}"/* /usr/local/share/fonts/ && set -e
-	# echo "" && fc-cache --really-force --verbose
-	# rm -rf "${unpackdir}"
+	printf "Please input your root password to proceed for moving files: "
+	sudo mkdir -p /usr/local/share/fonts/ && set +e && sudo mv "${unpackdir}"/* /usr/local/share/fonts/ && set -e
+	echo "" && fc-cache --really-force --verbose
+	rm -rf "${unpackdir}"
 }
 
 install_fonts

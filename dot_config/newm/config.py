@@ -137,6 +137,7 @@ def key_bindings(layout: Layout) -> list[tuple[str, Callable[[], Any]]]:
 def on_startup():
     startup = (
         "dbus-update-activation-environment --all",
+        "gnome-keyring-daemon --start",
         "foot --server",
         "/usr/libexec/polkit-gnome-authentication-agent-1",
         "gentoo-pipewire-launcher",
@@ -181,7 +182,7 @@ def on_reconfigure():
 
 energy = {
     # 'idle_times': [5, 5, 600],
-    'suspend_command': 'sleep 1 && loginctl suspend'
+    'suspend_command': 'loginctl suspend'
 }
 
 gestures = {

@@ -11,10 +11,11 @@ export XDG_SESSION_DESKTOP=wlroots
 export XDG_CURRENT_DESKTOP=wlroots
 export XDG_CURRENT_SESSION=wlroots
 
-# dbus starts gnome-keyring-daemon service, so apply necessary envs
+# dbus/whatever starts gnome-keyring-daemon service, so apply necessary envs
 export SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
 
 # Complete gnome-keyring-daemon initialization for secrets
+# Now done from within newm config
 #eval $(gnome-keyring-daemon --start | /bin/sed 's/^\(.*\)/export \1/g')
 
 # Launch sway within a dbus user session
