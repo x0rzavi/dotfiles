@@ -51,7 +51,7 @@ alias ping='gping'
 alias update='sudo emaint -A sync'
 alias upgrade='sudo emerge --update --changed-use --deep --with-bdeps=y @world'
 alias clean='sudo emerge --depclean ; sudo eclean-dist --deep'
-alias perf='sudo ${x0rzavi_home}/.bin/mode.sh -p'
+alias perf="sudo ${x0rzavi_home}/.bin/mode.sh -p"
 
 # Set ZSH options: http://zsh.sourceforge.net/Doc/Release/Options.html.
 setopt HIST_IGNORE_ALL_DUPS	# prevent history from recording duplicated entries even if they are not adjacent
@@ -60,6 +60,8 @@ setopt HIST_ALLOW_CLOBBER	# save clobber overrides as is
 setopt HIST_REDUCE_BLANKS	# tidy up the line when it is entered into the history by removing any excess blanks
 setopt HIST_NO_STORE		# don't store history or fc commands
 setopt HIST_EXPIRE_DUPS_FIRST	# remove duplicates before unique entries when trimmed
+setopt SHARE_HISTORY		# share command history data
+setopt INC_APPEND_HISTORY	# append history immediately without waiting for shell to exit
 setopt NO_CLOBBER		# don't allow overwriting files generally ( use >| to override )
 setopt AUTO_CD			# check to see if it's actually a directory. If it is, change to that directory
 #setopt MENU_COMPLETE		# one completion is always inserted completely, then when you hit TAB it changes to the next,
