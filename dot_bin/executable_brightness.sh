@@ -5,7 +5,7 @@
 # Dependencies: acpilight, Lucide icons
 
 # Variables
-step='3'
+step='8'
 fps='100'
 
 get_icon () {

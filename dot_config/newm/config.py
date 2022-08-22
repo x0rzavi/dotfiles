@@ -43,7 +43,7 @@ def rules(view):
     print(view)
     blur_apps_id = ('foot', 'Alacritty', 'wofi', 'waybar')
     float_apps_fix = ('Firefox — Sharing Indicator')
-    float_apps_title = ('Choose Files', 'Stats')
+    float_apps_title = ('Choose Files', 'Stats', 'Picture-in-Picture')
     float_apps_id = ('mpv', 'imv')
     window_roles = ('pop-up', 'bubble', 'dialog', 'task_dialog')
     app_rule = None

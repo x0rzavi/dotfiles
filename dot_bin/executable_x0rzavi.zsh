@@ -30,7 +30,7 @@ x0rzavi_home='/home/x0rzavi'
 
 # Define command aliases
 alias cat='bat'
-alias grep='batgrep --hidden'
+alias grep='batgrep --hidden --pager less'
 #alias grep='rg --pretty --hidden'
 alias man='batman'
 alias watch='batwatch --interval 1 --command'
@@ -49,7 +49,7 @@ alias ping='gping'
 
 # Define general task aliases
 alias update='sudo emaint -A sync'
-alias upgrade='sudo emerge --update --changed-use --deep --with-bdeps=y @world'
+alias upgrade='sudo emerge --update --newuse --deep --with-bdeps=y @world'
 alias clean='sudo emerge --depclean ; sudo eclean-dist --deep'
 alias perf="sudo ${x0rzavi_home}/.bin/mode.sh -p"
 
