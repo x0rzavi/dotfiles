@@ -26,7 +26,7 @@ outputs = [
 pywm = {
     'enable_xwayland': True,
     'xkb_options': 'numpad:mac',
-    'xcursor_theme': 'Qogir-cursors',
+    'xcursor_theme': 'Qogir-white-cursors',
 }
 
 wallpaper_path = os.environ['HOME'] + '/Pictures/Wallpapers/'
