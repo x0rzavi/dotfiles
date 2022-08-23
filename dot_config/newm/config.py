@@ -26,7 +26,7 @@ outputs = [
 pywm = {
     'enable_xwayland': True,
     'xkb_options': 'numpad:mac',
-    'xcursor_theme': 'Colloid-dark-cursors',
+    'xcursor_theme': 'Qogir-cursors',
 }
 
 wallpaper_path = os.environ['HOME'] + '/Pictures/Wallpapers/'
@@ -158,7 +158,7 @@ def on_reconfigure():
     aesthetics = (
         f"gsettings set {gnome_schema} gtk-theme 'Colloid'",
         f"gsettings set {gnome_schema} color-scheme 'prefer-dark'",
-        f"gsettings set {gnome_schema} cursor-theme 'Colloid-dark-cursors'",
+        f"gsettings set {gnome_schema} cursor-theme 'Qogir-white-cursors'",
         f"gsettings set {gnome_schema} icon-theme 'Fluent-dark'",
         f"gsettings set {gnome_schema} font-name 'SF Pro Text 10.5'",
         f"gsettings set {gnome_schema} document-font-name 'New York Small 10.5'",
@@ -166,7 +166,7 @@ def on_reconfigure():
         f"gsettings set {gnome_wm} button-layout :",
         f"gsettings set {gnome_wm} theme 'Colloid-Dark'",
         f"gsettings set {gnome_peripheral}.keyboard repeat-interval 30",
-        f"gsettings set {gnome_peripheral}.keyboard delay 500",
+        f"gsettings set {gnome_peripheral}.keyboard delay 100",
         f"gsettings set {gnome_peripheral}.mouse natural-scroll true",
         f"gsettings set {gnome_peripheral}.mouse speed 0.0",
         f"gsettings set {gnome_peripheral}.mouse accel-profile 'default'",

@@ -30,7 +30,7 @@ x0rzavi_home='/home/x0rzavi'
 
 # Define command aliases
 alias cat='bat'
-alias grep='batgrep --hidden --pager less'
+alias grep='batgrep --hidden --pager bat'
 #alias grep='rg --pretty --hidden'
 alias man='batman'
 alias watch='batwatch --interval 1 --command'
