@@ -10,16 +10,6 @@
 	helper = !/usr/bin/gh auth git-credential
 [init]
 	defaultBranch = main
-[core]
-	pager = delta
-[interactive]
-	diffFilter = delta --color-only
-[delta]
-	line-numbers = true
-	navigate = true
-[merge]
-	conflictstyle = diff3
-[diff]
-	colorMoved = default
 [commit]
 	gpgsign = true
+
