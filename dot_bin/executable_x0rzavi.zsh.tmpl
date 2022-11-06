@@ -47,11 +47,17 @@ alias ps='procs'
 #alias dig='doggo'
 alias ping='gping'
 
+{{- if eq .chezmoi.os "linux" }}
+{{- if not (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
 # Define general task aliases
+{{- if eq .chezmoi.osRelease.id "gentoo" }}
 alias update='sudo emaint -A sync'
 alias upgrade='sudo emerge --update --newuse --deep --with-bdeps=y @world'
 alias clean='sudo emerge --depclean ; sudo eclean-dist --deep'
+{{ end }}
 alias perf="sudo ${x0rzavi_home}/.bin/mode.sh -p"
+{{ end }}
+{{ end }}
 
 # Set ZSH options: http://zsh.sourceforge.net/Doc/Release/Options.html.
 setopt HIST_IGNORE_ALL_DUPS	# prevent history from recording duplicated entries even if they are not adjacent
@@ -105,5 +111,10 @@ eval "$(zoxide init --cmd cd zsh)"
 eval "$(starship init zsh)"
 
 # Source additional files
+{{- if eq .chezmoi.osRelease.id "gentoo" }}
 source /usr/share/zsh/site-functions/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/site-functions/zsh-autosuggestions.zsh
+{{- else if eq .chezmoi.osRelease.id "arch" }}
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+soruce /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+{{ end }}

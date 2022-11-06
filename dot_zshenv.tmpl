@@ -8,6 +8,8 @@ export FZF_DEFAULT_OPTS=" \
 --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
 export GOBIN="${HOME}/.bin"
 
+{{- if eq .chezmoi.os "linux" }}
+{{   if not (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
 # Set options only if user x0rzavi or otherwise
 if [[ $(whoami) = 'x0rzavi' ]]; then
 	# Description: Hack to set gtk4 theme
@@ -58,3 +60,5 @@ if [[ $(whoami) = 'x0rzavi' ]]; then
 	export NO_AT_BRIDGE=1
 	export WINIT_UNIX_BACKEND=wayland
 fi
+{{ end }}
+{{ end }}
