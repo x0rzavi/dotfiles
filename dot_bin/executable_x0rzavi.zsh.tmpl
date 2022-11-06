@@ -122,7 +122,10 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 # Initialize keychain on WSL
 {{- if eq .chezmoi.os "linux" }}
 {{- if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
-eval "$(DISPLAY=:0 SSH_ASKPASS=/home/x0rzavi/.sshkey keychain --eval --quiet id_ed25519)"
+if [ "$(id -u)" -ne 0 ] 
+then
+    eval "$(DISPLAY=:0 SSH_ASKPASS=/home/x0rzavi/.sshkey keychain --eval --quiet id_ed25519)"
+fi
 # GPG pinentry quirk (use only if willing to use hacky methods)
 # export GPG_TTY=$(tty)
 {{ end }}
