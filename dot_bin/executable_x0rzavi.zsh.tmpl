@@ -124,9 +124,13 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 {{- if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
 if [ "$(id -u)" -ne 0 ] 
 then
+    # Hack to openup ssh keys without intervention
     eval "$(DISPLAY=:0 SSH_ASKPASS=/home/x0rzavi/.sshkey keychain --eval --quiet id_ed25519)"
+    
+    # Hack to openup gpg keys without intervention
+    # GPG pinentry quirk (use only if willing to use hacky methods)
+    # export GPG_TTY=$(tty)
+    # printf 'hack' | gpg --clearsign --pinentry-mode loopback --passphrase-file=/home/x0rzavi/.gpgkey > /dev/null
 fi
-# GPG pinentry quirk (use only if willing to use hacky methods)
-# export GPG_TTY=$(tty)
 {{ end }}
 {{ end }}
