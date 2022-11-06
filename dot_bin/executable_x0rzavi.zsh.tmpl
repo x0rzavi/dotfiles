@@ -118,3 +118,12 @@ source /usr/share/zsh/site-functions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 {{ end }}
+
+# Initialize keychain on WSL
+{{- if eq .chezmoi.os "linux" }}
+{{- if not (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
+eval "$(DISPLAY=:0 SSH_ASKPASS=/home/x0rzavi/.sshkey keychain --eval --quiet id_ed25519)"
+# GPG pinentry quirk (use only if willing to use hacky methods)
+# export GPG_TTY=$(tty)
+{{ end }}
+{{ end }}
