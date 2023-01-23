@@ -8,6 +8,9 @@ export FZF_DEFAULT_OPTS=" \
 --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
 export GOBIN="${HOME}/.bin"
 
+# Setup npm and yarn user-wide installation paths
+export npm_config_prefix="$HOME/.local"
+
 {{- if eq .chezmoi.os "linux" }}
 {{   if not (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
 # Set options only if user x0rzavi or otherwise
