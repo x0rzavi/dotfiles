@@ -4,3 +4,6 @@
 <p align="center">
   <img src="assets/images/preview.png">
 </p>
+<p align="center">
+  <img src="assets/images/preview2.jpg">
+</p>
