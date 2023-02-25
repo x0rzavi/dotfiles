@@ -16,15 +16,15 @@ generate_entry () {
 
 	# Important variables
 	# Don't mess with quoting!
-	disk='/dev/sda'
+	disk='/dev/nvme0n1'
 	part='1'
 	efs_folder="\\EFI\\Gentoo\\"
-	root='ZFS=zroot/root/gentoo'
-	kernel_flags='ro mitigations=off acpi_osi=! acpi_osi="Windows 2015" resume=PARTUUID=c39d889e-1d85-47a1-853d-20c41a881e94'
+	root='ZFS=zroot/gentoo'
+	kernel_flags='ro mitigations=off acpi_osi=! acpi_osi="Windows 2015"'
 	loader="${efs_folder}$2"
 	initrd="${efs_folder}$3"
 	condensed="root=${root} ${kernel_flags} initrd=${initrd}"
-
+	
 	efibootmgr \
 		--create \
 		--disk "${disk}" \
