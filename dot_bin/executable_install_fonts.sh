@@ -150,8 +150,8 @@ applefonts () {
 	cat <<- EOF > applefonts.txt
 	AppleFontsNerdPatched/NewYorkSmall-Regular.otf
 	AppleFontsNerdPatched/NewYorkSmall-RegularItalic.otf
-	AppleFontsNerdPatched/SFMono Medium Nerd Font Complete.otf
-	AppleFontsNerdPatched/SFMono Medium Italic Nerd Font Complete.otf
+	AppleFontsNerdPatched/SFMono Medium Nerd Font.otf
+	AppleFontsNerdPatched/SFMono Medium Italic Nerd Font.otf
 	AppleFontsNerdPatched/SF-Pro-Text-Medium.otf
 	AppleFontsNerdPatched/SF-Pro-Text-MediumItalic.otf
 	EOF
@@ -161,13 +161,13 @@ applefonts () {
 	| grep "browser_download_url.*.7z" | cut -d : -f 2,3 \
 	| xargs aria2c -c -x16 -j16 --console-log-level=warn
 	7z e -bso0 -y 'AppleFontsNerdPatched.7z' -i'@applefonts.txt' -o"${unpackdir}"/applefonts && echo ""
-	rm "${unpackdir}"/Apple*.7z
+	#rm "${unpackdir}"/Apple*.7z
 }
 
 iosevka () {
 	cat <<- EOF > iosevka.txt
-	Iosevka Term Medium Nerd Font Complete.ttf
-	Iosevka Term Medium Italic Nerd Font Complete.ttf
+	Iosevka Term Nerd Font Complete Medium.ttf
+	Iosevka Term Nerd Font Complete Medium Italic.ttf
 	EOF
 
 	mkdir -p "${unpackdir}"/iosevka
@@ -213,7 +213,7 @@ install_fonts () {
 	applefonts
 	jetbrainsmono
 	iosevka
-	lucide
+	#lucide
 	set +e && rm "${unpackdir}"/*.txt && set -e
 	printf "Please input your root password to proceed for moving files: "
 	sudo mkdir -p /usr/local/share/fonts/ && set +e && sudo mv "${unpackdir}"/* /usr/local/share/fonts/ && set -e
