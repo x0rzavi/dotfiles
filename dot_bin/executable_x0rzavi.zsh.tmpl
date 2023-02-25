@@ -119,9 +119,9 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 {{ end }}
 
-# Initialize keychain on WSL
 {{- if eq .chezmoi.os "linux" }}
 {{- if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
+# Initialize keychain on WSL
 if [ "$(id -u)" -ne 0 ] 
 then
     # Hack to openup ssh keys without intervention
