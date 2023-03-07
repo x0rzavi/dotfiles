@@ -205,20 +205,35 @@ lucide () {
 	rm "${unpackdir}"/lucide-font*.zip
 }
 
+inter () {
+	cat <<- EOF > inter.txt
+	Variable/InterV.var.ttf
+	EOF
+
+	mkdir -p "${unpackdir}"/inter
+	curl -s https://api.github.com/repos/rsms/inter/releases \
+	| grep "browser_download_url.*Inter.*.zip" | cut -d : -f 2,3 | head -n 1 \
+	| xargs aria2c -c -x16 -j16 --console-log-level=warn
+	7z e -bso0 -y "Inter*.zip" -i'@inter.txt' -o"${unpackdir}"/inter && echo ""
+	rm "${unpackdir}"/Inter*.zip
+}
+	
 install_fonts () {
-	noto
-	notocjk
-	notolingual
-	notomisc
-	applefonts
-	jetbrainsmono
-	iosevka
+	#noto
+	#notocjk
+	#notolingual
+	#notomisc
+	#applefonts
+	#jetbrainsmono
+	#iosevka
 	#lucide
+	inter
 	set +e && rm "${unpackdir}"/*.txt && set -e
-	printf "Please input your root password to proceed for moving files: "
-	sudo mkdir -p /usr/local/share/fonts/ && set +e && sudo mv "${unpackdir}"/* /usr/local/share/fonts/ && set -e
-	echo "" && fc-cache --really-force --verbose
-	rm -rf "${unpackdir}"
+	#printf "Please input your root password to proceed for moving files: "
+	#sudo mkdir -p /usr/local/share/fonts/ && set +e && sudo mv "${unpackdir}"/* /usr/local/share/fonts/ && set -e
+	mkdir -p ~/.local/share/fonts/ && set +e && mv "${unpackdir}"/* ~/.local/share/fonts && set -e
+	echo "" && fc-cache --force --really-force --verbose
+	#rm -rf "${unpackdir}"
 }
 
 install_fonts
