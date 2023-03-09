@@ -6,8 +6,8 @@ typeset -U path PATH
 path=(~/.bin ~/.cargo/bin ~/.local/bin ${path})
 export PATH
 
-{{- if eq .chezmoi.os "linux" }}
-{{  if not (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
+{{ if eq .chezmoi.os "linux" }}
+{{- if not (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
 # #### AUTOSTART SWAY ON LOGIN IF TTY1
 # if [[ -z ${DISPLAY} ]] && [[ $(tty) = '/dev/tty1' ]]; then
 # 	exec ${HOME}/.bin/sway_enter.sh
