@@ -2,9 +2,9 @@
 	autoCommit = true
 	autoPush = true
 
-#[edit]
-#	command = "code"
-#	args = ["--wait"]
+[edit]
+	command = "code"
+	args = ["--wait"]
 
 encryption = "gpg"
 [gpg]
