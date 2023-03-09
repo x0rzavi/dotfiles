@@ -13,9 +13,14 @@ export PATH
 # 	exec ${HOME}/.bin/sway_enter.sh
 # fi 
 
-#### AUTOSTART NEWM ON LOGIN IF TTY1
+# #### AUTOSTART NEWM ON LOGIN IF TTY1
+# if [[ -z ${DISPLAY} ]] && [[ $(tty) = '/dev/tty1' ]]; then
+# 	exec ${HOME}/.bin/newm_enter.sh
+# fi
+
+#### AUTOSTART HYPRLAND ON LOGIN IF TTY1
 if [[ -z ${DISPLAY} ]] && [[ $(tty) = '/dev/tty1' ]]; then
-	exec ${HOME}/.bin/newm_enter.sh
+	exec ${HOME}/.bin/hyprland_enter.sh
 fi
-{{ end }}
+{{ end -}}
 {{ end }}
