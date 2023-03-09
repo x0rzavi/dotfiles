@@ -1,29 +1,29 @@
 # Description: User agnostic conveniences for ZSH
 
 # List of modern UNIX tool replacements
-# bat (https://github.com/sharkdp/bat)			[cat] [sys-apps/bat]
-# bat-extras (https://github.com/eth-p/bat-extras)	[grep/man/less/watch/diff] [sys-apps/bat-extras]
-# exa (https://github.com/ogham/exa)			[ls] [sys-apps/exa]
-# dust (https://github.com/bootandy/dust)		[du] [sys-apps/dust]
-# duf (https://github.com/muesli/duf)			[df] [sys-fs/duf]
-# bottom (https://github.com/ClementTsang/bottom)	[top] [sys-process/bottom]
-# btop (https://github.com/aristocratos/btop)		[top] [sys-process/btop]
-# gdu (https://github.com/dundee/gdu)			[ncdu] [sys-fs/gdu]
-# doggo (https://github.com/mr-karan/doggo)		[dig] [net-dns/doggo]
-# ripgrep (https://github.com/BurntSushi/ripgrep)	[grep] [sys-apps/ripgrep]
-# ripgrep-all (https://github.com/phiresky/ripgrep-all)	[grep] [sys-apps/ripgrep-all]
-# git-delta (https://github.com/dandavison/delta)	[diff] [dev-util/git-delta]
-# sd (https://github.com/chmln/sd)			[sed] [sys-apps/sd]
-# fd (https://github.com/sharkdp/fd)			[find] [sys-apps/fd]
-# zoxide (https://github.com/ajeetdsouza/zoxide)	[cd] [app-shells/zoxide]
-# plocate (https://plocate.sesse.net)			[locate] [sys-apps/plocate]
-# procs (https://github.com/dalance/procs)		[ps] [sys-apps/procs]
-# gping (https://github.com/orf/gping)			[ping] [net-misc/gping]
-# fzf (https://github.com/junegunn/fzf)			[misc] [app-shells/fzf]
-# entr (https://github.com/eradman/entr)		[misc] [app-admin/entr]
-# moreutils (https://joeyh.name/code/moreutils)		[misc] [sys-apps/moreutils]
-# cheat (https://github.com/cheat/cheat)		[misc] [app-misc/cheat]
-# tldr (https://github.com/tldr-pages/tldr)		[misc] [app-text/tldr]
+# bat (https://github.com/sharkdp/bat)                  [cat] [sys-apps/bat]
+# bat-extras (https://github.com/eth-p/bat-extras)      [grep/man/less/watch/diff] [sys-apps/bat-extras]
+# exa (https://github.com/ogham/exa)                    [ls] [sys-apps/exa]
+# dust (https://github.com/bootandy/dust)               [du] [sys-apps/dust]
+# duf (https://github.com/muesli/duf)                   [df] [sys-fs/duf]
+# bottom (https://github.com/ClementTsang/bottom)       [top] [sys-process/bottom]
+# btop (https://github.com/aristocratos/btop)           [top] [sys-process/btop]
+# gdu (https://github.com/dundee/gdu)                   [ncdu] [sys-fs/gdu]
+# doggo (https://github.com/mr-karan/doggo)             [dig] [net-dns/doggo-bin]
+# ripgrep (https://github.com/BurntSushi/ripgrep)       [grep] [sys-apps/ripgrep]
+# ripgrep-all (https://github.com/phiresky/ripgrep-all) [grep] [sys-apps/ripgrep-all]
+# git-delta (https://github.com/dandavison/delta)       [diff] [dev-util/git-delta]
+# sd (https://github.com/chmln/sd)                      [sed] [sys-apps/sd]
+# fd (https://github.com/sharkdp/fd)                    [find] [sys-apps/fd]
+# zoxide (https://github.com/ajeetdsouza/zoxide)        [cd] [app-shells/zoxide]
+# plocate (https://plocate.sesse.net)                   [locate] [sys-apps/plocate]
+# procs (https://github.com/dalance/procs)              [ps] [sys-apps/procs]
+# gping (https://github.com/orf/gping)                  [ping] [net-analyzer/gping-bin]
+# fzf (https://github.com/junegunn/fzf)                 [misc] [app-shells/fzf]
+# entr (https://github.com/eradman/entr)                [misc] [app-admin/entr]
+# moreutils (https://joeyh.name/code/moreutils)         [misc] [sys-apps/moreutils]
+# cheat (https://github.com/cheat/cheat)                [misc] [app-misc/cheat]
+# tealdeer (https://github.com/dbrgn/tealdeer)          [misc] [app-misc/tealdeer]
 
 # Variables
 x0rzavi_home='/home/x0rzavi'
@@ -40,15 +40,15 @@ alias ls='exa --icons'
 alias ll='exa --icons --long --all --group --git --group-directories-first'
 alias du='dust --apparent-size'
 alias df='duf'
-alias ncdu='gdu --show-apparent-size --show-relative-size --max-cores 2'
+alias ncdu='gdu --show-apparent-size --show-relative-size --max-cores 4'
 alias find='fd --hidden --no-ignore --follow'
 alias sed='sd'
 alias ps='procs'
-#alias dig='doggo'
+alias dig='doggo'
 alias ping='gping'
 
-{{- if eq .chezmoi.os "linux" }}
-{{- if not (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
+{{ if eq .chezmoi.os "linux" }}
+{{- if not (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
 # Define general task aliases
 {{- if eq .chezmoi.osRelease.id "gentoo" }}
 alias update='sudo emaint -A sync'
