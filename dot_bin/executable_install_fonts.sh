@@ -16,7 +16,7 @@ unpackdir="${directory}"/fonts_tmpdir
 cd "${unpackdir}"
 
 cleanup () {
-	set +e && rm "${unpackdir}"/*.zip && rm "${unpackdir}"/*.7z && rm "${unpackdir}"/*.txt && set -e
+	set +e && rm "${unpackdir}"/*.zip && rm "${unpackdir}"/*.txt && rm "${unpackdir}/*.7z" && set -e
 }
 
 ## Noto family fonts
@@ -162,18 +162,6 @@ inter () {
 		| xargs aria2c -x16 -j16 --console-log-level=error --summary-interval=0 --auto-file-renaming=false --max-tries=0 || true
 	7z e -bso0 -y "Inter*.zip" -i'@inter.txt' -o"${unpackdir}"/inter && echo ''
 }
-	
-montserrat () {
-	cat <<- EOF > montserrat.txt
-	Montserrat-VariableFont_wght.ttf
-	Montserrat-Italic-VariableFont_wght.ttf
-	EOF
-
-	mkdir -p "${unpackdir}"/montserrat
-	printf '%s' 'https://fonts.google.com/download?family=Montserrat' \
-		| xargs aria2c -x16 -j16 --console-log-level=error --summary-interval=0 --auto-file-renaming=false --max-tries=0 || true
-	7z e -bso0 -y "Montserrat.zip" -i'@montserrat.txt' -o"${unpackdir}"/montserrat && echo ''
-}
 
 jost () {
 	cat <<- EOF > jost.txt
@@ -256,8 +244,8 @@ century_schoolbook () {
 ##
 iosevka () {
 	cat <<- EOF > iosevka.txt
+	Iosevka Nerd Font Complete.ttf
 	Iosevka Nerd Font Complete Medium.ttf
-	Iosevka Nerd Font Complete Medium Italic.ttf
 	EOF
 
 	mkdir -p "${unpackdir}"/iosevka
@@ -269,8 +257,8 @@ iosevka () {
 
 jetbrainsmono () {
 	cat <<- EOF > jetbrainsmono.txt
-	JetBrains Mono Medium Nerd Font Complete.ttf
-	JetBrains Mono Medium Italic Nerd Font Complete.ttf
+	JetBrains Mono Regular Nerd Font Complete.ttf
+	JetBrains Mono Italic Nerd Font Complete.ttf
 	EOF
 
 	mkdir -p "${unpackdir}"/jetbrainsmono
@@ -278,19 +266,6 @@ jetbrainsmono () {
 		| grep "browser_download_url.*JetBrainsMono.zip" | cut -d : -f 2,3 \
 		| xargs aria2c -x16 -j16 --console-log-level=error --summary-interval=0 --auto-file-renaming=false --max-tries=0 || true
 	7z e -bso0 -y 'JetBrainsMono.zip' -i'@jetbrainsmono.txt' -o"${unpackdir}"/jetbrainsmono && echo ''
-}
-
-spacemono () {
-	cat <<- EOF > spacemono.txt
-	Space Mono Nerd Font Complete.ttf
-	Space Mono Italic Nerd Font Complete.ttf
-	EOF
-
-	mkdir -p "${unpackdir}"/spacemono
-	curl -s https://api.github.com/repos/ryanoasis/nerd-fonts/releases/latest \
-		| grep "browser_download_url.*SpaceMono.zip" | cut -d : -f 2,3 \
-		| xargs aria2c -x16 -j16 --console-log-level=error --summary-interval=0 --auto-file-renaming=false --max-tries=0 || true
-	7z e -bso0 -y 'SpaceMono.zip' -i'@spacemono.txt' -o"${unpackdir}"/spacemono && echo ''
 }
 
 ## Miscellaneous fonts
@@ -324,34 +299,53 @@ lucide () {
 	7z e -bso0 -y "lucide-font*.zip" -i'@lucide.txt' -o"${unpackdir}"/lucide && echo ''
 }
 
+recursive () {
+	cat <<- EOF > recursive.txt
+	*/Recursive_Desktop/Recursive_VF_*.ttf
+	*/Recursive_Code/RecMonoCasual/RecMonoCasual-Italic-*.ttf
+	*/Recursive_Code/RecMonoCasual/RecMonoCasual-Bold-*.ttf
+	*/Recursive_Code/RecMonoCasual/RecMonoCasual-Regular-*.ttf
+	*/Recursive_Code/RecMonoCasual/RecMonoCasual-BoldItalic-*.ttf
+	EOF
+
+	mkdir -p "${unpackdir}"/recursive
+	curl -s https://api.github.com/repos/arrowtype/recursive/releases/latest \
+		| grep "browser_download_url.*ArrowType-Recursive.*.zip" | cut -d : -f 2,3 \
+		| xargs aria2c -x16 -j16 --console-log-level=error --summary-interval=0 --auto-file-renaming=false --max-tries=0 || true
+	7z e -bso0 -y "ArrowType-Recursive*.zip" -i'@recursive.txt' -o"${unpackdir}"/recursive && echo ''
+}
+
 install_fonts () {
-	noto
-	notocjk
-	notolingual
-	notomisc
+	#noto
+	#notocjk
+	#notolingual
+	#notomisc
 
-	inter
-	montserrat
-	jost
+	#inter
+	#jost
 
-	lora
-	bodoni
-	baskerville
-	caslon
-	century_schoolbook
+	#lora
+	#bodoni
+	#baskerville
+	#caslon
+	#century_schoolbook
 
-	iosevka
-	jetbrainsmono
-	spacemono
+	#iosevka
+	#jetbrainsmono
 
-	applefonts
-	lucide
+	#applefonts
+	#lucide
+	#recursive
 
 	cleanup
-	#printf "Please input your root password to proceed for moving files: "
-	#sudo mkdir -p /usr/local/share/fonts/ && set +e && sudo mv "${unpackdir}"/* /usr/local/share/fonts/ && set -e
-	mkdir -p ~/.local/share/fonts/ && set +e && mv "${unpackdir}"/* ~/.local/share/fonts && set -e
-	fc-cache --force --really-force --verbose
+	if [ "$(id -u)" -eq 0 ]
+	then 
+		mkdir -p /usr/local/share/fonts/ && set +e && sudo mv "${unpackdir}"/* /usr/local/share/fonts/ && set -e
+		fc-cache --force --really-force --verbose
+	else 
+		mkdir -p ~/.local/share/fonts/ && set +e && mv "${unpackdir}"/* ~/.local/share/fonts && set -e
+		fc-cache --force --really-force --verbose
+	fi
 	rm -rf "${unpackdir}"
 }
 
