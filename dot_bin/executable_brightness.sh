@@ -20,7 +20,7 @@ get_icon () {
 
 get_brightness () {
 	brightness=$(xbacklight -get)
-	get_icon
+	# get_icon
 	printf '%s  %s%%\n' "${icon}" "${brightness}"
 }
 

@@ -2,53 +2,61 @@
 
 # Author: https://github.com/x0rzavi
 # Description: Easy volume manipulator
-# Dependencies: pulseaudio, Lucide icons
+# Dependencies: wireplumber, bc, Lucide icons
 
 # Variables
 step='2'
 
 get_icon () {
-	if [ "${volume}" -eq '0' ] || [ "${state}" = 'yes' ]
+	if [ "${volume_per}" -eq '0' ] || [ "${state}" = 'yes' ]
 	then icon=''
-	elif [ "${volume}" -ge '0' ] && [ "${volume}" -lt '55' ]
+	elif [ "${volume_per}" -ge '0' ] && [ "${volume_per}" -lt '55' ]
 	then icon=''
-	elif [ "${volume}" -ge '55' ]
+	elif [ "${volume_per}" -ge '55' ]
 	then icon=''
 	fi
 }
 
+get_state () {
+	if wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -q MUTED
+	then printf '%s' 'yes'
+	else printf '%s' 'no'
+	fi
+}
+
 get_volume () {
-	volume=$(pactl get-sink-volume @DEFAULT_SINK@ | sed -e 's/[^%0-9 ]*//g;s/  */\n/g' | sed -n '/%/p' | sed -e 's/%//' | head -n 1)
-	state=$(pactl get-sink-mute @DEFAULT_SINK@ | sed -e 's/Mute: //g')
-	get_icon
+	volume=$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | cut -d ' ' -f 2)
+	volume_per=$(echo "${volume}"*100 / 1 | bc)
+	state=$(get_state)
+	# get_icon
 	if [ "${state}" = 'no' ]
-	then printf '%s  %s%%\n' "${icon}" "${volume}"
+	then printf '%s  %s%%\n' "${icon}" "${volume_per}"
 	else printf '%s  Muted\n' "${icon}"
 	fi
 }
 
 inc_volume () {
-	pactl set-sink-mute @DEFAULT_SINK@ 0 && pactl set-sink-volume @DEFAULT_SINK@ +"${step}"%
+	wpctl set-mute @DEFAULT_AUDIO_SINK@ 0 && wpctl set-volume @DEFAULT_AUDIO_SINK@ "${step}"%+
 	get_volume
 }
 
 dec_volume () {
-	pactl set-sink-mute @DEFAULT_SINK@ 0 && pactl set-sink-volume @DEFAULT_SINK@ -"${step}"%
+	wpctl set-mute @DEFAULT_AUDIO_SINK@ 0 && wpctl set-volume @DEFAULT_AUDIO_SINK@ "${step}"%-
 	get_volume
 }
 
 toggle_volume () {
-	pactl set-sink-mute @DEFAULT_SINK@ toggle
+	wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
 	get_volume
 }
 
 mute_volume () {
-	pactl set-sink-mute @DEFAULT_SINK@ 1
+	wpctl set-mute @DEFAULT_AUDIO_SINK@ 1
 	get_volume
 }
 
 set_volume () {
-	pactl set-sink-mute @DEFAULT_SINK@ 0 && pactl set-sink-volume @DEFAULT_SINK@ "$1"%
+	pactl set-sink-mute @DEFAULT_SINK@ 0 && wpctl set-volume @DEFAULT_AUDIO_SINK@ "$1"%
 	get_volume
 }
 
