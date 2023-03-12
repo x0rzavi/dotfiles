@@ -21,10 +21,10 @@
 @define-color	overlay0	rgb(108, 112, 134);
 @define-color	surface2	rgb(88, 91, 112);
 @define-color	surface1	rgb(69, 71, 90);
-@define-color	surface0	rgba(49, 50, 68, 0.2);
+@define-color	surface0	rgba(49, 50, 68, 0.3);
 @define-color	base		rgba(30, 30, 46, 0.7);
 @define-color	mantle		rgb(24, 24, 37);
-@define-color	crust		rgba(17, 17, 27, 0.3);
+@define-color	crust		rgba(17, 17, 27, 0.5);
 
 @keyframes blink_red {
 	to {
