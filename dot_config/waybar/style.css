@@ -24,7 +24,7 @@
 @define-color	surface0	rgba(49, 50, 68, 0.2);
 @define-color	base		rgba(30, 30, 46, 0.6);
 @define-color	mantle		rgb(24, 24, 37);
-@define-color	crust		rgb(17, 17, 27);
+@define-color	crust		rgba(17, 17, 27, 0.4);
 
 @keyframes blink_red {
 	to {
@@ -46,7 +46,7 @@
 }
 
 * {
-	font-family: Iosevka Nerd Font;
+	font-family: Iosevka Nerd Font, Material Symbols Rounded;
 	/* font-size: 15px; */
 	font-weight: bold;
 }
