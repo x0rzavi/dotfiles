@@ -63,14 +63,15 @@ window > box {
 	/* border-bottom-width: 2px; */
 	/* border-color: @crust; */
 	/* border-style: solid; */
-	background-color: @base;	/* Keep transparent to blur */
+	background-color: @base;
 }
 
 #workspaces button, #submap, #memory, #cpu, #cpu.load, #temperature, #clock, #idle_inhibitor, #network , #pulseaudio, #backlight, #battery {
 	padding: 6px 10px;
 	margin: 0 3px;
 	color: @text;
-	box-shadow: none;
+	box-shadow: inherit;
+	text-shadow: inherit;
 	border-radius: 25px;
 	border-width: 0 2px 2px 0;
 	border-style: solid;
@@ -83,7 +84,6 @@ window > box {
 }
 
 #workspaces button:hover {
-	text-shadow: none;
 	background: @mantle;
 }
 
