@@ -1,35 +1,9 @@
-/* Catppuccin Mocha */
-@define-color	rosewater	rgb(245, 224, 220);
-@define-color	flamingo	rgb(242, 205, 205);
-@define-color	pink		rgb(245, 194, 231);
-@define-color	mauve		rgb(203, 166, 247);
-@define-color	red			rgb(243, 139, 168);
-@define-color	maroon		rgb(235, 160, 172);
-@define-color	peach		rgb(250, 179, 135);
-@define-color	yellow		rgb(249, 226, 175);
-@define-color	green		rgb(166, 227, 161);
-@define-color	teal		rgb(148, 226, 213);
-@define-color	sky			rgb(137, 220, 235);
-@define-color	sapphire	rgb(116, 199, 236);
-@define-color	blue		rgb(137, 180, 250);
-@define-color	lavender	rgb(180, 190, 254);
-@define-color	text		rgb(205, 214, 244);
-@define-color	subtext1	rgb(186, 194, 222);
-@define-color	subtext0	rgb(166, 173, 200);
-@define-color	overlay2	rgb(147, 153, 178);
-@define-color	overlay1	rgb(127, 132, 156);
-@define-color	overlay0	rgb(108, 112, 134);
-@define-color	surface2	rgb(88, 91, 112);
-@define-color	surface1	rgb(69, 71, 90);
-@define-color	surface0	rgba(49, 50, 68, 0.3);
-@define-color	base		rgba(30, 30, 46, 0.7);
-@define-color	mantle		rgb(24, 24, 37);
-@define-color	crust		rgba(17, 17, 27, 0.5);
+@import "colors.css";
 
 @keyframes blink_red {
 	to {
-		color: @red;
-		background-color: @crust;
+		color: @red1-jan;
+		background-color: @bg-jan;
 	}
 }
 
@@ -60,23 +34,23 @@ window#waybar.hidden {
 }
 
 window > box {
-	/* border-bottom-width: 2px; */
-	/* border-color: @crust; */
-	/* border-style: solid; */
-	background-color: @base;
+	/* border-top-width: 2px;
+	border-color: @bg-jan;
+	border-style: solid; */
+	background-color: @black8-jan;
 }
 
 #workspaces button, #submap, #memory, #cpu, #cpu.load, #temperature, #clock, #idle_inhibitor, #network , #pulseaudio, #backlight, #battery {
-	padding: 6px 10px;
+	padding: 5px 10px;
 	margin: 0 3px;
-	color: @text;
+	color: @fg-jan;
 	box-shadow: inherit;
 	text-shadow: inherit;
 	border-radius: 25px;
 	border-width: 0 2px 2px 0;
 	border-style: solid;
-	border-color: @crust;
-	background-color: @surface0;
+	border-color: @bg-jan;
+	background-color: @black-extra-jan;
 }
 
 #memory {
@@ -84,16 +58,16 @@ window > box {
 }
 
 #workspaces button:hover {
-	background: @mantle;
+	background: @black0-jan;
 }
 
 #workspaces button.active {
-	background-color: @crust;
+	background-color: @bg-jan;
 }
 
 #workspaces button.urgent {
-	color: @red;
-	background-color: @mantle;
+	color: @red1-jan;
+	background-color: @black0-jan;
 	transition: background-color 1000ms linear;
 }
 
@@ -103,16 +77,16 @@ window > box {
 	margin: 0 10px;
 }
 
-tooltip {
-	background: @surface0;
+/* tooltip {
+	background: @black-extra-jan;
 	padding: 15px;
 	border-radius: 10px;
 }
 
 tooltip label {
-	color: @text;
+	color: @fg-jan;
 	font-size: small;
-}
+} */
 
 #battery.charging {
 	animation-name: none;

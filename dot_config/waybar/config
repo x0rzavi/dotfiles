@@ -23,7 +23,7 @@
 	// "margin": 15,
 	"memory": {
 		"interval": 1,
-		"format": "<span foreground='#94e2d5' size='large' rise='-3pt' font='Material Symbols Rounded'>\ue322</span> {percentage}%",
+		"format": "<span foreground='#7fc8db' size='large' rise='-3pt' font='Material Symbols Rounded'>\ue322</span> {percentage}%",
 		"states": {
 			"warning": 80,
 			"critical": 90
@@ -32,46 +32,46 @@
 	},
 	"cpu": {
 		"interval": 1,
-		"format": "<span foreground='#cba6f7' size='large' rise='-3pt' font='Material Symbols Rounded'>\ue8b8</span> {usage}%",
+		"format": "<span foreground='#cb92f2' size='large' rise='-3pt' font='Material Symbols Rounded'>\ue8b8</span> {usage}%",
 		"tooltip": false
 	},
 	"cpu#load": {
 		"interval": 1,
-		"format": "<span foreground='#89dceb' size='large' rise='-3pt' font='Material Symbols Rounded'>\ue863</span> {load}",
+		"format": "<span foreground='#70b9cc' size='large' rise='-3pt' font='Material Symbols Rounded'>\ue863</span> {load}",
 		"tooltip": false
 	},
 	"temperature": {
 		"hwmon-path": "/sys/class/hwmon/hwmon4/temp1_input",
 		"critical-threshold": 78,
 		"interval": 1,
-		"format": "<span foreground='#fab387' size='large' rise='-3pt' font='Material Symbols Rounded'>\uf16a</span> {temperatureC}°C",
+		"format": "<span foreground='#de8f78' size='large' rise='-3pt' font='Material Symbols Rounded'>\uf16a</span> {temperatureC}°C",
 		"tooltip": false
 	},
 	"clock": {
-		"format": " <span foreground='#74c7ec' size='large' rise='-3pt' font='Material Symbols Rounded'>\ue8df</span> {:%I:%M %p  %A %d %b} ",
+		"format": " <span foreground='#87c7a1' size='large' rise='-3pt' font='Material Symbols Rounded'>\ue8df</span> {:%I:%M %p  %A %d %b} ",
 		"tooltip": false
 	},
 	"idle_inhibitor": {
 		"format": "{icon}",
 		"format-icons": {
-			"activated": "<span foreground='#a6e3a1' size='large' rise='-3pt' font='Material Symbols Rounded'>\ue8f4</span>",
-			"deactivated": "<span foreground='#a6e3a1' size='large' rise='-3pt' font='Material Symbols Rounded'>\ue8f5</span>"
+			"activated": "<span foreground='#7fc8db' size='large' rise='-3pt' font='Material Symbols Rounded'>\ue8f4</span>",
+			"deactivated": "<span foreground='#7fc8db' size='large' rise='-3pt' font='Material Symbols Rounded'>\ue8f5</span>"
 		},
 		"tooltip": false
 	},
 	"network": {
 		"interval": 1,
-		"format-ethernet": "<span foreground='#b4befe' size='large' rise='-3pt' font='Material Symbols Rounded'>\ue8be</span> {ifname}",
-		"format-wifi": "<span foreground='#b4befe' size='large' rise='-3pt' font='Material Symbols Rounded'>\uf0b0</span> {essid} <span foreground='#b4befe' size='large' rise='-3pt' font='Material Symbols Rounded'>\uf6bb</span> {bandwidthTotalBytes}",
-		"format-linked": "<span foreground='#b4befe' size='large' rise='-3pt' font='Material Symbols Rounded'>\uf0ef</span> {essid} (No IP)",
-		"format-disconnected": "<span foreground='#b4befe' size='large' rise='-3pt' font='Material Symbols Rounded'>\uf239</span> Disconnected",
+		"format-ethernet": "<span foreground='#6791c9' size='large' rise='-3pt' font='Material Symbols Rounded'>\ue8be</span> {ifname}",
+		"format-wifi": "<span foreground='#6791c9' size='large' rise='-3pt' font='Material Symbols Rounded'>\uf0b0</span> {essid} <span foreground='#6791c9' size='large' rise='-3pt' font='Material Symbols Rounded'>\uf6bb</span> {bandwidthTotalBytes}",
+		"format-linked": "<span foreground='#6791c9' size='large' rise='-3pt' font='Material Symbols Rounded'>\uf0ef</span> {essid} (No IP)",
+		"format-disconnected": "<span foreground='#6791c9' size='large' rise='-3pt' font='Material Symbols Rounded'>\uf239</span> Disconnected",
 		// "max-length": 28,
 		"tooltip": false,
 		"tooltip-format": "{ipaddr}"
 	},
 	"pulseaudio": {
-		"format": "<span foreground='#fab387' size='large' rise='-3pt' font='Material Symbols Rounded'>{icon}</span> {volume}%",
-		"format-muted": "<span foreground='#fab387' size='large' rise='-3pt' font='Material Symbols Rounded'>\ue04f</span> Muted",
+		"format": "<span foreground='#ffb29b' size='large' rise='-3pt' font='Material Symbols Rounded'>{icon}</span> {volume}%",
+		"format-muted": "<span foreground='#ffb29b' size='large' rise='-3pt' font='Material Symbols Rounded'>\ue04f</span> Muted",
 		"format-icons": {
 			"default": ["\ue04d", "\ue050"]
 		},
@@ -85,7 +85,7 @@
 		"tooltip": false
 	},
 	"backlight": {
-		"format": "<span foreground='#94e2d5' size='large' rise='-3pt' font='Material Symbols Rounded'>{icon}</span> {percent}%",
+		"format": "<span foreground='#96d6b0' size='large' rise='-3pt' font='Material Symbols Rounded'>{icon}</span> {percent}%",
 		"format-icons": ["\uf7e8", "\ue3aa", "\ue1ae", "\ue1ac"],
 		"on-click": "brightness.sh -s 10",
 		"on-click-right": "brightness.sh -s 45",
@@ -98,9 +98,9 @@
 			"warning": 20,
 			"critical": 10
 		},
-		"format": "<span foreground='#cba6f7' size='large' rise='-3pt' font='Material Symbols Rounded'>{icon}</span> {capacity}%",
+		"format": "<span foreground='#cb92f2' size='large' rise='-3pt' font='Material Symbols Rounded'>{icon}</span> {capacity}%",
 		"format-icons": ["\ue19c", "\uebdc", "\uebd9", "\uebe0", "\uebdd", "\uebe2", "\uebd4", "\uebd2", "\ue1a4"],
-		"format-charging": "<span foreground='#cba6f7' size='large' rise='-3pt' font='Material Symbols Rounded'>\uf7eb</span> {capacity}%",
+		"format-charging": "<span foreground='#cb92f2' size='large' rise='-3pt' font='Material Symbols Rounded'>\uf7eb</span> {capacity}%",
 		"tooltip": false
 	},
 	"wlr/workspaces": {
