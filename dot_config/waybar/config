@@ -84,7 +84,7 @@
 	"backlight": {
 		"format": "<span foreground='#94e2d5' size='large' rise='-3pt' font='Material Symbols Rounded'>{icon}</span> {percent}%",
 		"format-icons": ["\uf7e8", "\ue3aa", "\ue1ae", "\ue1ac"],
-		"on-click": "brightness.sh -s 3 &",
+		"on-click": "brightness.sh -s 10 &",
 		"on-click-right": "brightness.sh -s 50",
 		"on-scroll-up": "brightness.sh -i",
 		"on-scroll-down": "brightness.sh -d",
