@@ -66,15 +66,31 @@ window > box {
 	background-color: @base;	/* Keep transparent to blur */
 }
 
-#memory, #cpu, #cpu.load, #temperature, #clock, #idle_inhibitor,#network , #pulseaudio, #backlight, #battery {
-	padding: 6px 10px;
+#workspaces button, #memory, #cpu, #cpu.load, #temperature, #clock, #idle_inhibitor, #network , #pulseaudio, #backlight, #battery {
+	padding: 5px 10px;
 	margin: 0 3px;
 	color: @text;
+	box-shadow: none;
 	border-radius: 25px;
 	border-width: 0 2px 2px 0;
 	border-style: solid;
 	border-color: @crust;
 	background-color: @surface0;
+}
+
+#workspaces button:hover {
+	text-shadow: none;
+	background: @mantle;
+}
+
+#workspaces button.active {
+	background-color: @crust;
+}
+
+#workspaces button.urgent {
+	color: @red;
+	background-color: @mantle;
+	transition: background-color 1000ms linear;
 }
 
 .modules-left, .modules-center, .modules-right {
