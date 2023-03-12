@@ -274,8 +274,12 @@ applefonts () {
 	cat <<- EOF > applefonts.txt
 	AppleFontsNerdPatched/NewYorkSmall-Regular.otf
 	AppleFontsNerdPatched/NewYorkSmall-RegularItalic.otf
+	AppleFontsNerdPatched/SFMono Regular Nerd Font.otf
+	AppleFontsNerdPatched/SFMono Regular Italic Nerd Font.otf
 	AppleFontsNerdPatched/SFMono Medium Nerd Font.otf
 	AppleFontsNerdPatched/SFMono Medium Italic Nerd Font.otf
+	AppleFontsNerdPatched/SF-Pro-Text-Regular.otf
+	AppleFontsNerdPatched/SF-Pro-Text-RegularItalic.otf
 	AppleFontsNerdPatched/SF-Pro-Text-Medium.otf
 	AppleFontsNerdPatched/SF-Pro-Text-MediumItalic.otf
 	EOF
@@ -334,7 +338,7 @@ install_fonts () {
 	#jetbrainsmono
 
 	#applefonts
-	#lucide
+	lucide
 	#recursive
 
 	cleanup
