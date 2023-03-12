@@ -66,8 +66,8 @@ window > box {
 	background-color: @base;	/* Keep transparent to blur */
 }
 
-#workspaces button, #memory, #cpu, #cpu.load, #temperature, #clock, #idle_inhibitor, #network , #pulseaudio, #backlight, #battery {
-	padding: 5px 10px;
+#workspaces button, #submap, #memory, #cpu, #cpu.load, #temperature, #clock, #idle_inhibitor, #network , #pulseaudio, #backlight, #battery {
+	padding: 6px 10px;
 	margin: 0 3px;
 	color: @text;
 	box-shadow: none;
@@ -76,6 +76,10 @@ window > box {
 	border-style: solid;
 	border-color: @crust;
 	background-color: @surface0;
+}
+
+#memory {
+	margin-left: 10px;
 }
 
 #workspaces button:hover {
