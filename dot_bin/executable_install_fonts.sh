@@ -16,7 +16,7 @@ unpackdir="${directory}"/fonts_tmpdir
 cd "${unpackdir}"
 
 cleanup () {
-	set +e && rm "${unpackdir}"/*.zip && rm "${unpackdir}"/*.txt && rm "${unpackdir}/*.7z" && set -e
+	set +e ; rm "${unpackdir}"/*.zip ; rm "${unpackdir}"/*.txt ; rm "${unpackdir}/*.7z" ; set -e
 }
 
 ## Noto family fonts
@@ -319,6 +319,15 @@ recursive () {
 	7z e -bso0 -y "ArrowType-Recursive*.zip" -i'@recursive.txt' -o"${unpackdir}"/recursive && echo ''
 }
 
+material_symbols () {
+	cat <<- EOF > matsym.txt
+	https://github.com/google/material-design-icons/raw/master/variablefont/MaterialSymbolsRounded%5BFILL%2CGRAD%2Copsz%2Cwght%5D.ttf
+	EOF
+
+	mkdir -p "${unpackdir}"/matsym
+	aria2c -x16 -j16 --console-log-level=error --summary-interval=0 --auto-file-renaming=false --max-tries=0 --dir="${unpackdir}"/matsym --input-file="${unpackdir}"/matsym.txt || true && echo ''
+}
+
 install_fonts () {
 	#noto
 	#notocjk
@@ -338,8 +347,9 @@ install_fonts () {
 	#jetbrainsmono
 
 	#applefonts
-	lucide
+	#lucide
 	#recursive
+	material_symbols
 
 	cleanup
 	if [ "$(id -u)" -eq 0 ]
