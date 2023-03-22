@@ -1,0 +1,165 @@
+configuration {
+modes: [ drun, run, ssh ];
+// show-icons: true;
+// drun-display-format: "{name}";
+terminal: "footclient";
+font: "Iosevka Nerd Font Medium 12";
+
+        timeout {
+                action: "kb-cancel";
+                delay:  0;
+        }
+        filebrowser {
+                directories-first: true;
+                sorting-method:    "name";
+        }
+}
+
+* {
+        fg-jan: #c5c8c9; /* mid white */
+        bg-jan: rgba(11, 15, 16, 0.85); /* deep black */
+        black0-jan: rgba(16, 20, 21, 0.85); /* mid black */
+        black8-jan: rgba(19, 23, 24, 0.85); /* light black */
+        red1-jan: #df5b61; /* darker red */
+        red9-jan: #ee6a70; /* brighter red */
+        green2-jan: #87c7a1;
+        green10-jan: #96d6b0;
+        yellow3-jan: #de8f78;
+        yellow11-jan: #ffb29b;
+        blue4-jan: #6791c9;
+        blue12-jan: #7ba5dd;
+        magenta5-jan: #bc83e3;
+        magenta13-jan: #cb92f2;
+        cyan6-jan: #70b9cc;
+        cyan14-jan: #7fc8db;
+        white7-jan: #c4c4c4; /* dull white */
+        white15-jan: #cccccc; /* bright white */
+        black-extra-jan: rgba(40, 44, 45, 0.55); /* more lighter black */
+}
+
+window {
+        transparency: "real";
+        width: 20%;
+        // border-radius: 20px;
+        border: 0;
+        background-color: @bg-jan;
+        children: [ mainbox ];
+}
+
+scrollbar {
+        handle-color: @green10-jan;
+        handle-width: 3px;
+        // background-color: @black-extra-jan;
+        margin: 0 10px;
+}
+
+mainbox {
+        children: [ inputbar, message, listview, mode-switcher ];
+}
+
+inputbar {
+        children: [ textbox-search-icon, entry ];
+        margin: 15px 10px 8px;
+        padding: 20px;
+}
+
+textbox-search-icon {
+        enabled: true;
+        expand: false;
+        markup: true;
+        padding: 8px 10px;
+        border-radius: 50%;
+        border: 0 2px 2px 0;
+        border-color: @black0-jan;
+        background-color: @black-extra-jan;
+        text-color: @green10-jan;
+        content: "<span rise='-3pt' size='large' font='Material Symbols Rounded'></span>";
+}
+
+entry {
+        background-color: @black-extra-jan;
+        placeholder-color: @white7-jan;
+        text-color: @green10-jan;
+        placeholder: "Type to search";
+        padding: 8px 20px;
+        margin: 0 0 0 15px;
+        border-radius: 50%;
+        border: 0 2px 2px 0;
+        border-color: @black0-jan;
+}
+
+listview {
+        // spacing: 10px;
+        lines: 5;
+        border: 0;
+        // padding: 30px;
+}
+
+element {
+        // background-color: @red1-jan;
+        border-radius: 50%;
+        margin: 0 0 0 15px;
+        border: 0;
+}
+
+element normal.normal {
+        background-color: transparent;
+        text-color:       @green2-jan;
+}
+element normal.urgent {
+        background-color: transparent;
+        text-color:       @green2-jan;
+}
+element normal.active {
+        background-color: transparent;
+        text-color:       @green2-jan;
+}
+element selected.normal {
+        background-color: @black-extra-jan;
+        text-color:       @fg-jan;
+        border: 0 2px 2px 0;
+        border-color: @black0-jan;
+}
+element selected.urgent {
+        background-color: transparent;
+        text-color:       @green2-jan;
+}
+element selected.active {
+        background-color: transparent;
+        text-color:       @green2-jan;
+}
+element alternate.normal {
+        background-color: transparent;
+        text-color:       @green2-jan;
+}
+element alternate.urgent {
+        background-color: transparent;
+        text-color:       @green2-jan;
+}
+element alternate.active {
+        background-color: transparent;
+        text-color:       @green2-jan;
+}
+
+element-text {
+        // background-color: transparent;
+        padding: 8px 20px;
+        // margin: 5px;
+        border-radius: 50%;
+        highlight: bold;
+}
+
+button {
+        border-radius: 50%;
+        border: 0 2px 2px 0;
+        border-color: @black0-jan;
+        margin: 20px 10px 10px;
+        padding: 8px 10px;
+        background-color: @black-extra-jan;
+        text-color: @green2-jan;
+}
+
+button selected {
+        background-color: @black-extra-jan;
+        text-color: @fg-jan;
+}
