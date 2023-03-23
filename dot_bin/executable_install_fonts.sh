@@ -345,8 +345,8 @@ recursive () {
 
 material_symbols () {
 	cat <<- EOF > matsym.txt
-	https://github.com/google/material-design-icons/raw/master/variablefont/MaterialSymbolsOutlined%5BFILL%2CGRAD%2Copsz%2Cwght%5D.ttf
-	# https://github.com/google/material-design-icons/raw/master/variablefont/MaterialSymbolsRounded%5BFILL%2CGRAD%2Copsz%2Cwght%5D.ttf
+	# https://github.com/google/material-design-icons/raw/master/variablefont/MaterialSymbolsOutlined%5BFILL%2CGRAD%2Copsz%2Cwght%5D.ttf
+	https://github.com/google/material-design-icons/raw/master/variablefont/MaterialSymbolsRounded%5BFILL%2CGRAD%2Copsz%2Cwght%5D.ttf
 	EOF
 
 	mkdir -p "${unpackdir}"/matsym
@@ -354,25 +354,25 @@ material_symbols () {
 }
 
 install_fonts () {
-	noto
-	notocjk
-	notolingual
-	notomisc
+	#noto
+	#notocjk
+	#notolingual
+	#notomisc
 
-	inter
-	jost
+	#inter
+	#jost
 
-	lora
+	#lora
 	#bodoni
 	#baskerville
 	#caslon
 	#century_schoolbook
 
-	iosevka
-	jetbrainsmono
+	#iosevka
+	#jetbrainsmono
 
-	nerdsyms
-	applefonts
+	#nerdsyms
+	#applefonts
 	#lucide
 	#recursive
 	material_symbols

@@ -4,7 +4,7 @@ modes: [ drun, run, ssh ];
 // show-icons: true;
 // drun-display-format: "{name}";
 terminal: "footclient";
-font: "Iosevka Nerd Font Medium 12";
+font: "Iosevka 12";
 
         timeout {
                 action: "kb-cancel";
