@@ -1,5 +1,6 @@
 configuration {
 modes: [ drun, run, ssh ];
+// sorting-method: "fzf";
 // show-icons: true;
 // drun-display-format: "{name}";
 terminal: "footclient";

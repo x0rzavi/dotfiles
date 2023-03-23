@@ -20,9 +20,9 @@
 }
 
 * {
-	font-family: Iosevka Nerd Font, Material Symbols Rounded;
+	font-family: Iosevka, Material Symbols Rounded;
 	/* font-size: 15px; */
-	font-weight: bold;
+	/* font-weight: bold; */
 }
 
 window#waybar {

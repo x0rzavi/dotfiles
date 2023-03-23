@@ -23,7 +23,7 @@
 	// "margin": 15,
 	"memory": {
 		"interval": 1,
-		"format": "<span foreground='#7fc8db' size='large' rise='-3pt' font='Material Symbols Rounded'>\ue322</span> {percentage}%",
+		"format": "<span foreground='#7fc8db' size='large' rise='-3pt' font='lucide'>\uf101</span> {percentage}%",
 		"states": {
 			"warning": 80,
 			"critical": 90
@@ -32,12 +32,12 @@
 	},
 	"cpu": {
 		"interval": 1,
-		"format": "<span foreground='#cb92f2' size='large' rise='-3pt' font='Material Symbols Rounded'>\ue8b8</span> {usage}%",
+		"format": "<span foreground='#cb92f2' size='large' rise='-3pt'>\ue8b8</span> {usage}%",
 		"tooltip": false
 	},
 	"cpu#load": {
 		"interval": 1,
-		"format": "<span foreground='#70b9cc' size='large' rise='-3pt' font='Material Symbols Rounded'>\ue863</span> {load}",
+		"format": "<span foreground='#70b9cc' size='large' rise='-3pt'>\ue863</span> {load}",
 		"tooltip": false
 	},
 	"temperature": {
