@@ -1,10 +1,12 @@
 configuration {
-modes: [ drun, run, ssh ];
-// sorting-method: "fzf";
-// show-icons: true;
-// drun-display-format: "{name}";
-terminal: "footclient";
-font: "Iosevka 12";
+        modes: [ drun, run, ssh ];
+        display-drun: "";
+        display-run: "";
+        display-ssh: "";
+        // sorting-method: "fzf";
+        // show-icons: true;
+        terminal: "footclient";
+        font: "Iosevka 12";
 
         timeout {
                 action: "kb-cancel";
@@ -16,6 +18,7 @@ font: "Iosevka 12";
         }
 }
 
+/* Global configurations */
 * {
         fg-jan: #c5c8c9; /* mid white */
         bg-jan: rgba(11, 15, 16, 0.85); /* deep black */
@@ -38,6 +41,7 @@ font: "Iosevka 12";
         black-extra-jan: rgba(40, 44, 45, 0.55); /* more lighter black */
 }
 
+/* Main hierarchy */
 window {
         transparency: "real";
         width: 20%;
@@ -47,17 +51,11 @@ window {
         children: [ mainbox ];
 }
 
-scrollbar {
-        handle-color: @green10-jan;
-        handle-width: 3px;
-        // background-color: @black-extra-jan;
-        margin: 0 10px;
-}
-
 mainbox {
         children: [ inputbar, message, listview, mode-switcher ];
 }
 
+/* Searchbox */
 inputbar {
         children: [ textbox-search-icon, entry ];
         margin: 15px 10px 8px;
@@ -89,11 +87,19 @@ entry {
         border-color: @black0-jan;
 }
 
+/* Listview */
 listview {
         // spacing: 10px;
         lines: 5;
         border: 0;
         // padding: 30px;
+}
+
+scrollbar {
+        handle-color: @green10-jan;
+        handle-width: 3px;
+        // background-color: @black-extra-jan;
+        margin: 0 10px;
 }
 
 element {
@@ -150,6 +156,11 @@ element-text {
         highlight: bold;
 }
 
+/* Mode switcher */
+mode-switcher {
+        margin: 0 10px;
+}
+
 button {
         border-radius: 50%;
         border: 0 2px 2px 0;
@@ -157,10 +168,11 @@ button {
         margin: 20px 10px 10px;
         padding: 8px 10px;
         background-color: @black-extra-jan;
-        text-color: @green2-jan;
+        text-color: @fg-jan;
+        font: "Material Symbols Rounded 12";
 }
 
 button selected {
         background-color: @black-extra-jan;
-        text-color: @fg-jan;
+        text-color: @green2-jan;
 }
