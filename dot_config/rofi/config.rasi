@@ -31,7 +31,7 @@ window {
         width: 20%;
         // border-radius: 20px;
         border: 0px;
-        // border-color: @green10-jan;
+        // border-color: @green2-jan;
         background-color: @bg-jan;
         children: [ mainbox ];
 }
@@ -56,14 +56,15 @@ textbox-search-icon {
         border: 0 2px 2px 0;
         border-color: @black0-jan;
         background-color: @black-extra-jan;
-        text-color: @green10-jan;
+        text-color: @green2-jan;
         content: "<span rise='-3pt' size='large' font='Material Symbols Rounded'></span>";
 }
 
 entry {
+        transparency: inherit;
         background-color: @black-extra-jan;
         placeholder-color: @white7-jan;
-        text-color: @green10-jan;
+        text-color: @green2-jan;
         placeholder: "Type to search";
         padding: 8px 20px;
         margin: 0 0 0 15px;
@@ -81,14 +82,13 @@ listview {
 }
 
 scrollbar {
-        handle-color: @green10-jan;
+        handle-color: @green2-jan;
         handle-width: 3px;
         // background-color: @black-extra-jan;
         margin: 0 10px;
 }
 
 element {
-        // background-color: @red1-jan;
         border-radius: 50%;
         margin: 0 0 0 15px;
         border: 0;
