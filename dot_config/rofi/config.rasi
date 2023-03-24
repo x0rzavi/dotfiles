@@ -1,3 +1,5 @@
+@import "colors.rasi"
+
 configuration {
         modes: [ drun, run, ssh ];
         display-drun: "";
@@ -20,25 +22,7 @@ configuration {
 
 /* Global configurations */
 * {
-        fg-jan: #c5c8c9; /* mid white */
-        bg-jan: rgba(11, 15, 16, 0.85); /* deep black */
-        black0-jan: rgba(16, 20, 21, 0.85); /* mid black */
-        black8-jan: rgba(19, 23, 24, 0.85); /* light black */
-        red1-jan: #df5b61; /* darker red */
-        red9-jan: #ee6a70; /* brighter red */
-        green2-jan: #87c7a1;
-        green10-jan: #96d6b0;
-        yellow3-jan: #de8f78;
-        yellow11-jan: #ffb29b;
-        blue4-jan: #6791c9;
-        blue12-jan: #7ba5dd;
-        magenta5-jan: #bc83e3;
-        magenta13-jan: #cb92f2;
-        cyan6-jan: #70b9cc;
-        cyan14-jan: #7fc8db;
-        white7-jan: #c4c4c4; /* dull white */
-        white15-jan: #cccccc; /* bright white */
-        black-extra-jan: rgba(40, 44, 45, 0.55); /* more lighter black */
+        // 
 }
 
 /* Main hierarchy */
@@ -46,7 +30,8 @@ window {
         transparency: "real";
         width: 20%;
         // border-radius: 20px;
-        border: 0;
+        border: 0px;
+        // border-color: @green10-jan;
         background-color: @bg-jan;
         children: [ mainbox ];
 }
