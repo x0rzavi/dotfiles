@@ -3,8 +3,8 @@
 * {
         fg-jan: #c5c8c9; /* mid white */
         bg-jan: rgba(11, 15, 16, 0.65); /* deep black */
-        black0-jan: rgba(16, 20, 21, 0.85); /* mid black */
-        black8-jan: rgba(19, 23, 24, 0.85); /* light black */
+        black0-jan: rgba(16, 20, 21, 0.8); /* mid black */
+        black8-jan: rgba(19, 23, 24, 0.8); /* light black */
         red1-jan: #df5b61; /* darker red */
         red9-jan: #ee6a70; /* brighter red */
         green2-jan: #87c7a1;
@@ -19,6 +19,6 @@
         cyan14-jan: #7fc8db;
         white7-jan: #c4c4c4; /* dull white */
         white15-jan: #cccccc; /* bright white */
-        
+
         black-extra-jan: rgba(40, 44, 45, 0.65); /* lighter black */
 }
