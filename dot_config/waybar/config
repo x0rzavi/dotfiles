@@ -21,6 +21,15 @@
 		"idle_inhibitor"
 	],
 	// "margin": 15,
+	"wlr/workspaces": {
+		"format": "<b>{name}</b>",
+		"on-click": "activate",
+		"active-only": "true"
+	},
+	"hyprland/submap": {
+		"format": "<span foreground='#94e2d5' size='large' rise='-3pt'>\uf707</span> <b>{}</b>",
+		"tooltip": false
+	},
 	"memory": {
 		"interval": 1,
 		"format": "<span foreground='#7fc8db' size='large' rise='-3pt'>\ue322</span> <b>{percentage}%</b>",
@@ -48,7 +57,7 @@
 		"tooltip": false
 	},
 	"clock": {
-		"format": " <span foreground='#87c7a1' size='large' rise='-3pt'>\ue8df</span> <b>{:%I:%M %p  %A %d %b} </b>",
+		"format": "<span foreground='#87c7a1' size='large' rise='-3pt'>\ue8df</span> <b>{:%I:%M %p  %A %d %b}</b>",
 		"tooltip": false
 	},
 	"idle_inhibitor": {
@@ -64,7 +73,7 @@
 		"format-ethernet": "<span foreground='#6791c9' size='large' rise='-3pt'>\ue8be</span> <b>{ifname}</b>",
 		"format-wifi": "<span foreground='#6791c9' size='large' rise='-3pt'>\uf0b0</span> <b>{essid}</b> <span foreground='#6791c9' size='large' rise='-3pt'>\uf6bb</span> <b>{bandwidthTotalBytes}</b>",
 		"format-linked": "<span foreground='#6791c9' size='large' rise='-3pt'>\uf0ef</span> <b>{essid} (No IP)</b>",
-		"format-disconnected": "<span foreground='#6791c9' size='large' rise='-3pt'>\uf239</span> Disconnected</b>",
+		"format-disconnected": "<span foreground='#6791c9' size='large' rise='-3pt'>\uf239</span> <b>Disconnected</b>",
 		// "max-length": 28,
 		"tooltip": false,
 		"tooltip-format": "{ipaddr}"
@@ -101,15 +110,6 @@
 		"format": "<span foreground='#cb92f2' size='large' rise='-3pt'>{icon}</span> <b>{capacity}%</b>",
 		"format-icons": ["\ue19c", "\uebdc", "\uebd9", "\uebe0", "\uebdd", "\uebe2", "\uebd4", "\uebd2", "\ue1a4"],
 		"format-charging": "<span foreground='#cb92f2' size='large' rise='-3pt'>\uf7eb</span> <b>{capacity}%</b>",
-		"tooltip": false
-	},
-	"wlr/workspaces": {
-		"format": "{name}",
-		"on-click": "activate",
-		"active-only": "true"
-	},
-	"hyprland/submap": {
-		"format": "<span foreground='#94e2d5' size='large' rise='-3pt'>\uf707</span> <b>{}</b>",
 		"tooltip": false
 	}
 }

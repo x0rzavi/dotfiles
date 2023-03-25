@@ -1,5 +1,6 @@
 @import "colors.rasi"
 
+/* Global configurations */
 configuration {
         modes: [ drun, run, ssh ];
         display-drun: "";
@@ -20,7 +21,6 @@ configuration {
         }
 }
 
-/* Global configurations */
 * {
         // 
 }
@@ -31,8 +31,8 @@ window {
         width: 20%;
         // border-radius: 20px;
         border: 0px;
-        // border-color: @green2-jan;
-        background-color: @bg-jan;
+        border-color: @white7-jan;
+        background-color: @black8-jan;
         children: [ mainbox ];
 }
 
@@ -48,20 +48,19 @@ inputbar {
 }
 
 textbox-search-icon {
-        enabled: true;
         expand: false;
         markup: true;
         padding: 8px 10px;
         border-radius: 50%;
         border: 0 2px 2px 0;
-        border-color: @black0-jan;
+        border-color: @bg-jan;
         background-color: @black-extra-jan;
         text-color: @green2-jan;
         content: "<span rise='-3pt' size='large' font='Material Symbols Rounded'></span>";
 }
 
 entry {
-        transparency: inherit;
+        // transparency: inherit;
         background-color: @black-extra-jan;
         placeholder-color: @white7-jan;
         text-color: @green2-jan;
@@ -70,7 +69,7 @@ entry {
         margin: 0 0 0 15px;
         border-radius: 50%;
         border: 0 2px 2px 0;
-        border-color: @black0-jan;
+        border-color: @bg-jan;
 }
 
 /* Listview */
@@ -94,15 +93,9 @@ element {
         border: 0;
 }
 
-element normal.normal {
-        background-color: transparent;
-        text-color:       @green2-jan;
-}
-element normal.urgent {
-        background-color: transparent;
-        text-color:       @green2-jan;
-}
-element normal.active {
+element normal.normal, element normal.urgent, element normal.active,
+element selected.urgent, element selected.active,
+element alternate.normal, element alternate.urgent, element alternate.active  {
         background-color: transparent;
         text-color:       @green2-jan;
 }
@@ -110,27 +103,7 @@ element selected.normal {
         background-color: @black-extra-jan;
         text-color:       @fg-jan;
         border: 0 2px 2px 0;
-        border-color: @black0-jan;
-}
-element selected.urgent {
-        background-color: transparent;
-        text-color:       @green2-jan;
-}
-element selected.active {
-        background-color: transparent;
-        text-color:       @green2-jan;
-}
-element alternate.normal {
-        background-color: transparent;
-        text-color:       @green2-jan;
-}
-element alternate.urgent {
-        background-color: transparent;
-        text-color:       @green2-jan;
-}
-element alternate.active {
-        background-color: transparent;
-        text-color:       @green2-jan;
+        border-color: @bg-jan;
 }
 
 element-text {
@@ -149,7 +122,7 @@ mode-switcher {
 button {
         border-radius: 50%;
         border: 0 2px 2px 0;
-        border-color: @black0-jan;
+        border-color: @bg-jan;
         margin: 20px 10px 10px;
         padding: 8px 10px;
         background-color: @black-extra-jan;
