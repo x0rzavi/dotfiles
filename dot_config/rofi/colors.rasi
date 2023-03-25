@@ -2,8 +2,8 @@
 /* https://github.com/janleigh/dotfiles */
 * {
         fg-jan: #c5c8c9; /* mid white */
-        bg-jan: rgba(11, 15, 16, 0.65); /* deep black */
-        black0-jan: rgba(16, 20, 21, 0.8); /* mid black */
+        bg-jan: rgba(11, 15, 16, 0.7); /* deep black */
+        black0-jan: rgba(16, 20, 21, 0.75); /* mid black */
         black8-jan: rgba(19, 23, 24, 0.8); /* light black */
         red1-jan: #df5b61; /* darker red */
         red9-jan: #ee6a70; /* brighter red */
@@ -20,5 +20,5 @@
         white7-jan: #c4c4c4; /* dull white */
         white15-jan: #cccccc; /* bright white */
 
-        black-extra-jan: rgba(40, 44, 45, 0.65); /* lighter black */
+        black-extra-jan: rgba(40, 44, 45, 0.8); /* lighter black */
 }
