@@ -19,5 +19,6 @@
         cyan14-jan: #7fc8db;
         white7-jan: #c4c4c4; /* dull white */
         white15-jan: #cccccc; /* bright white */
+        
         black-extra-jan: rgba(40, 44, 45, 0.65); /* lighter black */
 }
