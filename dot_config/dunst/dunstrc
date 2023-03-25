@@ -1,0 +1,187 @@
+# Janleigh's colorscheme
+# https://github.com/janleigh/dotfiles
+# https://rgbacolorpicker.com/rgba-to-hex
+#
+# fg-jan:   #c5c8c9; /* mid white */
+# bg-jan:   #0b0f10bf; /* deep black */
+# black0-jan:   #101415bf; /* mid black */
+# black8-jan:   #131718bf; /* light black */
+# red1-jan:     #df5b61; /* darker red */
+# red9-jan:     #ee6a70; /* brighter red */
+# green2-jan:   #87c7a1;
+# green10-jan:  #96d6b0;
+# yellow3-jan:  #de8f78;
+# yellow11-jan: #ffb29b;
+# blue4-jan:    #6791c9;
+# blue12-jan:   #7ba5dd;
+# magenta5-jan: #bc83e3;
+# magenta13-jan:    #cb92f2;
+# cyan6-jan:    #70b9cc;
+# cyan14-jan:   #7fc8db;
+# white7-jan:   #c4c4c4; /* dull white */
+# white15-jan:  #cccccc; /* bright white */
+# black-extra-jan:  #282c2d8c; /* lighter black */
+
+[global]
+    enable_posix_regex = true
+    width = 270
+    height = 150
+    notification_limit = 5
+    origin = bottom-right
+    offset = 35x35
+    padding = 15
+    horizontal_padding = 15
+
+    frame_width = 0
+    frame_color = "#c4c4c4"
+    gap_size = 10
+
+    font = Iosevka 11
+    format = "<b>%s</b>\n<i>%b</i>"
+    show_age_threshold = -1
+    markup = full
+    show_indicators = false
+    history_length = 25
+    max_icon_size = 64
+
+    mouse_left_click = close_current
+    mouse_middle_click = do_action, close_current
+    mouse_right_click = close_all
+
+    background = "#131718ff"
+
+[urgency_low]
+    foreground = "#cccccc"
+    timeout = 5
+
+[urgency_normal]
+    foreground = "#cccccc"
+    timeout = 10
+
+[urgency_critical]
+    foreground = "#de8f78"
+    timeout = 0
+
+# Every section that isn't one of the above is interpreted as a rules to
+# override settings for certain messages.
+#
+# Messages can be matched by
+#    appname (discouraged, see desktop_entry)
+#    body
+#    category
+#    desktop_entry
+#    icon
+#    match_transient
+#    msg_urgency
+#    stack_tag
+#    summary
+#
+# and you can override the
+#    background
+#    foreground
+#    format
+#    frame_color
+#    fullscreen
+#    new_icon
+#    set_stack_tag
+#    set_transient
+#    set_category
+#    timeout
+#    urgency
+#    icon_position
+#    skip_display
+#    history_ignore
+#    action_name
+#    word_wrap
+#    ellipsize
+#    alignment
+#    hide_text
+#
+# Shell-like globbing will get expanded.
+#
+# Instead of the appname filter, it's recommended to use the desktop_entry filter.
+# GLib based applications export their desktop-entry name. In comparison to the appname,
+# the desktop-entry won't get localized.
+#
+# SCRIPTING
+# You can specify a script that gets run when the rule matches by
+# setting the "script" option.
+# The script will be called as follows:
+#   script appname summary body icon urgency
+# where urgency can be "LOW", "NORMAL" or "CRITICAL".
+#
+# NOTE: It might be helpful to run dunst -print in a terminal in order
+# to find fitting options for rules.
+
+# Disable the transient hint so that idle_threshold cannot be bypassed from the
+# client
+#[transient_disable]
+#    match_transient = yes
+#    set_transient = no
+#
+# Make the handling of transient notifications more strict by making them not
+# be placed in history.
+#[transient_history_ignore]
+#    match_transient = yes
+#    history_ignore = yes
+
+# fullscreen values
+# show: show the notifications, regardless if there is a fullscreen window opened
+# delay: displays the new notification, if there is no fullscreen window active
+#        If the notification is already drawn, it won't get undrawn.
+# pushback: same as delay, but when switching into fullscreen, the notification will get
+#           withdrawn from screen again and will get delayed like a new notification
+#[fullscreen_delay_everything]
+#    fullscreen = delay
+#[fullscreen_show_critical]
+#    msg_urgency = critical
+#    fullscreen = show
+
+#[espeak]
+#    summary = "*"
+#    script = dunst_espeak.sh
+
+#[script-test]
+#    summary = "*script*"
+#    script = dunst_test.sh
+
+#[ignore]
+#    # This notification will not be displayed
+#    summary = "foobar"
+#    skip_display = true
+
+#[history-ignore]
+#    # This notification will not be saved in history
+#    summary = "foobar"
+#    history_ignore = yes
+
+#[skip-display]
+#    # This notification will not be displayed, but will be included in the history
+#    summary = "foobar"
+#    skip_display = yes
+
+#[signed_on]
+#    appname = Pidgin
+#    summary = "*signed on*"
+#    urgency = low
+#
+#[signed_off]
+#    appname = Pidgin
+#    summary = *signed off*
+#    urgency = low
+#
+#[says]
+#    appname = Pidgin
+#    summary = *says*
+#    urgency = critical
+#
+#[twitter]
+#    appname = Pidgin
+#    summary = *twitter.com*
+#    urgency = normal
+#
+#[stack-volumes]
+#    appname = "some_volume_notifiers"
+#    set_stack_tag = "volume"
+#
+# vim: ft=cfg
