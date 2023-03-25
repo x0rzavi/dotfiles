@@ -117,7 +117,7 @@ source /usr/share/zsh/site-functions/zsh-autosuggestions.zsh
 {{- else if eq .chezmoi.osRelease.id "arch" }}
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-{{ end }}
+{{- end }}
 
 {{- if eq .chezmoi.os "linux" }}
 {{- if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
