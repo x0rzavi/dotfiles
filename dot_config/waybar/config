@@ -32,7 +32,7 @@
 	},
 	"memory": {
 		"interval": 1,
-		"format": "<span foreground='#7fc8db' size='large' rise='-3pt'>\ue322</span> <b>{percentage}%</b>",
+		"format": "<span foreground='#7fc8db' size='large' rise='-3pt'>\uf7a3</span> <b>{percentage}%</b>",
 		"states": {
 			"warning": 80,
 			"critical": 90
@@ -41,7 +41,7 @@
 	},
 	"cpu": {
 		"interval": 1,
-		"format": "<span foreground='#cb92f2' size='large' rise='-3pt'>\ue8b8</span> <b>{usage}%</b>",
+		"format": "<span foreground='#cb92f2' size='large' rise='-3pt'>\ue322</span> <b>{usage}%</b>",
 		"tooltip": false
 	},
 	"cpu#load": {
@@ -57,7 +57,7 @@
 		"tooltip": false
 	},
 	"clock": {
-		"format": "<span foreground='#87c7a1' size='large' rise='-3pt'>\ue8df</span> <b>{:%I:%M %p  %A %d %b}</b>",
+		"format": "<span foreground='#87c7a1' size='large' rise='-3pt'>\ue2ba</span> <b>{:%I:%M %p  %A %d %b}</b>",
 		"tooltip": false
 	},
 	"idle_inhibitor": {
@@ -71,7 +71,7 @@
 	"network": {
 		"interval": 1,
 		"format-ethernet": "<span foreground='#6791c9' size='large' rise='-3pt'>\ue8be</span> <b>{ifname}</b>",
-		"format-wifi": "<span foreground='#6791c9' size='large' rise='-3pt'>\uf0b0</span> <b>{essid}</b> <span foreground='#6791c9' size='large' rise='-3pt'>\uf6bb</span> <b>{bandwidthTotalBytes}</b>",
+		"format-wifi": "<span foreground='#6791c9' size='large' rise='-3pt'>\uf0b0</span> <b>{essid}</b> <span foreground='#6791c9' size='large' rise='-3pt'>\ue9e4</span> <b>{bandwidthTotalBytes}</b>",
 		"format-linked": "<span foreground='#6791c9' size='large' rise='-3pt'>\uf0ef</span> <b>{essid} (No IP)</b>",
 		"format-disconnected": "<span foreground='#6791c9' size='large' rise='-3pt'>\uf239</span> <b>Disconnected</b>",
 		// "max-length": 28,
@@ -82,7 +82,7 @@
 		"format": "<span foreground='#ffb29b' size='large' rise='-3pt'>{icon}</span> <b>{volume}%</b>",
 		"format-muted": "<span foreground='#ffb29b' size='large' rise='-3pt'>\ue04f</span> <b>Muted</b>",
 		"format-icons": {
-			"default": ["\ue04d", "\ue050"]
+			"default": ["\ue04e", "\ue04d", "\ue050"],
 		},
 		"states": {
 			"warning": 80,
@@ -109,7 +109,7 @@
 		},
 		"format": "<span foreground='#cb92f2' size='large' rise='-3pt'>{icon}</span> <b>{capacity}%</b>",
 		"format-icons": ["\ue19c", "\uebdc", "\uebd9", "\uebe0", "\uebdd", "\uebe2", "\uebd4", "\uebd2", "\ue1a4"],
-		"format-charging": "<span foreground='#cb92f2' size='large' rise='-3pt'>\uf7eb</span> <b>{capacity}%</b>",
+		"format-charging": "<span foreground='#cb92f2' size='large' rise='-3pt'>\uf7e9</span> <b>{capacity}%</b>",
 		"tooltip": false
 	}
 }

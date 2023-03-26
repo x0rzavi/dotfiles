@@ -1,10 +1,18 @@
-gtk-cursor-theme-name="Qogir-white-cursors"
-gtk-enable-event-sounds=0
-gtk-enable-input-feedback-sounds=0
-gtk-font-name="SF Pro Text 10.5"
-gtk-icon-theme-name="Fluent-dark"
+# DO NOT EDIT! This file will be overwritten by nwg-look.
+# Any customization should be done in ~/.gtkrc-2.0.mine instead.
+
+include "/home/x0rzavi/.gtkrc-2.0.mine"
 gtk-theme-name="Colloid-Dark"
-gtk-cursor-theme-size=0
+gtk-icon-theme-name="Fluent"
+gtk-font-name="SF Pro Text Medium 11"
+gtk-cursor-theme-name="Qogir-white-cursors"
+gtk-cursor-theme-size=24
+gtk-toolbar-style=GTK_TOOLBAR_ICONS
+gtk-toolbar-icon-size=GTK_ICON_SIZE_LARGE_TOOLBAR
+gtk-button-images=0
+gtk-menu-images=0
+gtk-enable-event-sounds=1
+gtk-enable-input-feedback-sounds=0
 gtk-xft-antialias=1
 gtk-xft-hinting=1
 gtk-xft-hintstyle="hintslight"

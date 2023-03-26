@@ -29,7 +29,7 @@ configuration {
 window {
         transparency: "real";
         width: 20%;
-        padding: 0 5px 15px 5px;
+        padding: 3px 5px 15px;
         // border-radius: 20px;
         border: 2px;
         border-color: @white7-jan;
