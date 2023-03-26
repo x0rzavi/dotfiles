@@ -1,9 +1,47 @@
 [flags]
-# The update rate of the application.
-rate = 700
-# Whether to put the CPU legend to the left.
+# Puts the CPU chart legend to the left side
 left_legend = true
+# Groups processes with the same name together by default.
+group_processes = true
 # Show the battery widgets
 battery = true
+# The update rate of the application.
+rate = 700
 # Show memory values in the processes widget as values by default
 mem_as_value = true
+# Shows an indicator in table widgets tracking where in the list you are.
+show_table_scroll_position = true
+
+[[row]]
+        ratio=30
+        [[row.child]]
+                ratio=60
+                type="cpu"
+        [[row.child]]
+                ratio=40
+                type="batt"
+[[row]]
+        ratio=40
+        [[row.child]]
+                ratio=4
+                type="mem"
+        [[row.child]]
+                ratio=3
+                [[row.child.child]]
+                        type="temp"
+                [[row.child.child]]
+                        type="disk"
+[[row]]
+        ratio=30
+        [[row.child]]
+                type="net"
+        [[row.child]]
+                type="proc"
+                default=true
+
+[temp_filter]
+is_list_ignored = true
+list = ["thermal_zone0", "zenpower: Tctl"]
+regex = false
+case_sensitive = false
+whole_word = false
