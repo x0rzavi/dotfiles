@@ -22,7 +22,7 @@
 	],
 	// "margin": 15,
 	"wlr/workspaces": {
-		"format": "<b>{name}</b>",
+		"format": "<span foreground='#87c7a1'><b>{name}</b></span>",
 		"on-click": "activate",
 		"active-only": "true"
 	},
@@ -41,7 +41,7 @@
 	},
 	"cpu": {
 		"interval": 1,
-		"format": "<span foreground='#cb92f2' size='large' rise='-3pt'>\ue322</span> <b>{usage}%</b>",
+		"format": "<span foreground='#ee6a70' size='large' rise='-3pt'>\ue322</span> <b>{usage}%</b>",
 		"tooltip": false
 	},
 	"cpu#load": {
@@ -58,14 +58,6 @@
 	},
 	"clock": {
 		"format": "<span foreground='#87c7a1' size='large' rise='-3pt'>\ue2ba</span> <b>{:%I:%M %p  %A %d %b}</b>",
-		"tooltip": false
-	},
-	"idle_inhibitor": {
-		"format": "{icon}",
-		"format-icons": {
-			"activated": "<span foreground='#7fc8db' size='large' rise='-3pt'>\ue8f4</span>",
-			"deactivated": "<span foreground='#7fc8db' size='large' rise='-3pt'>\ue8f5</span>"
-		},
 		"tooltip": false
 	},
 	"network": {
@@ -107,9 +99,17 @@
 			"warning": 20,
 			"critical": 10
 		},
-		"format": "<span foreground='#cb92f2' size='large' rise='-3pt'>{icon}</span> <b>{capacity}%</b>",
+		"format": "<span foreground='#87c7a1' size='large' rise='-3pt'>{icon}</span> <b>{capacity}%</b>",
 		"format-icons": ["\ue19c", "\uebdc", "\uebd9", "\uebe0", "\uebdd", "\uebe2", "\uebd4", "\uebd2", "\ue1a4"],
 		"format-charging": "<span foreground='#cb92f2' size='large' rise='-3pt'>\uf7e9</span> <b>{capacity}%</b>",
+		"tooltip": false
+	},
+	"idle_inhibitor": {
+		"format": "{icon}",
+		"format-icons": {
+			"activated": "<span foreground='#7fc8db' size='large' rise='-3pt'>\ue8f4</span>",
+			"deactivated": "<span foreground='#7fc8db' size='large' rise='-3pt'>\ue8f5</span>"
+		},
 		"tooltip": false
 	}
 }

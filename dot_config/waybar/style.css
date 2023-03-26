@@ -58,11 +58,11 @@ window > box {
 }
 
 #workspaces button:hover {
-	background: @black0-jan;
+	background: @bg-jan;
 }
 
 #workspaces button.active {
-	background-color: @bg-jan;
+	background-color: @black0-jan;
 }
 
 #workspaces button.urgent {
