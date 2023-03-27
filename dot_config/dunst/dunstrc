@@ -26,7 +26,7 @@
 [global]
     enable_posix_regex = true
     width = 270
-    height = 150
+    height = 200
     notification_limit = 5
     origin = bottom-right
     offset = 35x35
@@ -37,7 +37,8 @@
     frame_color = "#c4c4c4"
     gap_size = 10
 
-    font = Iosevka 11
+    font = Cartograph CF 11
+    line_height = 3
     format = "<b>%s</b>\n<i>%b</i>"
     show_age_threshold = -1
     markup = full

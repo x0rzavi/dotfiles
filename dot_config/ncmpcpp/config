@@ -106,11 +106,11 @@ visualizer_fps = 60
 #
 visualizer_look = ●●
 #
-#visualizer_color = blue, cyan, green, yellow, magenta, red
+visualizer_color = 11, 15, 13
 #
 ## Alternative subset of 256 colors for terminals that support it.
 ##
-#visualizer_color = 47, 83, 119, 155, 191, 227, 221, 215, 209, 203, 197, 161
+# visualizer_color = 47, 83, 119, 155, 191, 227, 221, 215, 209, 203, 197, 161
 #
 ##
 ## Note: The next few visualization options apply to the spectrum visualizer.
@@ -162,7 +162,7 @@ visualizer_look = ●●
 #
 ## Defines how long messages are supposed to be visible.
 ##
-#message_delay_time = 5
+message_delay_time = 2
 #
 ##### song format #####
 ##
@@ -231,27 +231,27 @@ visualizer_look = ●●
 ## Note: colors can be nested.
 ##
 #
-#song_list_format = {%a - }{%t}|{$8%f$9}$R{$3%l$9}
+# song_list_format = {%a - }{%t}|{$8%f$9}$R{$3%l$9}
 #
-#song_status_format = {{%a{ "%b"{ (%y)}} - }{%t}}|{%f}
+song_status_format = {%a - %t}|{%f}
 #
 #song_library_format = {%n - }{%t}|{%f}
 #
-#alternative_header_first_line_format = $b$1$aqqu$/a$9 {%t}|{%f} $1$atqq$/a$9$/b
+alternative_header_first_line_format = $b$1$aqqu$/a$9 {%t}|{%f} $1$atqq$/a$9$/b
 #
-#alternative_header_second_line_format = {{$4$b%a$/b$9}{ - $7%b$9}{ ($4%y$9)}}|{%D}
+alternative_header_second_line_format = {{$4$b%a$/b$9}{ - $7%b$9}{ ($4%y$9)}}|{%D}
 #
-#current_item_prefix = $(yellow)$r
+current_item_prefix = "$3◇$9 "
 #
-#current_item_suffix = $/r$(end)
+# current_item_suffix = $/r$(end)
 #
 #current_item_inactive_column_prefix = $(white)$r
 #
 #current_item_inactive_column_suffix = $/r$(end)
 #
-#now_playing_prefix = $b
+now_playing_prefix = "$7$b◆$9 "
 #
-#now_playing_suffix = $/b
+now_playing_suffix = $/b
 #
 #browser_playlist_prefix = "$2playlist$9 "
 #
@@ -272,7 +272,7 @@ visualizer_look = ●●
 ## browser_sort_mode are "type", "name", "mtime", "format" and "none".
 ##
 #
-#browser_sort_mode = type
+# browser_sort_mode = name
 #
 #browser_sort_format = {%a - }{%t}|{%f} {%l}
 #
@@ -311,7 +311,7 @@ visualizer_look = ●●
 ##   available.
 ##
 #
-#song_columns_list_format = (20)[]{a} (6f)[green]{NE} (50)[white]{t|f:Title} (20)[cyan]{b} (7f)[magenta]{l}
+song_columns_list_format = (50)[blue]{t|f:Title} (50)[11]{ar}
 #
 ##### various settings #####
 #
@@ -340,7 +340,7 @@ visualizer_look = ●●
 ##
 ## Note: Possible display modes: classic, columns.
 ##
-#playlist_display_mode = columns
+# playlist_display_mode = columns
 #
 #browser_display_mode = classic
 #
@@ -366,7 +366,7 @@ visualizer_look = ●●
 ## Note: You can specify third character which will be used to build 'empty'
 ## part of progressbar.
 ##
-#progressbar_look = =>
+progressbar_look = ━━ 
 #
 ## Available values: database, playlist.
 ##
@@ -392,14 +392,14 @@ visualizer_look = ●●
 #
 #default_tag_editor_pattern = %n - %t
 #
-#header_visibility = yes
+header_visibility = no
 #
-#statusbar_visibility = yes
+# statusbar_visibility = no
 #
 ## Show the "Connected to ..." message on startup
-#connected_message_on_startup = yes
+# connected_message_on_startup = no
 #
-#titles_visibility = yes
+# titles_visibility = no
 #
 #header_text_scrolling = yes
 #
@@ -459,7 +459,7 @@ visualizer_look = ●●
 ## Default width of locked screen (in %).  Acceptable values are from 20 to 80.
 ##
 #
-#locked_screen_width_part = 50
+# locked_screen_width_part = 50
 #
 #ask_for_locked_screen_width_part = yes
 #
@@ -576,13 +576,13 @@ visualizer_look = ●●
 #
 #main_window_color = yellow
 #
-#color1 = white
+# color1 = red
 #
 #color2 = green
 #
-#progressbar_color = black:b
+# progressbar_color = black:b
 #
-#progressbar_elapsed_color = green:b
+# progressbar_elapsed_color = red:b
 #
 #statusbar_color = default
 #
