@@ -4,6 +4,19 @@
 # Description: Launch hyprland
 # Dependencies: Hyprland
 
+export XDG_CURRENT_DESKTOP=Hyprland
+export XDG_SESSION_TYPE=wayland
+export XDG_SESSION_DESKTOP=Hyprland
+
+export SDL_VIDEODRIVER=wayland
+export CLUTTER_BACKEND=wayland
+export GDK_BACKEND=wayland
+export CLUTTER_BACKEND=wayland
+export WINIT_UNIX_BACKEND=wayland
+
+export _JAVA_AWT_WM_NONREPARENTING=1
+export NO_AT_BRIDGE=1
+
 export WLR_DRM_NO_MODIFIERS=1 # https://github.com/swaywm/sway/issues/7025
 export GNOME_KEYRING_CONTROL="/run/user/1000/keyring"
 export SSH_AUTH_SOCK="/run/user/1000/keyring/ssh"

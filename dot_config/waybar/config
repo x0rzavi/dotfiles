@@ -107,7 +107,7 @@
 	"idle_inhibitor": {
 		"format": "{icon}",
 		"format-icons": {
-			"activated": "<span foreground='#7fc8db' size='large' rise='-3pt'>\ue8f4</span>",
+			"activated": "<span foreground='#ee6a70' size='large' rise='-3pt'>\ue8f4</span>",
 			"deactivated": "<span foreground='#7fc8db' size='large' rise='-3pt'>\ue8f5</span>"
 		},
 		"tooltip": false

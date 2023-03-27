@@ -277,6 +277,20 @@ jetbrainsmono () {
 	7z e -bso0 -y 'JetBrainsMono*.zip' -i'@jetbrainsmono.txt' -o"${unpackdir}"/jetbrainsmono && echo ''
 }
 
+cartograph() {
+	cat <<- EOF > cartograph.txt
+	# CartographCF-Regular.ttf
+	# CartographCF-RegularItalic.ttf
+	CartographCF-DemiBold.ttf
+	CartographCF-DemiBoldItalic.ttf
+	EOF
+
+	mkdir -p "${unpackdir}"/cartograph
+	aria2c --console-log-level=error --summary-interval=0 --auto-file-renaming=false --max-tries=0 \
+		'https://en.bestfonts.pro/fonts_files/600c045b6a101229c67525c5/font.zip' || true
+	7z e -bso0 -y 'font.zip' -i'@cartograph.txt' -o"${unpackdir}"/cartograph && echo ''
+}
+
 ## Miscellaneous fonts
 ##
 nerdsyms () {
@@ -370,12 +384,13 @@ install_fonts () {
 
 	#iosevka
 	#jetbrainsmono
+	cartograph
 
 	#nerdsyms
 	#applefonts
 	#lucide
 	#recursive
-	material_symbols
+	#material_symbols
 
 	cleanup
 	if [ "$(id -u)" -eq 0 ]

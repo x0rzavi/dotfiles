@@ -20,7 +20,7 @@
 }
 
 * {
-	font-family: Iosevka, Material Symbols Rounded;
+	font-family: 'Cartograph CF', 'Iosevka', 'Material Symbols Rounded';
 	/* font-size: 15px; */
 	/* font-weight: bold; */
 }
@@ -51,6 +51,10 @@ window > box {
 	border-style: solid;
 	border-color: @bg-jan;
 	background-color: @black-extra-jan;
+}
+
+#submap {
+	background-color: @black0-jan;
 }
 
 #memory {

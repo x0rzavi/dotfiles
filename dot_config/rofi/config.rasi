@@ -9,7 +9,7 @@ configuration {
         // sorting-method: "fzf";
         // show-icons: true;
         terminal: "footclient";
-        font: "Iosevka 12";
+        font: "Cartograph CF 11";
 
         timeout {
                 action: "kb-cancel";
@@ -29,7 +29,7 @@ configuration {
 window {
         transparency: "real";
         width: 20%;
-        padding: 3px 5px 15px;
+        padding: 3px 2px 15px;
         // border-radius: 20px;
         border: 2px;
         border-color: @white7-jan;
@@ -66,7 +66,7 @@ entry {
         placeholder-color: @white7-jan;
         text-color: @green2-jan;
         placeholder: "Type to search";
-        padding: 8px 20px;
+        padding: 10px 20px;
         margin: 0 0 0 15px;
         border-radius: 50%;
         border: 0 2px 2px 0;
