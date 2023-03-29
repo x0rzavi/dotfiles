@@ -243,7 +243,7 @@ alternative_header_second_line_format = {{$4$b%a$/b$9}{ - $7%b$9}{ ($4%y$9)}}|{%
 #
 current_item_prefix = "$3◇$9 "
 #
-# current_item_suffix = $/r$(end)
+current_item_suffix = " $3◇$9"
 #
 #current_item_inactive_column_prefix = $(white)$r
 #
@@ -251,7 +251,7 @@ current_item_prefix = "$3◇$9 "
 #
 now_playing_prefix = "$7$b◆$9 "
 #
-now_playing_suffix = $/b
+now_playing_suffix = " $7$/b◆$9"
 #
 #browser_playlist_prefix = "$2playlist$9 "
 #

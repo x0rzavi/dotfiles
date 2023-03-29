@@ -157,8 +157,12 @@ notomisc () {
 ##
 inter () {
 	cat <<- EOF > inter.txt
-	Variable/InterV.var.ttf
-	Variable/InterV-Italic.var.ttf
+	Desktop/Inter-Medium.otf
+	Desktop/Inter-MediumItalic.otf
+	# Desktop/Inter-Regular.otf
+	# Desktop/Inter-Italic.otf
+	# Variable/InterV.var.ttf
+	# Variable/InterV-Italic.var.ttf
 	EOF
 
 	mkdir -p "${unpackdir}"/inter
@@ -184,8 +188,12 @@ jost () {
 ##
 lora () {
 	cat <<- EOF > lora.txt
-	fonts/variable/Lora[wght].ttf
-	fonts/variable/Lora-Italic[wght].ttf
+	fonts/otf/Lora-Medium.otf
+	fonts/otf/Lora-MediumItalic.otf
+	# fonts/otf/Lora-Regular.otf
+	# fonts/otf/Lora-Italic.otf
+	# fonts/variable/Lora[wght].ttf
+	# fonts/variable/Lora-Italic[wght].ttf
 	EOF
 
 	mkdir -p "${unpackdir}"/lora
@@ -373,10 +381,10 @@ install_fonts () {
 	#notolingual
 	#notomisc
 
-	#inter
+	inter
 	#jost
 
-	#lora
+	lora
 	#bodoni
 	#baskerville
 	#caslon
@@ -384,7 +392,7 @@ install_fonts () {
 
 	#iosevka
 	#jetbrainsmono
-	cartograph
+	#cartograph
 
 	#nerdsyms
 	#applefonts
