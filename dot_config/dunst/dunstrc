@@ -42,13 +42,13 @@
     format = "<b>%s</b>\n<i>%b</i>"
     show_age_threshold = -1
     markup = full
-    show_indicators = false
+    show_indicators = true
     history_length = 25
     max_icon_size = 64
 
-    mouse_left_click = close_current
-    mouse_middle_click = do_action, close_current
-    mouse_right_click = close_all
+    mouse_left_click = do_action, close_current
+    mouse_middle_click = close_all
+    mouse_right_click = close_current
 
     background = "#13171899"
     # background = "#13171899ff"
