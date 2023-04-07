@@ -36,6 +36,8 @@
     frame_width = 2
     frame_color = "#c4c4c4"
     gap_size = 10
+    # separator_height = 10
+    # separator_color = "#ffffff00"
 
     font = Cartograph CF 11
     line_height = 3
