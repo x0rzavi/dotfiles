@@ -47,6 +47,9 @@ alias ps='procs'
 alias dig='doggo'
 alias ping='gping'
 
+# Hacks
+alias nvim='nvim 2>/dev/null'
+
 {{ if eq .chezmoi.os "linux" }}
 {{- if not (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
 # Define general task aliases
