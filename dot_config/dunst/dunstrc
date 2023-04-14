@@ -52,8 +52,8 @@
     mouse_middle_click = close_all
     mouse_right_click = close_current
 
-    background = "#13171899"
-    # background = "#13171899ff"
+    background = "#131718b3"
+    # corner_radius = 5
 
 [urgency_low]
     foreground = "#cccccc"

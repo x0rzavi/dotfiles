@@ -30,7 +30,7 @@ window {
         transparency: "real";
         width: 20%;
         padding: 3px 2px 15px;
-        // border-radius: 20px;
+        // border-radius: 10px;
         border: 2px;
         border-color: @white7-jan;
         background-color: @black8-jan;
