@@ -1,27 +1,51 @@
-max-history=10
+# Janleigh's colorscheme
+# https://github.com/janleigh/dotfiles
+# https://rgbacolorpicker.com/rgba-to-hex
+#
+# fg-jan:   #c5c8c9; /* mid white */
+# bg-jan:   #0b0f10bf; /* deep black */
+# black0-jan:   #101415bf; /* mid black */
+# black8-jan:   #131718bf; /* light black */
+# red1-jan:     #df5b61; /* darker red */
+# red9-jan:     #ee6a70; /* brighter red */
+# green2-jan:   #87c7a1;
+# green10-jan:  #96d6b0;
+# yellow3-jan:  #de8f78;
+# yellow11-jan: #ffb29b;
+# blue4-jan:    #6791c9;
+# blue12-jan:   #7ba5dd;
+# magenta5-jan: #bc83e3;
+# magenta13-jan:    #cb92f2;
+# cyan6-jan:    #70b9cc;
+# cyan14-jan:   #7fc8db;
+# white7-jan:   #c4c4c4; /* dull white */
+# white15-jan:  #cccccc; /* bright white */
+#
+# black-extra-jan:  #282c2d8c; /* lighter black */
+
+max-history=25
 max-visible=5
-on-button-left=dismiss
-on-button-right=invoke-default-action
+on-button-middle=dismiss-all
 
-font=Iosevka Nerd Font Medium 11.5
-background-color=#1E1D2F
-text-color=#D9E0EE
-border-color=#96CDFB
-progress-color=over #302D41
+font=Cartograph CF 11
+background-color=#131718b3
+border-color=#c4c4c4
 
-width=350
+width=270
 height=200
-margin=55,7
-padding=10
-border-radius=5
-default-timeout=10000
+margin=15
+padding=15
+format=<b>%s</b>\n<i>%b</i>
+anchor=bottom-right
 
 [urgency=low]
+text-color=#cccccc
 default-timeout=5000
 
 [urgency=normal]
+text-color=#cccccc
 default-timeout=10000
 
-[urgency=high]
+[urgency=critical]
+text-color=#de8f78
 default-timeout=0
-border-color=#F8BD96
