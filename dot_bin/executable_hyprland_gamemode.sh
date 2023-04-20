@@ -11,7 +11,7 @@ if [ $HYPRGAMEMODE = 1 ] ; then
         keyword general:gaps_in 0;\
         keyword general:gaps_out 0;\
         keyword general:border_size 2" \
-        && notify-send 'Hyprland' '\nGamemode activated!'
+        && notify-send --expire-time=1000 'Hyprland' '\nGamemode activated!'
     exit
 fi
-hyprctl reload && notify-send 'Hyprland' '\nGamemode deactivated!'
+hyprctl reload && notify-send --expire-time=1000 'Hyprland' '\nGamemode deactivated!'

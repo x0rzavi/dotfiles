@@ -13,6 +13,7 @@ performance () {
     #	--stapm-time=10
     ryzenadj --stapm-limit=25000 --fast-limit=30000 --slow-limit=25000 --tctl-temp=76 \
     	--max-performance
+    echo 1 > /sys/devices/system/cpu/cpufreq/boost
     #amdctl -p0 -v124
     #amdctl -p1 -v96 -f102   #Default
     #amdctl -p2 -v102 -f98   #Default
