@@ -3,5 +3,7 @@ max-cache-ttl 60480000
 default-cache-ttl 60480000
 {{   if not (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
 pinentry-program /usr/bin/pinentry-gnome3
-{{ end }}
+{{ else }}
+pinentry-program /usr/bin/pinentry-curses
+{{- end -}}
 {{ end }}
