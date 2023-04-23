@@ -2,10 +2,9 @@ local code_runner = require("code_runner")
 
 code_runner.setup {
         mode = 'term',
-        focus = true,
         term = {
                 position = "bot",
-                size = 12,
+                size = 15
         },
         before_run_filetype = function()
                 vim.cmd(":w")
