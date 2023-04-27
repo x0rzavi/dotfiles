@@ -44,7 +44,7 @@
     format = "<b>%s</b>\n<i>%b</i>"
     show_age_threshold = -1
     markup = full
-    show_indicators = true
+    show_indicators = false
     history_length = 25
     max_icon_size = 64
 

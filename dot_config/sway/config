@@ -4,15 +4,15 @@
 
 # Variables
 set {
-    $alt Mod1
-    $mod Mod4
+    $ALT Mod1
+    $MOD Mod4
     $term footclient
     $alt_term alacritty
     # $menu bemenu.sh | xargs swaymsg exec --
     # $launcher bemenu_launcher.sh | xargs swaymsg exec --
-    $launcher wofi &
+    $launcher rofi -show drun
     $browser firefox-bin
-    $alt_browser google-chrome-unstable --enable-features=WebUIDarkMode --force-dark-mode
+    # $alt_browser google-chrome-unstable --enable-features=WebUIDarkMode --force-dark-mode
     $file_manager footclient nnn
     $wallpapers_path $HOME/Pictures/Wallpapers
 }
@@ -54,7 +54,7 @@ exec_always $gnome-schema {
 
 # Misc optioms
 focus_follows_mouse yes
-floating_modifier $mod normal
+floating_modifier $MOD normal
 floating_maximum_size 1366 x 768
 default_orientation auto
 bindswitch lid:on exec sway_lock.sh
@@ -105,67 +105,67 @@ bindsym {
 # Keybindings
 bindsym {
     # Applications
-    $mod+b exec $browser
-    $mod+Shift+b exec $alt_browser
-    $mod+Shift+f exec $file_manager
-    $mod+Return exec $term
-    $mod+Shift+Return exec $alt_term
-    $mod+c kill
-    $mod+d exec $launcher
-    $mod+Shift+d exec $menu
-    $mod+Escape reload
-    $mod+Shift+q exec powermenu.sh
-    $mod+Shift+l exec sway_lock.sh
-    $alt+v exec clipboard.sh
-    $mod+Shift+w exec sway_wallpaper.sh
+    $MOD+b exec $browser
+    $MOD+Shift+b exec $alt_browser
+    $MOD+Shift+f exec $file_manager
+    $MOD+Return exec $term
+    $MOD+Shift+Return exec $alt_term
+    $MOD+c kill
+    $MOD+d exec $launcher
+    $MOD+Shift+d exec $menu
+    $MOD+Escape reload
+    $MOD+Shift+q exec powermenu.sh
+    $MOD+Shift+l exec sway_lock.sh
+    $ALT+v exec clipboard.sh
+    $MOD+Shift+w exec sway_wallpaper.sh
 
     # Screenshot
     Print exec grimshot --notify copy output
-    $mod+Print exec grimshot --notify save output ~/Pictures/Screenshots/$(date +%F+%H:%M:%S).png
+    $MOD+Print exec grimshot --notify save output ~/Pictures/Screenshots/$(date +%F+%H:%M:%S).png
     Shift+Print exec grimshot --notify copy area
-    $mod+Shift+Print exec grimshot --notify save area ~/Pictures/Screenshots/$(date +%F+%H:%M:%S).png
+    $MOD+Shift+Print exec grimshot --notify save area ~/Pictures/Screenshots/$(date +%F+%H:%M:%S).png
 
-    $mod+Left focus left
-    $mod+Down focus down
-    $mod+Up focus up
-    $mod+Right focus right 
+    $MOD+Left focus left
+    $MOD+Down focus down
+    $MOD+Up focus up
+    $MOD+Right focus right 
 
-    $mod+Shift+Left move left
-    $mod+Shift+Down move down
-    $mod+Shift+Up move up
-    $mod+Shift+Right move right
+    $MOD+Shift+Left move left
+    $MOD+Shift+Down move down
+    $MOD+Shift+Up move up
+    $MOD+Shift+Right move right
 
-    $mod+1 workspace number 1
-    $mod+2 workspace number 2
-    $mod+3 workspace number 3
-    $mod+4 workspace number 4
-    $mod+5 workspace number 5
-    $mod+6 workspace number 6
+    $MOD+1 workspace number 1
+    $MOD+2 workspace number 2
+    $MOD+3 workspace number 3
+    $MOD+4 workspace number 4
+    $MOD+5 workspace number 5
+    $MOD+6 workspace number 6
 
-    $mod+Shift+1 move container to workspace number 1
-    $mod+Shift+2 move container to workspace number 2
-    $mod+Shift+3 move container to workspace number 3
-    $mod+Shift+4 move container to workspace number 4
-    $mod+Shift+5 move container to workspace number 5
-    $mod+Shift+6 move container to workspace number 6
+    $MOD+Shift+1 move container to workspace number 1
+    $MOD+Shift+2 move container to workspace number 2
+    $MOD+Shift+3 move container to workspace number 3
+    $MOD+Shift+4 move container to workspace number 4
+    $MOD+Shift+5 move container to workspace number 5
+    $MOD+Shift+6 move container to workspace number 6
 
-    $mod+Ctrl+Left workspace prev
-    $mod+Ctrl+Right workspace next
-    $mod+$alt+Left workspace prev
-    $mod+$alt+Right workspace next
-    Ctrl+$alt+Left workspace prev
-    Ctrl+$alt+Right workspace next
+    $MOD+Ctrl+Left workspace prev
+    $MOD+Ctrl+Right workspace next
+    $MOD+$ALT+Left workspace prev
+    $MOD+$ALT+Right workspace next
+    Ctrl+$ALT+Left workspace prev
+    Ctrl+$ALT+Right workspace next
 
-    $mod+h splith
-    $mod+v splitv
+    $MOD+h splith
+    $MOD+v splitv
 
-    $mod+f fullscreen
-    $mod+space floating toggle
-    $mod+Tab focus mode_toggle
-    $mod+p focus parent
+    $MOD+f fullscreen
+    $MOD+space floating toggle
+    $MOD+Tab focus mode_toggle
+    $MOD+p focus parent
 
-    $mod+Shift+o move scratchpad
-    $mod+Shift+p scratchpad show
+    $MOD+Shift+o move scratchpad
+    $MOD+Shift+p scratchpad show
 }
 
 # Modes
@@ -195,8 +195,8 @@ mode "Layout" {
 }
 
 bindsym {
-    $mod+r mode "Resize"
-    $mod+l mode "Layout"
+    $MOD+r mode "Resize"
+    $MOD+l mode "Layout"
 }
 
 # Automove rules
@@ -241,14 +241,14 @@ exec {
     mpd
     mpd-mpris
     gentoo-pipewire-launcher
-    swayidle -w \
-        timeout 300 'sway_lock.sh' \
-        timeout 420 'swaymsg "output * dpms off"' \
-                resume 'swaymsg "output * dpms on"' \
-        timeout 600 'loginctl suspend' \
-        before-sleep 'volume.sh --mute && \
-                playerctl pause || echo 0 && \
-                sway_lock.sh' 
+    # swayidle -w \
+    #     timeout 300 'sway_lock.sh' \
+    #     timeout 420 'swaymsg "output * dpms off"' \
+    #             resume 'swaymsg "output * dpms on"' \
+    #     timeout 600 'loginctl suspend' \
+    #     before-sleep 'volume.sh --mute && \
+    #             playerctl pause || echo 0 && \
+    #             sway_lock.sh' 
     wlsunset -l 22.6 -L 88.4 -t 4800
     xsettingsd
     wl-paste --watch cliphist store
