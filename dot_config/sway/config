@@ -2,6 +2,42 @@
 # https://github.com/Crandel/home/blob/master/.config/sway/config
 # https://www.reddit.com/r/swaywm/comments/q90v6l/sharing_some_for_window_rules/
 
+# Bar
+bar {
+    id sway
+    swaybar_command waybar
+}
+
+# Output
+output eDP-1 {
+	subpixel rgb
+	max_render_time 6
+	adaptive_sync on
+}
+swaybg_command -
+
+# Input
+input {
+    type:keyboard {
+        xkb_numlock enable
+    }
+    type:touchpad {
+	drag enabled
+	dwt enabled
+	middle_emulation enabled
+	natural_scroll enabled
+	tap enabled
+	# pointer_accel 0.3
+    }
+}
+
+# Seat
+seat seat0 {
+    xcursor_theme Qogir-white-cursors
+    hide_cursor when-typing enable
+}
+
+
 # Variables
 set {
     $ALT Mod1
@@ -14,81 +50,55 @@ set {
     $browser firefox-bin
     # $alt_browser google-chrome-unstable --enable-features=WebUIDarkMode --force-dark-mode
     $file_manager footclient nnn
-    $wallpapers_path $HOME/Pictures/Wallpapers
+    # $wallpapers_path $HOME/Pictures/Wallpapers
 }
 
-# Theme: Catppuccin
-set {
-    $teal #94E2D5
-    $black #11111B
-    $red #F28FAD
-    $peach #F8BD96
-    $transparent #00000000
-}
+# # Theme: Catppuccin
+# set {
+#     $teal #94E2D5
+#     $black #11111B
+#     $red #F28FAD
+#     $peach #F8BD96
+#     $transparent #00000000
+# }
+#
+# # Colors
+# # Class			border	background	text	indicator	child_border
+# client.focused		$teal 	$teal 		$black 	$red 		$teal
+# client.focused_inactive $peach 	$peach 		$black 	$red 		$teal
+# client.unfocused	$peach 	$peach 		$black 	$red 		$peach
+# client.urgent 		$red 	$red 		$black 	$red 		$red
 
-# Colors
-# Class			border	background	text	indicator	child_border
-client.focused		$teal 	$teal 		$black 	$red 		$teal
-client.focused_inactive $peach 	$peach 		$black 	$red 		$teal
-client.unfocused	$peach 	$peach 		$black 	$red 		$peach
-client.urgent 		$red 	$red 		$black 	$red 		$red
+# set $gnome-schema org.gnome.desktop.interface
+# exec_always $gnome-schema {
+#     gsettings set {
+#         gtk-theme 'Colloid'
+#         color-scheme 'prefer-dark'
+#         icon-theme 'Fluent-dark'
+#         cursor-theme 'Colloid-dark-cursors'
+#         font-name 'SF Pro Text 10.5'
+#         document-font-name 'New York Small 10.5'
+#         monospace-font-name 'SF Mono 10.5'
+#     }
+# }
 
-# Theming
-seat seat0 {
-    xcursor_theme Colloid-dark-cursors
-    hide_cursor when-typing enable
-}
-
-set $gnome-schema org.gnome.desktop.interface
-exec_always $gnome-schema {
-    gsettings set {
-        gtk-theme 'Colloid'
-        color-scheme 'prefer-dark'
-        icon-theme 'Fluent-dark'
-        cursor-theme 'Colloid-dark-cursors'
-        font-name 'SF Pro Text 10.5'
-        document-font-name 'New York Small 10.5'
-        monospace-font-name 'SF Mono 10.5'
-    }
-}
-
-# Misc optioms
-focus_follows_mouse yes
-floating_modifier $MOD normal
+# Miscellaneous options
 floating_maximum_size 1366 x 768
-default_orientation auto
-bindswitch lid:on exec sway_lock.sh
+floating_modifier $MOD normal
+focus_follows_mouse yes
+# bindswitch lid:on exec sway_lock.sh
 
 # Aesthetics
+default_dim_inactive 0.8
+# dim_inactive_colors.unfocused #000000D9
+blur enable
+# blur_xray enable
 default_border pixel 2
 default_floating_border pixel 2
+font pango:Cartograph CF 12
 titlebar_border_thickness 2
 title_align center
-gaps inner 10
-font pango:Iosevka Nerd Font Medium 12
-
-# Output
-output eDP-1 {
-	subpixel rgb
-	adaptive_sync on
-	max_render_time 6
-	bg $(find $wallpapers_path -type f | shuf -n 1) fill
-}
-
-# Input
-input {
-    type:keyboard {
-        xkb_numlock enable
-    }
-    type:touchpad {
-	drag enabled
-	dwt enabled
-	tap enabled
-	natural_scroll enabled
-	middle_emulation enabled
-	# pointer_accel 0.3
-    }
-}
+gaps inner 16
 
 # Essential keybindings
 bindsym {
@@ -227,9 +237,6 @@ for_window {
     [app_id="telegram-desktop"] floating enable
 }
 
-bar {
-    swaybar_command waybar
-}
 
 include /etc/sway/config.d/*
 
@@ -237,6 +244,7 @@ include /etc/sway/config.d/*
 exec {
     dbus-update-activation-environment --all
     /usr/libexec/polkit-gnome-authentication-agent-1
+    hyprpaper
     foot --server
     mpd
     mpd-mpris
