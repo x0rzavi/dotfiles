@@ -90,9 +90,9 @@ focus_follows_mouse yes
 
 # Aesthetics
 default_dim_inactive 0.8
-# dim_inactive_colors.unfocused #000000D9
+dim_inactive_colors.unfocused #000000D9
 blur enable
-# blur_xray enable
+blur_xray enable
 default_border pixel 2
 default_floating_border pixel 2
 font pango:Cartograph CF 12
