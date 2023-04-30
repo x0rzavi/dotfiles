@@ -13,8 +13,9 @@ output eDP-1 {
 	subpixel rgb
 	max_render_time 6
 	adaptive_sync on
+        background ~/Pictures/Wallpapers/japanese_pedestrian_street.png fill
 }
-swaybg_command -
+# swaybg_command -
 
 # Input
 input {
@@ -92,7 +93,7 @@ focus_follows_mouse yes
 default_dim_inactive 0.8
 dim_inactive_colors.unfocused #000000D9
 blur enable
-blur_xray enable
+blur_xray disable
 default_border pixel 2
 default_floating_border pixel 2
 font pango:Cartograph CF 12
@@ -102,14 +103,14 @@ gaps inner 16
 
 # Essential keybindings
 bindsym {
-    XF86AudioRaiseVolume exec volume.sh -i &
-    XF86AudioLowerVolume exec volume.sh -d &
-    XF86AudioMute exec volume.sh -t &
+    XF86AudioRaiseVolume exec volume.sh -i
+    XF86AudioLowerVolume exec volume.sh -d
+    XF86AudioMute exec volume.sh -t
     XF86AudioPlay exec playerctl play-pause
     XF86AudioNext exec playerctl next
     XF86AudioPrev exec playerctl previous
-    XF86MonBrightnessUp exec brightness.sh -i &
-    XF86MonBrightnessDown exec brightness.sh -d &
+    XF86MonBrightnessUp exec brightness.sh -i
+    XF86MonBrightnessDown exec brightness.sh -d
 }
 
 # Keybindings
@@ -244,7 +245,7 @@ include /etc/sway/config.d/*
 exec {
     dbus-update-activation-environment --all
     /usr/libexec/polkit-gnome-authentication-agent-1
-    hyprpaper
+    # hyprpaper
     foot --server
     mpd
     mpd-mpris
