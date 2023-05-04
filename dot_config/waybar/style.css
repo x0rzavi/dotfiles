@@ -26,7 +26,7 @@
 }
 
 window#waybar {
-	background-color: transparent;	/* Keep transparent to blur */
+	background-color: transparent;	/* Keep transparent to blur container*/
 }
 
 window#waybar.hidden {
@@ -37,19 +37,19 @@ window > box {
 	/* border-top-width: 2px;
 	border-color: @bg-jan;
 	border-style: solid; */
-	background-color: @black8-jan;
+	background-color: @black8-jan; /* Overlay on container */
 }
 
 #workspaces button, #submap, #memory, #cpu, #cpu.load, #temperature, #clock, #idle_inhibitor, #network , #pulseaudio, #backlight, #battery {
 	padding: 5px 10px;
-	margin: 0 3px;
+	margin: 1px 3px;
 	color: @fg-jan;
-	box-shadow: inherit;
+	box-shadow: 1px 2px 2px @bg-jan;
 	text-shadow: inherit;
 	border-radius: 25px;
-	border-width: 0 2px 2px 0;
-	border-style: solid;
-	border-color: @bg-jan;
+	/* border-width: 0 2px 2px 0; */
+	/* border-style: solid; */
+	/* border-color: @bg-jan; */
 	background-color: @black-extra-jan;
 }
 
