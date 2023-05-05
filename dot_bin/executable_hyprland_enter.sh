@@ -23,7 +23,7 @@ export NO_AT_BRIDGE=1
 
 # https://github.com/swaywm/sway/issues/7025
 # https://gitlab.freedesktop.org/wlroots/wlroots/-/blob/master/docs/env_vars.md
-# export WLR_DRM_NO_MODIFIERS=1
+export WLR_DRM_NO_MODIFIERS=1
 export GNOME_KEYRING_CONTROL="/run/user/1000/keyring"
 export SSH_AUTH_SOCK="/run/user/1000/keyring/ssh"
 
