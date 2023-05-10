@@ -41,7 +41,7 @@
 
     font = Cartograph CF 11
     line_height = 3
-    format = "<b>%s</b>\n<i>%b</i>"
+    format = "<b><i>%s</i></b>\n%b"
     show_age_threshold = -1
     markup = full
     show_indicators = false

@@ -322,8 +322,10 @@ applefonts () {
 	# AppleFonts/NewYorkSmall-RegularItalic.otf
 	# AppleFonts/SF-Mono-Regular.otf
 	# AppleFonts/SF-Mono-RegularItalic.otf
-	AppleFonts/SF-Mono-Medium.otf
-	AppleFonts/SF-Mono-MediumItalic.otf
+	# AppleFonts/SF-Mono-Medium.otf
+	# AppleFonts/SF-Mono-MediumItalic.otf
+        AppleFonts/SF-Mono-Semibold.otf
+        AppleFonts/SF-Mono-SemiboldItalic.otf
 	# AppleFonts/SF-Pro-Text-Regular.otf
 	# AppleFonts/SF-Pro-Text-RegularItalic.otf
 	AppleFonts/SF-Pro-Text-Medium.otf

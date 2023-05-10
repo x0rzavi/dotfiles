@@ -11,9 +11,9 @@ bar {
 # Output
 output eDP-1 {
 	subpixel rgb
-	max_render_time 6
-	adaptive_sync on
-        background ~/Pictures/Wallpapers/japanese_pedestrian_street.png fill
+	# max_render_time 6
+	# adaptive_sync on
+        # background ~/Pictures/Wallpapers/japanese_pedestrian_street.png fill
 }
 # swaybg_command -
 
@@ -125,7 +125,8 @@ bindsym {
     $MOD+d exec $launcher
     $MOD+Shift+d exec $menu
     $MOD+Escape reload
-    $MOD+Shift+q exec powermenu.sh
+    # $MOD+Shift+q exec powermenu.sh
+    $MOD+Shift+q exec swaymsg exit
     $MOD+Shift+l exec sway_lock.sh
     $ALT+v exec clipboard.sh
     $MOD+Shift+w exec sway_wallpaper.sh
@@ -233,8 +234,8 @@ for_window {
 
     [shell="xwayland"] title_format "%title [XWayland]"
 
-    [app_id="firefox"] inhibit_idle fullscreen, max_render_time off
-    [app_id="qemu|zenmonitor|mpv|imv|timeshift-gtk"] floating enable, inhibit_idle visible, max_render_time off
+    [app_id="firefox"] inhibit_idle fullscreen
+    [app_id="qemu|zenmonitor|mpv|imv|timeshift-gtk"] floating enable, inhibit_idle visible
     [app_id="telegram-desktop"] floating enable
 }
 
@@ -245,7 +246,7 @@ include /etc/sway/config.d/*
 exec {
     dbus-update-activation-environment --all
     /usr/libexec/polkit-gnome-authentication-agent-1
-    # hyprpaper
+    hyprpaper
     foot --server
     mpd
     mpd-mpris

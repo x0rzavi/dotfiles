@@ -14,6 +14,7 @@
 		"clock"
 	],
 	"modules-right": [
+                "tray",
 		"network",
 		"pulseaudio",
 		"backlight",
@@ -60,6 +61,10 @@
 		"format": "<span foreground='#87c7a1' size='large' rise='-3pt'>\ue2ba</span> <b>{:%I:%M %p  %A %d %b}</b>",
 		"tooltip": false
 	},
+        "tray": {
+                "icon-size": 20,
+                "spacing": 10
+        },
 	"network": {
 		"interval": 1,
 		"format-ethernet": "<span foreground='#6791c9' size='large' rise='-3pt'>\ue8be</span> <b>{ifname}</b>",
