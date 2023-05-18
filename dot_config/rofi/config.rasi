@@ -9,7 +9,8 @@ configuration {
         // sorting-method: "fzf";
         // show-icons: true;
         terminal: "footclient";
-        font: "Cartograph CF 11";
+        // font: "Cartograph CF 11";
+        font: "Iosevka 11";
 
         timeout {
                 action: "kb-cancel";
@@ -28,7 +29,7 @@ configuration {
 /* Main hierarchy */
 window {
         transparency: "real";
-        width: 20%;
+        width: 19%;
         padding: 3px 2px 15px;
         // border-radius: 10px;
         border: 2px;
