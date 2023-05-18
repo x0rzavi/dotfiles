@@ -61,12 +61,16 @@ window > box {
 	margin-left: 10px;
 }
 
+#workspaces button {
+        background: @black8-jan;
+}
+
 #workspaces button:hover {
-	background: @bg-jan;
+	background: @black0-jan;
 }
 
 #workspaces button.active {
-	background-color: @black0-jan;
+	background-color: @black-extra-jan;
 }
 
 #workspaces button.urgent {
