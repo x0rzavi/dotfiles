@@ -39,8 +39,8 @@
     # separator_height = 10
     # separator_color = "#ffffff00"
 
-    font = Cartograph CF 11
-    line_height = 3
+    font = Iosevka 11
+    # line_height = 3
     format = "<b><i>%s</i></b>\n%b"
     show_age_threshold = -1
     markup = full
