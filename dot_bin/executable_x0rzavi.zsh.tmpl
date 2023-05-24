@@ -55,7 +55,7 @@ alias nvim='nvim 2>/dev/null'
 # Define general task aliases
 {{- if eq .chezmoi.osRelease.id "gentoo" }}
 alias update='sudo emaint -A sync'
-alias upgrade='sudo emerge --update --newuse --deep --with-bdeps=y @world'
+alias upgrade='sudo emerge --update --changed-use --deep --with-bdeps=y @world'
 alias clean='sudo emerge --depclean ; sudo eclean-dist --deep'
 {{ end -}}
 alias perf="sudo ${x0rzavi_home}/.bin/mode.sh -p"
