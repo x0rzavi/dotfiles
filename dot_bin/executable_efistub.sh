@@ -20,7 +20,7 @@ generate_entry () {
 	part='1'
 	efs_folder="\\EFI\\Gentoo\\"
 	root='ZFS=zroot/gentoo'
-	kernel_flags='ro mitigations=off acpi_osi=! acpi_osi="Windows 2015"'
+	kernel_flags='ro mitigations=off acpi_osi=! acpi_osi="Windows 2015" splash quiet'
 	loader="${efs_folder}$2"
 	initrd="${efs_folder}$3"
 	condensed="root=${root} ${kernel_flags} initrd=${initrd}"

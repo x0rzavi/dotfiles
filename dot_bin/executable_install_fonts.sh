@@ -303,8 +303,7 @@ cartograph() {
 ##
 nerdsyms () {
 	cat <<- EOF > nerdsyms.txt
-	Symbols-1000-em Nerd Font Complete.ttf
-	# Symbols-2048-em Nerd Font Complete.ttf
+        SymbolsNerdFont-Regular.ttf
 	EOF
 
 	mkdir -p "${unpackdir}"/nerdsyms
@@ -383,17 +382,17 @@ install_fonts () {
 	#notolingual
 	#notomisc
 
-	inter
+	#inter
 	#jost
 
-	lora
+	#lora
 	#bodoni
 	#baskerville
 	#caslon
 	#century_schoolbook
 
 	#iosevka
-	#jetbrainsmono
+	jetbrainsmono
 	#cartograph
 
 	#nerdsyms

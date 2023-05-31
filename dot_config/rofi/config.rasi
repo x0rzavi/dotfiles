@@ -29,7 +29,7 @@ configuration {
 /* Main hierarchy */
 window {
         transparency: "real";
-        width: 19%;
+        width: 17%;
         padding: 3px 2px 15px;
         // border-radius: 10px;
         border: 2px;
@@ -46,7 +46,7 @@ mainbox {
 inputbar {
         children: [ textbox-search-icon, entry ];
         margin: 15px 10px 8px;
-        padding: 20px;
+        padding: 15px;
 }
 
 textbox-search-icon {
