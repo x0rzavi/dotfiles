@@ -8,11 +8,11 @@
 # PROCHOT: 80C
 
 performance () {
-    #ryzenadj --stapm-limit=25000 --fast-limit=30000 --slow-limit=25000 --tctl-temp=76 \
-    #	--vrm-current=45000 --vrmmax-current=55000 --max-performance --slow-time=75 \
-    #	--stapm-time=10
-    ryzenadj --stapm-limit=25000 --fast-limit=30000 --slow-limit=25000 --tctl-temp=76 \
-    	--max-performance
+    ryzenadj --stapm-limit=25000 --fast-limit=25000 --slow-limit=25000 \
+    		--slow-time=128 --stapm-time=3600 --tctl-temp=77 \
+    		--vrm-current=180000 --vrmmax-current=180000 \
+    		--vrmsoc-current=180000 --vrmsocmax-current=180000 \
+    		--min-gfxclk=1000 --max-performance
     echo 1 > /sys/devices/system/cpu/cpufreq/boost
     #amdctl -p0 -v124
     #amdctl -p1 -v96 -f102   #Default
