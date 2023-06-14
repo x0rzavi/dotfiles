@@ -12,7 +12,7 @@ code_runner.setup {
         filetype = {
                 c = {
                         "cd $dir &&",
-                        "clang -lm $fileName",
+                        "clang -Wall -lm $fileName",
                         "-o $fileNameWithoutExt &&",
                         "$dir/$fileNameWithoutExt"
                 },
