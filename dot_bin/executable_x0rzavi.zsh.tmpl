@@ -49,6 +49,8 @@ alias ping='gping'
 
 # Hacks
 alias nvim='nvim 2>/dev/null'
+alias cpr='rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 "$@"'
+alias mvr='rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 --remove-source-files "$@"'
 
 {{ if eq .chezmoi.os "linux" }}
 {{- if not (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
