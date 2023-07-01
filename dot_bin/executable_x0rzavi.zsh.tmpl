@@ -1,4 +1,10 @@
+# Author: https://github.com/x0rzavi
 # Description: User agnostic conveniences for ZSH
+# Usage:
+# 1. zsh - ~/.zshrc + ~/.zprofile + ~/.bin/x0rzavi.zsh + ~/.zkbd/ + zoxide + starship + zsh-syntax-highlighting + zsh-autosuggestions
+#
+#
+#
 
 # List of modern UNIX tool replacements
 # bat (https://github.com/sharkdp/bat)                  [cat] [sys-apps/bat]
@@ -127,14 +133,14 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 {{- if eq .chezmoi.os "linux" }}
 {{- if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
-# Initialize keychain on WSL
+# Initialize keychains on WSL
 if [ "$(id -u)" -ne 0 ] 
 then
     # Hack to openup ssh keys without intervention
     eval $(DISPLAY=:0 SSH_ASKPASS=/home/x0rzavi/.ssh/.sshkey keychain --eval --quiet id_ed25519)
     
     # Hack to openup gpg keys without intervention
-    # GPG pinentry quirk (use only if willing to use hacky methods)
+    # GPG pinentry quirk (use only if willing to apply hacky methods)
     # export GPG_TTY=$(tty)
     printf 'hack' | gpg --clearsign --pinentry-mode loopback --passphrase-file=/home/x0rzavi/.gnupg/.gpgkey > /dev/null
 
