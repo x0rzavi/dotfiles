@@ -1,3 +1,8 @@
+# Extend path
+typeset -U path PATH
+path=(~/.bin ~/.cargo/bin ~/.local/bin ${path})
+export PATH
+
 # Trivial environment variables
 export NNN_OPTS='CdDe'
 BLK="04" CHR="04" DIR="04" EXE="00" REG="00" HARDLINK="00" SYMLINK="06" MISSING="00" ORPHAN="01" FIFO="0F" SOCK="0F" OTHER="02"
@@ -9,8 +14,8 @@ export XCURSOR_PATH="${XCURSOR_PATH}:~/.local/share/icons:/usr/share/icons"
 # Setup npm and yarn user-wide installation paths
 export npm_config_prefix="${HOME}/.local"
 
-#{{- if eq .chezmoi.os "linux" }}
-#{{   if not (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
+{{ if eq .chezmoi.os "linux" }}
+{{- if not (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
 ## Set options only if user x0rzavi or otherwise
 #if [[ $(whoami) = 'x0rzavi' ]]; then
 #	# Description: Hack to set gtk4 theme
@@ -61,5 +66,5 @@ export npm_config_prefix="${HOME}/.local"
 #	export NO_AT_BRIDGE=1
 #	export WINIT_UNIX_BACKEND=wayland
 #fi
-#{{ end }}
-#{{ end }}
+{{ end -}}
+{{ end }}
