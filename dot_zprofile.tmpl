@@ -1,18 +1,22 @@
+# Variables
+x0rzavi_home='{{ .chezmoi.homeDir }}'
+
+# Autolaunch Window Manager
 {{ if eq .chezmoi.os "linux" }}
 {{- if not (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
 # # Autostart sway on login if TTY1
 # if [[ -z ${DISPLAY} ]] && [[ $(tty) = '/dev/tty1' ]]; then
-# 	exec ${HOME}/.bin/sway_enter.sh
+# 	exec ${x0rzavi_home}/.bin/sway_enter.sh
 # fi 
 
 # # Autostart newm on login if TTY1
 # if [[ -z ${DISPLAY} ]] && [[ $(tty) = '/dev/tty1' ]]; then
-# 	exec ${HOME}/.bin/newm_enter.sh
+# 	exec ${x0rzavi_home}/.bin/newm_enter.sh
 # fi
 
 # # Autostart hyprland on login if TTY1
 if [[ -z ${DISPLAY} ]] && [[ $(tty) = '/dev/tty1' ]]; then
-	exec ${HOME}/.bin/hyprland_enter.sh
+	exec ${x0rzavi_home}/.bin/hyprland_enter.sh
 fi
 {{ end -}}
 {{ end }}

@@ -29,7 +29,7 @@
 # tealdeer (https://github.com/dbrgn/tealdeer)          [misc] [app-misc/tealdeer]
 
 # Variables
-x0rzavi_home={{ .chezmoi.homeDir }}
+x0rzavi_home='{{ .chezmoi.homeDir }}'
 
 # Define command aliases
 alias cat='bat'
@@ -164,12 +164,12 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 if [ "$(id -u)" -ne 0 ] 
 then
     # Hack to openup ssh keys without intervention
-    eval $(DISPLAY=:0 SSH_ASKPASS=/home/x0rzavi/.ssh/.sshkey keychain --eval --quiet id_ed25519)
+    eval $(DISPLAY=:0 SSH_ASKPASS=${x0rzavi_home}/.ssh/.sshkey keychain --eval --quiet id_ed25519)
     
     # Hack to openup gpg keys without intervention
     # GPG pinentry quirk (use only if willing to apply hacky methods)
     # export GPG_TTY=$(tty)
-    printf 'hack' | gpg --clearsign --pinentry-mode loopback --passphrase-file=/home/x0rzavi/.gnupg/.gpgkey > /dev/null
+    printf 'hack' | gpg --clearsign --pinentry-mode loopback --passphrase-file=${x0rzavi_home}/.gnupg/.gpgkey > /dev/null
 
 fi
 {{- end -}}
