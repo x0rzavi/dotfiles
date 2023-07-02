@@ -1,9 +1,9 @@
-{{- if eq .chezmoi.os "linux" -}}
+{{ if eq .chezmoi.os "linux" -}}
 max-cache-ttl 60480000
 default-cache-ttl 60480000
-{{   if not (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
+{{- if not (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
 pinentry-program /usr/bin/pinentry-gnome3
-{{ else }}
+{{- else }}
 pinentry-program /usr/bin/pinentry-tty
-{{ end }}
-{{- end -}}
+{{- end }}
+{{- end }}
