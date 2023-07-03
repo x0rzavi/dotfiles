@@ -12,7 +12,6 @@
 # bottom (https://github.com/ClementTsang/bottom)       [top] [sys-process/bottom]
 # btop (https://github.com/aristocratos/btop)           [top] [sys-process/btop]
 # gdu (https://github.com/dundee/gdu)                   [ncdu] [sys-fs/gdu]
-# doggo (https://github.com/mr-karan/doggo)             [dig] [net-dns/doggo-bin]
 # ripgrep (https://github.com/BurntSushi/ripgrep)       [grep] [sys-apps/ripgrep]
 # ripgrep-all (https://github.com/phiresky/ripgrep-all) [grep] [sys-apps/ripgrep-all]
 # git-delta (https://github.com/dandavison/delta)       [diff] [dev-util/git-delta]
@@ -22,6 +21,7 @@
 # plocate (https://plocate.sesse.net)                   [locate] [sys-apps/plocate]
 # procs (https://github.com/dalance/procs)              [ps] [sys-apps/procs]
 # gping (https://github.com/orf/gping)                  [ping] [net-analyzer/gping-bin]
+# doggo (https://github.com/mr-karan/doggo)             [dig] [net-dns/doggo-bin]
 # fzf (https://github.com/junegunn/fzf)                 [misc] [app-shells/fzf]
 # entr (https://github.com/eradman/entr)                [misc] [app-admin/entr]
 # moreutils (https://joeyh.name/code/moreutils)         [misc] [sys-apps/moreutils]
@@ -31,29 +31,27 @@
 # Variables
 x0rzavi_home='{{ .chezmoi.homeDir }}'
 
-# Define command aliases
-alias cat='bat'
-alias grep='batgrep --hidden --pager bat'
-#alias grep='rg --pretty --hidden'
-alias man='batman'
-alias watch='batwatch --interval 1 --command'
-alias diff='batdiff'
-#alias diff='delta'
-alias ls='exa --icons'
-alias ll='exa --icons --long --all --group --git --group-directories-first'
-alias du='dust --apparent-size'
-alias df='duf'
-alias ncdu='gdu --show-apparent-size --show-relative-size --max-cores 4'
-alias find='fd --hidden --no-ignore --follow'
-alias sed='sd'
-alias ps='procs'
-alias dig='doggo'
-alias ping='gping'
+# Define command replacements
+cat() { bat "$@" 2> /dev/null || [ $? -eq 0 ] || command cat "$@"; }
+grep() { batgrep --ignore-case --hidden "$@" 2> /dev/null || [ $? -eq 0 ] || command grep --ignore-case "$@"; }
+man() { batman "$@" 2> /dev/null || [ $? -eq 0 ] || command man "$@"; }
+watch() { batwatch --interval 1 --command "$@" 2> /dev/null || [ $? -eq 0 ] || command watch --interval 1 "$@"; }
+diff() { batdiff --delta "$@" 2> /dev/null || [ $? -eq 0 ] || command diff "$@"; }
+ls() { exa --icons "$@" 2> /dev/null || [ $? -eq 0 ] || command ls "$@"; }
+ll() { exa --icons --long --all --group --git --group-directories-first "$@" 2> /dev/null || [ $? -eq 0 ] || command ls --almost-all --human-readable -l "$@"; }
+du() { dust "$@" 2> /dev/null || [ $? -eq 0 ] || command du --human-readable --summarize "$@"; }
+df() { duf "$@" 2> /dev/null || [ $? -eq 0 ] || command df --human-readable "$@"; }
+ncdu() { gdu --show-relative-size --max-cores 4 "$@" 2> /dev/null || [ $? -eq 0 ] || command ncdu "$@"; }
+find() { fd --hidden --no-ignore --follow "$@" 2> /dev/null || [ $? -eq 0 ] || command find "$@"; }
+sed() { sd "$@" 2> /dev/null || [ $? -eq 0 ] || command sed "$@"; }
+ps() { procs "$@" 2> /dev/null || [ $? -eq 0 ] || command ps axu "$@"; }
+dig() { doggo "$@" 2> /dev/null || [ $? -eq 0 ] || command dig "$@"; }
+ping() { gping "$@" 2> /dev/null || [ $? -eq 0 ] || command ping "$@"; }
 
-# Hacks
-alias nvim='nvim 2>/dev/null'
-alias cpr='rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 "$@"'
-alias mvr='rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 --remove-source-files "$@"'
+# Hacks / improvements
+alias nvim='nvim 2> /dev/null'
+cpr() { rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 "$@" 2> /dev/null || [ $? -eq 0 ] || command echo "Please install rsync!"; }
+mvr() { rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 --remove-source-files "$@" 2> /dev/null || [ $? -eq 0 ] || command echo "Please install rsync!"; }
 
 {{ if eq .chezmoi.os "linux" -}}
 # Define general task aliases
@@ -70,25 +68,25 @@ alias perf="sudo ${x0rzavi_home}/.bin/mode.sh -p"
 {{- end }}
 
 # Set ZSH options: http://zsh.sourceforge.net/Doc/Release/Options.html.
-setopt HIST_IGNORE_ALL_DUPS	# prevent history from recording duplicated entries even if they are not adjacent
-setopt HIST_IGNORE_SPACE	# prevent particular entries from being recorded into a history by preceding them with at least one space
-setopt HIST_ALLOW_CLOBBER	# save clobber overrides as is
-setopt HIST_REDUCE_BLANKS	# tidy up the line when it is entered into the history by removing any excess blanks
-setopt HIST_NO_STORE		# don't store history or fc commands
-setopt HIST_EXPIRE_DUPS_FIRST	# remove duplicates before unique entries when trimmed
-setopt SHARE_HISTORY		# share command history data
-setopt INC_APPEND_HISTORY	# append history immediately without waiting for shell to exit
-setopt NO_CLOBBER		# don't allow overwriting files generally ( use >| to override )
-setopt AUTO_CD			# check to see if it's actually a directory. If it is, change to that directory
-#setopt MENU_COMPLETE		# one completion is always inserted completely, then when you hit TAB it changes to the next,
-#setopt CORRECT			# enable autocorrection
+setopt HIST_IGNORE_ALL_DUPS     # prevent history from recording duplicated entries even if they are not adjacent
+setopt HIST_IGNORE_SPACE        # prevent particular entries from being recorded into a history by preceding them with at least one space
+setopt HIST_ALLOW_CLOBBER       # save clobber overrides as is
+setopt HIST_REDUCE_BLANKS       # tidy up the line when it is entered into the history by removing any excess blanks
+setopt HIST_NO_STORE            # don't store history or fc commands
+setopt HIST_EXPIRE_DUPS_FIRST   # remove duplicates before unique entries when trimmed
+setopt SHARE_HISTORY            # share command history data
+setopt INC_APPEND_HISTORY       # append history immediately without waiting for shell to exit
+setopt NO_CLOBBER               # don't allow overwriting files generally ( use >| to override )
+setopt AUTO_CD                  # check to see if it's actually a directory. If it is, change to that directory
+# setopt MENU_COMPLETE          # one completion is always inserted completely, then when you hit TAB it changes to the next,
+# setopt CORRECT                # enable autocorrection
 
 # ZSH history options
 HISTFILE="${HOME}/.zsh_history"
-HISTSIZE=2000
-SAVEHIST=1000
+HISTSIZE=10000
+SAVEHIST=10000
 
-# Keybindings
+# Keybindings: https://wiki.archlinux.org/title/zsh#Key_bindings
 # create a zkbd compatible hash
 # to add other keys to this hash, see: man 5 terminfo
 # source ${x0rzavi_home}/.zkbd/keymaps
@@ -121,11 +119,11 @@ key[Shift-Tab]="${terminfo[kcbt]}"
 # Finally, make sure the terminal is in application mode, when zle is
 # active. Only then are the values from $terminfo valid.
 if (( ${+terminfo[smkx]} && ${+terminfo[rmkx]} )); then
-	autoload -Uz add-zle-hook-widget
-	function zle_application_mode_start { echoti smkx }
-	function zle_application_mode_stop { echoti rmkx }
-	add-zle-hook-widget -Uz zle-line-init zle_application_mode_start
-	add-zle-hook-widget -Uz zle-line-finish zle_application_mode_stop
+    autoload -Uz add-zle-hook-widget
+    function zle_application_mode_start { echoti smkx }
+    function zle_application_mode_stop { echoti rmkx }
+    add-zle-hook-widget -Uz zle-line-init zle_application_mode_start
+    add-zle-hook-widget -Uz zle-line-finish zle_application_mode_stop
 fi
 
 # History based autocompletion
@@ -149,7 +147,7 @@ eval "$(zoxide init --cmd cd zsh)"
 # Initialize starship
 eval "$(starship init zsh)"
 
-# Source additional files
+# Source additional helper files
 {{- if eq .chezmoi.osRelease.id "gentoo" }}
 source /usr/share/zsh/site-functions/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/site-functions/zsh-autosuggestions.zsh
@@ -172,5 +170,5 @@ then
     printf 'hack' | gpg --clearsign --pinentry-mode loopback --passphrase-file=${x0rzavi_home}/.gnupg/.gpgkey > /dev/null
 
 fi
-{{- end -}}
-{{ end }}
+{{- end }}
+{{- end }}
