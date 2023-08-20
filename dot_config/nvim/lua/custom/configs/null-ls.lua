@@ -3,10 +3,13 @@ if not present then
         return
 end
 
-local b = null_ls.builtins
+local formatting = null_ls.builtins.formatting
+local lint = null_ls.builtins.diagnostics
 
 local sources = {
-        b.formatting.clang_format,
+        formatting.clang_format,
+        lint.mypy,
+        lint.ruff,
 }
 
 null_ls.setup {
