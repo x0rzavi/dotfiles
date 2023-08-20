@@ -2,7 +2,7 @@
 local M = {}
 
 M.ui = {
-  theme = "decay",
+  theme = "ashes",
   -- statusline = {
   --   separator_style = "block",
   -- }
