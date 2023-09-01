@@ -4,7 +4,7 @@ code_runner.setup {
         mode = 'term',
         term = {
                 position = "bot",
-                size = 15
+                size = 20
         },
         before_run_filetype = function()
                 vim.cmd(":w")
