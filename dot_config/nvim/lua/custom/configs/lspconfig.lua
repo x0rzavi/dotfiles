@@ -1,8 +1,8 @@
-local on_attach = require("plugins.configs.lspconfig").on_attach
-local capabilities = require("plugins.configs.lspconfig").capabilities
+local configs = require("plugins.configs.lspconfig")
+local on_attach = configs.on_attach
+local capabilities = configs.capabilities
 
 local lspconfig = require "lspconfig"
-
 local servers = { "clangd", "pyright" }
 
 for _, lsp in ipairs(servers) do
@@ -11,3 +11,8 @@ for _, lsp in ipairs(servers) do
                 capabilities = capabilities,
         }
 end
+
+capabilities.offsetEncoding = 'utf-8'
+lspconfig.clangd.setup {
+        capabilities = capabilities,
+}
