@@ -8,7 +8,8 @@ local lint = null_ls.builtins.diagnostics
 
 local sources = {
         formatting.clang_format,
-        -- lint.mypy,
+        formatting.black,
+        lint.mypy,
         lint.ruff,
 }
 
