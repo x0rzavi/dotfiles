@@ -1,9 +1,9 @@
+{{- if eq .chezmoi.os "linux" -}}
+{{- if not (or (.chezmoi.hostname | lower | contains "vm") (.chezmoi.kernel.osrelease | lower | contains "microsoft")) -}}
 # Variables
 x0rzavi_home='{{ .chezmoi.homeDir }}'
 
 # Autolaunch Window Manager
-{{ if eq .chezmoi.os "linux" }}
-{{- if not (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
 # # Autostart sway on login if TTY1
 # if [[ -z ${DISPLAY} ]] && [[ $(tty) = '/dev/tty1' ]]; then
 # 	exec ${x0rzavi_home}/.bin/sway_enter.sh
@@ -18,5 +18,5 @@ x0rzavi_home='{{ .chezmoi.homeDir }}'
 if [[ -z ${DISPLAY} ]] && [[ $(tty) = '/dev/tty1' ]]; then
 	exec ${x0rzavi_home}/.bin/hyprland_enter.sh
 fi
-{{ end -}}
-{{ end }}
+{{- end -}}
+{{- end }}

@@ -3,8 +3,9 @@
 	autoPush = true
 
 [edit]
-	command = "code"
-	args = ["--wait"]
+	# command = "code"
+	# args = ["--wait"]
+	command = "nvim"
 
 encryption = "gpg"
 [gpg]

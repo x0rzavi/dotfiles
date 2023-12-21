@@ -1,7 +1,7 @@
 # Author: https://github.com/x0rzavi
 # Description: User agnostic conveniences for ZSH
 # Usage:
-# 1. zsh - ~/.zshrc + ~/.zprofile + ~/.bin/x0rzavi.zsh + ~/.zkbd/ + zoxide + starship + zsh-syntax-highlighting + zsh-autosuggestions
+# 1. zsh - ~/.zshrc + ~/.zprofile + ~/.bin/x0rzavi.zsh + zoxide + starship + zsh-syntax-highlighting + zsh-autosuggestions
 
 # List of modern UNIX tool replacements
 # bat (https://github.com/sharkdp/bat)                  [cat] [sys-apps/bat]
@@ -49,7 +49,7 @@ dig() { doggo "$@" 2> /dev/null || [ $? -eq 0 ] || command dig "$@"; }
 ping() { gping "$@" 2> /dev/null || [ $? -eq 0 ] || command ping "$@"; }
 
 # Hacks / improvements
-alias nvim='nvim 2> /dev/null'
+# alias nvim='nvim 2> /dev/null'
 cpr() { rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 "$@" 2> /dev/null || [ $? -eq 0 ] || command echo "Please install rsync!"; }
 mvr() { rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 --remove-source-files "$@" 2> /dev/null || [ $? -eq 0 ] || command echo "Please install rsync!"; }
 
@@ -59,7 +59,7 @@ mvr() { rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 
 alias update='sudo emaint -A sync'
 alias upgrade='sudo emerge --update --changed-use --deep --with-bdeps=y @world'
 alias clean='sudo emerge --depclean ; sudo eclean-dist --deep'
-{{- else if eq .chezmoi.osRelease.id "arch" }}
+{{- else if eq .chezmoi.osRelease.idLike "arch" }}
 alias update='paru'
 alias upgrade='paru -Syyu'
 alias clean='paru -Sccd && (paru -Qtdq | paru -Rns -)'
@@ -151,14 +151,14 @@ eval "$(starship init zsh)"
 {{- if eq .chezmoi.osRelease.id "gentoo" }}
 source /usr/share/zsh/site-functions/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/site-functions/zsh-autosuggestions.zsh
-{{- else if eq .chezmoi.osRelease.id "arch" }}
+{{- else if eq .chezmoi.osRelease.idLike "arch" }}
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 {{ end }}
 
 {{- if eq .chezmoi.os "linux" }}
-{{- if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
-# Initialize keychains on WSL
+{{- if (or (.chezmoi.hostname | lower | contains "vm") (.chezmoi.kernel.osrelease | lower | contains "microsoft")) }}
+# Initialize keychains on WSL / Linux VM
 if [ "$(id -u)" -ne 0 ] 
 then
     # Hack to openup ssh keys without intervention
@@ -168,7 +168,6 @@ then
     # GPG pinentry quirk (use only if willing to apply hacky methods)
     # export GPG_TTY=$(tty)
     printf 'hack' | gpg --clearsign --pinentry-mode loopback --passphrase-file=${x0rzavi_home}/.gnupg/.gpgkey > /dev/null
-
 fi
 {{- end }}
 {{- end }}
