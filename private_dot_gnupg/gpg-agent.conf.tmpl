@@ -1,9 +1,0 @@
-{{ if eq .chezmoi.os "linux" -}}
-max-cache-ttl 60480000
-default-cache-ttl 60480000
-{{- if not (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
-pinentry-program /usr/bin/pinentry-qt5
-{{- else }}
-pinentry-program /usr/bin/pinentry-curses
-{{- end }}
-{{- end }}
