@@ -1,31 +1,30 @@
 [user]
-	email = x0rzavi@gmail.com
-	name = Avishek Sen
-	signingkey = 80311095B2F76EF0!
+  email = x0rzavi@gmail.com
+  name = Avishek Sen
+  signingkey = 80311095B2F76EF0!
 [credential "https://github.com"]
-	helper = 
-	helper = !/usr/bin/gh auth git-credential
+  helper = 
+  helper = !/usr/bin/gh auth git-credential
 [credential "https://gist.github.com"]
-	helper = 
-	helper = !/usr/bin/gh auth git-credential
+  helper = 
+  helper = !/usr/bin/gh auth git-credential
 [init]
-	defaultBranch = main
+  defaultBranch = main
 [commit]
-	gpgsign = true
+  gpgsign = true
 [core]
-	pager = delta
+  pager = delta
 [interactive]
-	diffFilter = delta --color-only
+  diffFilter = delta --color-only
 [delta]
-	line-numbers = true
-	navigate = true
+  line-numbers = true
+  navigate = true
 [merge]
-	conflictstyle = diff3
+  conflictstyle = diff3
 [diff]
-	colorMoved = default
-
+  colorMoved = default
 [filter "lfs"]
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
-	clean = git-lfs clean -- %f
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
