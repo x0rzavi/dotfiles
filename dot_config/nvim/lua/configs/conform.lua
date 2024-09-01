@@ -1,11 +1,12 @@
 local options = {
   formatters_by_ft = {
     lua = { "stylua" },
-    css = { "prettier" },
-    html = { "prettier" },
-    python = { "ruff_fix", "ruff_format" },
+    css = { "prettierd" },
+    html = { "prettierd" },
+    js = { "prettierd" },
+    python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
     c = { "clang-format" },
-    sh = { "shfmt", "shellcheck" },
+    sh = { "shfmt" },
   },
 
   format_on_save = {
