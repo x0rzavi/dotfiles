@@ -104,10 +104,10 @@ function zvm_after_init() {
   autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
   zle -N up-line-or-beginning-search
   zle -N down-line-or-beginning-search
-  zvm_bindkey viins '^p' up-line-or-beginning-search # prefix based searching
-  zvm_bindkey viins '^n' down-line-or-beginning-search # prefix based searching
-  zvm_bindkey vicmd '^p' history-search-backward # prefix based searching
-  zvm_bindkey vicmd '^n' history-search-forward  # prefix based searching
+  zvm_bindkey viins '^p' up-line-or-beginning-search    # prefix based searching
+  zvm_bindkey viins '^n' down-line-or-beginning-search  # prefix based searching
+  zvm_bindkey vicmd '^p' up-line-or-beginning-search    # prefix based searching
+  zvm_bindkey vicmd '^n' down-line-or-beginning-search  # prefix based searching
 }
 
 # Keybindings: https://wiki.archlinux.org/title/zsh#Key_bindings
