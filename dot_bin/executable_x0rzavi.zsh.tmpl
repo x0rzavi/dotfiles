@@ -164,7 +164,7 @@ zstyle ':completion:*' rehash true
 eval "$(zoxide init --cmd cd zsh)"
 
 # fzf shell integrations
-source <(fzf --zsh)
+eval "$(fzf --zsh)"
 
 # Source additional helper files
 {{- if eq .chezmoi.osRelease.id "gentoo" }}
