@@ -1,6 +1,6 @@
 # Author: https://github.com/x0rzavi
 # Description: User agnostic conveniences for ZSH
-# Requisites: zsh, zoxide, starship, zsh-syntax-highlighting, zsh-autosuggestions
+# Requisites: zsh, fzf, zoxide, starship, zsh-syntax-highlighting, zsh-autosuggestions
 # Workflow: ~/.zshrc -> ~/.bin/x0rzavi.zsh + ~/.zprofile
 
 # List of modern UNIX tool replacements
@@ -159,7 +159,8 @@ zstyle ':completion::complete:*' use-cache on
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' # case insensitive matching
 zstyle ':completion:*' rehash true
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
-# zstyle ':completion:*' menu select=3
+zstyle ':completion:*' menu no
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
 
 # Initialize zoxide
 eval "$(zoxide init --cmd cd zsh)"
