@@ -163,6 +163,9 @@ zstyle ':completion:*' rehash true
 # Initialize zoxide
 eval "$(zoxide init --cmd cd zsh)"
 
+# fzf shell integrations
+source <(fzf --zsh)
+
 # Source additional helper files
 {{- if eq .chezmoi.osRelease.id "gentoo" }}
 source /usr/share/zsh/site-functions/zsh-syntax-highlighting.zsh
