@@ -1,7 +1,7 @@
 # Author: https://github.com/x0rzavi
 # Description: User agnostic conveniences for ZSH
-# Usage:
-# zsh - ~/.zshrc + ~/.zprofile + ~/.bin/x0rzavi.zsh + zoxide + starship + zsh-syntax-highlighting + zsh-autosuggestions
+# Requisites: zsh, zoxide, starship, zsh-syntax-highlighting, zsh-autosuggestions
+# Workflow: ~/.zshrc -> ~/.bin/x0rzavi.zsh + ~/.zprofile
 
 # List of modern UNIX tool replacements
 # bat (https://github.com/sharkdp/bat)                  [cat] [sys-apps/bat]
@@ -137,8 +137,8 @@ SAVEHIST="${HISTSIZE}"
 # [[ -n "${key[Down]}"        ]] && bindkey -- "${key[Down]}"         down-line-or-beginning-search
 
 # Autocompletion options
-autoload -Uz compinit
-compinit
+# autoload -Uz compinit
+# compinit
 zstyle ':completion::complete:*' use-cache on
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' # case insensitive matching
 # zstyle ':completion:*' menu select=3
