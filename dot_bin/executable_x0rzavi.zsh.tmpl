@@ -101,10 +101,10 @@ ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
 zinit ice depth=1
 zinit light jeffreytse/zsh-vi-mode
 function zvm_before_init() {
-  zvm_bindkey viins '^[[A' history-beginning-search-backward
-  zvm_bindkey viins '^[[B' history-beginning-search-forward
-  zvm_bindkey vicmd '^[[A' history-beginning-search-backward
-  zvm_bindkey vicmd '^[[B' history-beginning-search-forward
+  zvm_bindkey viins '^[[A' history-end-search-backward
+  zvm_bindkey viins '^[[B' history-end-search-forward
+  zvm_bindkey vicmd '^[[A' history-end-search-backward
+  zvm_bindkey vicmd '^[[B' history-end-search-forward
 }
 
 
