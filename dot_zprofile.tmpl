@@ -4,19 +4,19 @@
 x0rzavi_home='{{ .chezmoi.homeDir }}'
 
 # Autolaunch Window Manager
-# # Autostart sway on login if TTY1
+# Autostart sway on login if TTY1
 # if [[ -z ${DISPLAY} ]] && [[ $(tty) = '/dev/tty1' ]]; then
 # 	exec ${x0rzavi_home}/.bin/sway_enter.sh
 # fi 
 
-# # Autostart newm on login if TTY1
+# Autostart newm on login if TTY1
 # if [[ -z ${DISPLAY} ]] && [[ $(tty) = '/dev/tty1' ]]; then
 # 	exec ${x0rzavi_home}/.bin/newm_enter.sh
 # fi
 
-# # Autostart hyprland on login if TTY1
-if [[ -z ${DISPLAY} ]] && [[ $(tty) = '/dev/tty1' ]]; then
-	exec ${x0rzavi_home}/.bin/hyprland_enter.sh
-fi
+# Autostart hyprland on login if TTY1
+# if [[ -z ${DISPLAY} ]] && [[ $(tty) = '/dev/tty1' ]]; then
+# 	exec ${x0rzavi_home}/.bin/hyprland_enter.sh
+# fi
 {{- end -}}
 {{- end }}
