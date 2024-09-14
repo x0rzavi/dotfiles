@@ -101,6 +101,9 @@ ZVM_VI_EDITOR=nvim
 ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
 zinit ice depth=1; zinit light jeffreytse/zsh-vi-mode
 function zvm_after_init() { 
+  autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
+  zle -N up-line-or-beginning-search
+  zle -N down-line-or-beginning-search
   zvm_bindkey viins '^p' up-line-or-beginning-search # prefix based searching
   zvm_bindkey viins '^n' down-line-or-beginning-search # prefix based searching
   zvm_bindkey vicmd '^p' history-search-backward # prefix based searching
