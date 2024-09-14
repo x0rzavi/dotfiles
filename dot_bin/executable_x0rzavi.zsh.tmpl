@@ -1,7 +1,7 @@
 # Author: https://github.com/x0rzavi
 # Description: User agnostic conveniences for ZSH
 # Usage:
-# 1. zsh - ~/.zshrc + ~/.zprofile + ~/.bin/x0rzavi.zsh + zoxide + starship + zsh-syntax-highlighting + zsh-autosuggestions
+# zsh - ~/.zshrc + ~/.zprofile + ~/.bin/x0rzavi.zsh + zoxide + starship + zsh-syntax-highlighting + zsh-autosuggestions
 
 # List of modern UNIX tool replacements
 # bat (https://github.com/sharkdp/bat)                  [cat] [sys-apps/bat]
@@ -58,18 +58,21 @@ mvr() { rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 
 {{- if eq .chezmoi.osRelease.id "gentoo" }}
 alias update='sudo emaint -A sync'
 alias upgrade='sudo emerge --update --changed-use --deep --with-bdeps=y @world'
-alias clean='sudo emerge --depclean ; sudo eclean-dist --deep'
-{{- else if eq .chezmoi.osRelease.idLike "arch" }}
+alias cleanup='sudo emerge --depclean ; sudo eclean-dist --deep'
+{{- else if eq .chezmoi.osRelease.id "arch" }}
 alias update='paru'
 alias upgrade='paru -Syyu'
-alias clean='paru -Sccd && (paru -Qtdq | paru -Rns -)'
+alias cleanup='paru -Sccd && (paru -Qtdq | paru -Rns -)'
 {{- end }}
 alias perf="sudo ${x0rzavi_home}/.bin/mode.sh -p"
 {{- end }}
 
 # Set ZSH options: http://zsh.sourceforge.net/Doc/Release/Options.html.
+setopt HIST_IGNORE_SPACE        # prevent entries from being recorded into a history by preceding them with space
 setopt HIST_IGNORE_ALL_DUPS     # prevent history from recording duplicated entries even if they are not adjacent
-setopt HIST_IGNORE_SPACE        # prevent particular entries from being recorded into a history by preceding them with at least one space
+# setopt HIST_IGNORE_DUPS
+# setopt HIST_SAVE_NO_DUPS
+# setopt HIST_FIND_NO_DUPS
 setopt HIST_ALLOW_CLOBBER       # save clobber overrides as is
 setopt HIST_REDUCE_BLANKS       # tidy up the line when it is entered into the history by removing any excess blanks
 setopt HIST_NO_STORE            # don't store history or fc commands
@@ -84,74 +87,71 @@ setopt AUTO_CD                  # check to see if it's actually a directory. If 
 # ZSH history options
 HISTFILE="${HOME}/.zsh_history"
 HISTSIZE=10000
-SAVEHIST=10000
+SAVEHIST="${HISTSIZE}"
 
 # Keybindings: https://wiki.archlinux.org/title/zsh#Key_bindings
 # create a zkbd compatible hash
 # to add other keys to this hash, see: man 5 terminfo
 # source ${x0rzavi_home}/.zkbd/keymaps
-typeset -g -A key
+# typeset -g -A key
 
-key[Home]="${terminfo[khome]}"
-key[End]="${terminfo[kend]}"
-key[Insert]="${terminfo[kich1]}"
-key[Backspace]="${terminfo[kbs]}"
-key[Delete]="${terminfo[kdch1]}"
-key[Up]="${terminfo[kcuu1]}"
-key[Down]="${terminfo[kcud1]}"
-key[Left]="${terminfo[kcub1]}"
-key[Right]="${terminfo[kcuf1]}"
-key[PageUp]="${terminfo[kpp]}"
-key[PageDown]="${terminfo[knp]}"
-key[Shift-Tab]="${terminfo[kcbt]}"
+# key[Home]="${terminfo[khome]}"
+# key[End]="${terminfo[kend]}"
+# key[Insert]="${terminfo[kich1]}"
+# key[Backspace]="${terminfo[kbs]}"
+# key[Delete]="${terminfo[kdch1]}"
+# key[Up]="${terminfo[kcuu1]}"
+# key[Down]="${terminfo[kcud1]}"
+# key[Left]="${terminfo[kcub1]}"
+# key[Right]="${terminfo[kcuf1]}"
+# key[PageUp]="${terminfo[kpp]}"
+# key[PageDown]="${terminfo[knp]}"
+# key[Shift-Tab]="${terminfo[kcbt]}"
 
-[[ -n "${key[Home]}"        ]] && bindkey -- "${key[Home]}"         beginning-of-line
-[[ -n "${key[End]}"         ]] && bindkey -- "${key[End]}"          end-of-line
-[[ -n "${key[Insert]}"      ]] && bindkey -- "${key[Insert]}"       overwrite-mode
-[[ -n "${key[Backspace]}"   ]] && bindkey -- "${key[Backspace]}"    backward-delete-char
-[[ -n "${key[Delete]}"      ]] && bindkey -- "${key[Delete]}"       delete-char
-[[ -n "${key[Left]}"        ]] && bindkey -- "${key[Left]}"         backward-char
-[[ -n "${key[Right]}"       ]] && bindkey -- "${key[Right]}"        forward-char
-[[ -n "${key[PageUp]}"      ]] && bindkey -- "${key[PageUp]}"       beginning-of-buffer-or-history
-[[ -n "${key[PageDown]}"    ]] && bindkey -- "${key[PageDown]}"     end-of-buffer-or-history
-[[ -n "${key[Shift-Tab]}"   ]] && bindkey -- "${key[Shift-Tab]}"    reverse-menu-complete
+# [[ -n "${key[Home]}"        ]] && bindkey -- "${key[Home]}"         beginning-of-line
+# [[ -n "${key[End]}"         ]] && bindkey -- "${key[End]}"          end-of-line
+# [[ -n "${key[Insert]}"      ]] && bindkey -- "${key[Insert]}"       overwrite-mode
+# [[ -n "${key[Backspace]}"   ]] && bindkey -- "${key[Backspace]}"    backward-delete-char
+# [[ -n "${key[Delete]}"      ]] && bindkey -- "${key[Delete]}"       delete-char
+# [[ -n "${key[Left]}"        ]] && bindkey -- "${key[Left]}"         backward-char
+# [[ -n "${key[Right]}"       ]] && bindkey -- "${key[Right]}"        forward-char
+# [[ -n "${key[PageUp]}"      ]] && bindkey -- "${key[PageUp]}"       beginning-of-buffer-or-history
+# [[ -n "${key[PageDown]}"    ]] && bindkey -- "${key[PageDown]}"     end-of-buffer-or-history
+# [[ -n "${key[Shift-Tab]}"   ]] && bindkey -- "${key[Shift-Tab]}"    reverse-menu-complete
 
 # Finally, make sure the terminal is in application mode, when zle is
 # active. Only then are the values from $terminfo valid.
-if (( ${+terminfo[smkx]} && ${+terminfo[rmkx]} )); then
-    autoload -Uz add-zle-hook-widget
-    function zle_application_mode_start { echoti smkx }
-    function zle_application_mode_stop { echoti rmkx }
-    add-zle-hook-widget -Uz zle-line-init zle_application_mode_start
-    add-zle-hook-widget -Uz zle-line-finish zle_application_mode_stop
-fi
+# if (( ${+terminfo[smkx]} && ${+terminfo[rmkx]} )); then
+#     autoload -Uz add-zle-hook-widget
+#     function zle_application_mode_start { echoti smkx }
+#     function zle_application_mode_stop { echoti rmkx }
+#     add-zle-hook-widget -Uz zle-line-init zle_application_mode_start
+#     add-zle-hook-widget -Uz zle-line-finish zle_application_mode_stop
+# fi
 
 # History based autocompletion
-autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
-zle -N up-line-or-beginning-search
-zle -N down-line-or-beginning-search
-[[ -n "${key[Up]}"          ]] && bindkey -- "${key[Up]}"           up-line-or-beginning-search
-[[ -n "${key[Down]}"        ]] && bindkey -- "${key[Down]}"         down-line-or-beginning-search
+# autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
+# zle -N up-line-or-beginning-search
+# zle -N down-line-or-beginning-search
+# [[ -n "${key[Up]}"          ]] && bindkey -- "${key[Up]}"           up-line-or-beginning-search
+# [[ -n "${key[Down]}"        ]] && bindkey -- "${key[Down]}"         down-line-or-beginning-search
 
 # Autocompletion options
 autoload -Uz compinit
 compinit
 zstyle ':completion::complete:*' use-cache on
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' # case insensitive matching
-zstyle ':completion:*' menu select=3
-zstyle ':completion:*' rehash true
+# zstyle ':completion:*' menu select=3
+# zstyle ':completion:*' rehash true
 
 # Initialize zoxide
 eval "$(zoxide init --cmd cd zsh)"
-
-# Initialize starship
-eval "$(starship init zsh)"
 
 # Source additional helper files
 {{- if eq .chezmoi.osRelease.id "gentoo" }}
 source /usr/share/zsh/site-functions/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/site-functions/zsh-autosuggestions.zsh
-{{- else if eq .chezmoi.osRelease.idLike "arch" }}
+{{- else if eq .chezmoi.osRelease.id "arch" }}
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 {{ end }}
@@ -166,8 +166,11 @@ then
     
     # Hack to openup gpg keys without intervention
     # GPG pinentry quirk (use only if willing to apply hacky methods)
-    # export GPG_TTY=$(tty)
+    export GPG_TTY=$(tty)
     printf 'hack' | gpg --clearsign --pinentry-mode loopback --passphrase-file=${x0rzavi_home}/.gnupg/.gpgkey > /dev/null
 fi
 {{- end }}
 {{- end }}
+
+# Initialize starship
+eval "$(starship init zsh)"
