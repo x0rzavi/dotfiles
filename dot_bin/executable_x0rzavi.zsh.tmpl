@@ -97,8 +97,16 @@ SAVEHIST="${HISTSIZE}"
 
 # zsh-vi-mode
 ZVM_VI_EDITOR=nvim
+ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
 zinit ice depth=1
 zinit light jeffreytse/zsh-vi-mode
+function zvm_before_init() {
+  zvm_bindkey viins '^[[A' history-beginning-search-backward
+  zvm_bindkey viins '^[[B' history-beginning-search-forward
+  zvm_bindkey vicmd '^[[A' history-beginning-search-backward
+  zvm_bindkey vicmd '^[[B' history-beginning-search-forward
+}
+
 
 # Keybindings: https://wiki.archlinux.org/title/zsh#Key_bindings
 # create a zkbd compatible hash, to add other keys to this hash, see: man 5 terminfo
@@ -145,8 +153,6 @@ zinit light jeffreytse/zsh-vi-mode
 # zle -N down-line-or-beginning-search
 # [[ -n "${key[Up]}"          ]] && bindkey -- "${key[Up]}"           up-line-or-beginning-search
 # [[ -n "${key[Down]}"        ]] && bindkey -- "${key[Down]}"         down-line-or-beginning-search
-bindkey '^p' history-search-backward
-bindkey '^n' history-search-forward
 
 # Autocompletion options
 autoload -Uz compinit
