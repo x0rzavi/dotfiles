@@ -143,8 +143,8 @@ SAVEHIST="${HISTSIZE}"
 # [[ -n "${key[Down]}"        ]] && bindkey -- "${key[Down]}"         down-line-or-beginning-search
 
 # Autocompletion options
-# autoload -Uz compinit
-# compinit
+autoload -Uz compinit
+compinit
 zstyle ':completion::complete:*' use-cache on
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' # case insensitive matching
 # zstyle ':completion:*' menu select=3
@@ -152,6 +152,10 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' # case insensitive mat
 
 # Initialize zoxide
 eval "$(zoxide init --cmd cd zsh)"
+
+# zsh-vi-mode
+zinit ice depth=1
+zinit light jeffreytse/zsh-vi-mode
 
 # Source additional helper files
 {{- if eq .chezmoi.osRelease.id "gentoo" }}
