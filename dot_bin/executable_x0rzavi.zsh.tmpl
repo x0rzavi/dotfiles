@@ -158,6 +158,7 @@ compinit
 zstyle ':completion::complete:*' use-cache on
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' # case insensitive matching
 zstyle ':completion:*' rehash true
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 # zstyle ':completion:*' menu select=3
 
 # Initialize zoxide
