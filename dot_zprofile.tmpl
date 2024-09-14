@@ -1,5 +1,4 @@
 {{- if eq .chezmoi.os "linux" -}}
-EDITOR=nvim
 {{- if not (or (.chezmoi.hostname | lower | contains "vm") (.chezmoi.kernel.osrelease | lower | contains "microsoft")) -}}
 # Variables
 x0rzavi_home='{{ .chezmoi.homeDir }}'
