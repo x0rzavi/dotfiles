@@ -38,26 +38,26 @@ ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 source "${ZINIT_HOME}/zinit.zsh"
 
 # Define command replacements
-cat() { bat "$@" 2> /dev/null || [ $? -eq 0 ] || command cat "$@"; }
-grep() { batgrep --ignore-case --hidden "$@" 2> /dev/null || [ $? -eq 0 ] || command grep --ignore-case "$@"; }
-man() { batman "$@" 2> /dev/null || [ $? -eq 0 ] || command man "$@"; }
-watch() { batwatch --interval 1 --command "$@" 2> /dev/null || [ $? -eq 0 ] || command watch --interval 1 "$@"; }
-diff() { batdiff --delta "$@" 2> /dev/null || [ $? -eq 0 ] || command diff "$@"; }
-ls() { exa --icons "$@" 2> /dev/null || [ $? -eq 0 ] || command ls "$@"; }
-ll() { exa --icons --long --all --group --git --group-directories-first "$@" 2> /dev/null || [ $? -eq 0 ] || command ls --almost-all --human-readable -l "$@"; }
-du() { dust "$@" 2> /dev/null || [ $? -eq 0 ] || command du --human-readable --summarize "$@"; }
-df() { duf "$@" 2> /dev/null || [ $? -eq 0 ] || command df --human-readable "$@"; }
-ncdu() { gdu --show-relative-size --max-cores 4 "$@" 2> /dev/null || [ $? -eq 0 ] || command ncdu "$@"; }
-find() { fd --hidden --no-ignore --follow "$@" 2> /dev/null || [ $? -eq 0 ] || command find "$@"; }
-sed() { sd "$@" 2> /dev/null || [ $? -eq 0 ] || command sed "$@"; }
-ps() { procs "$@" 2> /dev/null || [ $? -eq 0 ] || command ps axu "$@"; }
-dig() { doggo "$@" 2> /dev/null || [ $? -eq 0 ] || command dig "$@"; }
-ping() { gping "$@" 2> /dev/null || [ $? -eq 0 ] || command ping "$@"; }
+cat() { bat "$@" 2> /dev/null || command cat "$@"; }
+grep() { batgrep --ignore-case --hidden "$@" 2> /dev/null || command grep --ignore-case "$@"; }
+man() { batman "$@" 2> /dev/null || command man "$@"; }
+watch() { batwatch --interval 1 --command "$@" 2> /dev/null || command watch --interval 1 "$@"; }
+diff() { batdiff --delta "$@" 2> /dev/null || command diff "$@"; }
+ls() { exa --icons "$@" 2> /dev/null || command ls "$@"; }
+ll() { exa --icons --long --all --group --git --group-directories-first "$@" 2> /dev/null || command ls --almost-all --human-readable -l "$@"; }
+du() { dust "$@" 2> /dev/null || command du --human-readable --summarize "$@"; }
+df() { duf "$@" 2> /dev/null || command df --human-readable "$@"; }
+ncdu() { gdu --show-relative-size --max-cores 4 "$@" 2> /dev/null || command ncdu "$@"; }
+find() { fd --hidden --no-ignore --follow "$@" 2> /dev/null || command find "$@"; }
+sed() { sd "$@" 2> /dev/null || command sed "$@"; }
+ps() { procs "$@" 2> /dev/null || command ps axu "$@"; }
+dig() { doggo "$@" 2> /dev/null || command dig "$@"; }
+ping() { gping "$@" 2> /dev/null || command ping "$@"; }
 
 # Hacks / improvements
-# alias nvim='nvim 2> /dev/null'
-cpr() { rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 "$@" 2> /dev/null || [ $? -eq 0 ] || command echo "Please install rsync!"; }
-mvr() { rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 --remove-source-files "$@" 2> /dev/null || [ $? -eq 0 ] || command echo "Please install rsync!"; }
+alias nv='nvim'
+cpr() { rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 "$@" 2> /dev/null || command echo "Please install rsync!"; }
+mvr() { rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 --remove-source-files "$@" 2> /dev/null || command echo "Please install rsync!"; }
 
 {{ if eq .chezmoi.os "linux" -}}
 # Define general task aliases
