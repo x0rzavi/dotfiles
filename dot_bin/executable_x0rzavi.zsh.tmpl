@@ -55,7 +55,7 @@ dig() { doggo "$@" 2> /dev/null || command dig "$@"; }
 ping() { gping "$@" 2> /dev/null || command ping "$@"; }
 
 # Hacks / improvements
-alias nv='nvim'
+alias nv='NVIM_APPNAME="nvim-kickstart" nvim'
 cpr() { rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 "$@" 2> /dev/null || command echo "Please install rsync!"; }
 mvr() { rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 --remove-source-files "$@" 2> /dev/null || command echo "Please install rsync!"; }
 
