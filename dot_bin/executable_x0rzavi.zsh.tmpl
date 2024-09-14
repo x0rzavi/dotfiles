@@ -96,21 +96,13 @@ HISTSIZE=10000
 SAVEHIST="${HISTSIZE}"
 
 # zsh-vi-mode
-# ZVM_VI_EDITOR=nvim
-# ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
-# zinit ice depth=1
-# zinit light jeffreytse/zsh-vi-mode
-# function zvm_after_lazy_keybindings() {
-#   zvm_bindkey viins '^p' history-search-backward
-#   zvm_bindkey viins '^n' history-search-forward
-#   zvm_bindkey vicmd '^p' history-search-backward
-#   zvm_bindkey vicmd '^n' history-search-forward
-#   zvm_bindkey viins '^[[A' history-search-backward
-#   zvm_bindkey viins '^[[B' history-search-forward
-#   zvm_bindkey vicmd '^[[A' history-search-backward
-#   zvm_bindkey vicmd '^[[B' history-search-forward
-# }
-
+ZVM_VI_EDITOR=nvim
+ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
+zinit ice depth=1; zinit light jeffreytse/zsh-vi-mode
+function zvm_after_init() {
+  zvm_bindkey viins '^p' line-up-or-search
+  zvm_bindkey viins '^n' line-down-or-search
+}
 
 # Keybindings: https://wiki.archlinux.org/title/zsh#Key_bindings
 # create a zkbd compatible hash, to add other keys to this hash, see: man 5 terminfo
