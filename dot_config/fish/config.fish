@@ -11,7 +11,7 @@ function fetch
 end
 
 # extend PATH
-fish_add_path ~/.local/bin/
+fish_add_path ~/.bin ~/.local/bin/
 
 # npm configuration
 set -gx npm_config_prefix "$HOME/.local"
@@ -24,6 +24,7 @@ alias nv="nvim"
 
 if status --is-interactive
     DISPLAY=:0 SSH_ASKPASS="$HOME/.ssh/.sshkey" keychain --eval --quiet --quick id_ed25519 | source
+    set -gx GPG_TTY $(tty)
     printf 'hack' | gpg --clearsign --pinentry-mode loopback --passphrase-file="$HOME/.gnupg/.gpgkey" > /dev/null
 end
 
