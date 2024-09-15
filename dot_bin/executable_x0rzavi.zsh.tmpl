@@ -65,7 +65,7 @@ mvr() { rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 
 alias update='sudo emaint -A sync'
 alias upgrade='sudo emerge --update --changed-use --deep --with-bdeps=y @world'
 alias cleanup='sudo emerge --depclean ; sudo eclean-dist --deep'
-{{- else if eq .chezmoi.osRelease.id "arch" }}
+{{- else if (or (eq .chezmoi.osRelease.id "arch") (eq .chezmoi.osRelease.idLike "arch")) }}
 alias update='paru'
 alias upgrade='paru -Syyu'
 alias cleanup='paru -Sccd && (paru -Qtdq | paru -Rns -)'
@@ -177,7 +177,7 @@ zinit light Aloxaf/fzf-tab
 {{- if eq .chezmoi.osRelease.id "gentoo" }}
 source /usr/share/zsh/site-functions/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/site-functions/zsh-autosuggestions.zsh
-{{- else if eq .chezmoi.osRelease.id "arch" }}
+{{- else if (or (eq .chezmoi.osRelease.id "arch") (eq .chezmoi.osRelease.idLike "arch")) }}
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 {{ end }}
