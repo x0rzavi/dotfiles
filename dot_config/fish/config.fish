@@ -18,8 +18,7 @@ set -gx npm_config_prefix "$HOME/.local"
 
 # rsync as cp/mv alternative
 alias cpr="rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1"
-alias mvr="rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 --remove-source-f
-iles"
+alias mvr="rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 --remove-source-files"
 
 # command replacements
 alias nv="nvim"
