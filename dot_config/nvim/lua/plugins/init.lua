@@ -33,6 +33,7 @@ return {
         "vimdoc",
         "html",
         "css",
+        "java",
       },
     },
   },
