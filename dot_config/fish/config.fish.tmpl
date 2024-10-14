@@ -7,7 +7,7 @@ function fish_greeting
 end
 
 function fetch
-  fastfetch -l arch
+	fastfetch -l arch
 end
 
 # extend PATH
@@ -35,6 +35,6 @@ if status --is-interactive
     printf 'hack' | gpg --clearsign --pinentry-mode loopback --passphrase-file="$HOME/.gnupg/.gpgkey" > /dev/null
 end
 {{- end -}}
-{{- end }}
+{{ end -}}
 
 zoxide init fish --cmd cd | source
