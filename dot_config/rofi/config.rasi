@@ -2,15 +2,16 @@
 
 /* Global configurations */
 configuration {
-        modes: [ drun, run, ssh ];
+        modes: [ emoji ];
         display-drun: "";
         display-run: "";
         display-ssh: "";
+        // display-emoji: none;
         // sorting-method: "fzf";
         // show-icons: true;
-        terminal: "footclient";
+        terminal: "alacritty";
         // font: "Cartograph CF 11";
-        font: "Iosevka 11";
+        font: "Iosevka Nerd Font Medium 11";
 
         timeout {
                 action: "kb-cancel";
@@ -39,12 +40,12 @@ window {
 }
 
 mainbox {
-        children: [ inputbar, message, listview, mode-switcher ];
+        children: [ inputbar, message, listview ];
 }
 
 /* Searchbox */
 inputbar {
-        children: [ textbox-search-icon, entry ];
+        children: [ entry ];
         margin: 15px 10px 8px;
         padding: 15px;
 }
@@ -57,7 +58,7 @@ textbox-search-icon {
         border: 0 2px 2px 0;
         border-color: @bg-jan;
         background-color: @black-extra-jan;
-        text-color: @green2-jan;
+        text-color: @blue12-jan;
         content: "<span rise='-3pt' size='large' font='Material Symbols Rounded'></span>";
 }
 
@@ -65,10 +66,11 @@ entry {
         // transparency: inherit;
         background-color: @black-extra-jan;
         placeholder-color: @white7-jan;
-        text-color: @green2-jan;
+        text-color: @blue12-jan;
         placeholder: "Type to search";
         padding: 10px 20px;
-        margin: 0 0 0 15px;
+        // margin: 0 0 0 15px;
+        margin: 0;
         border-radius: 50%;
         border: 0 2px 2px 0;
         border-color: @bg-jan;
@@ -83,7 +85,7 @@ listview {
 }
 
 scrollbar {
-        handle-color: @green2-jan;
+        handle-color: @blue12-jan;
         handle-width: 3px;
         // background-color: @black-extra-jan;
         margin: 0 10px;
@@ -103,7 +105,7 @@ element alternate.normal, element alternate.urgent, element alternate.active  {
 }
 element selected.normal {
         background-color: @black-extra-jan;
-        text-color:       @green2-jan;
+        text-color:       @blue12-jan;
         border: 0 2px 2px 0;
         border-color: @bg-jan;
 }
@@ -129,10 +131,10 @@ button {
         padding: 8px 10px;
         background-color: @black-extra-jan;
         text-color: @fg-jan;
-        font: "Material Symbols Rounded 12";
+        font: "Iosevka Nerd Font Bold 12";
 }
 
 button selected {
         background-color: @black-extra-jan;
-        text-color: @green2-jan;
+        text-color: @blue12-jan;
 }

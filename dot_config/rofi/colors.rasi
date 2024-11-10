@@ -4,7 +4,7 @@
         fg-jan: #c5c8c9; /* mid white */
         bg-jan: rgba(11, 15, 16, 0.7); /* deep black */
         black0-jan: rgba(16, 20, 21, 0.65); /* mid black */
-        black8-jan: rgba(19, 23, 24, 0.75); /* light black */
+        black8-jan: rgba(19, 23, 24, 1.0); /* light black */
         red1-jan: #df5b61; /* darker red */
         red9-jan: #ee6a70; /* brighter red */
         green2-jan: #87c7a1;
