@@ -17,7 +17,7 @@ fish_add_path ~/.bin ~/.local/bin/
 set -gx npm_config_prefix "$HOME/.local"
 
 {{ if eq .chezmoi.os "linux" -}}
-if status --is-interactive
+if status is-interactive
   # rsync as cp/mv alternative
   alias cpr="rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1"
   alias mvr="rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 --remove-source-files"
@@ -35,6 +35,6 @@ if status --is-interactive
   DISPLAY=:0 SSH_ASKPASS="$HOME/.ssh/.sshkey" keychain --eval --quiet --quick id_ed25519 | source
   set -gx GPG_TTY $(tty)
   printf 'hack' | gpg --clearsign --pinentry-mode loopback --passphrase-file="$HOME/.gnupg/.gpgkey" > /dev/null
-{{ end -}}
+{{ end }}
 end
 {{ end -}}
