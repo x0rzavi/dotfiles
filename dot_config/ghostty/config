@@ -3,4 +3,5 @@ font-style = SemiBold
 theme = Everblush
 cursor-style = block
 window-padding-x = 10
-window-padding-y = 10
+window-padding-y = 5
+selection-invert-fg-bg = true
