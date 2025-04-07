@@ -22,6 +22,12 @@ if status is-interactive
   alias cpr="rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1"
   alias mvr="rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 --remove-source-files"
 
+  # force myself to use trash-cli
+  function rm
+    echo "Use trash-cli instead! Use `command rm <file>` to bypass."
+    return 1
+  end
+
   # command replacements
   alias nv="nvim"
   function cat
