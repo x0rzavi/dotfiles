@@ -49,9 +49,9 @@ if status is-interactive
 
   {{if (or (.chezmoi.hostname | lower | contains "vm") (.chezmoi.kernel.osrelease | lower | contains "microsoft")) -}}
   # don't work anymore
-  DISPLAY=:0 SSH_ASKPASS="$HOME/.ssh/.sshkey" keychain --no-gui --eval --quiet --quick id_ed25519 | source
+  # DISPLAY=:0 SSH_ASKPASS="$HOME/.ssh/.sshkey" keychain --eval --quiet --quick id_ed25519 | source
   # unlock key normally https://wiki.archlinux.org/title/SSH_keys#Keychain
-  # keychain --eval --quiet --quick --noask id_ed25519 | source
+  keychain --eval --quiet --quick --noask id_ed25519 | source
 
   set -gx GPG_TTY $(tty)
   printf 'hack' | gpg --clearsign --pinentry-mode loopback --passphrase-file="$HOME/.gnupg/.gpgkey" > /dev/null
