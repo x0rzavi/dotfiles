@@ -1,0 +1,16 @@
+return {
+  "mfussenegger/nvim-lint",
+  event = { "BufReadPre", "BufNewFile" },
+  config = function()
+    local lint = require("lint")
+
+    -- Custom ctcache configuration
+    lint.linters.ctcache = vim.deepcopy(lint.linters.clangtidy)
+    lint.linters.ctcache.cmd = vim.fn.expand("~/Tools/ctcache/src/ctcache/clang_tidy_cache.py /usr/bin/clang-tidy")
+
+    lint.linters_by_ft = {
+      cpp = { "ctcache" },
+      c = { "ctcache" },
+    }
+  end,
+}
