@@ -4,3 +4,5 @@
 
 local opt = vim.opt
 opt.colorcolumn = "80"
+
+vim.g.snacks_animate = false

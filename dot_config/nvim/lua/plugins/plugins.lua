@@ -21,17 +21,43 @@ return {
   },
 
   {
+    "neovim/nvim-lspconfig",
+    opts = function(_, opts)
+      local mason_servers = { "emmet_language_server" }
+
+      opts.servers = {
+        clangd = {},
+        lua_ls = {},
+        pylsp = {},
+        ruff = {},
+        html = {},
+        cssls = {},
+        ts_ls = {},
+        emmet_language_server = {},
+      }
+
+      for server, server_opts in pairs(opts.servers) do
+        server_opts.mason = false
+      end
+
+      for _, server in ipairs(mason_servers) do
+        opts.servers[server] = { mason = true }
+      end
+    end,
+  },
+
+  {
     "stevearc/conform.nvim",
     opts = {
       formatters_by_ft = {
-        css = { "prettierd" },
+        c = { "clang-format" },
+        cpp = { "clang-format" },
+        python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
         html = { "prettierd" },
+        css = { "prettierd" },
         js = { "prettierd" },
         json = { "prettierd" },
         yaml = { "prettierd" },
-        python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
-        c = { "clang-format" },
-        cpp = { "clang-format" },
         sh = { "shfmt" },
       },
     },
@@ -82,6 +108,21 @@ return {
     opts = {
       lang = "python3",
     },
+  },
+
+  {
+    "catgoose/nvim-colorizer.lua",
+    event = "BufReadPre",
+    opts = {
+      user_default_options = {
+        css = true,
+      },
+    },
+  },
+
+  {
+    "karb94/neoscroll.nvim",
+    opts = {},
   },
 
   -- {
