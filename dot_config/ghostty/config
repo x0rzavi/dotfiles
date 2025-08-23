@@ -1,6 +1,6 @@
-font-family = Iosevka NF
-font-style = SemiBold
-theme = Everblush
+font-family = ZedMono NF
+font-style = Medium
+theme = Melange_dark
 cursor-style = block
 window-padding-x = 10
 window-padding-y = 5
