@@ -13,13 +13,13 @@ if [ ! -d "$1" ]; then
 fi
 
 # Find pdf files and process them
-fd -e 'pdf' --search-path "$1" -x sh -c "
+fd -e 'pdf' --search-path "$1" -x sh -c '
 # Check if file was already processed by looking for our marker in metadata
-if pdfinfo '{}' 2>/dev/null | grep -q 'Producer.*Ghostscript'; then
-    echo 'Skipped: {} (already optimized)'
+if pdfinfo "{}" 2>/dev/null | grep -q "Producer.*Ghostscript"; then
+  echo "Skipped: {} (already optimized)"
 else
-    gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile='/tmp/temp_{/}' '{}' && \
-    mv '/tmp/temp_{/}' '{}' && \
-    echo 'Processed: {}'
+  gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/ebook -dNOPAUSE -dQUIET -dBATCH -sOutputFile="/tmp/temp_{/}" "{}" && \
+    mv "/tmp/temp_{/}" "{}" && \
+    echo "Processed: {}"
 fi
-" \;
+' \;

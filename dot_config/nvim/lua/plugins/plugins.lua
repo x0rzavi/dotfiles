@@ -1,5 +1,20 @@
 return {
   {
+    "savq/melange-nvim",
+  },
+
+  -- {
+  --   "nyoom-engineering/oxocarbon.nvim",
+  -- },
+
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "melange",
+    },
+  },
+
+  {
     "Civitasv/cmake-tools.nvim",
     keys = {
       { "<leader>ckc", "<cmd>CMakeClean<cr>", desc = "(C)Ma(k)e (C)lean", mode = { "n" } },
