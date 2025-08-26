@@ -4,22 +4,26 @@
 
 local opt = vim.opt
 local global_opt = vim.g
-opt.colorcolumn = "80"
 
+opt.colorcolumn = "80"
 global_opt.snacks_animate = false
-global_opt.clipboard = {
-  name = "OSC 52",
-  copy = {
-    ["+"] = require("vim.ui.clipboard.osc52").copy("+"),
-    ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
-  },
-  paste = {
-    ["+"] = function()
-      return vim.fn.getreg("+")
-    end,
-    ["*"] = function()
-      return vim.fn.getreg("*")
-    end,
-  },
-}
-opt.clipboard = "unnamedplus"
+
+-- Only set up OSC52 clipboard if running inside Windows Terminal
+if vim.fn.environ()["WT_SESSION"] then
+  global_opt.clipboard = {
+    name = "OSC 52",
+    copy = {
+      ["+"] = require("vim.ui.clipboard.osc52").copy("+"),
+      ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
+    },
+    paste = {
+      ["+"] = function()
+        return vim.fn.getreg("+")
+      end,
+      ["*"] = function()
+        return vim.fn.getreg("*")
+      end,
+    },
+  }
+  opt.clipboard = "unnamedplus"
+end

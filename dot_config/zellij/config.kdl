@@ -387,7 +387,7 @@ scrollback_editor "/usr/bin/nvim"
 // if it is already running or creates it otherwise.
 // Default: false
 // 
-attach_to_session true
+// attach_to_session true
  
 // Toggle between having Zellij lay out panes according to a predefined set of layouts whenever possible
 // Options:
