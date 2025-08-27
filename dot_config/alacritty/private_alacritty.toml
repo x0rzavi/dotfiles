@@ -7,12 +7,16 @@ WINIT_X11_SCALE_FACTOR = "1"
 dynamic_padding = true
 decorations = "full"
 title = "Alacritty@CachyOS"
-opacity = 0.8
+opacity = 0.98
 decorations_theme_variant = "Dark"
 
 [window.dimensions]
-columns = 100
+columns = 120
 lines = 30
+
+[window.padding]
+x = 10
+y = 10
 
 [window.class]
 instance = "Alacritty"
@@ -25,47 +29,54 @@ multiplier = 3
 [colors]
 draw_bold_text_with_bright_colors = true
 
+# Default colors
 [colors.primary]
-background = "0x2E3440"
-foreground = "0xD8DEE9"
+  background = '0x141b1e'
+  foreground =  '0xdadada'
 
+[colors.cursor]
+  text = '0xdadada'
+  cursor = '0xdadada'
+
+# Normal colors
 [colors.normal]
-black = "0x3B4252"
-red = "0xBF616A"
-green = "0xA3BE8C"
-yellow = "0xEBCB8B"
-blue = "0x81A1C1"
-magenta = "0xB48EAD"
-cyan = "0x88C0D0"
-white = "0xE5E9F0"
+  black =   '0x232a2d'
+  red =     '0xe57474'
+  green =   '0x8ccf7e'
+  yellow =  '0xe5c76b'
+  blue =     '0x67b0e8'
+  magenta = '0xc47fd5'
+  cyan =    '0x6cbfbf'
+  white =   '0xb3b9b8'
 
+# Bright colors
 [colors.bright]
-black = "0x4C566A"
-red = "0xBF616A"
-green = "0xA3BE8C"
-yellow = "0xEBCB8B"
-blue = "0x81A1C1"
-magenta = "0xB48EAD"
-cyan = "0x8FBCBB"
-white = "0xECEFF4"
+  black =   '0x2d3437'
+  red =     '0xef7e7e'
+  green =   '0x96d988'
+  yellow =  '0xf4d67a'
+  blue =    '0x71baf2'
+  magenta = '0xce89df'
+  cyan =    '0x67cbe7'
+  white =   '0xbdc3c2'
 
 [font]
 size = 12
 
 [font.normal]
-family = "monospace"
+family = "ZedMono Nerd Font"
 style = "Regular"
 
 [font.bold]
-family = "monospace"
+family = "ZedMono Nerd Font"
 style = "Bold"
 
 [font.italic]
-family = "monospace"
+family = "ZedMono Nerd Font"
 style = "Italic"
 
 [font.bold_italic]
-family = "monospace"
+family = "ZedMono Nerd Font"
 style = "Bold Italic"
 
 [selection]
@@ -163,3 +174,6 @@ action = "ResetFontSize"
 [general]
 live_config_reload = true
 working_directory = "None"
+# import = [
+#     "~/.config/alacritty/themes/themes/one_dark.toml"
+# ]
