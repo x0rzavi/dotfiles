@@ -2,7 +2,7 @@
 max-cache-ttl 60480000
 default-cache-ttl 60480000
 {{ if not (or (.chezmoi.hostname | lower | contains "vm") (.chezmoi.kernel.osrelease | lower | contains "microsoft")) -}}
-pinentry-program /usr/bin/pinentry-qt
+pinentry-program /usr/bin/pinentry-kwallet
 {{- else }}
 pinentry-program /usr/bin/pinentry-tty
 {{- end }}
