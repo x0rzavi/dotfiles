@@ -1,4 +1,4 @@
-#!/usr/bin/env dash
+#!/usr/bin/env bash
 
 # Check if directory argument is provided
 if [ -z "$1" ]; then
@@ -34,4 +34,3 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
 else
   echo "Operation cancelled."
 fi
-
