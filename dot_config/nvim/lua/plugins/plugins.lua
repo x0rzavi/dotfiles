@@ -7,6 +7,18 @@ return {
   --   "nyoom-engineering/oxocarbon.nvim",
   -- },
 
+  -- {
+  --   "navarasu/onedark.nvim",
+  --   priority = 1000, -- make sure to load this before all the other start plugins
+  --   config = function()
+  --     require("onedark").setup({
+  --       style = "deep",
+  --     })
+  --     -- Enable theme
+  --     require("onedark").load()
+  --   end,
+  -- },
+
   {
     "LazyVim/LazyVim",
     opts = {
@@ -38,9 +50,9 @@ return {
   {
     "neovim/nvim-lspconfig",
     opts = function(_, opts)
-      local mason_servers = { "emmet_language_server" }
+      local mason_servers = { "emmet_language_server" } -- install with Mason
 
-      opts.servers = {
+      opts.servers = { -- all configured servers
         clangd = {},
         lua_ls = {},
         pylsp = {},
@@ -295,17 +307,5 @@ return {
   --   },
   --   build = "npm install -g mcp-hub@latest",
   --   opts = true,
-  -- },
-
-  -- {
-  --   "navarasu/onedark.nvim",
-  --   priority = 1000, -- make sure to load this before all the other start plugins
-  --   config = function()
-  --     require("onedark").setup({
-  --       style = "deep",
-  --     })
-  --     -- Enable theme
-  --     require("onedark").load()
-  --   end,
   -- },
 }
