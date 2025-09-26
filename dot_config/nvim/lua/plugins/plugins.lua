@@ -20,6 +20,15 @@ return {
   -- },
 
   {
+    "zbirenbaum/copilot.lua",
+    event = "VeryLazy",
+    opts = {
+      suggestion = { enabled = false },
+      panel = { enabled = false },
+    },
+  },
+
+  {
     "LazyVim/LazyVim",
     opts = {
       colorscheme = "melange",
@@ -149,163 +158,17 @@ return {
 
   {
     "karb94/neoscroll.nvim",
-    opts = {},
+    opts = true,
   },
 
-  -- {
-  --   "olimorris/codecompanion.nvim",
-  --   lazy = true,
-  --   dependencies = {
-  --     "ravitemer/mcphub.nvim",
-  --     "nvim-lua/plenary.nvim",
-  --     "nvim-treesitter/nvim-treesitter",
-  --   },
-  --   keys = {
-  --     {
-  --       "<leader>ac",
-  --       "<cmd>CodeCompanionActions<cr>",
-  --       desc = "CodeCompanionActions",
-  --       mode = { "n", "v" },
-  --       noremap = true,
-  --       silent = true,
-  --     },
-  --     {
-  --       "<leader>aa",
-  --       "<cmd>CodeCompanionChat Toggle<cr>",
-  --       desc = "CodeCompanionChat",
-  --       mode = { "n", "v" },
-  --       noremap = true,
-  --       silent = true,
-  --     },
-  --     { "ga", "<cmd>CodeCompanionChat Add<cr>", mode = { "v" }, noremap = true, silent = true },
-  --   },
-  --   opts = {
-  --     display = {
-  --       chat = {
-  --         auto_scroll = false,
-  --       },
-  --     },
-  --     adapters = {
-  --       opts = {
-  --         show_defaults = false,
-  --         show_model_choices = false,
-  --       },
-  --     },
-  --     strategies = {
-  --       chat = {
-  --         adapter = {
-  --           name = "copilot",
-  --           model = "gpt-4.1",
-  --           -- model = "claude-sonnet-4",
-  --         },
-  --       },
-  --     },
-  --     extensions = {
-  --       mcphub = {
-  --         callback = "mcphub.extensions.codecompanion",
-  --         opts = {
-  --           make_vars = true,
-  --           make_slash_commands = true,
-  --           show_result_in_chat = true,
-  --         },
-  --       },
-  --     },
-  --   },
-  -- },
-
-  -- {
-  --   "nvim-lualine/lualine.nvim",
-  --   opts = function(_, opts)
-  --     -- Create the CodeCompanion status component
-  --     local codecompanion_status = require("lualine.component"):extend()
-  --
-  --     codecompanion_status.processing = false
-  --     codecompanion_status.spinner_index = 1
-  --
-  --     local spinner_symbols = {
-  --       "CodeCompanion ⠋",
-  --       "CodeCompanion ⠙",
-  --       "CodeCompanion ⠹",
-  --       "CodeCompanion ⠸",
-  --       "CodeCompanion ⠼",
-  --       "CodeCompanion ⠴",
-  --       "CodeCompanion ⠦",
-  --       "CodeCompanion ⠧",
-  --       "CodeCompanion ⠇",
-  --       "CodeCompanion ⠏",
-  --     }
-  --     local spinner_symbols_len = 10
-  --
-  --     -- Initializer
-  --     function codecompanion_status:init(options)
-  --       codecompanion_status.super.init(self, options)
-  --
-  --       local group = vim.api.nvim_create_augroup("CodeCompanionHooks", {})
-  --
-  --       vim.api.nvim_create_autocmd({ "User" }, {
-  --         pattern = "CodeCompanionRequest*",
-  --         group = group,
-  --         callback = function(request)
-  --           if request.match == "CodeCompanionRequestStarted" then
-  --             self.processing = true
-  --           elseif request.match == "CodeCompanionRequestFinished" then
-  --             self.processing = false
-  --           end
-  --         end,
-  --       })
-  --     end
-  --
-  --     -- Function that runs every time statusline is updated
-  --     function codecompanion_status:update_status()
-  --       if self.processing then
-  --         self.spinner_index = (self.spinner_index % spinner_symbols_len) + 1
-  --         return spinner_symbols[self.spinner_index]
-  --       else
-  --         return nil
-  --       end
-  --     end
-  --
-  --     -- Add the component to lualine sections
-  --     opts.sections = opts.sections or {}
-  --     opts.sections.lualine_x = opts.sections.lualine_x or {}
-  --
-  --     -- Insert the CodeCompanion status component
-  --     table.insert(opts.sections.lualine_x, {
-  --       codecompanion_status,
-  --       color = { fg = "#ff9e64" }, -- Optional: customize color
-  --     })
-  --
-  --     return opts
-  --   end,
-  -- },
-
-  -- {
-  --   "MeanderingProgrammer/render-markdown.nvim",
-  --   ft = { "markdown", "codecompanion" },
-  -- },
-
-  -- {
-  --   "HakonHarnes/img-clip.nvim",
-  --   event = "VeryLazy",
-  --   cmd = "PasteImage",
-  --   opts = {
-  --     filetypes = {
-  --       codecompanion = {
-  --         prompt_for_file_name = false,
-  --         template = "[Image]($FILE_PATH)",
-  --         use_absolute_path = true,
-  --       },
-  --     },
-  --   },
-  -- },
-  --
-  -- {
-  --   "ravitemer/mcphub.nvim",
-  --   lazy = true,
-  --   dependencies = {
-  --     "nvim-lua/plenary.nvim",
-  --   },
-  --   build = "npm install -g mcp-hub@latest",
-  --   opts = true,
-  -- },
+  {
+    "ravitemer/mcphub.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    build = "npm install -g mcp-hub@latest", -- Installs `mcp-hub` node binary globally
+    config = function()
+      require("mcphub").setup()
+    end,
+  },
 }
