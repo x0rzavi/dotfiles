@@ -1,12 +1,12 @@
 return {
-  {
-    "savq/melange-nvim",
-  },
+  -- {
+  --   "savq/melange-nvim",
+  -- },
 
   -- {
   --   "nyoom-engineering/oxocarbon.nvim",
   -- },
-
+  --
   -- {
   --   "navarasu/onedark.nvim",
   --   priority = 1000, -- make sure to load this before all the other start plugins
@@ -20,6 +20,13 @@ return {
   -- },
 
   {
+    "mrcjkb/rustaceanvim",
+    version = "^6", -- Recommended
+    lazy = false, -- This plugin is already lazy
+    build = false,
+  },
+
+  {
     "zbirenbaum/copilot.lua",
     event = "VeryLazy",
     opts = {
@@ -30,9 +37,9 @@ return {
 
   {
     "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "melange",
-    },
+    -- opts = {
+    --   colorscheme = "oxocarbon",
+    -- },
   },
 
   {
