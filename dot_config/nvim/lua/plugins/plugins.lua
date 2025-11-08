@@ -26,12 +26,22 @@ return {
     build = false,
   },
 
+  -- disable copilot auto completions
   {
     "zbirenbaum/copilot.lua",
     event = "VeryLazy",
     opts = {
       suggestion = { enabled = false },
       panel = { enabled = false },
+    },
+  },
+
+  -- disable copilot auto completions
+  {
+    "fang2hou/blink-copilot",
+    opts = {
+      max_completions = 0, -- Global default for max completions
+      max_attempts = 2, -- Global default for max attempts
     },
   },
 
