@@ -87,6 +87,7 @@ return {
         cssls = {},
         ts_ls = {},
         emmet_language_server = {},
+        tinymist = {},
       }
 
       for server, server_opts in pairs(opts.servers) do
@@ -187,5 +188,18 @@ return {
     config = function()
       require("mcphub").setup()
     end,
+  },
+
+  {
+    "chomosuke/typst-preview.nvim",
+    -- lazy = false,
+    ft = "typst",
+    version = "1.*",
+    opts = {
+      dependencies_bin = {
+        ["tinymist"] = "tinymist",
+        ["websocat"] = "websocat",
+      },
+    }, -- lazy.nvim will implicitly calls `setup {}`
   },
 }
