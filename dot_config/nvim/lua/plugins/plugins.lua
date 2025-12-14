@@ -113,6 +113,7 @@ return {
         json = { "prettierd" },
         yaml = { "prettierd" },
         sh = { "shfmt" },
+        typst = { "typstyle" },
       },
     },
   },
