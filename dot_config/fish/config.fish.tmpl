@@ -49,7 +49,7 @@ if status is-interactive
   end
 
   {{if (or (.chezmoi.hostname | lower | contains "vm") (.chezmoi.kernel.osrelease | lower | contains "microsoft")) -}}
-  # don't work anymore
+  # doesn't work anymore - manually ssh-add keys
   # DISPLAY=:0 SSH_ASKPASS="$HOME/.ssh/.sshkey" keychain --eval --quiet --quick id_ed25519 | source
   # unlock key normally https://wiki.archlinux.org/title/SSH_keys#Keychain
   keychain --eval --quiet --quick --noask id_ed25519 | source
