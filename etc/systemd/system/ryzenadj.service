@@ -1,0 +1,10 @@
+[Unit]
+Description=Set AMD SMU to max-performance state
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/ryzenadj --max-performance --tctl-temp=77
+; ExecStart=/usr/bin/ryzenadj --power-saving --stapm-limit=60000 --fast-limit=25000 --slow-limit=20000 --tctl-temp=70
+
+[Install]
+WantedBy=default.target

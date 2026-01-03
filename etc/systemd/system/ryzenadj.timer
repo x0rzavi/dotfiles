@@ -1,0 +1,9 @@
+[Unit]
+Description=Set AMD SMU to max-performance state every 1min after boot
+
+[Timer]
+OnBootSec=5sec
+OnUnitActiveSec=1min
+
+[Install]
+WantedBy=timers.target suspend.target
