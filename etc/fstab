@@ -1,0 +1,20 @@
+# /etc/fstab: static file system information.
+#
+# Use 'blkid' to print the universally unique identifier for a device; this may
+# be used with UUID= as a more robust way to name devices that works even if
+# disks are added and removed. See fstab(5).
+#
+# <file system>             <mount point>  <type>  <options>  <dump>  <pass>
+UUID=74D9-13AD                            /boot          vfat    defaults   0 2
+UUID=c434283e-de40-4937-b95c-38363f71c98f /              btrfs   subvol=/@,defaults,noatime,compress=zstd,space_cache=v2,commit=120 0 0
+UUID=c434283e-de40-4937-b95c-38363f71c98f /home          btrfs   subvol=/@home,defaults,noatime,compress=zstd,space_cache=v2,commit=120 0 0
+UUID=c434283e-de40-4937-b95c-38363f71c98f /root          btrfs   subvol=/@root,defaults,noatime,compress=zstd,space_cache=v2,commit=120 0 0
+UUID=c434283e-de40-4937-b95c-38363f71c98f /srv           btrfs   subvol=/@srv,defaults,noatime,compress=zstd,space_cache=v2,commit=120 0 0
+UUID=c434283e-de40-4937-b95c-38363f71c98f /var/cache     btrfs   subvol=/@cache,defaults,noatime,compress=zstd,space_cache=v2,commit=120 0 0
+UUID=c434283e-de40-4937-b95c-38363f71c98f /var/tmp       btrfs   subvol=/@tmp,defaults,noatime,compress=zstd,space_cache=v2,commit=120 0 0
+UUID=c434283e-de40-4937-b95c-38363f71c98f /var/log       btrfs   subvol=/@log,defaults,noatime,compress=zstd,space_cache=v2,commit=120 0 0
+tmpfs                                     /tmp           tmpfs   defaults,noatime,mode=1777 0 0
+
+# /dev/sda2 LABEL=Data Bitlocker encrypted
+/dev/mapper/bitlk-bc04ce3a-f6e2-47e1-a165-20ebc0560b81 /run/media/x0rzavi/Data ntfs3 rw,nosuid,nodev,nofail,relatime,sys_immutable,windows_names,prealloc,uid=1000,gid=1000,iocharset=utf8 0 0
+
