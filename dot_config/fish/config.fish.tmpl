@@ -3,11 +3,11 @@ source /usr/share/cachyos-fish-config/cachyos-config.fish
 # overwrite greeting
 # potentially disabling fastfetch
 function fish_greeting
-  :
+    :
 end
 
 function fetch
-  fastfetch -l arch
+    fastfetch -l arch
 end
 
 # extend PATH
@@ -15,47 +15,39 @@ fish_add_path ~/.bin ~/.local/bin/ ~/.cargo/bin/
 
 # npm configuration
 set -gx npm_config_prefix "$HOME/.local"
+{ { if eq .chezmoi.os linux - } if status is-interactive
+            # rsync as cp/mv alternative
+            alias cpr="rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1"
+            alias mvr="rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 --remove-source-files"
 
-{{ if eq .chezmoi.os "linux" -}}
-if status is-interactive
-  # rsync as cp/mv alternative
-  alias cpr="rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1"
-  alias mvr="rsync --archive -hh --partial --info=stats1,progress2 --modify-window=1 --remove-source-files"
+            # force myself to use trash-cli
+            function rm
+                echo "Use trash-cli instead! Use `command rm <file>` to bypass."
+                return 1
+            end
 
-  # force myself to use trash-cli
-  function rm
-    echo "Use trash-cli instead! Use `command rm <file>` to bypass."
-    return 1
-  end
+            # command replacements
+            alias nv="nvim"
+            alias zj="zellij"
+            function cat
+                bat $argv 2>/dev/null || command cat $argv
+            end
 
-  # command replacements
-  alias nv="nvim"
-  alias zj="zellij"
-  function cat
-    bat $argv 2> /dev/null || command cat $argv
-  end
+            zoxide init fish --cmd cd | source
+            atuin init fish | source
 
-  zoxide init fish --cmd cd | source
-  atuin init fish | source
+            # yazi
+            function y
+                set tmp (mktemp -t "yazi-cwd.XXXXXX")
+                yazi $argv --cwd-file="$tmp"
+                if set cwd (command cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
+                    builtin cd -- "$cwd"
+                end
+                rm -f -- "$tmp"
+            end
+            { { if (or (.chezmoi.hostname | lower | contains "vm") (.chezmoi.kernel.osrelease | lower | contains "microsoft")) - } keychain --eval --quiet --quick --noask id_ed25519 | source
 
-  # yazi
-  function y
-    set tmp (mktemp -t "yazi-cwd.XXXXXX")
-    yazi $argv --cwd-file="$tmp"
-    if set cwd (command cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
-      builtin cd -- "$cwd"
-    end
-    rm -f -- "$tmp"
-  end
-
-  {{if (or (.chezmoi.hostname | lower | contains "vm") (.chezmoi.kernel.osrelease | lower | contains "microsoft")) -}}
-  # doesn't work anymore - manually ssh-add keys
-  # DISPLAY=:0 SSH_ASKPASS="$HOME/.ssh/.sshkey" keychain --eval --quiet --quick id_ed25519 | source
-  # unlock key normally https://wiki.archlinux.org/title/SSH_keys#Keychain
-  keychain --eval --quiet --quick --noask id_ed25519 | source
-
-  set -gx GPG_TTY $(tty)
-  printf 'hack' | gpg --clearsign --pinentry-mode loopback --passphrase-file="$HOME/.gnupg/.gpgkey" > /dev/null
-{{ end }}
-end
-{{ end -}}
+                    set -gx GPG_TTY $(tty)
+                    printf hack | gpg --clearsign --pinentry-mode loopback --passphrase-file="$HOME/.gnupg/.gpgkey" >/dev/null
+                    { { end } }
+{ { end - }
