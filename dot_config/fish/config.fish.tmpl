@@ -32,8 +32,13 @@ if status is-interactive
   alias nv="nvim"
   alias zj="zellij"
   function cat
-    bat --paging=auto $argv 2> /dev/null || command cat $argv
+    if type -q bat
+      bat $argv
+    else
+      command cat $argv
+    end
   end
+
 
   zoxide init fish --cmd cd | source
   atuin init fish | source
