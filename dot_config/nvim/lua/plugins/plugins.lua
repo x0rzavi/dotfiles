@@ -78,7 +78,7 @@ return {
     opts = function(_, opts)
       local mason_servers = { "emmet_language_server" } -- install with Mason
 
-      opts.servers = { -- all configured servers
+      local my_servers = { -- all configured servers
         clangd = {},
         lua_ls = {},
         pylsp = {},
@@ -90,12 +90,19 @@ return {
         tinymist = {},
       }
 
+      -- preserves default ["*"] entry and lazyvim modifications
+      opts.servers = vim.tbl_deep_extend("force", opts.servers, my_servers)
+
       for server, server_opts in pairs(opts.servers) do
-        server_opts.mason = false
+        if server ~= "*" then -- Don't mess with the special "*" entry
+          server_opts.mason = false
+        end
       end
 
       for _, server in ipairs(mason_servers) do
-        opts.servers[server] = { mason = true }
+        -- Ensure table exists before setting mason=true
+        opts.servers[server] = opts.servers[server] or {}
+        opts.servers[server].mason = true
       end
     end,
   },
@@ -144,7 +151,7 @@ return {
           "clang -Wall -Wextra -std=c2x -pedantic -lm $fileName",
           "-o $fileNameWithoutExt &&",
           "$dir/$fileNameWithoutExt &&",
-          "rm $dir/$fileNameWithoutExt",
+          "rm $dir/$fileNameWithoutExt", -- FIX: doesn't cleanup on segfault
         },
         python = "python -u",
         sh = "bash",
