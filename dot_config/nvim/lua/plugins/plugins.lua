@@ -143,18 +143,26 @@ return {
 
   {
     "CRAG666/code_runner.nvim",
-    ft = { "c", "python", "sh" },
+    ft = { "c", "cpp", "python", "sh", "rs" },
     opts = {
       filetype = {
         c = {
           "cd $dir &&",
-          "clang -Wall -Wextra -std=c2x -pedantic -lm $fileName",
+          "clang -Wall -Wextra -std=c23 -pedantic -Wshadow -Wformat=2 -Wcast-align -Wconversion -Wsign-conversion -Wnull-dereference -Wno-unused-variable -lm $fileName", -- compile
           "-o $fileNameWithoutExt &&",
-          "$dir/$fileNameWithoutExt &&",
-          "rm $dir/$fileNameWithoutExt", -- FIX: doesn't cleanup on segfault
+          "$dir/$fileNameWithoutExt ;", -- run
+          "rm -f $dir/$fileNameWithoutExt", -- cleanup
+        },
+        cpp = {
+          "cd $dir &&",
+          "clang++ -Wall -Wextra -std=c++23 -pedantic -Wshadow -Wformat=2 -Wcast-align -Wconversion -Wsign-conversion -Wnull-dereference -Wno-unused-variable -Weffc++ $fileName", -- compile
+          "-o $fileNameWithoutExt &&",
+          "$dir/$fileNameWithoutExt ;", -- run
+          "rm -f $dir/$fileNameWithoutExt", -- cleanup
         },
         python = "python -u",
         sh = "bash",
+        rust = "cargo run",
       },
     },
   },
