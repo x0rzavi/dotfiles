@@ -7,6 +7,9 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "auto_indent": true,
+  "tab_size": 2,
+  "show_whitespaces": "selection",
   "buffer_font_weight": 500.0,
   "ui_font_weight": 500.0,
   "format_on_save": "on",
@@ -30,9 +33,10 @@
     "edit_prediction_provider": "copilot",
   },
   "agent": {
+    "default_profile": "ask",
     "default_model": {
       "provider": "copilot_chat",
-      "model": "gemini-3-pro-preview",
+      "model": "claude-sonnet-4.5",
     },
     "model_parameters": [],
   },
