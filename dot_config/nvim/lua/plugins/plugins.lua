@@ -20,6 +20,17 @@ return {
   -- },
 
   {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    opts = {
+      style = "night",
+      on_colors = function(colors)
+        colors.border = colors.fg
+      end,
+    },
+  },
+
+  {
     "mrcjkb/rustaceanvim",
     version = "^6", -- Recommended
     lazy = false, -- This plugin is already lazy
@@ -121,6 +132,7 @@ return {
         yaml = { "prettierd" },
         sh = { "shfmt" },
         typst = { "typstyle" },
+        cmake = { "gersemi" },
       },
     },
   },
