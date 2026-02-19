@@ -39,12 +39,14 @@ if status is-interactive
     end
   end
 
+  {{if not (or (.chezmoi.hostname | lower | contains "vm") (.chezmoi.kernel.osrelease | lower | contains "microsoft")) -}}
   function rclonesync
     rclone sync ~/Data/Dungeon/ od:Important/Dungeon/ -P --transfers=10 --checkers=30
     rclone sync ~/Data/College/ od:Important/College/ -P --transfers=10 --checkers=30
     rclone sync ~/Data/Work/ od:Important/Work/ -P --transfers=10 --checkers=30 --filter-from ~/Data/Work/.rclone.filter
     rclone sync od:Important x0rzavi:Important -P --transfers=20 --checkers=100
   end
+  {{ end -}}
 
   zoxide init fish --cmd cd | source
   atuin init fish | source
@@ -67,6 +69,6 @@ if status is-interactive
 
   set -gx GPG_TTY $(tty)
   printf 'hack' | gpg --clearsign --pinentry-mode loopback --passphrase-file="$HOME/.gnupg/.gpgkey" > /dev/null
-{{ end }}
+  {{ end }}
 end
 {{ end -}}
