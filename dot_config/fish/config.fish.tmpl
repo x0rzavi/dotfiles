@@ -51,6 +51,19 @@ if status is-interactive
   zoxide init fish --cmd cd | source
   atuin init fish | source
 
+  {{if not (or (.chezmoi.hostname | lower | contains "vm") (.chezmoi.kernel.osrelease | lower | contains "microsoft")) -}}
+  # https://github.com/atuinsh/atuin/issues/1302
+  function _atuin_postexec --on-event fish_postexec
+    set -l s $status
+
+    if test -n "$ATUIN_HISTORY_ID"
+        ATUIN_LOG=error setsid -f atuin history end --exit $s -- $ATUIN_HISTORY_ID &>/dev/null
+    end
+
+    set --erase ATUIN_HISTORY_ID
+  end
+  {{ end -}}
+
   # yazi
   function y
     set tmp (mktemp -t "yazi-cwd.XXXXXX")
