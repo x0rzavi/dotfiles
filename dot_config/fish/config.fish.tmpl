@@ -46,12 +46,11 @@ if status is-interactive
     rclone sync ~/Data/Work/ od:Important/Work/ -P --transfers=10 --checkers=30 --filter-from ~/Data/Work/.rclone.filter
     rclone sync od:Important x0rzavi:Important -P --transfers=20 --checkers=100
   end
-  {{ end -}}
+  {{- end }}
 
   zoxide init fish --cmd cd | source
   atuin init fish | source
 
-  {{if not (or (.chezmoi.hostname | lower | contains "vm") (.chezmoi.kernel.osrelease | lower | contains "microsoft")) -}}
   # https://github.com/atuinsh/atuin/issues/1302
   function _atuin_postexec --on-event fish_postexec
     set -l s $status
@@ -62,7 +61,6 @@ if status is-interactive
 
     set --erase ATUIN_HISTORY_ID
   end
-  {{ end -}}
 
   # yazi
   function y
