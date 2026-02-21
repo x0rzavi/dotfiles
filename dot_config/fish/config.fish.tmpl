@@ -39,7 +39,7 @@ if status is-interactive
     end
   end
 
-  {{if not (or (.chezmoi.hostname | lower | contains "vm") (.chezmoi.kernel.osrelease | lower | contains "microsoft")) -}}
+  {{- if not (or (.chezmoi.hostname | lower | contains "vm") (.chezmoi.kernel.osrelease | lower | contains "microsoft")) }}
   function rclonesync
     rclone sync ~/Data/Dungeon/ od:Important/Dungeon/ -P --transfers=10 --checkers=30
     rclone sync ~/Data/College/ od:Important/College/ -P --transfers=10 --checkers=30
