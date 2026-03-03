@@ -70,6 +70,11 @@ x-scheme-handler/chrome=firefox.desktop;
 x-scheme-handler/geo=google-maps-geo-handler.desktop;
 x-scheme-handler/http=firefox.desktop;thorium-browser.desktop;cachy-browser.desktop;
 x-scheme-handler/https=firefox.desktop;thorium-browser.desktop;cachy-browser.desktop;
+x-scheme-handler/rdp=org.remmina.Remmina.desktop;
+x-scheme-handler/spice=org.remmina.Remmina.desktop;
+x-scheme-handler/vnc=org.remmina.Remmina.desktop;
+x-scheme-handler/remmina=org.remmina.Remmina.desktop;
+application/x-remmina=org.remmina.Remmina.desktop;
 
 [Default Applications]
 application/json=org.kde.kate.desktop;
@@ -148,3 +153,8 @@ x-scheme-handler/geo=google-maps-geo-handler.desktop;
 x-scheme-handler/http=firefox.desktop;
 x-scheme-handler/https=firefox.desktop;
 x-scheme-handler/stabilitymatrix=stabilitymatrix.desktop
+x-scheme-handler/rdp=org.remmina.Remmina.desktop
+x-scheme-handler/spice=org.remmina.Remmina.desktop
+x-scheme-handler/vnc=org.remmina.Remmina.desktop
+x-scheme-handler/remmina=org.remmina.Remmina.desktop
+application/x-remmina=org.remmina.Remmina.desktop
