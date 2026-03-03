@@ -196,8 +196,10 @@ return {
     "catgoose/nvim-colorizer.lua",
     event = "BufReadPre",
     opts = {
-      user_default_options = {
-        css = true,
+      options = {
+        parsers = {
+          css = true,
+        },
       },
     },
   },
