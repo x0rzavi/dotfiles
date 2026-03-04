@@ -1,0 +1,16 @@
+swipe:
+  3:
+    left:
+      command: "ydotool key 125:1 38:1 38:0 125:0" # karousel move focus left
+    right:
+      command: "ydotool key 125:1 35:1 35:0 125:0" # karousel move focus right
+    up:
+      command: "ydotool key 125:1 37:1 37:0 125:0" # karousel move focus up
+    down:
+      command: "ydotool key 125:1 36:1 36:0 125:0" # karousel move focus down
+
+threshold:
+  swipe: 0.5
+
+interval:
+  swipe: 0.5
