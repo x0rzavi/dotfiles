@@ -1,5 +1,5 @@
 font-family = ZedMono NF
-font-style = Medium
+# font-style = Regular
 theme = Melange Dark
 cursor-style = block
 window-padding-x = 10
