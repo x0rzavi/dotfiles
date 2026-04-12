@@ -1,27 +1,47 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "plugin": [],
+  "plugin": [
+    "context-mode"
+  ],
   "mcp": {
     "context7": {
       "type": "local",
-      "command": ["npx", "-y", "@upstash/context7-mcp"]
+      "command": [
+        "npx",
+        "-y",
+        "@upstash/context7-mcp"
+      ]
     },
     "mcp-obsidian": {
       "type": "local",
-      "command": ["uvx", "mcp-obsidian"],
+      "command": [
+        "uvx",
+        "mcp-obsidian"
+      ],
       "environment": {
         "OBSIDIAN_API_KEY": "28ebf6c3034669b971c47c3617db6dabd842ea2f3d10c8119b00acc3fb38f7e0"
-      }
+      },
+      "enabled": false
     },
     "playwright": {
       "type": "local",
-      "command": ["npx", "-y", "@playwright/mcp@latest"]
+      "command": [
+        "npx",
+        "-y",
+        "@playwright/mcp@latest"
+      ],
+      "enabled": false
     },
     "github": {
       "type": "remote",
       "url": "https://api.githubcopilot.com/mcp/",
       "enabled": false
+    },
+    "context-mode": {
+      "type": "local",
+      "command": [
+        "context-mode"
+      ]
     }
   }
 }
-
