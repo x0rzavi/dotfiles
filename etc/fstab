@@ -17,4 +17,4 @@ tmpfs                                     /tmp           tmpfs   defaults,noatim
 
 # /dev/sda2 LABEL=Data Bitlocker encrypted
 /dev/mapper/bitlk-bc04ce3a-f6e2-47e1-a165-20ebc0560b81 /run/media/x0rzavi/Data ntfs3 rw,nosuid,nodev,nofail,relatime,sys_immutable,windows_names,prealloc,uid=1000,gid=1000,iocharset=utf8 0 0
-
+# /dev/mapper/bitlk-bc04ce3a-f6e2-47e1-a165-20ebc0560b81 /run/media/x0rzavi/Data ntfs3 rw,nosuid,nodev,nofail,relatime,sys_immutable,windows_names,prealloc,iocharset=utf8 0 0
