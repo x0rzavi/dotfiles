@@ -50,6 +50,7 @@ if status is-interactive
 
     zoxide init fish --cmd cd | source
     atuin init fish | source
+    direnv hook fish | source
 
     # https://github.com/atuinsh/atuin/issues/1302
     function _atuin_postexec --on-event fish_postexec
