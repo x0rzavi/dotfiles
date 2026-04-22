@@ -87,7 +87,7 @@ return {
   {
     "neovim/nvim-lspconfig",
     opts = function(_, opts)
-      local mason_servers = { "emmet_language_server" } -- install with Mason
+      local mason_servers = { "emmet_language_server", "lemminx" } -- install with Mason
 
       local my_servers = { -- all configured servers
         clangd = {},
@@ -99,6 +99,7 @@ return {
         ts_ls = {},
         emmet_language_server = {},
         tinymist = {},
+        lemminx = {},
       }
 
       -- preserves default ["*"] entry and lazyvim modifications
