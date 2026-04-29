@@ -92,7 +92,7 @@ return {
       local my_servers = { -- all configured servers
         clangd = {},
         lua_ls = {},
-        pylsp = {},
+        -- pylsp = {},
         ruff = {},
         html = {},
         cssls = {},
