@@ -92,8 +92,8 @@ return {
       local my_servers = { -- all configured servers
         clangd = {},
         lua_ls = {},
-        -- pylsp = {},
-        ruff = {},
+        -- pylsp = {}, -- use lazyvim extras
+        -- ruff = {}, -- use lazyvim extras
         html = {},
         cssls = {},
         ts_ls = {},
@@ -134,7 +134,7 @@ return {
       formatters_by_ft = {
         c = { "clang-format" },
         cpp = { "clang-format" },
-        python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
+        -- python = { "ruff_fix", "ruff_format", "ruff_organize_imports" }, -- use lazyvim extras
         html = { "prettierd" },
         css = { "prettierd" },
         js = { "prettierd" },
@@ -153,7 +153,7 @@ return {
       linters_by_ft = {
         -- c = { "clangtidy" },
         -- cpp = { "clangtidy" },
-        python = { "ruff" },
+        -- python = { "ruff" }, -- use lazyvim extras
       },
     },
   },
