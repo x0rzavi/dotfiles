@@ -16,5 +16,5 @@ UUID=c434283e-de40-4937-b95c-38363f71c98f /var/log       btrfs   subvol=/@log,de
 tmpfs                                     /tmp           tmpfs   defaults,noatime,mode=1777 0 0
 
 # /dev/sda2 LABEL=Data Bitlocker encrypted
-/dev/mapper/bitlk-bc04ce3a-f6e2-47e1-a165-20ebc0560b81 /run/media/x0rzavi/Data ntfs3 rw,nosuid,nodev,nofail,relatime,sys_immutable,windows_names,prealloc,uid=1000,gid=1000,iocharset=utf8 0 0
-# /dev/mapper/bitlk-bc04ce3a-f6e2-47e1-a165-20ebc0560b81 /run/media/x0rzavi/Data ntfs3 rw,nosuid,nodev,nofail,relatime,sys_immutable,windows_names,prealloc,iocharset=utf8 0 0
+# /dev/mapper/bitlk-bc04ce3a-f6e2-47e1-a165-20ebc0560b81 /run/media/x0rzavi/Data ntfs3 rw,nosuid,nodev,nofail,relatime,sys_immutable,windows_names,prealloc,uid=1000,gid=1000,iocharset=utf8 0 0
+/dev/mapper/bitlk-bc04ce3a-f6e2-47e1-a165-20ebc0560b81 /run/media/x0rzavi/Data ntfs rw,nosuid,nodev,nofail,relatime,uid=x0rzavi,gid=x0rzavi,acl,windows_names, 0 0
