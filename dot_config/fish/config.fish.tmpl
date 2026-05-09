@@ -10,6 +10,10 @@ function fetch
     fastfetch -l arch
 end
 
+# environment variables
+set -gx EDITOR nvim
+set -gx VISUAL code
+
 # extend PATH
 fish_add_path ~/.bin ~/.local/bin/ ~/.cargo/bin/
 
