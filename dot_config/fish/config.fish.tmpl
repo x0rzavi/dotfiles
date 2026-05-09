@@ -55,22 +55,20 @@ if status is-interactive
     # https://github.com/atuinsh/atuin/issues/1302
     function _atuin_postexec --on-event fish_postexec
         set -l s $status
-
         if test -n "$ATUIN_HISTORY_ID"
             ATUIN_LOG=error setsid -f atuin history end --exit $s -- $ATUIN_HISTORY_ID &>/dev/null
         end
-
         set --erase ATUIN_HISTORY_ID
     end
 
     # yazi
     function y
-        set tmp (mktemp -t "yazi-cwd.XXXXXX")
-        yazi $argv --cwd-file="$tmp"
-        if set cwd (command cat -- "$tmp"); and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
-            builtin cd -- "$cwd"
-        end
-        rm -f -- "$tmp"
+	    set tmp (mktemp -t "yazi-cwd.XXXXXX")
+	    command yazi $argv --cwd-file="$tmp"
+	    if read -z cwd < "$tmp"; and [ "$cwd" != "$PWD" ]; and test -d "$cwd"
+		    builtin cd -- "$cwd"
+	    end
+	    command rm -f -- "$tmp"
     end
 
     {{if (or (.chezmoi.hostname | lower | contains "vm") (.chezmoi.kernel.osrelease | lower | contains "microsoft")) -}}
