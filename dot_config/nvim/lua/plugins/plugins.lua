@@ -1,9 +1,5 @@
 return {
   -- {
-  --   "savq/melange-nvim",
-  -- },
-
-  -- {
   --   "nyoom-engineering/oxocarbon.nvim",
   -- },
   --
@@ -20,6 +16,13 @@ return {
   -- },
 
   {
+    "LazyVim/LazyVim",
+    -- opts = {
+    --   colorscheme = "oxocarbon",
+    -- },
+  },
+
+  {
     "folke/tokyonight.nvim",
     lazy = false,
     opts = {
@@ -28,13 +31,6 @@ return {
         colors.border = colors.fg
       end,
     },
-  },
-
-  {
-    "mrcjkb/rustaceanvim",
-    version = "^6", -- Recommended
-    lazy = false, -- This plugin is already lazy
-    build = false,
   },
 
   -- disable copilot auto completions
@@ -54,13 +50,6 @@ return {
       max_completions = 0, -- Global default for max completions
       max_attempts = 2, -- Global default for max attempts
     },
-  },
-
-  {
-    "LazyVim/LazyVim",
-    -- opts = {
-    --   colorscheme = "oxocarbon",
-    -- },
   },
 
   {
@@ -212,11 +201,6 @@ return {
         },
       },
     },
-  },
-
-  {
-    "karb94/neoscroll.nvim",
-    opts = true,
   },
 
   {
