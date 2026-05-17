@@ -35,3 +35,5 @@ map("n", "<leader>ts", ":Leet submit<CR>", { desc = "Leetcode submit", noremap =
 map("n", "<leader>tc", ":Leet console<CR>", { desc = "Leetcode problem console", noremap = true, silent = false })
 map("n", "<leader>ti", ":Leet info<CR>", { desc = "Leetcode problem info", noremap = true, silent = false })
 map("n", "<leader>tx", ":Leet reset<CR>", { desc = "Leetcode problem reset", noremap = true, silent = false })
+
+map("n", "<C-A-s>", "<cmd>noautocmd w<CR>", { desc = "Save without any reformatting", noremap = true, silent = false })
