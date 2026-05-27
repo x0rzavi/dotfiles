@@ -6,7 +6,6 @@ local opt = vim.opt
 local global_opt = vim.g
 
 opt.colorcolumn = "80"
-global_opt.snacks_animate = false
 
 -- Only set up OSC52 clipboard if running inside Windows Terminal
 if vim.fn.environ()["WT_SESSION"] then
