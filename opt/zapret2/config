@@ -88,11 +88,12 @@ NFQWS2_OPT="
 # --filter-tcp=80 --filter-l7=http <HOSTLIST> --payload=http_req --lua-desync=fake:blob=fake_default_http:tcp_md5 --lua-desync=multisplit:pos=method+2 --new
 # --filter-tcp=443 --filter-l7=tls <HOSTLIST> --payload=tls_client_hello --lua-desync=fake:blob=fake_default_tls:tcp_md5:tcp_seq=-10000 --lua-desync=multidisorder:pos=1,midsld --new
 # --filter-udp=443 --filter-l7=quic <HOSTLIST_NOAUTO> --payload=quic_initial --lua-desync=fake:blob=fake_default_quic:repeats=6
---filter-tcp=80 --filter-l7=http <HOSTLIST> --payload=http_req --lua-desync=http_hostcase
+--filter-tcp=80 --filter-l7=http <HOSTLIST> --payload=http_req --lua-desync=tcpseg:pos=0,method+2:ip_id=rnd:repeats=1 --new
+--filter-tcp=443 --filter-l7=tls <HOSTLIST> --payload=tls_client_hello --lua-desync=tcpseg:pos=0,1:ip_id=rnd:repeats=1
 "
 
 # none,ipset,hostlist,autohostlist
-MODE_FILTER=none
+MODE_FILTER=hostlist
 
 # donttouch,none,software,hardware
 FLOWOFFLOAD=donttouch
