@@ -18,3 +18,7 @@ hostsFile:
 
 dnssec:
   validate: true
+
+conditional:
+  mapping:
+    tailddb21.ts.net: 100.100.100.100
