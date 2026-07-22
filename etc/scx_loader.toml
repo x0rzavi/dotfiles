@@ -1,4 +1,4 @@
-default_sched = "scx_cake"
+default_sched = "scx_cosmos"
 default_mode = "Auto"
 
 [scheds]
