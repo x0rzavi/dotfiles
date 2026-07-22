@@ -1,0 +1,1 @@
+KERNEL_CMDLINE[default]="quiet splash rw rootflags=subvol=/@ root=UUID=c434283e-de40-4937-b95c-38363f71c98f zswap.enabled=0 nowatchdog loglevel=3 systemd.show_status=auto rd.udev.log_priority=3"
