@@ -6,6 +6,15 @@ progress = true
   command = "nvim"
   args = "-d"
 
+[merge]
+  command = "nvim"
+  args = [
+    "-d",
+    {{ printf "%q" "{{ .Destination }}" }},
+    {{ printf "%q" "{{ .Source }}" }},
+    {{ printf "%q" "{{ .Target }}" }},
+  ]
+
 [edit]
   # command = "code"
   # args = ["--wait"]
