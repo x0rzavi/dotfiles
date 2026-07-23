@@ -4,9 +4,9 @@
 
 local map = vim.keymap.set
 map("i", "jk", "<ESC>")
-map("n", "<leader>o", function()
-  Snacks.terminal("opencode", { win = { position = "right" } }, { cwd = LazyVim.root() })
-end, { desc = "opencode.ai agent" })
+-- map("n", "<leader>o", function()
+--   Snacks.terminal("opencode", { win = { position = "right" } }, { cwd = LazyVim.root() })
+-- end, { desc = "opencode.ai agent" })
 
 map("n", "<leader>ckm", function()
   Snacks.picker.commands({
