@@ -10,9 +10,9 @@ progress = true
   command = "nvim"
   args = [
     "-d",
-    "{{ .Destination }}",
-    "{{ .Source }}",
-    "{{ .Target }}"
+    {{ printf "%q" "{{ .Destination }}" }},
+    {{ printf "%q" "{{ .Source }}" }},
+    {{ printf "%q" "{{ .Target }}" }},
   ]
 
 [edit]
