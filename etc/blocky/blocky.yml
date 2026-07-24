@@ -1,4 +1,10 @@
-minTlsServeVersion: 1.3
+ports:
+  dns:
+    - 127.0.0.1:53
+    - "[::1]:53"
+
+log:
+  level: warn
 
 upstreams:
   groups:
@@ -17,8 +23,8 @@ hostsFile:
   sources:
     - /etc/hosts
 
-dnssec:
-  validate: true
+# dnssec: # redundant with NextDNS; validates upstream
+#   validate: true
 
 conditional:
   mapping:
