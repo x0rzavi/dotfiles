@@ -1,1 +1,4 @@
-KERNEL_CMDLINE[default]="quiet splash rw rootflags=subvol=/@ root=UUID=c434283e-de40-4937-b95c-38363f71c98f zswap.enabled=0 nowatchdog loglevel=3 systemd.show_status=auto rd.udev.log_priority=3"
+ESP_PATH="/boot"
+KERNEL_CMDLINE[default]+="quiet nowatchdog splash rw rootflags=subvol=/@ rd.luks.uuid=0fe6cbf3-6b6a-4906-b884-82b0e948a3e9 root=/dev/mapper/luks-0fe6cbf3-6b6a-4906-b884-82b0e948a3e9"
+BOOT_ORDER="*, *lts, *fallback, Snapshots"
+ENABLE_ENROLL_LIMINE_CONFIG=yes
