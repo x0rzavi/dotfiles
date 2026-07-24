@@ -10,7 +10,7 @@ WINIT_X11_SCALE_FACTOR = "1.0"
 dimensions = { columns = 120, lines = 30 }
 dynamic_padding = true
 decorations = "Full"
-opacity = 0.8
+opacity = 0.95
 title = "Alacritty@CachyOS"
 class = { instance = "Alacritty", general = "Alacritty" }
 padding = { x = 10, y = 10 }
