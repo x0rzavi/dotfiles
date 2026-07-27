@@ -10,6 +10,7 @@ bootstrap:
 dnssec: true
 listen-addrs:
   - "127.0.0.1"
+  - "::1"
 listen-ports:
   - 53
 upstream:
