@@ -5,18 +5,13 @@
 # from the config file.
 ---
 bootstrap:
-  - "8.8.8.8:53"
   - "1.1.1.1:53"
+  - "8.8.8.8:53"
 dnssec: true
 listen-addrs:
-  - "0.0.0.0"
+  - "127.0.0.1"
 listen-ports:
   - 53
-max-go-routines: 0
-ratelimit: 0
-ratelimit-subnet-len-ipv4: 24
-ratelimit-subnet-len-ipv6: 64
-udp-buf-size: 0
 upstream:
   # - "tls://one.one.one.one"
   - "quic://linux-2edbed.dns.nextdns.io" # nextdns-mine-alt
@@ -26,3 +21,4 @@ fallback:
   - "tls://one.one.one.one"
 timeout: '10s'
 cache: true
+edns: true
