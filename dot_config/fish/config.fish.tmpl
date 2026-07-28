@@ -45,10 +45,8 @@ if status is-interactive
 
     {{- if not (or (.chezmoi.hostname | lower | contains "vm") (.chezmoi.kernel.osrelease | lower | contains "microsoft")) }}
     function rclonesync
-        rclone sync ~/Data/Dungeon/ od:Important/Dungeon/ -P --transfers=10 --checkers=30
-        rclone sync ~/Data/College/ od:Important/College/ -P --transfers=10 --checkers=30
-        rclone sync ~/Data/Work/ od:Important/Work/ -P --transfers=10 --checkers=30 --filter-from ~/Data/Work/.rclone.filter
-        rclone sync od:Important x0rzavi:Important -P --transfers=20 --checkers=100
+        rclone sync /run/media/x0rzavi/Data/ od:Data_sync --filter-from ~/Data/.rclone.filter --links --delete-excluded -P
+        rclone sync od:Data_sync x0rzavi:Data_sync -P --transfers=20 --checkers=100
     end
     {{- end }}
 
