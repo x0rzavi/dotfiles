@@ -1,7 +1,7 @@
 # Author: https://github.com/x0rzavi
 # Description: User agnostic conveniences for ZSH
 # Requisites: zsh, fzf, zoxide, starship, zsh-syntax-highlighting, zsh-autosuggestions
-# Workflow: ~/.zshrc -> ~/.bin/x0rzavi.zsh + ~/.zprofile
+# Workflow: ~/.zshrc -> ~/.local/bin/x0rzavi.zsh + ~/.zprofile
 
 # List of modern UNIX tool replacements
 # bat (https://github.com/sharkdp/bat)                  [cat] [sys-apps/bat]
@@ -70,7 +70,7 @@ alias update='paru'
 alias upgrade='paru -Syyu'
 alias cleanup='paru -Sccd && (paru -Qtdq | paru -Rns -)'
 {{- end }}
-alias perf="sudo ${x0rzavi_home}/.bin/mode.sh -p"
+alias perf="sudo ${x0rzavi_home}/.local/bin/mode.sh -p"
 {{- end }}
 
 # Set ZSH options: http://zsh.sourceforge.net/Doc/Release/Options.html.
