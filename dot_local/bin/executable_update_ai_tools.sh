@@ -11,8 +11,8 @@
 # rtk init --global --opencode
 
 uv tool install --upgrade "headroom-ai[all]" # https://github.com/headroomlabs-ai/headroom
-headroom wrap opencode --no-project-rtk
-headroom wrap claude
+# headroom wrap opencode --no-project-rtk
+# headroom wrap claude
 
 ## Cleanup
 uv cache prune
