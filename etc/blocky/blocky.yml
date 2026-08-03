@@ -9,10 +9,10 @@ log:
 upstreams:
   groups:
     default:
+      # - quic:linux-583822.dns.nextdns.io # nextdns-block
       - quic:linux-2edbed.dns.nextdns.io # nextdns-mine-alt
       - tcp-tls:one.one.one.one
       # - quic:linux-8d4e37.dns.nextdns.io # nextdns-mine
-      # - quic:linux-624e15.dns.nextdns.io # nextdns-block
   strategy: strict
 
 bootstrapDns:
