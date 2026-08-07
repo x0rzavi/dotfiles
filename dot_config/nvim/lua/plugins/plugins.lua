@@ -1,8 +1,10 @@
 return {
   -- {
   --   "nyoom-engineering/oxocarbon.nvim",
+  --   build = false,
+  --   priority = 1000, -- make sure to load this before all the other start plugins
   -- },
-  --
+
   -- {
   --   "navarasu/onedark.nvim",
   --   priority = 1000, -- make sure to load this before all the other start plugins
@@ -129,8 +131,8 @@ return {
         js = { "prettierd" },
         json = { "prettierd" },
         yaml = { "prettierd" },
-        sh = { "shfmt" },
-        typst = { "typstyle" },
+        -- sh = { "shfmt" }, -- use lazyvim defaults
+        -- typst = { "typstyle" }, -- use lazyvim extras
         cmake = { "gersemi" },
       },
     },
@@ -192,18 +194,6 @@ return {
   },
 
   -- {
-  --   "catgoose/nvim-colorizer.lua",
-  --   event = "BufReadPre",
-  --   opts = {
-  --     options = {
-  --       parsers = {
-  --         css = true,
-  --       },
-  --     },
-  --   },
-  -- },
-
-  -- {
   --   "ravitemer/mcphub.nvim",
   --   dependencies = {
   --     "nvim-lua/plenary.nvim",
@@ -216,14 +206,11 @@ return {
 
   {
     "chomosuke/typst-preview.nvim",
-    -- lazy = false,
-    ft = "typst",
-    version = "1.*",
     opts = {
       dependencies_bin = {
         ["tinymist"] = "tinymist",
         ["websocat"] = "websocat",
       },
-    }, -- lazy.nvim will implicitly calls `setup {}`
+    },
   },
 }
