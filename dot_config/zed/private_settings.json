@@ -36,8 +36,8 @@
     },
   },
   "relative_line_numbers": "enabled",
-  "ui_font_family": "ZedMono Nerd Font",
-  "buffer_font_family": "ZedMono Nerd Font",
+  "ui_font_family": "IosevkaTerm Nerd Font",
+  "buffer_font_family": "IosevkaTerm Nerd Font",
   "edit_predictions": {
     "mode": "subtle",
   },
