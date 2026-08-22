@@ -4,6 +4,8 @@
 
 local map = vim.keymap.set
 map("i", "jk", "<ESC>")
+map("i", "<C-BS>", "<C-w>")
+map("c", "<C-BS>", "<C-w>")
 -- map("n", "<leader>o", function()
 --   Snacks.terminal("opencode", { win = { position = "right" } }, { cwd = LazyVim.root() })
 -- end, { desc = "opencode.ai agent" })

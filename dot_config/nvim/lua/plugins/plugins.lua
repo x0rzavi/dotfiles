@@ -213,4 +213,8 @@ return {
       },
     },
   },
+
+  {
+    "selimacerbas/live-server.nvim",
+  },
 }
