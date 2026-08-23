@@ -11,9 +11,9 @@ uv tool install --upgrade "headroom-ai[all]" # https://github.com/headroomlabs-a
 # headroom wrap claude
 
 ## Skills
-curl -fsSL https://raw.githubusercontent.com/JuliusBrussee/caveman/main/install.sh | NPM_CONFIG_ALLOW_GIT=all bash -s -- --force # https://github.com/JuliusBrussee/caveman
-claude plugins install mattpocock-skills                                                                                         # https://github.com/mattpocock/skills
-npx skills@latest add mattpocock/skills --global --agent opencode                                                                # https://github.com/mattpocock/skills
+npx skills@latest add JuliusBrussee/caveman --global --agent claude-code opencode # https://github.com/JuliusBrussee/caveman
+claude plugins install mattpocock-skills                                          # https://github.com/mattpocock/skills
+npx skills@latest add mattpocock/skills --global --agent claude-code opencode     # https://github.com/mattpocock/skills
 
 ## Cleanup
 uv cache prune
