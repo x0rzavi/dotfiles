@@ -48,6 +48,9 @@ if status is-interactive
         rclone sync /run/media/x0rzavi/Data/ od:Data_sync --filter-from ~/Data/.rclone.filter --links --delete-excluded --checksum --checkers 1000 -P
         rclone sync od:Data_sync x0rzavi:Data_sync -P --transfers=20 --checkers=500
     end
+    function rebootwin
+        sudo efibootmgr --unicode --bootnext $(efibootmgr | grep -i 'Windows Boot Manager' | sed 's/Boot\([0-9A-F]*\).*/\1/')
+    end
     {{- end }}
 
     zoxide init fish --cmd cd | source
