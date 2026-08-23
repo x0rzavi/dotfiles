@@ -50,6 +50,7 @@ if status is-interactive
     end
     function rebootwin
         sudo efibootmgr --unicode --bootnext $(efibootmgr | grep -i 'Windows Boot Manager' | sed 's/Boot\([0-9A-F]*\).*/\1/')
+        systemctl reboot
     end
     {{- end }}
 
