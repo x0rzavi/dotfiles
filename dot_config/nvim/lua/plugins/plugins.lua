@@ -161,14 +161,14 @@ return {
       filetype = {
         c = {
           "cd $dir &&",
-          "clang -Wall -Wextra -std=c23 -pedantic -Wshadow -Wformat=2 -Wcast-align -Wconversion -Wsign-conversion -Wnull-dereference -Wno-unused-variable -lm $fileName", -- compile
+          "clang -Wall -Wextra -Wpedantic -Wshadow -Wformat=2 -Wcast-align -Wconversion -Wsign-conversion -Wnull-dereference -Wno-unused-variable -lm -std=c23 -pedantic -pedantic-errors $fileName", -- compile
           "-o $fileNameWithoutExt &&",
           "$dir/$fileNameWithoutExt ;", -- run
           "rm -f $dir/$fileNameWithoutExt", -- cleanup
         },
         cpp = {
           "cd $dir &&",
-          "clang++ -Wall -Wextra -std=c++23 -pedantic -Wshadow -Wformat=2 -Wcast-align -Wconversion -Wsign-conversion -Wnull-dereference -Wno-unused-variable -Weffc++ $fileName", -- compile
+          "clang++ -Wall -Wextra -Weffc++ -Wpedantic -Wshadow -Wformat=2 -Wcast-align -Wconversion -Wsign-conversion -Wnull-dereference -Wno-unused-variable -std=c++23 -pedantic -pedantic-errors $fileName", -- compile
           "-o $fileNameWithoutExt &&",
           "$dir/$fileNameWithoutExt ;", -- run
           "rm -f $dir/$fileNameWithoutExt", -- cleanup
