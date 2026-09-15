@@ -11,9 +11,10 @@ uv tool install --upgrade "headroom-ai[all]" # https://github.com/headroomlabs-a
 # headroom wrap claude
 
 ## Skills
-npx skills@latest add JuliusBrussee/caveman --global --agent claude-code opencode # https://github.com/JuliusBrussee/caveman
-claude plugins install mattpocock-skills                                          # https://github.com/mattpocock/skills
-npx skills@latest add mattpocock/skills --global --agent claude-code opencode     # https://github.com/mattpocock/skills
+npx skills@latest add JuliusBrussee/caveman --global --agent claude-code opencode                  # https://github.com/JuliusBrussee/caveman
+claude plugins install mattpocock-skills                                                           # https://github.com/mattpocock/skills
+npx skills@latest add mattpocock/skills --global --agent claude-code opencode                      # https://github.com/mattpocock/skills
+claude plugins marketplace add DietrichGebert/ponytail && claude plugins install ponytail@ponytail # https://github.com/DietrichGebert/ponytail
 
 ## Cleanup
 uv cache prune
