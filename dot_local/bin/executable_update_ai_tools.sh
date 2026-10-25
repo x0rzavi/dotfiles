@@ -9,6 +9,7 @@
 uv tool install --upgrade "headroom-ai[all]" # https://github.com/headroomlabs-ai/headroom
 # headroom wrap opencode
 # headroom wrap claude
+npx rea-agents@latest setup # https://github.com/morluto/rea
 
 ## Skills
 npx skills@latest add JuliusBrussee/caveman --global --agent claude-code opencode                  # https://github.com/JuliusBrussee/caveman
