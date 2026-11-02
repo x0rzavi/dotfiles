@@ -273,7 +273,35 @@ load_plugins {
 web_client {
     font "Iosevka NF"
     cursor_inactive_style "outline"
-    theme "dracula"
+    theme {
+      background 40 40 40
+      foreground 235 219 178
+
+      black 40 40 40
+      red 204 36 29
+      green 152 151 26
+      yellow 215 153 33
+      blue 69 133 136
+      magenta 177 98 134
+      cyan 104 157 106
+      white 168 153 132
+
+      bright_black 146 131 116
+      bright_red 251 73 52
+      bright_green 184 187 38
+      bright_yellow 250 189 47
+      bright_blue 131 165 152
+      bright_magenta 211 134 155
+      bright_cyan 142 192 124
+      bright_white 235 219 178
+
+      cursor 235 219 178
+      cursor_accent 40 40 40
+
+      selection_background 80 73 69
+      selection_foreground 251 241 199
+      selection_inactive_background 60 56 54
+    }
 }
  
 // Use a simplified UI without special fonts (arrow glyphs)
