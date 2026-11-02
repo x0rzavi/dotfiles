@@ -271,7 +271,9 @@ load_plugins {
     zellij:link
 }
 web_client {
-    font "monospace"
+    font "Iosevka NF"
+    cursor_inactive_style "outline"
+    theme "dracula"
 }
  
 // Use a simplified UI without special fonts (arrow glyphs)
