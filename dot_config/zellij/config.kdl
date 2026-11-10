@@ -271,7 +271,7 @@ load_plugins {
     zellij:link
 }
 web_client {
-    font "Iosevka NF"
+    font "IosevkaTerm Nerd Font"
     cursor_inactive_style "outline"
     theme {
       background 40 40 40

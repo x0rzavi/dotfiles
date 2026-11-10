@@ -7,3 +7,4 @@ window-padding-x = 5
 window-padding-y = 5
 # selection-invert-fg-bg = true
 confirm-close-surface = false
+custom-shader = ~/.config/ghostty/shaders/cursor_blaze.glsl
