@@ -1,0 +1,8 @@
+#!/bin/sh
+inhibit='/usr/bin/systemd-inhibit --what=sleep:idle --why=Active-SSH-session --mode=block --'
+
+if [ -n "$SSH_ORIGINAL_COMMAND" ]; then
+    exec $inhibit /bin/sh -c "$SSH_ORIGINAL_COMMAND"
+else
+    exec $inhibit /usr/bin/fish
+fi
