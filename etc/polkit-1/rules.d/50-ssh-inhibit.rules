@@ -1,0 +1,7 @@
+polkit.addRule(function(action, subject) {
+    if ((action.id == "org.freedesktop.login1.inhibit-block-sleep" ||
+         action.id == "org.freedesktop.login1.inhibit-block-idle") &&
+        subject.user == "x0rzavi") {
+        return polkit.Result.YES;
+    }
+});
