@@ -72,6 +72,7 @@ return {
     "mason-org/mason.nvim",
     opts = {
       PATH = "append",
+      ensure_installed = { "mbake" }, -- install with Mason
     },
   },
 
@@ -122,6 +123,13 @@ return {
   {
     "stevearc/conform.nvim",
     opts = {
+      formatters = {
+        mbake = {
+          command = "mbake",
+          args = { "format", "--stdin" },
+          stdin = true,
+        },
+      },
       formatters_by_ft = {
         c = { "clang-format" },
         cpp = { "clang-format" },
@@ -134,6 +142,7 @@ return {
         -- sh = { "shfmt" }, -- use lazyvim defaults
         -- typst = { "typstyle" }, -- use lazyvim extras
         cmake = { "gersemi" },
+        make = { "mbake" },
       },
     },
   },
