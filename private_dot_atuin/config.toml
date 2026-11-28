@@ -1,0 +1,8 @@
+search_mode = "daemon-fuzzy"
+inline_height = 10
+enter_accept = true
+keymap_mode = "vim-insert"
+
+[daemon]
+enabled = true
+autostart = true
